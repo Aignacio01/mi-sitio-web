@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aprende redes desde cero - Guía completa e interactiva para principiantes">
+  <title>🌐 Redes desde Cero - Guía Interactiva</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero">
+    <div class="hero-badge">🚀 Guía Completa para Principiantes</div>
+    <h1>Aprende Redes<br>desde Cero</h1>
+    <p>Una guía interactiva y visual para entender cómo se conecta el mundo digital. Sin conocimientos previos necesarios.</p>
+    <a href="#que-es" class="hero-cta">Comenzar el Viaje ↓</a>
+  </section>
+
+  <!-- ====== NAVIGATION ====== -->
+  <nav class="sticky-nav">
+    <a href="#que-es">¿Qué es?</a>
+    <a href="#tipos">Tipos</a>
+    <a href="#componentes">Componentes</a>
+    <a href="#como-viajan">Datos</a>
+    <a href="#osi">Modelo OSI</a>
+    <a href="#ip">Direcciones IP</a>
+    <a href="#dns">DNS</a>
+    <a href="#protocolos">Protocolos</a>
+    <a href="#topologias">Topologías</a>
+    <a href="#seguridad">Seguridad</a>
+  </nav>
+
+  <!-- ====== 1. QUÉ ES UNA RED ====== -->
+  <section class="section fade-in" id="que-es">
+    <div class="section-label">📡 Capítulo 1</div>
+    <h2>¿Qué es una Red?</h2>
+    <p>Imagina que quieres enviarle una foto a un amigo. ¿Cómo llega esa imagen desde tu celular hasta el de él? ¡A través de una <strong>red</strong>!</p>
+
+    <div class="info-box">
+      <h3>💡 Definición Simple</h3>
+      <p>Una <strong>red de computadoras</strong> es un grupo de dispositivos (computadoras, celulares, tablets, etc.) que están <strong>conectados entre sí</strong> para poder <strong>compartir información</strong>.</p>
+      <p style="margin-top: 1rem;">Es como una carretera digital: los datos viajan por ella de un lugar a otro.</p>
+    </div>
+
+    <div class="info-box" style="border-color: rgba(16, 185, 129, 0.3); background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(6, 182, 212, 0.08));">
+      <h3 style="color: var(--accent-green);">🎯 Ejemplo de la vida real</h3>
+      <p>Cuando abres <strong>YouTube</strong> en tu celular:</p>
+      <ul>
+        <li>Tu celular se conecta al <strong>Wi-Fi</strong> de tu casa (red local)</li>
+        <li>El Wi-Fi se conecta al <strong>modem/router</strong></li>
+        <li>El router se conecta a tu <strong>proveedor de internet</strong> (ISP)</li>
+        <li>El ISP conecta con los <strong>servidores de YouTube</strong></li>
+        <li>El video viaja de regreso por el mismo camino hasta tu pantalla</li>
+      </ul>
+      <p style="margin-top: 1rem;">¡Todo esto pasa en milisegundos! 🤯</p>
+    </div>
+
+    <!-- Visual: Network demo -->
+    <div class="diagram">
+      <div class="diagram-title">🔗 Así se ve una conexión simple</div>
+      <div class="network-visual">
+        <div class="device">📱<span>Tu Cel</span></div>
+        <div class="connection"></div>
+        <div class="device">📶<span>Router</span></div>
+        <div class="connection"></div>
+        <div class="device">🌐<span>Internet</span></div>
+        <div class="connection"></div>
+        <div class="device">🖥️<span>Servidor</span></div>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem;">El punto azul que se mueve representa los datos viajando</p>
+    </div>
+  </section>
+
+  <!-- ====== 2. TIPOS DE REDES ====== -->
+  <section class="section fade-in" id="tipos">
+    <div class="section-label">🗺️ Capítulo 2</div>
+    <h2>Tipos de Redes</h2>
+    <p>Las redes se clasifican según su <strong>tamaño</strong> y <strong>alcance</strong>. Piénsalo como diferentes tamaños de carreteras.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon blue">👤</div>
+        <h3>PAN - Red Personal</h3>
+        <p><strong>Personal Area Network</strong></p>
+        <p>Es la red más pequeña. Conecta tus dispositivos personales entre sí.</p>
+        <p style="margin-top: 0.5rem; color: var(--accent-blue); font-size: 0.85rem;">📌 Ejemplo: Tu celular conectado a tus audífonos Bluetooth</p>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">Alcance: ~10 metros</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon green">🏠</div>
+        <h3>LAN - Red Local</h3>
+        <p><strong>Local Area Network</strong></p>
+        <p>Conecta dispositivos en un área pequeña como tu casa, oficina o escuela.</p>
+        <p style="margin-top: 0.5rem; color: var(--accent-green); font-size: 0.85rem;">📌 Ejemplo: Todos los dispositivos conectados a tu Wi-Fi</p>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">Alcance: hasta ~1 km</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon purple">🏙️</div>
+        <h3>MAN - Red Metropolitana</h3>
+        <p><strong>Metropolitan Area Network</strong></p>
+        <p>Cubre una ciudad entera. Conecta varias LANs entre sí.</p>
+        <p style="margin-top: 0.5rem; color: var(--accent-purple); font-size: 0.85rem;">📌 Ejemplo: La red que conecta todas las sucursales de un banco en una ciudad</p>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">Alcance: ~50 km</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon pink">🌍</div>
+        <h3>WAN - Red de Área Amplia</h3>
+        <p><strong>Wide Area Network</strong></p>
+        <p>La más grande. Conecta redes enteras a nivel mundial. ¡Internet es una WAN!</p>
+        <p style="margin-top: 0.5rem; color: var(--accent-pink); font-size: 0.85rem;">📌 Ejemplo: Internet conectando millones de redes en todo el mundo</p>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">Alcance: ilimitado 🌐</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 3. COMPONENTES ====== -->
+  <section class="section fade-in" id="componentes">
+    <div class="section-label">🔧 Capítulo 3</div>
+    <h2>Componentes de una Red</h2>
+    <p>Para que una red funcione necesita ciertos <strong>dispositivos físicos</strong>. Aquí te explico cada uno:</p>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>📦 Modem — Tu puerta al internet</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p><strong>¿Qué hace?</strong> Convierte la señal de internet que llega a tu casa (por cable, fibra óptica o teléfono) en una señal que tus dispositivos pueden entender.</p>
+            <p style="margin-top: 0.8rem;"><strong>Analogía:</strong> Es como un <strong>traductor</strong>. La señal que viene de la calle habla un "idioma" y tus dispositivos otro. El modem traduce entre los dos.</p>
+            <p style="margin-top: 0.8rem; color: var(--accent-blue);">💡 Es el primer dispositivo que conecta tu casa con tu ISP (proveedor de internet como Claro, Movistar, etc.)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>📶 Router — El organizador del tráfico</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p><strong>¿Qué hace?</strong> Reparte la conexión de internet entre todos tus dispositivos y decide por dónde enviar cada dato.</p>
+            <p style="margin-top: 0.8rem;"><strong>Analogía:</strong> Es como un <strong>policía de tránsito</strong> en una intersección. Cuando tu cel pide abrir Instagram y tu laptop pide abrir Google, el router sabe enviar cada respuesta al dispositivo correcto.</p>
+            <p style="margin-top: 0.8rem; color: var(--accent-green);">💡 El router crea tu red Wi-Fi y asigna una dirección IP a cada dispositivo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>🔀 Switch — El conector inteligente</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p><strong>¿Qué hace?</strong> Conecta múltiples dispositivos dentro de una misma red local (LAN) por cable.</p>
+            <p style="margin-top: 0.8rem;"><strong>Analogía:</strong> Es como un <strong>ladrón de enchufes</strong> pero para cables de red. Si tienes 1 cable de red pero 10 computadoras, el switch permite conectarlas todas.</p>
+            <p style="margin-top: 0.8rem; color: var(--accent-purple);">💡 A diferencia del Hub (más antiguo), el Switch es inteligente: envía los datos SOLO al dispositivo que los necesita, no a todos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>🔥 Firewall — El guardián de seguridad</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p><strong>¿Qué hace?</strong> Filtra el tráfico que entra y sale de tu red, bloqueando amenazas y conexiones no autorizadas.</p>
+            <p style="margin-top: 0.8rem;"><strong>Analogía:</strong> Es como el <strong>guardia de seguridad</strong> de un edificio. Revisa quién entra y quién sale, y bloquea a los sospechosos.</p>
+            <p style="margin-top: 0.8rem; color: var(--accent-orange);">💡 Puede ser un dispositivo físico o un software (como Windows Defender Firewall).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span>🖥️ Servidor — La computadora que sirve</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p><strong>¿Qué hace?</strong> Es una computadora poderosa que almacena información y la entrega cuando se la piden.</p>
+            <p style="margin-top: 0.8rem;"><strong>Analogía:</strong> Es como un <strong>restaurante</strong>. Tú (el cliente) pides la comida (datos) y el servidor te la trae. Puede servir a muchos clientes al mismo tiempo.</p>
+            <p style="margin-top: 0.8rem; color: var(--accent-cyan);">💡 Google, Netflix, YouTube... todos tienen miles de servidores almacenando contenido para ti.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 4. CÓMO VIAJAN LOS DATOS ====== -->
+  <section class="section fade-in" id="como-viajan">
+    <div class="section-label">📦 Capítulo 4</div>
+    <h2>¿Cómo Viajan los Datos?</h2>
+    <p>Cuando envías un mensaje, no se envía completo de una vez. Se <strong>divide en pedacitos</strong> llamados <strong>paquetes</strong>.</p>
+
+    <div class="info-box">
+      <h3>📬 La Analogía del Correo</h3>
+      <p>Imagina que quieres enviar un libro por correo, pero solo puedes usar sobres pequeños:</p>
+      <ul>
+        <li><strong>Dividir:</strong> Arrancas las páginas y las pones en sobres separados (paquetes)</li>
+        <li><strong>Etiquetar:</strong> Cada sobre tiene: remitente, destinatario y número de página (encabezados)</li>
+        <li><strong>Enviar:</strong> Los sobres pueden tomar diferentes caminos (rutas)</li>
+        <li><strong>Recibir:</strong> El destinatario recibe todos los sobres</li>
+        <li><strong>Reensamblar:</strong> Ordena las páginas y reconstruye el libro (reensamblado)</li>
+      </ul>
+      <p style="margin-top: 1rem;">¡Así es EXACTAMENTE como viajan tus datos por internet! 📨</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div>
+          <h4>Tu dispositivo crea el mensaje</h4>
+          <p>Escribes "Hola" en WhatsApp. Tu celular convierte ese texto en datos digitales (1s y 0s).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <h4>Se divide en paquetes</h4>
+          <p>El mensaje se divide en pequeños fragmentos. Cada paquete lleva información: de dónde viene, a dónde va, y en qué orden.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <h4>Viaja por la red</h4>
+          <p>Los paquetes saltan de router en router buscando el camino más rápido hasta el destino. Pueden tomar rutas diferentes.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <h4>Llega al destino</h4>
+          <p>El dispositivo de tu amigo recibe todos los paquetes, los ordena y reconstruye el mensaje original: "Hola" ✨</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 5. MODELO OSI ====== -->
+  <section class="section fade-in" id="osi">
+    <div class="section-label">🏗️ Capítulo 5</div>
+    <h2>El Modelo OSI</h2>
+    <p>Es un modelo de <strong>7 capas</strong> que explica cómo funcionan las redes paso a paso. Piensa en él como los <strong>7 pasos</strong> que recorre un dato desde que lo creas hasta que llega a su destino.</p>
+
+    <div class="diagram">
+      <div class="diagram-title">📐 Las 7 Capas del Modelo OSI</div>
+      <div class="osi-layers">
+        <div class="osi-layer layer-7">
+          <span class="num">7</span>
+          <span class="name">Aplicación</span>
+          <span class="proto">HTTP, FTP, DNS</span>
+        </div>
+        <div class="osi-layer layer-6">
+          <span class="num">6</span>
+          <span class="name">Presentación</span>
+          <span class="proto">SSL, JPEG, GIF</span>
+        </div>
+        <div class="osi-layer layer-5">
+          <span class="num">5</span>
+          <span class="name">Sesión</span>
+          <span class="proto">NetBIOS, RPC</span>
+        </div>
+        <div class="osi-layer layer-4">
+          <span class="num">4</span>
+          <span class="name">Transporte</span>
+          <span class="proto">TCP, UDP</span>
+        </div>
+        <div class="osi-layer layer-3">
+          <span class="num">3</span>
+          <span class="name">Red</span>
+          <span class="proto">IP, ICMP</span>
+        </div>
+        <div class="osi-layer layer-2">
+          <span class="num">2</span>
+          <span class="name">Enlace de Datos</span>
+          <span class="proto">Ethernet, Wi-Fi</span>
+        </div>
+        <div class="osi-layer layer-1">
+          <span class="num">1</span>
+          <span class="name">Física</span>
+          <span class="proto">Cables, Fibra</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>🍕 Analogía: Enviando una Pizza</h3>
+      <ul>
+        <li><strong>Capa 7 - Aplicación:</strong> Tú abres la app y pides una pizza (el usuario interactúa)</li>
+        <li><strong>Capa 6 - Presentación:</strong> Tu pedido se traduce al formato del restaurante</li>
+        <li><strong>Capa 5 - Sesión:</strong> Se establece la comunicación con el restaurante</li>
+        <li><strong>Capa 4 - Transporte:</strong> Se divide el pedido: pizza por un lado, bebida por otro</li>
+        <li><strong>Capa 3 - Red:</strong> El GPS calcula la ruta para llegar a tu casa</li>
+        <li><strong>Capa 2 - Enlace:</strong> El repartidor sigue las señales de tránsito (reglas locales)</li>
+        <li><strong>Capa 1 - Física:</strong> La moto, las calles, el camino real (medio físico)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ====== 6. DIRECCIONES IP ====== -->
+  <section class="section fade-in" id="ip">
+    <div class="section-label">🏷️ Capítulo 6</div>
+    <h2>Direcciones IP</h2>
+    <p>Cada dispositivo conectado a una red necesita una <strong>dirección única</strong> para ser identificado. Es como la dirección de tu casa, pero para dispositivos digitales.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon blue">4️⃣</div>
+        <h3>IPv4</h3>
+        <p>4 números separados por puntos. Cada número va de 0 a 255.</p>
+        <div class="code-block" style="margin-top: 1rem;">
+          <span class="value">192</span>.<span class="value">168</span>.<span class="value">1</span>.<span class="value">100</span>
+        </div>
+        <p>Permite ~4.3 mil millones de direcciones (ya se están agotando 😱)</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon purple">6️⃣</div>
+        <h3>IPv6</h3>
+        <p>8 grupos de números hexadecimales, separados por dos puntos.</p>
+        <div class="code-block" style="margin-top: 1rem;">
+          <span class="value">2001</span>:<span class="value">0db8</span>:<span class="value">85a3</span>:<span class="value">0000</span>:<span class="value">0000</span>:<span class="value">8a2e</span>:<span class="value">0370</span>:<span class="value">7334</span>
+        </div>
+        <p>Permite 340 sextillones de direcciones (prácticamente infinitas 🤯)</p>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top: 2rem;">
+      <h3>🏠 IP Pública vs IP Privada</h3>
+      <ul>
+        <li><strong>IP Pública:</strong> La que te da tu proveedor de internet. Es única en todo el mundo. Como la dirección de tu edificio.</li>
+        <li><strong>IP Privada:</strong> La que el router le asigna a cada dispositivo dentro de tu casa. Como el número de departamento.</li>
+      </ul>
+      <p style="margin-top: 1rem;">Tu cel puede tener IP privada <code>192.168.1.5</code> y tu laptop <code>192.168.1.6</code>, pero ambos comparten la misma IP pública hacia internet.</p>
+    </div>
+
+    <!-- Interactive IP Generator -->
+    <div class="diagram" style="text-align: center;">
+      <div class="diagram-title">🎲 Generador de IPs Aleatorio</div>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Haz clic para generar una dirección IP aleatoria y ver su clasificación</p>
+      <button id="generateIP" style="padding: 0.8rem 2rem; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: transform 0.2s;">
+        Generar IP 🎲
+      </button>
+      <div id="ipResult" style="margin-top: 1.5rem; min-height: 60px;"></div>
+    </div>
+  </section>
+
+  <!-- ====== 7. DNS ====== -->
+  <section class="section fade-in" id="dns">
+    <div class="section-label">📖 Capítulo 7</div>
+    <h2>DNS — El Traductor de Internet</h2>
+    <p>¿Te imaginas tener que memorizar <code>142.250.80.46</code> cada vez que quieras entrar a Google? ¡Imposible! Para eso existe el <strong>DNS</strong>.</p>
+
+    <div class="info-box">
+      <h3>📱 DNS = Domain Name System (Sistema de Nombres de Dominio)</h3>
+      <p>El DNS traduce nombres que los humanos entienden (<strong>google.com</strong>) a direcciones IP que las máquinas entienden (<strong>142.250.80.46</strong>).</p>
+      <p style="margin-top: 1rem;"><strong>Analogía:</strong> Es como la <strong>agenda de contactos</strong> de tu celular. Tú buscas "Mamá" y tu cel sabe que el número real es +54 11 1234-5678. ¡El DNS hace lo mismo pero con sitios web!</p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><div><h4>Escribes "google.com" en tu navegador</h4><p>Tu navegador no sabe qué IP tiene Google, así que le pregunta al DNS.</p></div></div>
+      <div class="step"><div><h4>Consulta al servidor DNS</h4><p>Tu dispositivo consulta al servidor DNS (normalmente el de tu ISP o uno público como 8.8.8.8 de Google).</p></div></div>
+      <div class="step"><div><h4>El DNS busca la respuesta</h4><p>El servidor DNS busca en su base de datos y encuentra: google.com = 142.250.80.46</p></div></div>
+      <div class="step"><div><h4>Tu navegador se conecta</h4><p>Ahora tu navegador conoce la IP real y se conecta al servidor de Google. ¡La página carga! 🎉</p></div></div>
+    </div>
+
+    <!-- DNS Interactive Demo -->
+    <div class="diagram">
+      <div class="diagram-title">🔍 Simulador DNS</div>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">Escribe un dominio y ve su traducción a IP</p>
+      <div style="display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap;">
+        <input id="dnsInput" type="text" placeholder="Ej: google.com" style="padding: 0.8rem 1.2rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary); font-size: 0.95rem; font-family: 'JetBrains Mono', monospace; outline: none; width: 220px;">
+        <button id="dnsLookup" style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer;">Traducir 🔍</button>
+      </div>
+      <div id="dnsResult" style="margin-top: 1.5rem; font-size: 1.1rem; min-height: 30px;"></div>
+    </div>
+  </section>
+
+  <!-- ====== 8. PROTOCOLOS ====== -->
+  <section class="section fade-in" id="protocolos">
+    <div class="section-label">📋 Capítulo 8</div>
+    <h2>Protocolos de Red</h2>
+    <p>Un protocolo es un <strong>conjunto de reglas</strong> que los dispositivos siguen para comunicarse. Sin protocolos, sería como dos personas hablando idiomas diferentes: ¡no se entenderían!</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon blue">🌐</div>
+        <h3>HTTP / HTTPS</h3>
+        <p>El protocolo de las <strong>páginas web</strong>. Cada vez que abres un sitio web, usas HTTP. La "S" significa Seguro (encriptado).</p>
+        <p style="color: var(--accent-green); font-size: 0.85rem; margin-top: 0.5rem;">🔒 HTTPS = HTTP + Encriptación</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon green">✅</div>
+        <h3>TCP</h3>
+        <p><strong>Transmission Control Protocol.</strong> Garantiza que TODOS los datos lleguen completos y en orden. Es lento pero seguro.</p>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">📌 Usado en: web, email, descargas</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon orange">⚡</div>
+        <h3>UDP</h3>
+        <p><strong>User Datagram Protocol.</strong> Envía datos sin verificar si llegaron. Es rápido pero puede perder datos.</p>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">📌 Usado en: videollamadas, gaming, streaming</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon cyan">📧</div>
+        <h3>SMTP / POP3 / IMAP</h3>
+        <p>Los protocolos del <strong>correo electrónico</strong>. SMTP envía, POP3 e IMAP reciben emails.</p>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">📌 Gmail, Outlook, Yahoo los usan</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon purple">📁</div>
+        <h3>FTP</h3>
+        <p><strong>File Transfer Protocol.</strong> Diseñado para <strong>transferir archivos</strong> entre computadoras.</p>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">📌 Usado para subir archivos a servidores web</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon pink">🔐</div>
+        <h3>SSH</h3>
+        <p><strong>Secure Shell.</strong> Permite <strong>acceder remotamente</strong> a otra computadora de forma segura y encriptada.</p>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">📌 Usado por administradores de sistemas</p>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top: 2rem;">
+      <h3>🆚 TCP vs UDP — La Diferencia Clave</h3>
+      <p><strong>TCP</strong> es como enviar un paquete por correo certificado: tienes confirmación de que llegó. Si se pierde, se reenvía.</p>
+      <p style="margin-top: 0.5rem;"><strong>UDP</strong> es como gritar algo en un estadio: es rápido, pero no sabes si todos escucharon.</p>
+      <p style="margin-top: 0.8rem; color: var(--accent-blue);">💡 ¿Por qué streaming usa UDP? Porque si se pierde un frame del video, es mejor seguir que pausar para reenviarlo. ¡La velocidad importa más!</p>
+    </div>
+  </section>
+
+  <!-- ====== 9. TOPOLOGÍAS ====== -->
+  <section class="section fade-in" id="topologias">
+    <div class="section-label">🔷 Capítulo 9</div>
+    <h2>Topologías de Red</h2>
+    <p>La topología es la <strong>forma</strong> en que los dispositivos están conectados entre sí. Es como el plano de las carreteras.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon blue">⭐</div>
+        <h3>Estrella ⭐</h3>
+        <p>Todos los dispositivos se conectan a un <strong>punto central</strong> (switch/router). La más usada hoy en día.</p>
+        <p style="color: var(--accent-green); margin-top: 0.5rem; font-size: 0.85rem;">✅ Si un dispositivo falla, los demás siguen funcionando.</p>
+        <p style="color: var(--accent-pink); font-size: 0.85rem;">❌ Si el centro falla, cae toda la red.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon cyan">🚌</div>
+        <h3>Bus 🚌</h3>
+        <p>Todos conectados a un <strong>único cable</strong> central. Tecnología antigua.</p>
+        <p style="color: var(--accent-green); margin-top: 0.5rem; font-size: 0.85rem;">✅ Simple y barata de instalar.</p>
+        <p style="color: var(--accent-pink); font-size: 0.85rem;">❌ Si el cable se corta, toda la red muere.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon purple">💍</div>
+        <h3>Anillo 💍</h3>
+        <p>Cada dispositivo se conecta al <strong>siguiente</strong> formando un círculo. Los datos viajan en una dirección.</p>
+        <p style="color: var(--accent-green); margin-top: 0.5rem; font-size: 0.85rem;">✅ No hay colisiones de datos.</p>
+        <p style="color: var(--accent-pink); font-size: 0.85rem;">❌ Si un nodo falla, se rompe el anillo.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon green">🕸️</div>
+        <h3>Malla 🕸️</h3>
+        <p>Cada dispositivo conectado con <strong>todos</strong> los demás. Máxima redundancia.</p>
+        <p style="color: var(--accent-green); margin-top: 0.5rem; font-size: 0.85rem;">✅ Si una conexión falla, hay rutas alternativas.</p>
+        <p style="color: var(--accent-pink); font-size: 0.85rem;">❌ Muy cara y compleja de implementar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 10. SEGURIDAD ====== -->
+  <section class="section fade-in" id="seguridad">
+    <div class="section-label">🔒 Capítulo 10</div>
+    <h2>Seguridad en Redes</h2>
+    <p>Ahora que sabes cómo funcionan las redes, es importante saber cómo <strong>protegerlas</strong>.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon green">🔐</div>
+        <h3>Encriptación</h3>
+        <p>Convierte tus datos en código ilegible para que solo el destinatario pueda leerlos. HTTPS, WPA3 en Wi-Fi, y VPN usan encriptación.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon orange">🔥</div>
+        <h3>Firewall</h3>
+        <p>Filtra el tráfico de red, bloqueando conexiones sospechosas o no autorizadas. Tu primera línea de defensa.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon purple">🕵️</div>
+        <h3>VPN</h3>
+        <p><strong>Virtual Private Network.</strong> Crea un túnel encriptado entre tú e internet, ocultando tu IP real y protegiendo tus datos.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon pink">📶</div>
+        <h3>WPA3</h3>
+        <p>El estándar más nuevo y seguro para proteger redes Wi-Fi. Siempre usa WPA2 o WPA3, nunca WEP (antiguo e inseguro).</p>
+      </div>
+    </div>
+
+    <div class="info-box" style="border-color: rgba(239, 68, 68, 0.3); background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(236, 72, 153, 0.08));">
+      <h3 style="color: #ef4444;">⚠️ Amenazas Comunes</h3>
+      <ul>
+        <li><strong>Phishing:</strong> Emails o sitios falsos que imitan a los reales para robar tus datos</li>
+        <li><strong>Man-in-the-Middle:</strong> Alguien intercepta la comunicación entre tú y el servidor</li>
+        <li><strong>DDoS:</strong> Miles de dispositivos atacan un servidor al mismo tiempo para tumbarlo</li>
+        <li><strong>Malware:</strong> Software malicioso que se propaga por la red</li>
+      </ul>
+      <p style="margin-top: 1rem; color: var(--accent-green);">💡 Tip: Siempre verifica que un sitio tenga el candado 🔒 (HTTPS) antes de ingresar datos personales.</p>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    <p>🌐 Guía de Redes desde Cero — Creado para aprender sin complicaciones</p>
+    <p style="margin-top: 0.5rem;">Hecho con 💙 para principiantes</p>
+  </footer>
+
+  <script src="redes.js"></script>
+</body>
+</html>
