@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guía completa de Java para principiantes - Aprende los conceptos fundamentales con ejemplos claros y elegantes">
+  <meta name="keywords" content="Java, Programación, Tutorial, Principiantes">
+  <title>Java Learning Guide - Aprende Programación desde Cero</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-text">
+        <span class="logo-icon">☕</span>
+        <span>Java Guide</span>
+      </div>
+      <div class="logo-subtitle">Para Principiantes</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <!-- Foundation Section -->
+      <div class="nav-section">
+        <div class="nav-section-title">Fundamentos</div>
+        <a href="#introduccion" class="nav-link active">
+          <span class="nav-icon">📖</span>
+          <span>Introducción</span>
+          <span class="nav-number">01</span>
+        </a>
+        <a href="#variables" class="nav-link">
+          <span class="nav-icon">📦</span>
+          <span>Variables</span>
+          <span class="nav-number">02</span>
+        </a>
+        <a href="#tipos-datos" class="nav-link">
+          <span class="nav-icon">🔢</span>
+          <span>Tipos de Datos</span>
+          <span class="nav-number">03</span>
+        </a>
+        <a href="#operadores" class="nav-link">
+          <span class="nav-icon">➕</span>
+          <span>Operadores</span>
+          <span class="nav-number">04</span>
+        </a>
+      </div>
+
+      <!-- Control Flow Section -->
+      <div class="nav-section">
+        <div class="nav-section-title">Control de Flujo</div>
+        <a href="#condicionales" class="nav-link">
+          <span class="nav-icon">🔀</span>
+          <span>Condicionales</span>
+          <span class="nav-number">05</span>
+        </a>
+        <a href="#bucles" class="nav-link">
+          <span class="nav-icon">🔁</span>
+          <span>Bucles</span>
+          <span class="nav-number">06</span>
+        </a>
+        <a href="#arrays" class="nav-link">
+          <span class="nav-icon">📋</span>
+          <span>Arrays</span>
+          <span class="nav-number">07</span>
+        </a>
+      </div>
+
+      <!-- OOP Section -->
+      <div class="nav-section">
+        <div class="nav-section-title">Programación Orientada a Objetos</div>
+        <a href="#metodos" class="nav-link">
+          <span class="nav-icon">⚙️</span>
+          <span>Métodos</span>
+          <span class="nav-number">08</span>
+        </a>
+        <a href="#clases" class="nav-link">
+          <span class="nav-icon">🏗️</span>
+          <span>Clases y Objetos</span>
+          <span class="nav-number">09</span>
+        </a>
+        <a href="#herencia" class="nav-link">
+          <span class="nav-icon">🧬</span>
+          <span>Herencia</span>
+          <span class="nav-number">10</span>
+        </a>
+        <a href="#encapsulamiento" class="nav-link">
+          <span class="nav-icon">🔒</span>
+          <span>Encapsulamiento</span>
+          <span class="nav-number">11</span>
+        </a>
+      </div>
+
+      <!-- Projects Section -->
+      <div class="nav-section">
+        <div class="nav-section-title">Proyectos</div>
+        <a href="#proyectos" class="nav-link">
+          <span class="nav-icon">🚀</span>
+          <span>Proyecto Práctico</span>
+          <span class="nav-number">12</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content" id="main">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Aprende Java desde Cero</h1>
+        <p class="hero-subtitle">Una guía completa, minimalista y elegante para principiantes en la programación</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">12</div>
+            <div class="stat-label">Temas Principales</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">40+</div>
+            <div class="stat-label">Ejemplos de Código</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Lenguaje Increíble</div>
+          </div>
+        </div>
+        <a href="#introduccion" class="btn btn-primary">Comenzar a Aprender ↓</a>
+      </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="introduccion" class="section">
+      <div class="section-header">
+        <h2 class="section-title">📖 Introducción a Java</h2>
+        <p class="section-description">Conoce qué es Java y por qué es uno de los lenguajes más populares del mundo</p>
+      </div>
+
+      <div class="content-wrapper">
+        <article class="article-card">
+          <h3 class="article-title">¿Qué es Java?</h3>
+          <p>Java es un lenguaje de programación versátil, potente y ampliamente utilizado. Fue creado en 1995 por James Gosling en Sun Microsystems con el objetivo de ser un lenguaje seguro, portable y orientado a objetos.</p>
+
+          <div class="feature-grid">
+            <div class="feature-item">
+              <h4>✅ Multiplataforma</h4>
+              <p>Escribe una vez, ejecuta en cualquier lugar. Java funciona en Windows, Mac y Linux.</p>
+            </div>
+            <div class="feature-item">
+              <h4>✅ Orientado a Objetos</h4>
+              <p>Permite organizar el código en estructuras claras y reutilizables usando clases y objetos.</p>
+            </div>
+            <div class="feature-item">
+              <h4>✅ Fuerte Seguridad</h4>
+              <p>Java gestiona automáticamente la memoria y proporciona protección contra errores comunes.</p>
+            </div>
+            <div class="feature-item">
+              <h4>✅ Comunidad Enorme</h4>
+              <p>Millones de desarrolladores, librerías infinitas y soporte constante.</p>
+            </div>
+          </div>
+
+          <div class="info-box info-info">
+            <strong>💡 Curiosidad:</strong> Java es utilizado por el 99% de las empresas Fortune 500 a nivel mundial.
+          </div>
+        </article>
+
+        <!-- Installation -->
+        <article class="article-card">
+          <h3 class="article-title">Instalación y Configuración</h3>
+          <p>Para comenzar a programar en Java, necesitas instalar el JDK (Java Development Kit).</p>
+
+          <div class="section-steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Descarga el JDK</h4>
+                <p>Ve a <strong>oracle.com/java</strong> o descarga OpenJDK desde <strong>adoptopenjdk.net</strong></p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Instala el JDK</h4>
+                <p>Sigue el instalador para tu sistema operativo</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Verifica la Instalación</h4>
+                <p>Abre terminal y escribe: <code class="inline-code">java -version</code></p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Escribe tu Primer Programa</h4>
+                <p>Crea un archivo y comienza a programar</p>
+              </div>
+            </div>
+          </div>
+
+          <h4 style="margin-top: 2rem;">Primer Programa: Hola Mundo</h4>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">public class</span> <span class="syntax-type">HolaMundo</span> {
+    <span class="syntax-keyword">public static void</span> <span class="syntax-method">main</span>(<span class="syntax-type">String</span>[] args) {
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"¡Hola Mundo!"</span>);
+    }
+}</code></pre>
+          </div>
+
+          <p style="margin-top: 1rem;">Para ejecutar este programa:</p>
+          <ol style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li>Guarda como <code class="inline-code">HolaMundo.java</code></li>
+            <li>En terminal: <code class="inline-code">javac HolaMundo.java</code></li>
+            <li>Luego: <code class="inline-code">java HolaMundo</code></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <!-- Variables Section -->
+    <section id="variables" class="section">
+      <div class="section-header">
+        <h2 class="section-title">📦 Variables en Java</h2>
+        <p class="section-description">Aprende a almacenar y manipular información en tu programa</p>
+      </div>
+
+      <div class="content-wrapper">
+        <article class="article-card">
+          <h3 class="article-title">¿Qué es una Variable?</h3>
+          <p>Una variable es un contenedor que almacena un valor. Es como una caja donde guardamos información para usarla después.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">int</span> edad <span class="syntax-operator">=</span> <span class="syntax-number">25</span>;        <span class="syntax-comment">// Variable de tipo entero</span>
+<span class="syntax-keyword">double</span> altura <span class="syntax-operator">=</span> <span class="syntax-number">1.75</span>;   <span class="syntax-comment">// Variable de tipo decimal</span>
+<span class="syntax-type">String</span> nombre <span class="syntax-operator">=</span> <span class="syntax-string">"Juan"</span>;  <span class="syntax-comment">// Variable de tipo texto</span>
+<span class="syntax-keyword">boolean</span> activo <span class="syntax-operator">=</span> <span class="syntax-keyword">true</span>;   <span class="syntax-comment">// Variable de tipo booleano</span></code></pre>
+          </div>
+
+          <div class="info-box info-tip">
+            <strong>✨ Tips:</strong> 
+            <ul style="margin-top: 0.5rem;">
+              <li>Los nombres de variables deben empezar con minúscula</li>
+              <li>No pueden tener espacios ni caracteres especiales</li>
+              <li>Usa nombres descriptivos (edad, no x)</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Ejemplo Práctico: Información Personal</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">public class</span> <span class="syntax-type">MiPerfil</span> {
+    <span class="syntax-keyword">public static void</span> <span class="syntax-method">main</span>(<span class="syntax-type">String</span>[] args) {
+        <span class="syntax-comment">// Declaramos variables</span>
+        <span class="syntax-type">String</span> nombre <span class="syntax-operator">=</span> <span class="syntax-string">"Ana"</span>;
+        <span class="syntax-keyword">int</span> edad <span class="syntax-operator">=</span> <span class="syntax-number">22</span>;
+        <span class="syntax-keyword">double</span> promedio <span class="syntax-operator">=</span> <span class="syntax-number">8.5</span>;
+        
+        <span class="syntax-comment">// Mostramos la información</span>
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Nombre: "</span> <span class="syntax-operator">+</span> nombre);
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Edad: "</span> <span class="syntax-operator">+</span> edad);
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Promedio: "</span> <span class="syntax-operator">+</span> promedio);
+    }
+}</code></pre>
+          </div>
+
+          <p style="margin-top: 1rem;"><strong>Salida:</strong></p>
+          <div class="output-block">
+            Nombre: Ana<br>
+            Edad: 22<br>
+            Promedio: 8.5
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Data Types Section -->
+    <section id="tipos-datos" class="section">
+      <div class="section-header">
+        <h2 class="section-title">🔢 Tipos de Datos Primitivos</h2>
+        <p class="section-description">Conoce los diferentes tipos de información que Java puede manejar</p>
+      </div>
+
+      <div class="content-wrapper">
+        <article class="article-card">
+          <h3 class="article-title">Tipos Numéricos</h3>
+
+          <div class="data-type-table">
+            <div class="data-row">
+              <div class="data-type">int</div>
+              <div class="data-desc">Números enteros: -100, 0, 25, 9999</div>
+            </div>
+            <div class="data-row">
+              <div class="data-type">double</div>
+              <div class="data-desc">Números decimales: 3.14, -0.5, 99.99</div>
+            </div>
+            <div class="data-row">
+              <div class="data-type">float</div>
+              <div class="data-desc">Decimales pequeños: 2.5f</div>
+            </div>
+            <div class="data-row">
+              <div class="data-type">long</div>
+              <div class="data-desc">Enteros grandes: 999999999L</div>
+            </div>
+          </div>
+
+          <div class="code-block" style="margin-top: 1.5rem;">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">int</span> estudiantes <span class="syntax-operator">=</span> <span class="syntax-number">150</span>;
+<span class="syntax-keyword">double</span> pi <span class="syntax-operator">=</span> <span class="syntax-number">3.14159</span>;
+<span class="syntax-keyword">float</span> gravedad <span class="syntax-operator">=</span> <span class="syntax-number">9.8f</span>;
+<span class="syntax-keyword">long</span> habitantes <span class="syntax-operator">=</span> <span class="syntax-number">8000000000L</span>;</code></pre>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Otros Tipos de Datos</h3>
+
+          <div class="data-type-table">
+            <div class="data-row">
+              <div class="data-type">String</div>
+              <div class="data-desc">Texto: "Hola", "Java es genial"</div>
+            </div>
+            <div class="data-row">
+              <div class="data-type">boolean</div>
+              <div class="data-desc">true o false (verdadero o falso)</div>
+            </div>
+            <div class="data-row">
+              <div class="data-type">char</div>
+              <div class="data-desc">Un solo carácter: 'A', 'x', '!'</div>
+            </div>
+          </div>
+
+          <div class="code-block" style="margin-top: 1.5rem;">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-type">String</span> ciudad <span class="syntax-operator">=</span> <span class="syntax-string">"Madrid"</span>;
+<span class="syntax-keyword">boolean</span> esJueves <span class="syntax-operator">=</span> <span class="syntax-keyword">true</span>;
+<span class="syntax-keyword">char</span> inicial <span class="syntax-operator">=</span> <span class="syntax-string">'J'</span>;</code></pre>
+          </div>
+
+          <div class="info-box info-warning">
+            <strong>⚠️ Recuerda:</strong> String se escribe con mayúscula inicial. Es un tipo especial de dato.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Operators Section -->
+    <section id="operadores" class="section">
+      <div class="section-header">
+        <h2 class="section-title">➕ Operadores en Java</h2>
+        <p class="section-description">Realiza cálculos y comparaciones con variables</p>
+      </div>
+
+      <div class="content-wrapper">
+        <article class="article-card">
+          <h3 class="article-title">Operadores Aritméticos</h3>
+
+          <div class="operator-grid">
+            <div class="operator-item">
+              <div class="operator-symbol">+</div>
+              <div class="operator-name">Suma</div>
+              <div class="operator-example">5 + 3 = 8</div>
+            </div>
+            <div class="operator-item">
+              <div class="operator-symbol">-</div>
+              <div class="operator-name">Resta</div>
+              <div class="operator-example">10 - 4 = 6</div>
+            </div>
+            <div class="operator-item">
+              <div class="operator-symbol">*</div>
+              <div class="operator-name">Multiplicación</div>
+              <div class="operator-example">6 * 7 = 42</div>
+            </div>
+            <div class="operator-item">
+              <div class="operator-symbol">/</div>
+              <div class="operator-name">División</div>
+              <div class="operator-example">20 / 4 = 5</div>
+            </div>
+            <div class="operator-item">
+              <div class="operator-symbol">%</div>
+              <div class="operator-name">Módulo (residuo)</div>
+              <div class="operator-example">10 % 3 = 1</div>
+            </div>
+            <div class="operator-item">
+              <div class="operator-symbol">++</div>
+              <div class="operator-name">Incremento</div>
+              <div class="operator-example">x++ aumenta x en 1</div>
+            </div>
+          </div>
+
+          <div class="code-block" style="margin-top: 1.5rem;">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">int</span> a <span class="syntax-operator">=</span> <span class="syntax-number">10</span>;
+<span class="syntax-keyword">int</span> b <span class="syntax-operator">=</span> <span class="syntax-number">3</span>;
+
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(a <span class="syntax-operator">+</span> b);   <span class="syntax-comment">// 13</span>
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(a <span class="syntax-operator">-</span> b);   <span class="syntax-comment">// 7</span>
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(a <span class="syntax-operator">*</span> b);   <span class="syntax-comment">// 30</span>
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(a <span class="syntax-operator">/</span> b);   <span class="syntax-comment">// 3</span>
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(a <span class="syntax-operator">%</span> b);   <span class="syntax-comment">// 1</span></code></pre>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Operadores de Comparación</h3>
+
+          <div class="operator-grid">
+            <div class="operator-item">
+              <div class="operator-symbol">==</div>
+              <div class="operator-name">Igual a</div>
+              <div class="operator-example">5 == 5 → true</div>
+            </div>
+            <div class="operator-item">
+              <div class="operator-symbol">!=</div>
+              <div class="operator-name">No igual a</div>
+              <div class="operator-example">5 != 3 → true</div>
+            </div>
+            <div class="operator-item">
+              <div class="operator-symbol">&lt;</div>
+              <div class="operator-name">Menor que</div>
+              <div class="operator-example">3 &lt; 5 → true</div>
+            </div>
+            <div class="operator-item">
+              <div class="operator-symbol">&gt;</div>
+              <div class="operator-name">Mayor que</div>
+              <div class="operator-example">7 &gt; 5 → true</div>
+            </div>
+            <div class="operator-item">
+              <div class="operator-symbol">&lt;=</div>
+              <div class="operator-name">Menor o igual</div>
+              <div class="operator-example">5 &lt;= 5 → true</div>
+            </div>
+            <div class="operator-item">
+              <div class="operator-symbol">&gt;=</div>
+              <div class="operator-name">Mayor o igual</div>
+              <div class="operator-example">10 &gt;= 5 → true</div>
+            </div>
+          </div>
+
+          <div class="code-block" style="margin-top: 1.5rem;">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">int</span> x <span class="syntax-operator">=</span> <span class="syntax-number">15</span>;
+<span class="syntax-keyword">int</span> y <span class="syntax-operator">=</span> <span class="syntax-number">20</span>;
+
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(x <span class="syntax-operator">==</span> y);  <span class="syntax-comment">// false</span>
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(x <span class="syntax-operator"><</span> y);   <span class="syntax-comment">// true</span>
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(x <span class="syntax-operator">!=</span> y);  <span class="syntax-comment">// true</span></code></pre>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Operadores Lógicos</h3>
+
+          <div class="operator-grid">
+            <div class="operator-item">
+              <div class="operator-symbol">&&</div>
+              <div class="operator-name">Y (AND)</div>
+              <div class="operator-example">true && true = true</div>
+            </div>
+            <div class="operator-item">
+              <div class="operator-symbol">||</div>
+              <div class="operator-name">O (OR)</div>
+              <div class="operator-example">true || false = true</div>
+            </div>
+            <div class="operator-item">
+              <div class="operator-symbol">!</div>
+              <div class="operator-name">NO (NOT)</div>
+              <div class="operator-example">!true = false</div>
+            </div>
+          </div>
+
+          <div class="code-block" style="margin-top: 1.5rem;">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">int</span> edad <span class="syntax-operator">=</span> <span class="syntax-number">25</span>;
+<span class="syntax-keyword">int</span> dinero <span class="syntax-operator">=</span> <span class="syntax-number">5000</span>;
+
+<span class="syntax-comment">// Los dos deben ser verdaderos</span>
+<span class="syntax-keyword">if</span> (edad <span class="syntax-operator">>=</span> <span class="syntax-number">18</span> <span class="syntax-operator">&&</span> dinero <span class="syntax-operator">></span> <span class="syntax-number">1000</span>) {
+    <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Puede entrar a la discoteca"</span>);
+}</code></pre>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Conditionals Section -->
+    <section id="condicionales" class="section">
+      <div class="section-header">
+        <h2 class="section-title">🔀 Condicionales: if, else if, else</h2>
+        <p class="section-description">Toma decisiones en tu programa según diferentes condiciones</p>
+      </div>
+
+      <div class="content-wrapper">
+        <article class="article-card">
+          <h3 class="article-title">Estructura if - else</h3>
+          <p>Los condicionales permiten que tu programa ejecute diferentes códigos según cierta condición.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">int</span> edad <span class="syntax-operator">=</span> <span class="syntax-number">16</span>;
+
+<span class="syntax-keyword">if</span> (edad <span class="syntax-operator">>=</span> <span class="syntax-number">18</span>) {
+    <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Eres mayor de edad"</span>);
+} <span class="syntax-keyword">else</span> {
+    <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Eres menor de edad"</span>);
+}</code></pre>
+          </div>
+
+          <div class="output-block">
+            Eres menor de edad
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Ejemplo: Calificaciones</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">int</span> calificacion <span class="syntax-operator">=</span> <span class="syntax-number">85</span>;
+
+<span class="syntax-keyword">if</span> (calificacion <span class="syntax-operator">>=</span> <span class="syntax-number">90</span>) {
+    <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"A - Excelente"</span>);
+} <span class="syntax-keyword">else if</span> (calificacion <span class="syntax-operator">>=</span> <span class="syntax-number">80</span>) {
+    <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"B - Muy Bien"</span>);
+} <span class="syntax-keyword">else if</span> (calificacion <span class="syntax-operator">>=</span> <span class="syntax-number">70</span>) {
+    <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"C - Bien"</span>);
+} <span class="syntax-keyword">else</span> {
+    <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"F - Insuficiente"</span>);
+}</code></pre>
+          </div>
+
+          <div class="output-block">
+            B - Muy Bien
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Switch: Para Múltiples Opciones</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">int</span> dia <span class="syntax-operator">=</span> <span class="syntax-number">3</span>;
+
+<span class="syntax-keyword">switch</span> (dia) {
+    <span class="syntax-keyword">case</span> <span class="syntax-number">1</span>:
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Lunes"</span>);
+        <span class="syntax-keyword">break</span>;
+    <span class="syntax-keyword">case</span> <span class="syntax-number">2</span>:
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Martes"</span>);
+        <span class="syntax-keyword">break</span>;
+    <span class="syntax-keyword">case</span> <span class="syntax-number">3</span>:
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Miércoles"</span>);
+        <span class="syntax-keyword">break</span>;
+    <span class="syntax-keyword">default</span>:
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Día inválido"</span>);
+}</code></pre>
+          </div>
+
+          <div class="output-block">
+            Miércoles
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Loops Section -->
+    <section id="bucles" class="section">
+      <div class="section-header">
+        <h2 class="section-title">🔁 Bucles: Repetir Código</h2>
+        <p class="section-description">Ejecuta bloques de código múltiples veces de forma automática</p>
+      </div>
+
+      <div class="content-wrapper">
+        <article class="article-card">
+          <h3 class="article-title">Bucle for: Repetición Controlada</h3>
+          <p>El bucle <code class="inline-code">for</code> es perfecto cuando sabes cuántas veces necesitas repetir algo.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-comment">// Imprime números del 1 al 5</span>
+<span class="syntax-keyword">for</span> (<span class="syntax-keyword">int</span> i <span class="syntax-operator">=</span> <span class="syntax-number">1</span>; i <span class="syntax-operator"><=</span> <span class="syntax-number">5</span>; i<span class="syntax-operator">++</span>) {
+    <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Número: "</span> <span class="syntax-operator">+</span> i);
+}</code></pre>
+          </div>
+
+          <div class="output-block">
+            Número: 1<br>
+            Número: 2<br>
+            Número: 3<br>
+            Número: 4<br>
+            Número: 5
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Tabla de Multiplicar</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">for</span> (<span class="syntax-keyword">int</span> i <span class="syntax-operator">=</span> <span class="syntax-number">1</span>; i <span class="syntax-operator"><=</span> <span class="syntax-number">10</span>; i<span class="syntax-operator">++</span>) {
+    <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"5 × "</span> <span class="syntax-operator">+</span> i <span class="syntax-operator">+</span> <span class="syntax-string">" = "</span> <span class="syntax-operator">+</span> (i <span class="syntax-operator">*</span> <span class="syntax-number">5</span>));
+}</code></pre>
+          </div>
+
+          <div class="output-block">
+            5 × 1 = 5<br>
+            5 × 2 = 10<br>
+            5 × 3 = 15<br>
+            ... y así hasta 10
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Bucle while: Mientras se Cumpla la Condición</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">int</span> contador <span class="syntax-operator">=</span> <span class="syntax-number">1</span>;
+
+<span class="syntax-keyword">while</span> (contador <span class="syntax-operator"><=</span> <span class="syntax-number">3</span>) {
+    <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Contador: "</span> <span class="syntax-operator">+</span> contador);
+    contador<span class="syntax-operator">++</span>;
+}</code></pre>
+          </div>
+
+          <div class="output-block">
+            Contador: 1<br>
+            Contador: 2<br>
+            Contador: 3
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Bucle do-while: Al Menos Una Vez</h3>
+          <p>Este bucle ejecuta el código una vez antes de verificar la condición.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">int</span> x <span class="syntax-operator">=</span> <span class="syntax-number">1</span>;
+
+<span class="syntax-keyword">do</span> {
+    <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"x = "</span> <span class="syntax-operator">+</span> x);
+    x<span class="syntax-operator">++</span>;
+} <span class="syntax-keyword">while</span> (x <span class="syntax-operator"><=</span> <span class="syntax-number">3</span>);</code></pre>
+          </div>
+
+          <div class="output-block">
+            x = 1<br>
+            x = 2<br>
+            x = 3
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Arrays Section -->
+    <section id="arrays" class="section">
+      <div class="section-header">
+        <h2 class="section-title">📋 Arrays: Listas de Datos</h2>
+        <p class="section-description">Almacena múltiples valores del mismo tipo en una sola variable</p>
+      </div>
+
+      <div class="content-wrapper">
+        <article class="article-card">
+          <h3 class="article-title">¿Qué es un Array?</h3>
+          <p>Un array es una colección de elementos del mismo tipo almacenados en una sola variable. Es como tener varios compartimentos en una caja.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-comment">// Declarar un array de 5 números enteros</span>
+<span class="syntax-keyword">int</span>[] numeros <span class="syntax-operator">=</span> {<span class="syntax-number">10</span>, <span class="syntax-number">20</span>, <span class="syntax-number">30</span>, <span class="syntax-number">40</span>, <span class="syntax-number">50</span>};
+
+<span class="syntax-comment">// Acceder a elementos específicos</span>
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(numeros[<span class="syntax-number">0</span>]);  <span class="syntax-comment">// Imprime: 10</span>
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(numeros[<span class="syntax-number">2</span>]);  <span class="syntax-comment">// Imprime: 30</span></code></pre>
+          </div>
+
+          <div class="info-box info-tip">
+            <strong>📌 Importante:</strong> Los arrays comienzan en índice 0. El primer elemento está en posición [0], no [1].
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Listas de Estudiantes</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-type">String</span>[] estudiantes <span class="syntax-operator">=</span> {<span class="syntax-string">"Juan"</span>, <span class="syntax-string">"María"</span>, <span class="syntax-string">"Pedro"</span>, <span class="syntax-string">"Ana"</span>};
+
+<span class="syntax-comment">// Recorrer el array con for</span>
+<span class="syntax-keyword">for</span> (<span class="syntax-keyword">int</span> i <span class="syntax-operator">=</span> <span class="syntax-number">0</span>; i <span class="syntax-operator"><</span> estudiantes.<span class="syntax-keyword">length</span>; i<span class="syntax-operator">++</span>) {
+    <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(estudiantes[i]);
+}</code></pre>
+          </div>
+
+          <div class="output-block">
+            Juan<br>
+            María<br>
+            Pedro<br>
+            Ana
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Operaciones con Arrays</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">int</span>[] calificaciones <span class="syntax-operator">=</span> {<span class="syntax-number">90</span>, <span class="syntax-number">85</span>, <span class="syntax-number">92</span>, <span class="syntax-number">88</span>};
+
+<span class="syntax-comment">// Calcular suma</span>
+<span class="syntax-keyword">int</span> suma <span class="syntax-operator">=</span> <span class="syntax-number">0</span>;
+<span class="syntax-keyword">for</span> (<span class="syntax-keyword">int</span> cal : calificaciones) {
+    suma <span class="syntax-operator">+=</span> cal;
+}
+
+<span class="syntax-comment">// Calcular promedio</span>
+<span class="syntax-keyword">double</span> promedio <span class="syntax-operator">=</span> suma <span class="syntax-operator">/</span> (<span class="syntax-keyword">double</span>) calificaciones.<span class="syntax-keyword">length</span>;
+
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Promedio: "</span> <span class="syntax-operator">+</span> promedio);</code></pre>
+          </div>
+
+          <div class="output-block">
+            Promedio: 88.75
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Methods Section -->
+    <section id="metodos" class="section">
+      <div class="section-header">
+        <h2 class="section-title">⚙️ Métodos: Funciones Reutilizables</h2>
+        <p class="section-description">Agrupa código en bloques que puedes usar múltiples veces</p>
+      </div>
+
+      <div class="content-wrapper">
+        <article class="article-card">
+          <h3 class="article-title">¿Qué es un Método?</h3>
+          <p>Un método es un conjunto de instrucciones que realiza una tarea específica. Es como una receta que puedes seguir cuantas veces quieras.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-comment">// Definir un método que suma dos números</span>
+<span class="syntax-keyword">public static int</span> <span class="syntax-method">sumar</span>(<span class="syntax-keyword">int</span> a, <span class="syntax-keyword">int</span> b) {
+    <span class="syntax-keyword">return</span> a <span class="syntax-operator">+</span> b;
+}
+
+<span class="syntax-comment">// Usar el método</span>
+<span class="syntax-keyword">int</span> resultado <span class="syntax-operator">=</span> <span class="syntax-method">sumar</span>(<span class="syntax-number">5</span>, <span class="syntax-number">3</span>);
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(resultado);  <span class="syntax-comment">// Imprime: 8</span></code></pre>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Métodos sin Retorno</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-comment">// Método que no retorna nada (void)</span>
+<span class="syntax-keyword">public static void</span> <span class="syntax-method">saludar</span>(<span class="syntax-type">String</span> nombre) {
+    <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"¡Hola, "</span> <span class="syntax-operator">+</span> nombre <span class="syntax-operator">+</span> <span class="syntax-string">"!"</span>);
+}
+
+<span class="syntax-comment">// Llamar al método</span>
+<span class="syntax-method">saludar</span>(<span class="syntax-string">"Carlos"</span>);</code></pre>
+          </div>
+
+          <div class="output-block">
+            ¡Hola, Carlos!
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Calculadora Simple</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">public class</span> <span class="syntax-type">Calculadora</span> {
+    <span class="syntax-keyword">public static double</span> <span class="syntax-method">sumar</span>(<span class="syntax-keyword">double</span> a, <span class="syntax-keyword">double</span> b) {
+        <span class="syntax-keyword">return</span> a <span class="syntax-operator">+</span> b;
+    }
+
+    <span class="syntax-keyword">public static double</span> <span class="syntax-method">restar</span>(<span class="syntax-keyword">double</span> a, <span class="syntax-keyword">double</span> b) {
+        <span class="syntax-keyword">return</span> a <span class="syntax-operator">-</span> b;
+    }
+
+    <span class="syntax-keyword">public static double</span> <span class="syntax-method">multiplicar</span>(<span class="syntax-keyword">double</span> a, <span class="syntax-keyword">double</span> b) {
+        <span class="syntax-keyword">return</span> a <span class="syntax-operator">*</span> b;
+    }
+
+    <span class="syntax-keyword">public static void</span> <span class="syntax-method">main</span>(<span class="syntax-type">String</span>[] args) {
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-method">sumar</span>(<span class="syntax-number">10</span>, <span class="syntax-number">5</span>));       <span class="syntax-comment">// 15.0</span>
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-method">restar</span>(<span class="syntax-number">20</span>, <span class="syntax-number">8</span>));      <span class="syntax-comment">// 12.0</span>
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-method">multiplicar</span>(<span class="syntax-number">6</span>, <span class="syntax-number">7</span>));  <span class="syntax-comment">// 42.0</span>
+    }
+}</code></pre>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section id="clases" class="section">
+      <div class="section-header">
+        <h2 class="section-title">🏗️ Clases y Objetos: POO</h2>
+        <p class="section-description">Aprende la base de la Programación Orientada a Objetos</p>
+      </div>
+
+      <div class="content-wrapper">
+        <article class="article-card">
+          <h3 class="article-title">¿Qué es una Clase?</h3>
+          <p>Una clase es un plano o plantilla para crear objetos. Define qué propiedades y comportamientos tiene un objeto.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">public class</span> <span class="syntax-type">Persona</span> {
+    <span class="syntax-comment">// Atributos (propiedades)</span>
+    <span class="syntax-keyword">public</span> <span class="syntax-type">String</span> nombre;
+    <span class="syntax-keyword">public</span> <span class="syntax-keyword">int</span> edad;
+    <span class="syntax-keyword">public</span> <span class="syntax-type">String</span> profesion;
+
+    <span class="syntax-comment">// Constructor (inicializa el objeto)</span>
+    <span class="syntax-keyword">public</span> <span class="syntax-method">Persona</span>(<span class="syntax-type">String</span> nombre, <span class="syntax-keyword">int</span> edad, <span class="syntax-type">String</span> profesion) {
+        <span class="syntax-keyword">this</span>.nombre <span class="syntax-operator">=</span> nombre;
+        <span class="syntax-keyword">this</span>.edad <span class="syntax-operator">=</span> edad;
+        <span class="syntax-keyword">this</span>.profesion <span class="syntax-operator">=</span> profesion;
+    }
+
+    <span class="syntax-comment">// Método</span>
+    <span class="syntax-keyword">public void</span> <span class="syntax-method">presentarse</span>() {
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Hola, me llamo "</span> <span class="syntax-operator">+</span> nombre);
+    }
+}</code></pre>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Crear y Usar Objetos</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">public class</span> <span class="syntax-type">Main</span> {
+    <span class="syntax-keyword">public static void</span> <span class="syntax-method">main</span>(<span class="syntax-type">String</span>[] args) {
+        <span class="syntax-comment">// Crear objeto (instancia) de la clase Persona</span>
+        <span class="syntax-type">Persona</span> p1 <span class="syntax-operator">=</span> <span class="syntax-keyword">new</span> <span class="syntax-type">Persona</span>(<span class="syntax-string">"Juan"</span>, <span class="syntax-number">28</span>, <span class="syntax-string">"Ingeniero"</span>);
+        <span class="syntax-type">Persona</span> p2 <span class="syntax-operator">=</span> <span class="syntax-keyword">new</span> <span class="syntax-type">Persona</span>(<span class="syntax-string">"Ana"</span>, <span class="syntax-number">25</span>, <span class="syntax-string">"Diseñadora"</span>);
+
+        <span class="syntax-comment">// Usar los objetos</span>
+        p1.<span class="syntax-method">presentarse</span>();
+        p2.<span class="syntax-method">presentarse</span>();
+
+        <span class="syntax-comment">// Acceder a atributos</span>
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(p1.nombre <span class="syntax-operator">+</span> <span class="syntax-string">" tiene "</span> <span class="syntax-operator">+</span> p1.edad <span class="syntax-operator">+</span> <span class="syntax-string">" años"</span>);
+    }
+}</code></pre>
+          </div>
+
+          <div class="output-block">
+            Hola, me llamo Juan<br>
+            Hola, me llamo Ana<br>
+            Juan tiene 28 años
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Ejemplo: Cuenta Bancaria</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">public class</span> <span class="syntax-type">CuentaBancaria</span> {
+    <span class="syntax-keyword">private</span> <span class="syntax-type">String</span> titular;
+    <span class="syntax-keyword">private</span> <span class="syntax-keyword">double</span> saldo;
+
+    <span class="syntax-keyword">public</span> <span class="syntax-method">CuentaBancaria</span>(<span class="syntax-type">String</span> titular, <span class="syntax-keyword">double</span> saldoInicial) {
+        <span class="syntax-keyword">this</span>.titular <span class="syntax-operator">=</span> titular;
+        <span class="syntax-keyword">this</span>.saldo <span class="syntax-operator">=</span> saldoInicial;
+    }
+
+    <span class="syntax-keyword">public void</span> <span class="syntax-method">depositar</span>(<span class="syntax-keyword">double</span> cantidad) {
+        <span class="syntax-keyword">if</span> (cantidad <span class="syntax-operator">></span> <span class="syntax-number">0</span>) {
+            saldo <span class="syntax-operator">+=</span> cantidad;
+            <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Depósito exitoso. Saldo: "</span> <span class="syntax-operator">+</span> saldo);
+        }
+    }
+
+    <span class="syntax-keyword">public void</span> <span class="syntax-method">retirar</span>(<span class="syntax-keyword">double</span> cantidad) {
+        <span class="syntax-keyword">if</span> (cantidad <span class="syntax-operator">></span> <span class="syntax-number">0</span> <span class="syntax-operator">&&</span> cantidad <span class="syntax-operator"><=</span> saldo) {
+            saldo <span class="syntax-operator">-=</span> cantidad;
+            <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Retiro exitoso. Saldo: "</span> <span class="syntax-operator">+</span> saldo);
+        } <span class="syntax-keyword">else</span> {
+            <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"Fondos insuficientes"</span>);
+        }
+    }
+
+    <span class="syntax-keyword">public double</span> <span class="syntax-method">getSaldo</span>() {
+        <span class="syntax-keyword">return</span> saldo;
+    }
+}</code></pre>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Inheritance Section -->
+    <section id="herencia" class="section">
+      <div class="section-header">
+        <h2 class="section-title">🧬 Herencia: Reutilizar Código</h2>
+        <p class="section-description">Las clases pueden heredar propiedades de otras clases</p>
+      </div>
+
+      <div class="content-wrapper">
+        <article class="article-card">
+          <h3 class="article-title">¿Qué es la Herencia?</h3>
+          <p>La herencia permite que una clase hija reutilice las propiedades y métodos de una clase padre. Es una forma de crear jerarquías de clases.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-comment">// Clase padre (superclase)</span>
+<span class="syntax-keyword">public class</span> <span class="syntax-type">Animal</span> {
+    <span class="syntax-keyword">protected</span> <span class="syntax-type">String</span> nombre;
+
+    <span class="syntax-keyword">public void</span> <span class="syntax-method">dormir</span>() {
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(nombre <span class="syntax-operator">+</span> <span class="syntax-string">" está durmiendo"</span>);
+    }
+}
+
+<span class="syntax-comment">// Clase hija (subclase)</span>
+<span class="syntax-keyword">public class</span> <span class="syntax-type">Perro</span> <span class="syntax-keyword">extends</span> <span class="syntax-type">Animal</span> {
+    <span class="syntax-keyword">public void</span> <span class="syntax-method">ladrar</span>() {
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(nombre <span class="syntax-operator">+</span> <span class="syntax-string">" ladra: ¡Guau!"</span>);
+    }
+}</code></pre>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Usando la Herencia</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">public class</span> <span class="syntax-type">Main</span> {
+    <span class="syntax-keyword">public static void</span> <span class="syntax-method">main</span>(<span class="syntax-type">String</span>[] args) {
+        <span class="syntax-type">Perro</span> miPerro <span class="syntax-operator">=</span> <span class="syntax-keyword">new</span> <span class="syntax-type">Perro</span>();
+        miPerro.nombre <span class="syntax-operator">=</span> <span class="syntax-string">"Max"</span>;
+
+        <span class="syntax-comment">// Métodos heredados</span>
+        miPerro.<span class="syntax-method">dormir</span>();  <span class="syntax-comment">// De Animal</span>
+
+        <span class="syntax-comment">// Métodos propios</span>
+        miPerro.<span class="syntax-method">ladrar</span>();  <span class="syntax-comment">// De Perro</span>
+    }
+}</code></pre>
+          </div>
+
+          <div class="output-block">
+            Max está durmiendo<br>
+            Max ladra: ¡Guau!
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Ejemplo Completo: Vehículos</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">public class</span> <span class="syntax-type">Vehiculo</span> {
+    <span class="syntax-keyword">protected</span> <span class="syntax-type">String</span> marca;
+    <span class="syntax-keyword">protected</span> <span class="syntax-keyword">int</span> velocidad;
+
+    <span class="syntax-keyword">public</span> <span class="syntax-method">Vehiculo</span>(<span class="syntax-type">String</span> marca) {
+        <span class="syntax-keyword">this</span>.marca <span class="syntax-operator">=</span> marca;
+        <span class="syntax-keyword">this</span>.velocidad <span class="syntax-operator">=</span> <span class="syntax-number">0</span>;
+    }
+
+    <span class="syntax-keyword">public void</span> <span class="syntax-method">acelerar</span>() {
+        velocidad <span class="syntax-operator">+=</span> <span class="syntax-number">10</span>;
+    }
+}
+
+<span class="syntax-keyword">public class</span> <span class="syntax-type">Coche</span> <span class="syntax-keyword">extends</span> <span class="syntax-type">Vehiculo</span> {
+    <span class="syntax-keyword">public</span> <span class="syntax-method">Coche</span>(<span class="syntax-type">String</span> marca) {
+        <span class="syntax-keyword">super</span>(marca);
+    }
+
+    <span class="syntax-keyword">public void</span> <span class="syntax-method">mostrarVelocidad</span>() {
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(marca <span class="syntax-operator">+</span> <span class="syntax-string">" va a "</span> <span class="syntax-operator">+</span> velocidad <span class="syntax-operator">+</span> <span class="syntax-string">" km/h"</span>);
+    }
+}</code></pre>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Encapsulation Section -->
+    <section id="encapsulamiento" class="section">
+      <div class="section-header">
+        <h2 class="section-title">🔒 Encapsulamiento: Proteger Datos</h2>
+        <p class="section-description">Controla el acceso a los atributos de tus clases</p>
+      </div>
+
+      <div class="content-wrapper">
+        <article class="article-card">
+          <h3 class="article-title">¿Por Qué Encapsular?</h3>
+          <p>El encapsulamiento te permite ocultar los detalles internos de una clase y controlar cómo se accede a sus datos mediante getters y setters.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">public class</span> <span class="syntax-type">Estudiante</span> {
+    <span class="syntax-comment">// Atributo privado - no se puede acceder directamente</span>
+    <span class="syntax-keyword">private</span> <span class="syntax-type">String</span> nombre;
+    <span class="syntax-keyword">private</span> <span class="syntax-keyword">double</span> promedio;
+
+    <span class="syntax-comment">// Getter - método para obtener el valor</span>
+    <span class="syntax-keyword">public</span> <span class="syntax-type">String</span> <span class="syntax-method">getNombre</span>() {
+        <span class="syntax-keyword">return</span> nombre;
+    }
+
+    <span class="syntax-comment">// Setter - método para establecer el valor con validación</span>
+    <span class="syntax-keyword">public void</span> <span class="syntax-method">setNombre</span>(<span class="syntax-type">String</span> nombre) {
+        <span class="syntax-keyword">if</span> (nombre <span class="syntax-operator">!=</span> <span class="syntax-keyword">null</span> <span class="syntax-operator">&&</span> <span class="syntax-operator">!</span>nombre.<span class="syntax-method">isEmpty</span>()) {
+            <span class="syntax-keyword">this</span>.nombre <span class="syntax-operator">=</span> nombre;
+        }
+    }
+
+    <span class="syntax-keyword">public double</span> <span class="syntax-method">getPromedio</span>() {
+        <span class="syntax-keyword">return</span> promedio;
+    }
+
+    <span class="syntax-keyword">public void</span> <span class="syntax-method">setPromedio</span>(<span class="syntax-keyword">double</span> promedio) {
+        <span class="syntax-keyword">if</span> (promedio <span class="syntax-operator">>=</span> <span class="syntax-number">0</span> <span class="syntax-operator">&&</span> promedio <span class="syntax-operator"><=</span> <span class="syntax-number">10</span>) {
+            <span class="syntax-keyword">this</span>.promedio <span class="syntax-operator">=</span> promedio;
+        }
+    }
+}</code></pre>
+          </div>
+
+          <div class="info-box info-info">
+            <strong>Niveles de acceso:</strong>
+            <ul style="margin-top: 0.5rem;">
+              <li><code class="inline-code">public</code> - Accesible desde cualquier lugar</li>
+              <li><code class="inline-code">private</code> - Solo dentro de la clase</li>
+              <li><code class="inline-code">protected</code> - En la clase y sus subclases</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Usando Getters y Setters</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-type">Estudiante</span> est <span class="syntax-operator">=</span> <span class="syntax-keyword">new</span> <span class="syntax-type">Estudiante</span>();
+
+<span class="syntax-comment">// Usando setters</span>
+est.<span class="syntax-method">setNombre</span>(<span class="syntax-string">"Luis"</span>);
+est.<span class="syntax-method">setPromedio</span>(<span class="syntax-number">8.5</span>);
+
+<span class="syntax-comment">// Usando getters</span>
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(est.<span class="syntax-method">getNombre</span>());      <span class="syntax-comment">// Luis</span>
+<span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(est.<span class="syntax-method">getPromedio</span>());    <span class="syntax-comment">// 8.5</span></code></pre>
+          </div>
+
+          <div class="output-block">
+            Luis<br>
+            8.5
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="section">
+      <div class="section-header">
+        <h2 class="section-title">🚀 Proyecto Práctico: Sistema de Tienda</h2>
+        <p class="section-description">Aplica todo lo aprendido en un proyecto real</p>
+      </div>
+
+      <div class="content-wrapper">
+        <article class="article-card">
+          <h3 class="article-title">Descripción del Proyecto</h3>
+          <p>Crearemos un sistema simple de tienda online que contenga productos, carrito de compras y cálculo de total.</p>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">public class</span> <span class="syntax-type">Producto</span> {
+    <span class="syntax-keyword">private</span> <span class="syntax-type">String</span> nombre;
+    <span class="syntax-keyword">private</span> <span class="syntax-keyword">double</span> precio;
+    <span class="syntax-keyword">private</span> <span class="syntax-keyword">int</span> cantidad;
+
+    <span class="syntax-keyword">public</span> <span class="syntax-method">Producto</span>(<span class="syntax-type">String</span> nombre, <span class="syntax-keyword">double</span> precio, <span class="syntax-keyword">int</span> cantidad) {
+        <span class="syntax-keyword">this</span>.nombre <span class="syntax-operator">=</span> nombre;
+        <span class="syntax-keyword">this</span>.precio <span class="syntax-operator">=</span> precio;
+        <span class="syntax-keyword">this</span>.cantidad <span class="syntax-operator">=</span> cantidad;
+    }
+
+    <span class="syntax-keyword">public double</span> <span class="syntax-method">getSubtotal</span>() {
+        <span class="syntax-keyword">return</span> precio <span class="syntax-operator">*</span> cantidad;
+    }
+
+    <span class="syntax-keyword">public void</span> <span class="syntax-method">mostrar</span>() {
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(nombre <span class="syntax-operator">+</span> <span class="syntax-string">" - $"</span> <span class="syntax-operator">+</span> precio <span class="syntax-operator">+</span> <span class="syntax-string">" x"</span> <span class="syntax-operator">+</span> cantidad <span class="syntax-operator">+</span> <span class="syntax-string">" = $"</span> <span class="syntax-operator">+</span> <span class="syntax-method">getSubtotal</span>());
+    }
+}</code></pre>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Clase Carrito</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">import java.util.ArrayList</span>;
+
+<span class="syntax-keyword">public class</span> <span class="syntax-type">Carrito</span> {
+    <span class="syntax-keyword">private</span> <span class="syntax-type">ArrayList</span><span class="syntax-operator"><</span><span class="syntax-type">Producto</span><span class="syntax-operator">></span> productos;
+    <span class="syntax-keyword">private</span> <span class="syntax-keyword">double</span> total;
+
+    <span class="syntax-keyword">public</span> <span class="syntax-method">Carrito</span>() {
+        productos <span class="syntax-operator">=</span> <span class="syntax-keyword">new</span> <span class="syntax-type">ArrayList</span><span class="syntax-operator"><</span><span class="syntax-type">Producto</span><span class="syntax-operator">></span>();
+        total <span class="syntax-operator">=</span> <span class="syntax-number">0</span>;
+    }
+
+    <span class="syntax-keyword">public void</span> <span class="syntax-method">agregarProducto</span>(<span class="syntax-type">Producto</span> p) {
+        productos.<span class="syntax-method">add</span>(p);
+        total <span class="syntax-operator">+=</span> p.<span class="syntax-method">getSubtotal</span>();
+    }
+
+    <span class="syntax-keyword">public void</span> <span class="syntax-method">mostrarCarrito</span>() {
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"=== CARRITO DE COMPRAS ==="</span>);
+        <span class="syntax-keyword">for</span> (<span class="syntax-type">Producto</span> p : productos) {
+            p.<span class="syntax-method">mostrar</span>();
+        }
+        <span class="syntax-type">System</span>.out.<span class="syntax-method">println</span>(<span class="syntax-string">"TOTAL: $"</span> <span class="syntax-operator">+</span> total);
+    }
+}</code></pre>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Usando el Sistema</h3>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-language">java</span>
+              <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+            </div>
+            <pre><code><span class="syntax-keyword">public class</span> <span class="syntax-type">Main</span> {
+    <span class="syntax-keyword">public static void</span> <span class="syntax-method">main</span>(<span class="syntax-type">String</span>[] args) {
+        <span class="syntax-type">Carrito</span> miCarrito <span class="syntax-operator">=</span> <span class="syntax-keyword">new</span> <span class="syntax-type">Carrito</span>();
+
+        <span class="syntax-comment">// Crear productos</span>
+        <span class="syntax-type">Producto</span> p1 <span class="syntax-operator">=</span> <span class="syntax-keyword">new</span> <span class="syntax-type">Producto</span>(<span class="syntax-string">"Laptop"</span>, <span class="syntax-number">1200</span>, <span class="syntax-number">1</span>);
+        <span class="syntax-type">Producto</span> p2 <span class="syntax-operator">=</span> <span class="syntax-keyword">new</span> <span class="syntax-type">Producto</span>(<span class="syntax-string">"Mouse"</span>, <span class="syntax-number">25</span>, <span class="syntax-number">2</span>);
+        <span class="syntax-type">Producto</span> p3 <span class="syntax-operator">=</span> <span class="syntax-keyword">new</span> <span class="syntax-type">Producto</span>(<span class="syntax-string">"Teclado"</span>, <span class="syntax-number">75</span>, <span class="syntax-number">1</span>);
+
+        <span class="syntax-comment">// Agregar al carrito</span>
+        miCarrito.<span class="syntax-method">agregarProducto</span>(p1);
+        miCarrito.<span class="syntax-method">agregarProducto</span>(p2);
+        miCarrito.<span class="syntax-method">agregarProducto</span>(p3);
+
+        <span class="syntax-comment">// Mostrar carrito</span>
+        miCarrito.<span class="syntax-method">mostrarCarrito</span>();
+    }
+}</code></pre>
+          </div>
+
+          <div class="output-block">
+            === CARRITO DE COMPRAS ===<br>
+            Laptop - $1200.0 x1 = $1200.0<br>
+            Mouse - $25.0 x2 = $50.0<br>
+            Teclado - $75.0 x1 = $75.0<br>
+            TOTAL: $1325.0
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h3 class="article-title">Consejos para Mejorar el Proyecto</h3>
+          <div class="tips-list">
+            <div class="tip-item">
+              <strong>📌 Agregar más características:</strong> Descuentos, cupones de promoción, historial de compras
+            </div>
+            <div class="tip-item">
+              <strong>🔐 Validaciones:</strong> Verificar que los precios sean positivos, cantidades válidas
+            </div>
+            <div class="tip-item">
+              <strong>💾 Persistencia:</strong> Guardar datos en archivos o base de datos
+            </div>
+            <div class="tip-item">
+              <strong>🎨 Interfaz Gráfica:</strong> Crear una interfaz visual con Swing o JavaFX
+            </div>
+            <div class="tip-item">
+              <strong>🧪 Pruebas:</strong> Escribir unit tests para verificar que todo funciona correctamente
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Final Section -->
+    <section class="section final-section">
+      <div class="section-header">
+        <h2 class="section-title">🎓 Resumen y Próximos Pasos</h2>
+        <p class="section-description">Felicidades por completar esta guía</p>
+      </div>
+
+      <div class="content-wrapper">
+        <div class="summary-grid">
+          <div class="summary-card">
+            <div class="summary-icon">✅</div>
+            <h3>Conceptos Aprendidos</h3>
+            <p>Ahora entiendes las bases de Java: variables, tipos de datos, operadores, control de flujo, arrays, métodos y programación orientada a objetos.</p>
+          </div>
+          <div class="summary-card">
+            <div class="summary-icon">🚀</div>
+            <h3>Próximos Desafíos</h3>
+            <p>Explora Collections, excepciones, manejo de archivos, bases de datos, frameworks como Spring Boot y desarrollo de aplicaciones web.</p>
+          </div>
+          <div class="summary-card">
+            <div class="summary-icon">💪</div>
+            <h3>Práctica Constante</h3>
+            <p>La mejor forma de aprender es practicando. Crea pequeños proyectos, participa en plataformas como LeetCode y contribuye a código abierto.</p>
+          </div>
+        </div>
+
+        <div class="info-box info-success">
+          <strong>¡Excelente trabajo!</strong> Ahora tienes una base sólida en Java. Recuerda: la programación es como un idioma - se aprende practicando constantemente. Sigue creando proyectos, experimenta, comete errores y aprende de ellos. ¡El camino hacia ser un gran desarrollador comienza aquí!
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>☕ Java Learning Guide © 2024 | Diseñado para principiantes con ❤️</p>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+        Última actualización: Marzo 2026 | Contenido bajo licencia educativa abierta
+      </p>
+    </footer>
+  </main>
+
+  <script>
+    // Copy to clipboard functionality
+    function copyCode(button) {
+      const codeBlock = button.closest('.code-block');
+      const code = codeBlock.querySelector('code').textContent;
+      
+      navigator.clipboard.writeText(code).then(() => {
+        const originalText = button.textContent;
+        button.textContent = '¡Copiado!';
+        setTimeout(() => {
+          button.textContent = originalText;
+        }, 2000);
+      });
+    }
+
+    // Active navigation link on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      function updateActiveLink() {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').slice(1) === current) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveLink);
+      updateActiveLink();
+    });
+  </script>
+</body>
+</html>
