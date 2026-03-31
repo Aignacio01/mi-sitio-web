@@ -1057,6 +1057,126 @@ body {
 }
 
 /* ============================================
+   SIDEBAR - TABLA DE CONTENIDOS
+   ============================================ */
+
+.sidebar {
+    width: 100%;
+    margin-bottom: var(--spacing-xl);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.toc-box {
+    background: linear-gradient(135deg, var(--color-bg-light) 0%, #252525 100%);
+    padding: var(--spacing-xl) var(--spacing-2xl);
+    border-radius: var(--radius-large);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(0, 168, 255, 0.1);
+    border-bottom: 3px solid var(--color-primary);
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.toc-box::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--color-primary), transparent);
+}
+
+.toc-box h3 {
+    color: var(--color-primary);
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: var(--spacing-large);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-medium);
+}
+
+.toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: toc-counter;
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-medium);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.toc-list li {
+    margin-bottom: 0;
+    counter-increment: toc-counter;
+    white-space: nowrap;
+}
+
+.toc-list li::before {
+    content: counter(toc-counter);
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, var(--color-primary), #0088cc);
+    color: white;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-right: var(--spacing-small);
+    flex-shrink: 0;
+}
+
+.toc-list a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-radius: var(--radius-medium);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    position: relative;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.toc-list a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    right: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: 3px 3px 0 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.toc-list a:hover {
+    background: rgba(0, 168, 255, 0.15);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.toc-list a:hover::before {
+    transform: scaleY(1);
+}
+
+/* ============================================
    FOOTER
    ============================================ */
 
