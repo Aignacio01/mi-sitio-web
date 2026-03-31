@@ -6,329 +6,6 @@
   <title>Guía Bootstrap — Completa y Visual</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0d0f14;
-      --bg2: #13161e;
-      --bg3: #1a1e2a;
-      --card: #1e2333;
-      --border: rgba(255,255,255,0.07);
-      --text: #e8eaf0;
-      --muted: #7a7f96;
-      --blue: #4f8ef7;
-      --cyan: #38d9c0;
-      --pink: #f472b6;
-      --amber: #fbbf24;
-      --green: #4ade80;
-      --orange: #fb923c;
-      --purple: #a78bfa;
-      --font-display: 'Syne', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      line-height: 1.7;
-      min-height: 100vh;
-    }
-
-    /* ── HEADER ─────────────────────────────────── */
-    header {
-      position: relative;
-      padding: 80px 40px 70px;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border);
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      top: -120px; left: -80px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(79,142,247,0.18) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    header::after {
-      content: '';
-      position: absolute;
-      bottom: -100px; right: -60px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(244,114,182,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .header-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
-    .badge-top {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(79,142,247,0.12); border: 1px solid rgba(79,142,247,0.3);
-      border-radius: 20px; padding: 5px 14px; font-size: 12px;
-      color: var(--blue); font-family: var(--font-mono); margin-bottom: 20px;
-      animation: fadeSlideUp .5s ease both;
-    }
-    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); animation: pulse 2s ease infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-
-    h1 {
-      font-family: var(--font-display);
-      font-size: clamp(38px, 6vw, 64px);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -1px;
-      margin-bottom: 18px;
-      animation: fadeSlideUp .5s ease .1s both;
-    }
-    h1 .g1 { background: linear-gradient(135deg, #4f8ef7, #38d9c0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    h1 .g2 { background: linear-gradient(135deg, #f472b6, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-    .subtitle {
-      font-size: 17px; color: var(--muted); max-width: 540px;
-      animation: fadeSlideUp .5s ease .2s both;
-    }
-    .header-pills {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px;
-      animation: fadeSlideUp .5s ease .3s both;
-    }
-    .pill {
-      padding: 5px 12px; border-radius: 8px; font-size: 12px; font-weight: 600;
-      font-family: var(--font-mono); letter-spacing: .03em;
-    }
-    .pill-blue   { background: rgba(79,142,247,.15); color: #7eb4ff; border: 1px solid rgba(79,142,247,.25); }
-    .pill-cyan   { background: rgba(56,217,192,.15); color: #5ee8d2; border: 1px solid rgba(56,217,192,.25); }
-    .pill-pink   { background: rgba(244,114,182,.15); color: #f9a8d4; border: 1px solid rgba(244,114,182,.25); }
-    .pill-amber  { background: rgba(251,191,36,.15); color: #fcd34d; border: 1px solid rgba(251,191,36,.25); }
-    .pill-green  { background: rgba(74,222,128,.15); color: #86efac; border: 1px solid rgba(74,222,128,.25); }
-    .pill-purple { background: rgba(167,139,250,.15); color: #c4b5fd; border: 1px solid rgba(167,139,250,.25); }
-    .pill-orange { background: rgba(251,146,60,.15); color: #fdba74; border: 1px solid rgba(251,146,60,.25); }
-
-    @keyframes fadeSlideUp {
-      from { opacity:0; transform: translateY(16px); }
-      to   { opacity:1; transform: translateY(0); }
-    }
-
-    /* ── NAV TABS ─────────────────────────────────── */
-    .tab-wrapper {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(13,15,20,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 40px;
-    }
-    .tabs {
-      max-width: 900px; margin: 0 auto;
-      display: flex; gap: 0; overflow-x: auto;
-      scrollbar-width: none;
-    }
-    .tabs::-webkit-scrollbar { display: none; }
-    .tab {
-      padding: 16px 18px; font-size: 13px; font-weight: 500;
-      color: var(--muted); border: none; background: none; cursor: pointer;
-      white-space: nowrap; border-bottom: 2px solid transparent;
-      transition: color .2s, border-color .2s;
-      font-family: var(--font-body);
-    }
-    .tab:hover { color: var(--text); }
-    .tab.active { color: var(--text); border-bottom-color: var(--blue); }
-
-    /* ── CONTENT ─────────────────────────────────── */
-    .content { max-width: 900px; margin: 0 auto; padding: 48px 40px 80px; }
-    .section { display: none; animation: fadeSlideUp .3s ease both; }
-    .section.active { display: block; }
-
-    /* ── CARDS ─────────────────────────────────── */
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px 30px;
-      margin-bottom: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-    .card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-    }
-    .card-header {
-      display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px;
-    }
-    .card-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; flex-shrink: 0;
-    }
-    .icon-blue   { background: rgba(79,142,247,.15); }
-    .icon-cyan   { background: rgba(56,217,192,.15); }
-    .icon-pink   { background: rgba(244,114,182,.15); }
-    .icon-amber  { background: rgba(251,191,36,.15); }
-    .icon-green  { background: rgba(74,222,128,.15); }
-    .icon-purple { background: rgba(167,139,250,.15); }
-    .icon-orange { background: rgba(251,146,60,.15); }
-
-    .card-title { font-size: 17px; font-weight: 600; color: var(--text); }
-    .card-desc  { font-size: 13px; color: var(--muted); margin-top: 2px; }
-
-    /* ── CODE BLOCKS ─────────────────────────────── */
-    pre {
-      background: #0a0c12;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px;
-      padding: 20px 22px;
-      overflow-x: auto;
-      font-family: var(--font-mono);
-      font-size: 13px;
-      line-height: 1.75;
-      margin: 14px 0;
-      position: relative;
-    }
-    pre .tag    { color: #f472b6; }
-    pre .attr   { color: #fbbf24; }
-    pre .val    { color: #4ade80; }
-    pre .cmt    { color: #4b5568; font-style: italic; }
-    pre .cls    { color: #38d9c0; }
-    pre .plain  { color: #a0aec0; }
-
-    .copy-btn {
-      position: absolute; top: 10px; right: 12px;
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
-      color: var(--muted); border-radius: 6px; padding: 4px 10px;
-      font-size: 11px; cursor: pointer; font-family: var(--font-mono);
-      transition: all .15s;
-    }
-    .copy-btn:hover { background: rgba(255,255,255,0.12); color: var(--text); }
-
-    /* ── CALLOUTS ─────────────────────────────────── */
-    .callout {
-      border-radius: 12px; padding: 14px 18px;
-      font-size: 13.5px; line-height: 1.65; margin: 14px 0;
-      display: flex; align-items: flex-start; gap: 10px;
-    }
-    .callout-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-    .callout-amber { background: rgba(251,191,36,.1); border: 1px solid rgba(251,191,36,.2); color: #fcd34d; }
-    .callout-green { background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.2); color: #86efac; }
-    .callout-blue  { background: rgba(79,142,247,.1); border: 1px solid rgba(79,142,247,.2); color: #93c5fd; }
-
-    /* ── STEPS ─────────────────────────────────── */
-    .steps { display: flex; flex-direction: column; gap: 16px; }
-    .step  { display: flex; gap: 16px; align-items: flex-start; }
-    .step-num {
-      width: 30px; height: 30px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 700; flex-shrink: 0;
-      font-family: var(--font-mono);
-    }
-    .step-num-blue   { background: rgba(79,142,247,.2); color: var(--blue); }
-    .step-num-cyan   { background: rgba(56,217,192,.2); color: var(--cyan); }
-    .step-num-pink   { background: rgba(244,114,182,.2); color: var(--pink); }
-    .step-body { flex: 1; }
-    .step-title { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-    .step-desc  { font-size: 13px; color: var(--muted); }
-
-    /* ── GRID DEMO ─────────────────────────────────── */
-    .grid-demo { margin: 14px 0; }
-    .grid-row {
-      display: flex; gap: 6px; margin-bottom: 6px;
-    }
-    .grid-col {
-      border-radius: 8px; padding: 10px 8px;
-      text-align: center; font-size: 11px; font-weight: 600;
-      font-family: var(--font-mono); letter-spacing: .02em;
-    }
-    .gc1 { background: rgba(79,142,247,.2); color: #7eb4ff; flex: 4; }
-    .gc2 { background: rgba(56,217,192,.2); color: #5ee8d2; flex: 4; }
-    .gc3 { background: rgba(244,114,182,.2); color: #f9a8d4; flex: 4; }
-    .gc4 { background: rgba(251,191,36,.2); color: #fcd34d; flex: 6; }
-    .gc5 { background: rgba(167,139,250,.2); color: #c4b5fd; flex: 6; }
-    .gc6 { background: rgba(74,222,128,.2); color: #86efac; flex: 8; }
-    .gc7 { background: rgba(251,146,60,.2); color: #fdba74; flex: 4; }
-    .gc8 { background: rgba(79,142,247,.15); color: #7eb4ff; flex: 12; }
-
-    /* ── TABLES ─────────────────────────────────── */
-    .ref-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
-    .ref-table th {
-      text-align: left; padding: 10px 14px;
-      background: rgba(255,255,255,0.04); color: var(--muted);
-      font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .06em;
-      border-bottom: 1px solid var(--border);
-    }
-    .ref-table td {
-      padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04);
-      vertical-align: middle;
-    }
-    .ref-table tr:last-child td { border-bottom: none; }
-    .ref-table td:first-child { font-family: var(--font-mono); font-size: 12px; color: var(--cyan); }
-    .ref-table td:last-child { color: var(--muted); }
-
-    /* ── SECTION TITLES ─────────────────────────────── */
-    .section-label {
-      font-size: 11px; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--muted);
-      margin: 36px 0 16px; padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* ── PREVIEW ELEMENTS ─────────────────────────── */
-    .preview {
-      background: #0a0c12; border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px; padding: 20px; margin: 14px 0;
-    }
-    .demo-btn {
-      display: inline-block; padding: 8px 18px; border-radius: 8px;
-      font-size: 13px; font-weight: 600; margin: 4px; cursor: default;
-    }
-    .demo-btn-primary { background: #4f8ef7; color: white; }
-    .demo-btn-success { background: #22c55e; color: white; }
-    .demo-btn-danger  { background: #ef4444; color: white; }
-    .demo-btn-outline { background: transparent; color: #4f8ef7; border: 1.5px solid #4f8ef7; }
-    .demo-btn-warn    { background: #f59e0b; color: #1a1a1a; }
-    .demo-btn-dark    { background: #1f2937; color: white; border: 1px solid rgba(255,255,255,.2); }
-
-    .demo-alert { padding: 12px 16px; border-radius: 10px; font-size: 13px; margin: 6px 0; }
-    .da-info    { background: rgba(79,142,247,.15); border: 1px solid rgba(79,142,247,.3); color: #93c5fd; }
-    .da-success { background: rgba(74,222,128,.15); border: 1px solid rgba(74,222,128,.3); color: #86efac; }
-    .da-warn    { background: rgba(251,191,36,.15); border: 1px solid rgba(251,191,36,.3); color: #fcd34d; }
-    .da-danger  { background: rgba(239,68,68,.15); border: 1px solid rgba(239,68,68,.3); color: #fca5a5; }
-
-    .demo-card {
-      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-      border-radius: 12px; padding: 18px; margin: 8px 0;
-    }
-    .demo-card h5 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-    .demo-card p  { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
-
-    .flex-demo { display: flex; gap: 8px; padding: 14px; background: rgba(255,255,255,0.03); border-radius: 10px; margin: 8px 0; }
-    .fi { background: rgba(79,142,247,.2); color: #7eb4ff; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; }
-
-    /* ── COLOR SWATCHES ─────────────────────────────── */
-    .swatches { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
-    .swatch {
-      width: 90px; border-radius: 10px; overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .swatch-color { height: 48px; }
-    .swatch-label { padding: 6px 8px; font-size: 11px; font-weight: 600; font-family: var(--font-mono); background: rgba(255,255,255,0.04); color: var(--muted); }
-
-    /* ── FINAL PROJECT ─────────────────────────────── */
-    .final-card {
-      background: linear-gradient(135deg, rgba(79,142,247,0.08) 0%, rgba(56,217,192,0.05) 100%);
-      border: 1px solid rgba(79,142,247,0.2);
-      border-radius: 16px; padding: 28px 30px; margin-bottom: 20px;
-    }
-    .final-card .card-title { color: #7eb4ff; }
-
-    /* ── RESPONSIVE ─────────────────────────────────── */
-    @media (max-width: 640px) {
-      header { padding: 50px 20px 50px; }
-      .tab-wrapper { padding: 0 16px; }
-      .content { padding: 32px 20px 60px; }
-      .card { padding: 20px; }
-      pre { font-size: 12px; padding: 16px; }
-    }
-  </style>
 </head>
 <body>
 
@@ -381,7 +58,8 @@
         <div class="card-icon icon-blue">⚡</div>
         <div><div class="card-title">¿Qué es Bootstrap?</div><div class="card-desc">La herramienta más usada del mundo para hacer páginas web bonitas</div></div>
       </div>
-      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px">Bootstrap es una colección de <strong style="color:var(--text)">estilos y componentes listos para usar</strong>. En lugar de escribir todo el CSS tú mismo desde cero, simplemente agregas clases especiales a tu HTML y Bootstrap hace el diseño automáticamente.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px">Bootstrap es una colección de <strong style="color:var(--text)">estilos y componentes listos para usar</strong> creada por desarrolladores profesionales. En lugar de escribir todo el CSS tú mismo desde cero, simplemente agregas clases especiales a tu HTML y Bootstrap hace el diseño automáticamente. Piensa en Bootstrap como tener un librería gigante de diseño empaquetado: botones bonitos, formularios elegantes, barras de navegación responsivas, tarjetas profesionales, y mucho más. Todo funciona en cualquier dispositivo: computadora, tablet y celular.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px">Lo mejor es que <strong style="color:var(--text)">no necesitas aprender CSS complicado</strong>. Solo aprendes a usar nombres de clases que Bootstrap ya preparó. Por ejemplo: en lugar de escribir 20 líneas de CSS para un botón bonito, solo escribes <code style="color:var(--cyan);font-family:var(--font-mono);font-size:12px">class="btn btn-primary"</code>.</p>
       <div class="callout callout-blue">
         <span class="callout-icon">💡</span>
         <span>Piénsalo como tener un diseñador ya incluido: escribes el código y Bootstrap lo hace profesional automáticamente.</span>
@@ -398,7 +76,7 @@
           <div class="step-num step-num-blue">1</div>
           <div class="step-body">
             <div class="step-title" style="color:#7eb4ff">Copia este link dentro del &lt;head&gt;</div>
-            <div class="step-desc">Esto carga el CSS de Bootstrap desde internet</div>
+            <div class="step-desc">Esto descarga todos los estilos CSS de Bootstrap desde internet. El &lt;head&gt; es la sección invisible de tu página donde van las configuraciones.</div>
             <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span>
      <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"</span><span class="tag">&gt;</span></pre>
           </div>
@@ -407,7 +85,7 @@
           <div class="step-num step-num-cyan">2</div>
           <div class="step-body">
             <div class="step-title" style="color:#5ee8d2">Copia este script antes del &lt;/body&gt;</div>
-            <div class="step-desc">Esto activa los componentes interactivos como menús y modales</div>
+            <div class="step-desc">Esto carga el código JavaScript de Bootstrap que hace que funcionen cosas interactivas como menús desplegables, ventanas emergentes (modales), carruseles y tooltips. Va al final para que la página cargue más rápido.</div>
             <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="val">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></pre>
           </div>
         </div>
@@ -423,7 +101,7 @@
         <div class="card-icon icon-amber">🗺️</div>
         <div><div class="card-title">¿Cómo funciona Bootstrap?</div><div class="card-desc">El secreto está en las clases CSS</div></div>
       </div>
-      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px">Bootstrap funciona a través de <strong style="color:var(--text)">clases CSS especiales</strong>. Tú escribes HTML normal, y al agregarle ciertas clases Bootstrap aplica estilos automáticamente.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px">Bootstrap funciona a través de <strong style="color:var(--text)">clases CSS especiales</strong>. Tú escribes HTML normal, y al agregarle ciertas clases Bootstrap aplica estilos automáticamente. Todas esas clases ya están escritas y probadas por miles de desarrolladores en todo el mundo. bootstrap tiene nombres de clases predefinidos como <code style="color:var(--cyan);font-family:var(--font-mono);font-size:12px">btn</code>, <code style="color:var(--cyan);font-family:var(--font-mono);font-size:12px">container</code>, <code style="color:var(--cyan);font-family:var(--font-mono);font-size:12px">row</code>, <code style="color:var(--cyan);font-family:var(--font-mono);font-size:12px">col</code>, y muchas más.</p>
       <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="cmt">&lt;!-- Sin Bootstrap (feo, sin estilo) --&gt;</span>
 <span class="tag">&lt;button&gt;</span><span class="plain">Haz clic</span><span class="tag">&lt;/button&gt;</span>
 
@@ -444,8 +122,7 @@
       <div class="card-header">
         <div class="card-icon icon-cyan">📄</div>
         <div><div class="card-title">Plantilla base completa</div><div class="card-desc">Copia esto como punto de partida para cualquier página nueva</div></div>
-      </div>
-      <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="plain">&lt;!DOCTYPE html&gt;</span>
+      </div>      <p style=\"font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px\">Esta es la estructura mínima que necesita toda página web: la declaración DOCTYPE (qué tipo de documento es), el idioma establecido a español, las metaetiquetas obligatorias, Bootstrap importado, y tu contenido en el body. Simplemente copia esto y reemplaza \"Mi Página\" y el contenido.</p>      <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="plain">&lt;!DOCTYPE html&gt;</span>
 <span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="val">"es"</span><span class="tag">&gt;</span>
 <span class="tag">&lt;head&gt;</span>
   <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span><span class="tag">&gt;</span>
@@ -475,23 +152,25 @@
         <div class="card-icon icon-blue">📦</div>
         <div><div class="card-title">El container: el contenedor de todo</div><div class="card-desc">Todo tu contenido debe ir dentro de un container</div></div>
       </div>
-      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px">El <code style="color:var(--cyan);font-family:var(--font-mono);font-size:12px">container</code> es una caja que centra tu contenido y le agrega márgenes. Piénsalo como la "hoja" donde escribes.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px">El <code style="color:var(--cyan);font-family:var(--font-mono);font-size:12px">container</code> es una caja invisible que centra tu contenido y le agrega márgenes a los lados (solo en pantallas grandes). Piénsalo como la "hoja" o "papel" sobre el cual escribes todo tu contenido. Sin container, tu texto se vería pegado a los bordes de la pantalla. El container automáticamente se adapta: en celulares es ancho completo, en tablets es más pequeño, y en computadoras se centra.</p>
 
-      <div class="section-label">Tipo A — container con márgenes</div>
+      <div class="section-label">Tipo A — container con márgenes (recomendado)</div>
       <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"container"</span><span class="tag">&gt;</span>
-  <span class="cmt">&lt;!-- Contenido centrado, con márgenes laterales --&gt;</span>
+  <span class="cmt">&lt;!-- Contenido centrado, con márgenes laterales bonitos --&gt;</span>
+  <span class="cmt">&lt;!-- Perfecto para artículos, servicios, y contenido normal --&gt;</span>
   <span class="plain">Mi contenido aquí</span>
 <span class="tag">&lt;/div&gt;</span></pre>
 
       <div class="section-label">Tipo B — container-fluid (ancho completo)</div>
       <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"container-fluid"</span><span class="tag">&gt;</span>
   <span class="cmt">&lt;!-- Ocupa el 100% del ancho de la pantalla --&gt;</span>
-  <span class="plain">Mi contenido de ancho total</span>
+  <span class="cmt">&lt;!-- Ideal para barras de navegación, heroes, y secciones que van de borde a borde --&gt;</span>
+  <span class="plain">Contenido de ancho total sin márgenes laterales</span>
 <span class="tag">&lt;/div&gt;</span></pre>
 
       <div class="callout callout-blue">
         <span class="callout-icon">💡</span>
-        <span>Usa <code style="font-family:var(--font-mono);font-size:12px;color:var(--cyan)">container</code> para páginas normales y <code style="font-family:var(--font-mono);font-size:12px;color:var(--cyan)">container-fluid</code> para barras de navegación y pies de página que van de extremo a extremo.</span>
+        <span>Regla práctica: usa <code style="font-family:var(--font-mono);font-size:12px;color:var(--cyan)">container</code> para el 90% de tu página. Solo usa <code style="font-family:var(--font-mono);font-size:12px;color:var(--cyan)">container-fluid</code> para elementos que necesitan llegar hasta el borde (como la barra de navegación). Container hace tu página más legible porque el texto no ocupa ancho completo.
       </div>
     </div>
 
@@ -505,7 +184,7 @@
         <div class="card-icon icon-purple">⬛</div>
         <div><div class="card-title">El sistema de columnas (Grid)</div><div class="card-desc">Bootstrap divide la pantalla en 12 columnas invisibles</div></div>
       </div>
-      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px">Piénsalo como una <strong style="color:var(--text)">regla dividida en 12 partes iguales</strong>. Tú decides cuántas partes ocupa cada elemento. La regla es simple: los números dentro de una fila deben sumar 12.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px">Piénsalo como una <strong style="color:var(--text)">regla dividida en 12 partes iguales</strong>. Tú decides cuántas partes ocupa cada elemento. La regla es simple: los números dentro de una fila deben sumar 12. Por ejemplo, si quieres 3 columnas iguales, usas <code style="color:var(--cyan);font-family:var(--font-mono);font-size:12px">col-4</code> <code style="color:var(--cyan);font-family:var(--font-mono);font-size:12px">col-4</code> <code style="color:var(--cyan);font-family:var(--font-mono);font-size:12px">col-4</code> (4+4+4=12). Si quieres una barra lateral y contenido principal, usas <code style="color:var(--cyan);font-family:var(--font-mono);font-size:12px">col-3</code> para la barra y <code style="color:var(--cyan);font-family:var(--font-mono);font-size:12px">col-9</code> para el contenido (3+9=12).</p>
 
       <div class="section-label">Vista previa de columnas</div>
       <div class="grid-demo">
@@ -545,7 +224,7 @@
         <div class="card-icon icon-pink">📱</div>
         <div><div class="card-title">Responsive: se adapta al tamaño de pantalla</div><div class="card-desc">Diferentes columnas según el dispositivo, sin JS</div></div>
       </div>
-      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px">Agrega un prefijo al nombre de la columna para indicar a partir de qué tamaño aplica ese ancho:</p>
+      <p style=\"font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px\">Agrega un prefijo al nombre de la columna para indicar a partir de qué tamaño de pantalla aplica ese ancho. Esto se llama <strong style=\"color:var(--text)\">responsive design</strong>. Sin estos prefijos, tus columnas se romperían en celulares. Con ellos, tu página se adapta automáticamente: en celular puede ser una columna, en tablet dos columnas, y en computadora tres columnas, todo con una sola línea de código.</p>
       <table class="ref-table">
         <tr><th>Clase</th><th>Cuándo aplica</th></tr>
         <tr><td>col-12</td><td>Celular: siempre (100% del ancho)</td></tr>
@@ -570,8 +249,7 @@
       <div class="card-header">
         <div class="card-icon icon-amber">↔️</div>
         <div><div class="card-title">Espacio entre columnas (gutter)</div><div class="card-desc">Agrega separación entre columnas con una clase al row</div></div>
-      </div>
-      <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="cmt">&lt;!-- g-4 agrega espacio entre todas las columnas --&gt;</span>
+      </div>      <p style=\"font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px\">El \"gutter\" es el espacio entre columnas. Por defecto hay poco espacio, pero puedes controlarlo con clases <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">g-1</code> a <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">g-5</code> en el row. <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">g-4</code> es el más común y recomendado para dar un espaciado profesional.</p>      <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="cmt">&lt;!-- g-4 agrega espacio entre todas las columnas --&gt;</span>
 <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"row g-4"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"col-md-6"</span><span class="tag">&gt;</span><span class="plain">Columna 1</span><span class="tag">&lt;/div&gt;</span>
   <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"col-md-6"</span><span class="tag">&gt;</span><span class="plain">Columna 2</span><span class="tag">&lt;/div&gt;</span>
@@ -588,13 +266,14 @@
         <div class="card-icon icon-blue">🔘</div>
         <div><div class="card-title">Botones</div><div class="card-desc">Diferentes estilos con solo cambiar una clase</div></div>
       </div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px">Los botones son elementos interactivos que comunican acciones. Bootstrap proporciona 6 colores diferentes, cada uno con significado: azul para acciones normales, verde para éxito, rojo para peligro, amarillo para advertencias, oscuro para fondo, y versiones con borde (outline) para acciones secundarias.</p>
       <div class="preview">
-        <div class="demo-btn demo-btn-primary">btn-primary</div>
-        <div class="demo-btn demo-btn-success">btn-success</div>
-        <div class="demo-btn demo-btn-danger">btn-danger</div>
-        <div class="demo-btn demo-btn-warn">btn-warning</div>
-        <div class="demo-btn demo-btn-dark">btn-dark</div>
-        <div class="demo-btn demo-btn-outline">btn-outline-primary</div>
+        <div class="demo-btn demo-btn-primary">btn-primary (acción principal)</div>
+        <div class="demo-btn demo-btn-success">btn-success (completado)</div>
+        <div class="demo-btn demo-btn-danger">btn-danger (eliminar)</div>
+        <div class="demo-btn demo-btn-warn">btn-warning (atención)</div>
+        <div class="demo-btn demo-btn-dark">btn-dark (secundario)</div>
+        <div class="demo-btn demo-btn-outline">btn-outline-primary (borde)</div>
       </div>
       <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-primary"</span><span class="tag">&gt;</span><span class="plain">Enviar</span><span class="tag">&lt;/button&gt;</span>
 <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"btn btn-success"</span><span class="tag">&gt;</span><span class="plain">Guardar</span><span class="tag">&lt;/button&gt;</span>
@@ -613,11 +292,12 @@
         <div class="card-icon icon-amber">⚠️</div>
         <div><div class="card-title">Alertas</div><div class="card-desc">Mensajes con color según el tipo de información</div></div>
       </div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px">Las alertas son mensajes que comunican información importante al usuario. Cada color tiene un significado: azul para información, verde para éxito, amarillo para advertencias, y rojo para errores. Sirven para dar retroalimentación sobre acciones del usuario.</p>
       <div class="preview">
-        <div class="demo-alert da-info">ℹ️ Esto es un mensaje informativo.</div>
-        <div class="demo-alert da-success">✅ La operación fue exitosa.</div>
-        <div class="demo-alert da-warn">⚠️ Atención, revisa este dato.</div>
-        <div class="demo-alert da-danger">❌ Ocurrió un error inesperado.</div>
+        <div class="demo-alert da-info">ℹ️ Esto es un mensaje informativo (para datos útiles).</div>
+        <div class="demo-alert da-success">✅ La operación fue exitosa (formulario enviado).</div>
+        <div class="demo-alert da-warn">⚠️ Atención, revisa este dato (completar campos).</div>
+        <div class="demo-alert da-danger">❌ Ocurrió un error inesperado (intenta de nuevo).</div>
       </div>
       <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"alert alert-info"</span><span class="tag">&gt;</span><span class="plain">Información</span><span class="tag">&lt;/div&gt;</span>
 <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"alert alert-success"</span><span class="tag">&gt;</span><span class="plain">Éxito</span><span class="tag">&lt;/div&gt;</span>
@@ -629,8 +309,7 @@
       <div class="card-header">
         <div class="card-icon icon-cyan">🃏</div>
         <div><div class="card-title">Cards (tarjetas)</div><div class="card-desc">Contenedores elegantes para mostrar información agrupada</div></div>
-      </div>
-      <div class="preview">
+      </div>      <p style=\"font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px\">Las tarjetas son componentes visuales que agrupan información relacionada de forma elegante. Cada tarjeta es como una \"nota pegada\" en tu página. Perfecto para portfolios, productos, servicios, testimonios, o cualquier contenido que quieras destacar. Las tarjetas pueden incluir imágenes, títulos, descripciones y botones.</p>      <div class="preview">
         <div class="demo-card">
           <h5>Título de la tarjeta</h5>
           <p>Esta es la descripción del contenido dentro de la tarjeta. Puede incluir texto, imágenes y botones.</p>
@@ -651,8 +330,7 @@
       <div class="card-header">
         <div class="card-icon icon-green">📝</div>
         <div><div class="card-title">Formularios</div><div class="card-desc">Campos de texto, selects y checkboxes con estilo moderno</div></div>
-      </div>
-      <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="cmt">&lt;!-- Campo de texto --&gt;</span>
+      </div>      <p style=\"font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px\">Los formularios son la forma de recopilar información de los usuarios. Bootstrap proporciona estilos bonitos para entrada de texto, emails, áreas de texto, opciones múltiples (checkboxes), botones de radio, y más. Siempre usa <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">form-label</code> para las etiquetas y <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">form-control</code> para los campos. La clase <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">mb-3</code> agrega espacio entre los campos.</p>      <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="cmt">&lt;!-- Campo de texto --&gt;</span>
 <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"mb-3"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;label</span> <span class="attr">class</span>=<span class="val">"form-label"</span><span class="tag">&gt;</span><span class="plain">Tu nombre</span><span class="tag">&lt;/label&gt;</span>
   <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">class</span>=<span class="val">"form-control"</span> <span class="attr">placeholder</span>=<span class="val">"Ej: Ana García"</span><span class="tag">&gt;</span>
@@ -692,8 +370,7 @@
       <div class="card-header">
         <div class="card-icon icon-orange">🧭</div>
         <div><div class="card-title">Navbar (barra de navegación)</div><div class="card-desc">Menú superior que colapsa en un ícono hamburguesa en celulares</div></div>
-      </div>
-      <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="tag">&lt;nav</span> <span class="attr">class</span>=<span class="val">"navbar navbar-expand-lg navbar-dark bg-dark"</span><span class="tag">&gt;</span>
+      </div>      <p style=\"font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px\">La barra de navegación es lo primero que ven los usuarios. Bootstrap incluye una navbar responsiva que se adapta automáticamente: en computadora muestra todos los links horizontales, en celular se colapsa en un menú hamburguesa. Es interactiva gracias al JavaScript que incluimos. Usa <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">navbar-brand</code> para tu logo o nombre del sitio.</p>      <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="tag">&lt;nav</span> <span class="attr">class</span>=<span class="val">"navbar navbar-expand-lg navbar-dark bg-dark"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"container"</span><span class="tag">&gt;</span>
 
     <span class="cmt">&lt;!-- Nombre/logo del sitio --&gt;</span>
@@ -728,8 +405,7 @@
       <div class="card-header">
         <div class="card-icon icon-purple">📊</div>
         <div><div class="card-title">Tablas</div><div class="card-desc">Tablas con estilos limpios y rayadas al instante</div></div>
-      </div>
-      <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="tag">&lt;table</span> <span class="attr">class</span>=<span class="val">"table table-striped table-hover"</span><span class="tag">&gt;</span>
+      </div>      <p style=\"font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px\">Las tablas son perfectas para mostrar datos organizados. Bootstrap automáticamente agrega bordes, relleno, y colores alternados en las filas (rayadas) para que sean fáciles de leer. <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">table</code> es la clase base, <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">table-striped</code> agrega rayadas, y <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">table-hover</code> hace que las filas cambien de color al pasar el cursor.</p>      <pre><button class="copy-btn" onclick="copyCode(this)">copiar</button><span class="tag">&lt;table</span> <span class="attr">class</span>=<span class="val">"table table-striped table-hover"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;thead</span> <span class="attr">class</span>=<span class="val">"table-dark"</span><span class="tag">&gt;</span>
     <span class="tag">&lt;tr&gt;</span>
       <span class="tag">&lt;th&gt;</span><span class="plain">Nombre</span><span class="tag">&lt;/th&gt;</span>
@@ -762,7 +438,7 @@
         <div class="card-icon icon-cyan">📐</div>
         <div><div class="card-title">Flexbox en Bootstrap</div><div class="card-desc">Para alinear y distribuir elementos sin escribir CSS propio</div></div>
       </div>
-      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px">Flexbox es la forma moderna de controlar la posición de los elementos. Con Bootstrap solo necesitas agregar clases, no código CSS.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px">Flexbox es la forma moderna de controlar la posición de los elementos. Sin Flexbox, alinear cosas era complicado. Con Bootstrap solo necesitas agregar clases, no código CSS. Flexbox es especialmente útil para: centrar cosas perfectamente, distribuir espacio entre elementos, hacer que componentes se adapten automáticamente, y crear menús y barras de herramientas bonitas.</p>
 
       <div class="section-label">Centrar horizontalmente</div>
       <div class="flex-demo" style="justify-content:center"><div class="fi">A</div><div class="fi">B</div><div class="fi">C</div></div>
@@ -814,7 +490,7 @@
         <div class="card-icon icon-amber">↕️</div>
         <div><div class="card-title">Espaciado: margin y padding</div><div class="card-desc">Controla el espacio exterior e interior sin escribir CSS</div></div>
       </div>
-      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:12px">La fórmula es: <code style="color:var(--pink);font-family:var(--font-mono);font-size:13px">propiedad + lado + tamaño</code></p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:12px">El espaciado es crucial para que tu página se vea profesional. <strong style="color:var(--text)">Margin</strong> es el espacio <strong style="color:var(--text)">exterior</strong> (afuera de la caja) y <strong style="color:var(--text)">padding</strong> es el espacio <strong style="color:var(--text)">interior</strong> (adentro de la caja). La fórmula es: <code style="color:var(--pink);font-family:var(--font-mono);font-size:13px">propiedad + lado + tamaño</code>. Ejemplo: <code style="color:var(--cyan);font-family:var(--font-mono);font-size:12px">mt-3</code> = margin-top (arriba) tamaño 3.</p>
       <table class="ref-table">
         <tr><th>Clase</th><th>Qué hace</th></tr>
         <tr><td>m-3</td><td>margin en todos los lados (tamaño 3)</td></tr>
@@ -840,8 +516,7 @@
       <div class="card-header">
         <div class="card-icon icon-blue">🔤</div>
         <div><div class="card-title">Tipografía y texto</div><div class="card-desc">Clases para controlar fuentes, tamaños y alineación</div></div>
-      </div>
-      <table class="ref-table">
+      </div>      <p style=\"font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px\">Bootstrap proporciona clases para cambiar cómo se ve el texto sin escribir CSS. Puedes centrar, alinear a derecha, hacer negrita, itálica, cambiar tamaños (de muy pequeño a muy grande), y cambiar colores. Es especialmente útil para títulos, subtítulos, textos muted (apagados), y destacar información importante con colores.</p>      <table class="ref-table">
         <tr><th>Clase</th><th>Qué hace</th></tr>
         <tr><td>text-center</td><td>Centra el texto</td></tr>
         <tr><td>text-start</td><td>Alinea el texto a la izquierda</td></tr>
@@ -864,8 +539,7 @@
       <div class="card-header">
         <div class="card-icon icon-pink">🎨</div>
         <div><div class="card-title">Colores de fondo</div><div class="card-desc">Aplica color a cualquier elemento con una clase</div></div>
-      </div>
-      <div class="swatches">
+      </div>      <p style=\"font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px\">Bootstrap tiene 7 colores predefinidos de fondo que puedes aplicar a cualquier elemento. Cada color tiene un propósito visual: azul para primario, verde para éxito, rojo para peligro, amarillo para advertencia, cian para información, blanco claro para fondos neutros, y oscuro para contraste. Combinados con texto blanco o negro, se ven profesionales.</p>      <div class="swatches">
         <div class="swatch"><div class="swatch-color" style="background:#0d6efd"></div><div class="swatch-label">bg-primary</div></div>
         <div class="swatch"><div class="swatch-color" style="background:#198754"></div><div class="swatch-label">bg-success</div></div>
         <div class="swatch"><div class="swatch-color" style="background:#dc3545"></div><div class="swatch-label">bg-danger</div></div>
@@ -885,8 +559,7 @@
       <div class="card-header">
         <div class="card-icon icon-green">👁️</div>
         <div><div class="card-title">Mostrar y ocultar elementos</div><div class="card-desc">Controla la visibilidad según el dispositivo</div></div>
-      </div>
-      <table class="ref-table">
+      </div>      <p style=\"font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px\">Usa estas clases para mostrar o ocultar elementos según el tamaño de pantalla. Por ejemplo, puedes mostrar un menú completo en computadora pero ocultarlo en celular, o mostrar un botón especial solo para móviles. <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">d-none</code> esconde cualquier cosa, y <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">d-md-block</code> la muestra solo en tablet en adelante.</p>      <table class="ref-table">
         <tr><th>Clase</th><th>Qué hace</th></tr>
         <tr><td>d-none</td><td>Oculta el elemento en todos los tamaños</td></tr>
         <tr><td>d-block</td><td>Muestra el elemento como bloque</td></tr>
@@ -912,14 +585,15 @@
         <div class="card-icon icon-purple">📏</div>
         <div><div class="card-title">Ancho y alto</div><div class="card-desc">Controla las dimensiones sin CSS</div></div>
       </div>
-      <table class="ref-table">
+      <p style=\"font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px\">Control el tamaño de elementos de forma rápida. <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">w-100</code> es el más común: hace que un botón ocupe el ancho completo del contenedor. <code style=\"color:var(--cyan);font-family:var(--font-mono);font-size:12px\">mw-100</code> es perfecto para imágenes porque nunca crecen más allá de su tamaño original. Estos valores son en porcentajes, así que son flexibles.</p>
+      <table class=\"ref-table\">
         <tr><th>Clase</th><th>Qué hace</th></tr>
-        <tr><td>w-25</td><td>Ancho del 25% del contenedor</td></tr>
-        <tr><td>w-50</td><td>Ancho del 50%</td></tr>
-        <tr><td>w-75</td><td>Ancho del 75%</td></tr>
-        <tr><td>w-100</td><td>Ancho del 100% (ocupa todo)</td></tr>
-        <tr><td>h-100</td><td>Alto del 100% del contenedor</td></tr>
-        <tr><td>mw-100</td><td>Ancho máximo del 100% (útil en imágenes)</td></tr>
+        <tr><td>w-25</td><td>Ancho del 25% del contenedor (un cuarto)</td></tr>
+        <tr><td>w-50</td><td>Ancho del 50% (la mitad)</td></tr>
+        <tr><td>w-75</td><td>Ancho del 75% (tres cuartos)</td></tr>
+        <tr><td>w-100</td><td>Ancho del 100% (ocupa todo el ancho disponible)</td></tr>
+        <tr><td>h-100</td><td>Alto del 100% del contenedor padre</td></tr>
+        <tr><td>mw-100</td><td>Ancho máximo del 100% (ideal para imágenes responsivas)</td></tr>
       </table>
     </div>
 
@@ -935,7 +609,7 @@
       </div>
       <div class="callout callout-green">
         <span class="callout-icon">✅</span>
-        <span>Copia este código completo, pégalo en un archivo con extensión <code style="font-family:var(--font-mono);font-size:12px;color:var(--cyan)">.html</code>, ábrelo en tu navegador y tendrás una página web completa y responsiva funcionando.</span>
+        <span>Este es un ejemplo profesional y completamente funcional. Copia este código completo, pégalo en un archivo con extensión <code style=\"font-family:var(--font-mono);font-size:12px;color:var(--cyan)\">.html</code>, ábrelo en tu navegador y tendrás una página web completa y responsiva funcionando al instante. Es un excelente punto de partida para tu propio sitio web.</span>
       </div>
     </div>
 
@@ -1066,8 +740,7 @@
       <div class="card-header">
         <div class="card-icon icon-green">🗺️</div>
         <div><div class="card-title">Mapa mental: estructura de la página</div><div class="card-desc">Cómo se organiza visualmente el proyecto</div></div>
-      </div>
-      <table class="ref-table">
+      </div>      <p style=\"font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px\">Cada sección del proyecto usa clases Bootstrap específicas para lograr su objetivo visual. Estudia esta tabla para entender cómo Bootstrap resuelve problemas comunes de diseño. La navbar es especial porque necesita expandirse/contraerse, el hero necesita ser llamativo, las tarjetas necesitan espaciado, el formulario necesita estar centrado, y el footer necesita estar al fondo.</p>      <table class="ref-table">
         <tr><th>Bloque</th><th>Clase Bootstrap usada</th></tr>
         <tr><td>Navbar</td><td>navbar navbar-expand-lg navbar-dark bg-dark</td></tr>
         <tr><td>Sección hero</td><td>bg-primary text-white py-5 text-center</td></tr>
