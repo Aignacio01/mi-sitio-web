@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende CSS desde Cero - Guía Completa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HEADER - Encabezado Principal -->
+    <header class="header">
+        <div class="header-content">
+            <h1>📚 Aprende CSS desde Cero</h1>
+            <p class="subtitle">La guía completa y detallada para dominar los estilos web - desde principiante a intermedio</p>
+        </div>
+    </header>
+
+    <!-- NAVIGATION - Barra de Navegación Principal -->
+    <nav class="navbar">
+        <div class="nav-wrapper">
+            <ul class="nav-list">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#conceptos">Conceptos</a></li>
+                <li><a href="#selectores">Selectores</a></li>
+                <li><a href="#unidades">Unidades</a></li>
+                <li><a href="#propiedades">Propiedades</a></li>
+                <li><a href="#posicionamiento">Posicionamiento</a></li>
+                <li><a href="#flexbox">Flexbox</a></li>
+                <li><a href="#responsive">Responsive</a></li>
+                <li><a href="#ejemplos">Ejemplos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR - Tabla de Contenidos -->
+    <aside class="sidebar">
+        <div class="toc-box">
+            <h3>📑 Tabla de Contenidos</h3>
+            <ul class="toc-list">
+                <li><a href="#inicio">¿Qué es CSS?</a></li>
+                <li><a href="#conceptos">Conceptos Básicos</a></li>
+                <li><a href="#selectores">Selectores CSS</a></li>
+                <li><a href="#unidades">Unidades de Medida</a></li>
+                <li><a href="#propiedades">Propiedades Esenciales</a></li>
+                <li><a href="#modelo-caja">Box Model</a></li>
+                <li><a href="#posicionamiento">Posicionamiento</a></li>
+                <li><a href="#flexbox">Flexbox</a></li>
+                <li><a href="#pseudo">Pseudo-clases y Pseudo-elementos</a></li>
+                <li><a href="#responsive">Diseño Responsivo</a></li>
+                <li><a href="#animaciones">Animaciones</a></li>
+                <li><a href="#buenas-practicas">Buenas Prácticas</a></li>
+                <li><a href="#ejemplos">Ejemplos Prácticos</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- MAIN - Contenido Principal -->
+    <main class="container">
+        <!-- Sección Inicio -->
+        <section id="inicio" class="section welcome">
+            <div class="section-content">
+                <h2>¿Qué es CSS?</h2>
+                <p class="intro-text">
+                    <strong>CSS</strong> (Cascading Style Sheets, u "Hojas de Estilo en Cascada") es el lenguaje de programación 
+                    que usamos para darle <strong>estilo, color, tamaño y diseño</strong> a nuestras páginas web. 
+                    Mientras que <strong>HTML</strong> proporciona la <strong>estructura</strong> del contenido, 
+                    <strong>CSS</strong> proporciona la <strong>presentación visual</strong>.
+                </p>
+                
+                <div class="analogy">
+                    <h3>💡 Una Comparación Útil</h3>
+                    <p>Si una página web fuera una casa:</p>
+                    <ul>
+                        <li><strong>HTML</strong> = Los muros, el techo, las puertas (estructura)</li>
+                        <li><strong>CSS</strong> = La pintura, los muebles, la decoración (apariencia)</li>
+                        <li><strong>JavaScript</strong> = La electricidad, la fontanería (interactividad)</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>¿Por qué aprender CSS?</h3>
+                    <ul>
+                        <li>🎨 Crear sitios web visualmente atractivos y profesionales</li>
+                        <li>📱 Diseñar páginas responsivas que funcionen en móvil, tablet y desktop</li>
+                        <li>⚡ Controlar completamente la apariencia de tu contenido</li>
+                        <li>💼 Habilidad esencial para cualquier desarrollador web</li>
+                        <li>🎯 Mejorar la experiencia del usuario con diseños intuitivos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Conceptos Básicos -->
+        <section id="conceptos" class="section">
+            <h2>Conceptos Básicos Fundamentales</h2>
+            
+            <div class="concept">
+                <h3>1. ¿Dónde escribo CSS?</h3>
+                <p>Existen tres formas de agregar CSS a tu página:</p>
+                
+                <div class="method">
+                    <h4>✅ CSS Externo (LO MÁS RECOMENDADO)</h4>
+                    <p>Crear un archivo separado <code>.css</code> y vincularlo en el HTML:</p>
+                    <div class="code-block">
+                        <pre>&lt;!-- En el HEAD del HTML --&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</pre>
+                    </div>
+                    <div class="method-info">
+                        <strong>Ventajas:</strong> Código limpio y organizado, se reutiliza en múltiples páginas, 
+                        se carga más rápido gracias al cache del navegador. Esta es la práctica profesional.
+                    </div>
+                </div>
+
+                <div class="method">
+                    <h4>CSS Interno</h4>
+                    <p>Escribir CSS dentro de la etiqueta <code>&lt;style&gt;</code> en el HTML:</p>
+                    <div class="code-block">
+                        <pre>&lt;style&gt;
+    p {
+        color: blue;
+        font-size: 16px;
+    }
+&lt;/style&gt;</pre>
+                    </div>
+                    <div class="method-info">
+                        <strong>Útil para:</strong> Cambios pequeños o cuando trabajas en una sola página. 
+                        No es ideal para proyectos grandes.
+                    </div>
+                </div>
+
+                <div class="method">
+                    <h4>CSS en Línea (NO RECOMENDADO)</h4>
+                    <p>Agregar estilos directamente al atributo <code>style</code> del elemento:</p>
+                    <div class="code-block">
+                        <pre>&lt;p style="color: blue; font-size: 16px;"&gt;Texto azul&lt;/p&gt;</pre>
+                    </div>
+                    <div class="method-info">
+                        <strong>Desventajas:</strong> Difícil de mantener, no se reutiliza, mezcla HTML con CSS. 
+                        Solo usar en casos excepcionales.
+                    </div>
+                </div>
+            </div>
+
+            <div class="concept">
+                <h3>2. La Estructura de una Regla CSS - LO MÁS IMPORTANTE</h3>
+                <p>Toda la magia de CSS se basa en esta estructura simple pero poderosa:</p>
+                <div class="structure">
+                    <div class="structure-part">
+                        <span class="selector-label">Selector</span>
+                        <code>p</code>
+                        <span class="structure-explanation">¿A qué elementos quiero applicar estilos?</span>
+                    </div>
+                    <div class="structure-part">
+                        <span class="brace">{</span>
+                    </div>
+                    <div class="structure-part">
+                        <span class="property-label">Propiedad</span>
+                        <code>color</code>
+                        <span class="colon">:</span>
+                        <span class="value-label">Valor</span>
+                        <code>blue</code>
+                        <span class="semicolon">;</span>
+                        <span class="structure-explanation">¿Qué cambio quiero hacer?</span>
+                    </div>
+                    <div class="structure-part">
+                        <span class="brace">}</span>
+                    </div>
+                </div>
+                <p class="explanation">
+                    <strong>Traducción en palabras simples:</strong> "A todos los párrafos (<code>p</code>), 
+                    hazles que el color del texto (<code>color</code>) sea azul (<code>blue</code>)"
+                </p>
+            </div>
+
+            <div class="concept">
+                <h3>3. La Cascada y la Herencia en CSS</h3>
+                <p>El nombre completo "Cascading Style Sheets" viene de estos dos conceptos fundamentales:</p>
+                <div class="cascade-info">
+                    <h4>📚 Cascada (Orden y Prioridad de Estilos)</h4>
+                    <p>Si hay conflictos entre reglas CSS, se aplica la regla con MAYOR especificidad. 
+                    Si hay igualdad, gana el último estilo definido. Las prioridades son:</p>
+                    <ol>
+                        <li><strong>Estilos en línea</strong> (en el atributo style) - MAYOR prioridad</li>
+                        <li><strong>IDs</strong> (muy específicos) - Alta prioridad</li>
+                        <li><strong>Clases</strong> (moderatamente específicos) - Prioridad media</li>
+                        <li><strong>Elementos</strong> (generales) - MENOR prioridad</li>
+                    </ol>
+                </div>
+                <div class="cascade-info">
+                    <h4>👨‍👩‍👧 Herencia</h4>
+                    <p>Algunos estilos se heredan automáticamente de elementos padre a elementos hijo. 
+                    Por ejemplo, el color del texto se hereda, pero el borde no:</p>
+                    <div class="code-block">
+                        <pre>body {
+    color: black;  /* Todos los textos serán negros */
+    border: 1px solid red;  /* Solo el body tendrá borde */
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Selectores -->
+        <section id="selectores" class="section">
+            <h2>Tipos de Selectores CSS</h2>
+            <p>Los selectores son la forma de señalar <strong>qué elementos HTML</strong> quieres modificar. 
+            Dominar los selectores es fundamental en CSS:</p>
+
+            <div class="selector-grid">
+                <div class="selector-card">
+                    <h3>1️⃣ Selector de Elemento</h3>
+                    <div class="code-block">
+                        <pre>p {
+    color: purple;
+    font-size: 18px;
+}</pre>
+                    </div>
+                    <p><strong>Selecciona:</strong> Todos los párrafos <code>&lt;p&gt;</code> de la página</p>
+                    <p><strong>Cuándo usar:</strong> Cuando quieres aplicar estilos generales a todos los elementos de un tipo</p>
+                </div>
+
+                <div class="selector-card">
+                    <h3>2️⃣ Selector de Clase</h3>
+                    <div class="code-block">
+                        <pre>.importante {
+    color: red;
+    font-weight: bold;
+}
+
+/* En HTML: */
+&lt;p class="importante"&gt;Texto&lt;/p&gt;</pre>
+                    </div>
+                    <p><strong>Selecciona:</strong> Elementos con <code>class="importante"</code></p>
+                    <p><strong>Cuándo usar:</strong> Cuando quieres estilos reutilizables en múltiples elementos</p>
+                </div>
+
+                <div class="selector-card">
+                    <h3>3️⃣ Selector de ID</h3>
+                    <div class="code-block">
+                        <pre>#titulo {
+    font-size: 2em;
+    color: navy;
+}
+
+/* En HTML: */
+&lt;h1 id="titulo"&gt;Mi Titulo&lt;/h1&gt;</pre>
+                    </div>
+                    <p><strong>Selecciona:</strong> EL (único) elemento con <code>id="titulo"</code></p>
+                    <p><strong>Cuándo usar:</strong> Cuando necesitas estilos para un elemento ÚNICO y específico</p>
+                </div>
+
+                <div class="selector-card">
+                    <h3>4️⃣ Selector Universal</h3>
+                    <div class="code-block">
+                        <pre>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}</pre>
+                    </div>
+                    <p><strong>Selecciona:</strong> TODOS los elementos de la página</p>
+                    <p><strong>Cuándo usar:</strong> Para resetear estilos predeterminados del navegador</p>
+                </div>
+
+                <div class="selector-card">
+                    <h3>5️⃣ Selectores Combinados</h3>
+                    <div class="code-block">
+                        <pre>/* Descendiente (cualquier profundidad) */
+div p { color: blue; }
+
+/* Hijo directo */
+div > p { color: red; }
+
+/* Hermano siguiente */
+h1 + p { margin-top: 0; }
+
+/* Múltiple (OR) */
+h1, h2, h3 { color: green; }</pre>
+                    </div>
+                    <p><strong>Selecciona:</strong> Elementos en relaciones específicas</p>
+                    <p><strong>Cuándo usar:</strong> Cuando necesitas selectores más precisos y específicos</p>
+                </div>
+
+                <div class="selector-card">
+                    <h3>6️⃣ Selectores de Atributo</h3>
+                    <div class="code-block">
+                        <pre>/* Tiene atributo type */
+input[type="text"] { 
+    border: 1px solid blue; 
+}
+
+/* Atributo contiene valor */
+a[href*="google"] { 
+    color: red; 
+}</pre>
+                    </div>
+                    <p><strong>Selecciona:</strong> Elementos por sus atributos HTML</p>
+                    <p><strong>Cuándo usar:</strong> Cuando necesitas segmentar por características específicas</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h3>💡 Guía Rápida de Especificidad</h3>
+                <p>Memoriza esta tabla para entender qué estilo "gana":</p>
+                <div class="specificity-table">
+                    <div class="specificity-row">
+                        <span class="specificity-selector">Elemento (p)</span>
+                        <span class="specificity-level">Baja</span>
+                        <span class="specificity-use">Estilos generales</span>
+                    </div>
+                    <div class="specificity-row">
+                        <span class="specificity-selector">Clase (.clase)</span>
+                        <span class="specificity-level">Media</span>
+                        <span class="specificity-use">Estilos reutilizables</span>
+                    </div>
+                    <div class="specificity-row">
+                        <span class="specificity-selector">ID (#id)</span>
+                        <span class="specificity-level">Alta</span>
+                        <span class="specificity-use">Elementos únicos</span>
+                    </div>
+                    <div class="specificity-row">
+                        <span class="specificity-selector">Inline (style="")</span>
+                        <span class="specificity-level">Muy Alta</span>
+                        <span class="specificity-use">Evitar usar</span>
+                    </div>
+                </div>
+                <p><strong>Regla de oro:</strong> En igualdad, gana el estilo definido ÚLTIMO</p>
+            </div>
+        </section>
+
+        <!-- Sección: Unidades de Medida -->
+        <section id="unidades" class="section">
+            <h2>Unidades de Medida en CSS</h2>
+            <p>Cuando especificas tamaños en CSS (ancho, alto, fuente, etc.), necesitas indicar la unidad de medida. 
+            Elegir la unidad correcta es importante para crear diseños escalables y responsivos:</p>
+
+            <div class="units-grid">
+                <div class="unit-card">
+                    <h3>📏 Píxeles (px)</h3>
+                    <div class="code-block">
+                        <pre>font-size: 16px;
+width: 300px;
+margin: 10px;</pre>
+                    </div>
+                    <p><strong>¿Qué es?</strong> Unidad absoluta (siempre el mismo tamaño)</p>
+                    <p><strong>Cuándo usar:</strong> Para elementos que no deben cambiar de tamaño, bordes muy finos, detalles pequeños</p>
+                    <p><strong>Ventaja:</strong> Predecible. <strong>Desventaja:</strong> No escala con otros elementos</p>
+                </div>
+
+                <div class="unit-card">
+                    <h3>📐 Porcentaje (%)</h3>
+                    <div class="code-block">
+                        <pre>width: 50%;  /* Mitad del ancho del padre */
+height: 100%;  /* 100% del alto del padre */</pre>
+                    </div>
+                    <p><strong>¿Qué es?</strong> Unidad relativa (relativa al elemento padre)</p>
+                    <p><strong>Cuándo usar:</strong> Para diseños responsivos y fluidos, anchos de contenedores</p>
+                    <p><strong>Ventaja:</strong> Escalable. <strong>Desventaja:</strong> Depende del contenedor padre</p>
+                </div>
+
+                <div class="unit-card">
+                    <h3>A Relativa al Elemento (em)</h3>
+                    <div class="code-block">
+                        <pre>/* Si el elemento padre es 16px */
+font-size: 1.5em;  /* = 24px */
+margin: 2em;  /* = 32px */</pre>
+                    </div>
+                    <p><strong>¿Qué es?</strong> Relativa al tamaño de fuente del elemento padre</p>
+                    <p><strong>Cuándo usar:</strong> Para escalabilidad dentro de componentes específicos</p>
+                    <p><strong>Ventaja:</strong> Escalable. <strong>Desventaja:</strong> Puede ser confuso con nidificación</p>
+                </div>
+
+                <div class="unit-card">
+                    <h3>👶 Relativa a Root (rem) - ⭐ RECOMENDADO</h3>
+                    <div class="code-block">
+                        <pre>/* Si el html es 16px (por defecto) */
+font-size: 1.5rem;  /* = 24px */
+padding: 3rem;  /* = 48px */</pre>
+                    </div>
+                    <p><strong>¿Qué es?</strong> Relativa al tamaño de fuente del elemento root (html)</p>
+                    <p><strong>Cuándo usar:</strong> RECOMENDADO - Para tamaños y espaciado general de la aplicación</p>
+                    <p><strong>Ventaja:</strong> Consistente y escalable. Gran beneficio para cambiar tamaños globales</p>
+                </div>
+
+                <div class="unit-card">
+                    <h3>📺 Viewport (vw, vh)</h3>
+                    <div class="code-block">
+                        <pre>width: 50vw;   /* 50% del ancho de la ventana visible */
+height: 100vh;  /* 100% del alto de la ventana visible */</pre>
+                    </div>
+                    <p><strong>¿Qué es?</strong> Relativa al tamaño de la ventana visible del navegador</p>
+                    <p><strong>Cuándo usar:</strong> Para secciones hero, elementos pantalla completa</p>
+                    <p><strong>Ventaja:</strong> Perfecto para diseños full-screen</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>🎯 Recomendación: Qué Unidades Usar</h3>
+                <ul>
+                    <li><strong>rem</strong> - Para tamaños de fuente y espaciado general (PREFERIDO)</li>
+                    <li><strong>%</strong> - Para anchos de contenedores en diseños responsivos</li>
+                    <li><strong>px</strong> - Para bordes muy finos, detalles pequeños, propiedades específicas</li>
+                    <li><strong>vw/vh</strong> - Para alturas de secciones completas, elementos full-screen</li>
+                    <li><strong>em</strong> - Rara vez, solo para situaciones especiales</li>
+                </ul>
+            </div>
+        </section>
+        <section id="propiedades" class="section">
+            <h2>Propiedades CSS Esenciales</h2>
+            <p>Aquí están las propiedades CSS más importantes que usarás el 80% del tiempo:</p>
+
+            <div class="properties-grid">
+                <div class="property-card">
+                    <h3>📝 Propiedades de Texto</h3>
+                    <div class="code-block">
+                        <pre>/* Color del texto */
+color: #333;
+
+/* Tamaño de fuente */
+font-size: 16px;
+
+/* Grosor de fuente */
+font-weight: bold;  /* normal, lighter, bold, 100-900 */
+
+/* Alineación */
+text-align: center;
+
+/* Decoración */
+text-decoration: underline;
+
+/* Espaciado entre líneas */
+line-height: 1.6;
+
+/* Familia de fuente */
+font-family: Arial, sans-serif;</pre>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3>🎨 Colores y Fondos</h3>
+                    <div class="code-block">
+                        <pre>/* Color de fondo */
+background-color: #f0f0f0;
+
+/* Imagen de fondo */
+background-image: url('imagen.jpg');
+
+/* Posición del fondo */
+background-position: center;
+
+/* Tamaño del fondo */
+background-size: cover;
+
+/* Transparencia (0-1) */
+opacity: 0.8;
+
+/* Color con transparencia */
+background-color: rgba(255, 0, 0, 0.5);</pre>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3>📦 Caja (Box Model)</h3>
+                    <div class="code-block">
+                        <pre>/* Margen (fuera del borde) */
+margin: 20px;
+margin-top: 10px;
+
+/* Relleno (dentro del borde) */
+padding: 15px;
+padding-left: 20px;
+
+/* Borde */
+border: 2px solid black;
+border-radius: 8px;
+
+/* Dimensiones */
+width: 300px;
+height: 200px;
+max-width: 100%;
+min-height: 50px;</pre>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3>✨ Efectos Visuales</h3>
+                    <div class="code-block">
+                        <pre>/* Sombra (x, y, blur, spread, color) */
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+/* Esquinas redondeadas */
+border-radius: 12px;
+
+/* Transformación */
+transform: rotate(45deg);
+transform: scale(1.1);
+transform: translateX(20px);
+
+/* Transición suave */
+transition: all 0.3s ease;</pre>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modelo-caja" class="box-model-explanation">
+                <h3>🎁 El Modelo de Caja (Box Model) - Concepto Crucial</h3>
+                <p>Entender el modelo de caja es LA CLAVE para dominar CSS. Cada elemento es una caja con estas capas:</p>
+                <div class="box-model-visual">
+                    <div class="margin-demo">
+                        <span>Margin</span>
+                        <div class="border-demo">
+                            <span>Border</span>
+                            <div class="padding-demo">
+                                <span>Padding</span>
+                                <div class="content-demo">
+                                    <span>Contenido</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-model-details">
+                    <div class="detail-item">
+                        <h4>📍 Contenido (Content)</h4>
+                        <p>El texto, imágenes u otros elementos dentro.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>🎁 Relleno (Padding)</h4>
+                        <p>Espacio DENTRO de la caja, entre el contenido y el borde. Usa el color de fondo.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>🖼️ Borde (Border)</h4>
+                        <p>Una línea alrededor de la caja. Define el límite visual del elemento.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>🌍 Margen (Margin)</h4>
+                        <p>Espacio FUERA de la caja, entre el borde y otros elementos. Es transparente.</p>
+                    </div>
+                </div>
+                <div class="example-box">
+                    <h4>Ejemplo Visual:</h4>
+                    <div class="code-block">
+                        <pre>/* Caja con 20px padding, 2px borde, 10px margin */
+.mi-caja {
+    width: 100px;
+    padding: 20px;      /* Espacio dentro */
+    border: 2px solid;
+    margin: 10px;       /* Espacio fuera */
+}</pre>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Sección Posicionamiento -->
+        </section>
+        <section id="posicionamiento" class="section">
+            <h2>Posicionamiento en CSS</h2>
+            <p>El posicionamiento controla dónde se coloca un elemento en la página. Por defecto, todos los elementos usan posicionamiento estático:</p>
+
+            <div class="position-grid">
+                <div class="position-card">
+                    <h3>Static (Estático)</h3>
+                    <div class="code-block">
+                        <pre>position: static;  /* VALOR POR DEFECTO */</pre>
+                    </div>
+                    <p>El elemento sigue el flujo normal del documento. No puedes usar top, left, etc.</p>
+                </div>
+
+                <div class="position-card">
+                    <h3>Relative (Relativo)</h3>
+                    <div class="code-block">
+                        <pre>position: relative;
+top: 10px;
+left: 20px;</pre>
+                    </div>
+                    <p>El elemento se posiciona relativo a su posición normal. Otros elementos NO lo respetan.</p>
+                </div>
+
+                <div class="position-card">
+                    <h3>Absolute (Absoluto)</h3>
+                    <div class="code-block">
+                        <pre>position: absolute;
+top: 50px;
+left: 100px;</pre>
+                    </div>
+                    <p>Posicionado respecto al elemento padre con position relativo/absoluto. Se saca del flujo.</p>
+                </div>
+
+                <div class="position-card">
+                    <h3>Fixed (Fijo)</h3>
+                    <div class="code-block">
+                        <pre>position: fixed;
+top: 0;
+right: 0;</pre>
+                    </div>
+                    <p>Se queda fijo en la ventana, no se mueve al hacer scroll. Útil para headers y menús.</p>
+                </div>
+
+                <div class="position-card">
+                    <h3>Sticky (Pegajoso)</h3>
+                    <div class="code-block">
+                        <pre>position: sticky;
+top: 20px;</pre>
+                    </div>
+                    <p>Mezcla: es relativo hasta que el usuario hace scroll, luego se vuelve fixed.</p>
+                </div>
+
+                <div class="position-card">
+                    <h3>Z-Index (Profundidad)</h3>
+                    <div class="code-block">
+                        <pre>position: relative;
+z-index: 10;  /* Mayor número = encima */
+
+/* Otro elemento */
+z-index: 5;   /* Menor número = debajo */</pre>
+                    </div>
+                    <p>Controla qué elemento aparece "encima" o "debajo" en la página (solo funciona con position).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Flexbox -->
+        <section id="flexbox" class="section">
+            <h2>Flexbox - Distribución Flexible</h2>
+            <p><strong>Flexbox</strong> es una forma moderna y poderosa de distribuir elementos en una página. 
+            Es excelente para menús, tarjetas y layouts complejos:</p>
+
+            <div class="flexbox-explanation">
+                <h3>Conceptos Clave</h3>
+                <div class="concept-grid">
+                    <div class="concept-item">
+                        <h4>Contenedor Flex</h4>
+                        <div class="code-block">
+                            <pre>.contenedor {
+    display: flex;  /* Activa flexbox */
+}</pre>
+                        </div>
+                        <p>El elemento padre que controla a sus hijos usando flexbox.</p>
+                    </div>
+
+                    <div class="concept-item">
+                        <h4>Dirección (Direction)</h4>
+                        <div class="code-block">
+                            <pre>/* Horizontal (por defecto) */
+flex-direction: row;
+
+/* Vertical */
+flex-direction: column;</pre>
+                        </div>
+                        <p>Define si los hijos se organizan en filas (row) o columnas (column).</p>
+                    </div>
+
+                    <div class="concept-item">
+                        <h4>Justificar (Justify)</h4>
+                        <div class="code-block">
+                            <pre>justify-content: center;
+/* flex-start | flex-end | center 
+   space-between | space-around */</pre>
+                        </div>
+                        <p>Alinea los hijos en la dirección principal del flujo.</p>
+                    </div>
+
+                    <div class="concept-item">
+                        <h4>Alinear (Align)</h4>
+                        <div class="code-block">
+                            <pre>align-items: center;
+/* flex-start | flex-end | center 
+   stretch */</pre>
+                        </div>
+                        <p>Alinea los hijos perpendicular a la dirección principal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flexbox-example">
+                <h3>Ejemplo Práctico: Menú Navegación</h3>
+                <div class="code-block">
+                    <pre>.navbar {
+    display: flex;
+    justify-content: space-between;  /* Espacio entre items */
+    align-items: center;  /* Centrado verticalmente */
+    padding: 20px;
+    background-color: #333;
+}
+
+.navbar a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Pseudo-clases -->
+        <section id="pseudo" class="section">
+            <h2>Pseudo-clases y Pseudo-elementos</h2>
+            <p>Formas avanzadas de seleccionar elementos bajo ciertas condiciones:</p>
+
+            <div class="pseudo-grid">
+                <div class="pseudo-card">
+                    <h3>🖱️ Pseudo-clases de Interacción</h3>
+                    <div class="code-block">
+                        <pre>/* Cuando pasas el mouse */
+a:hover {
+    color: red;
+}
+
+/* Cuando clickeas/enfocas */
+button:active {
+    transform: scale(0.95);
+}
+
+/* Input enfocado */
+input:focus {
+    border-color: blue;
+}</pre>
+                    </div>
+                </div>
+
+                <div class="pseudo-card">
+                    <h3>📋 Pseudo-clases de Estructura</h3>
+                    <div class="code-block">
+                        <pre>/* Primer hijo */
+li:first-child {
+    font-weight: bold;
+}
+
+/* Último hijo */
+li:last-child {
+    margin-bottom: 0;
+}
+
+/* Cada 2do elemento */
+li:nth-child(2n) {
+    background: #f0f0f0;
+}</pre>
+                    </div>
+                </div>
+
+                <div class="pseudo-card">
+                    <h3>💎 Pseudo-elementos</h3>
+                    <div class="code-block">
+                        <pre>/* Antes del contenido */
+p::before {
+    content: "→ ";
+    color: blue;
+}
+
+/* Después del contenido */
+p::after {
+    content: " ←";
+    color: blue;
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Responsive Design -->
+        <section id="responsive" class="section">
+            <h2>Diseño Responsivo - Media Queries</h2>
+            <p>Hacer que tu sitio funcione en móvil, tablet y desktop usando <strong>media queries</strong>:</p>
+
+            <div class="responsive-explanation">
+                <h3>¿Qué es Media Query?</h3>
+                <p>Es una regla CSS que dice "aplica estos estilos SOLO si se cumple esta condición"</p>
+
+                <div class="code-block">
+                    <pre>/* Estilos para pantalla pequeña (móvil) */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Estilos para pantalla mediana (tablet) */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+/* Estilos para pantalla grande (desktop) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+}</pre>
+                </div>
+
+                <h3>Breakpoints Comunes</h3>
+                <div class="breakpoints-table">
+                    <div class="breakpoint-item">
+                        <h4>📱 Móvil</h4>
+                        <p><code>max-width: 480px</code></p>
+                        <p>Teléfonos pequeños</p>
+                    </div>
+                    <div class="breakpoint-item">
+                        <h4>📱 Tablet</h4>
+                        <p><code>max-width: 768px</code></p>
+                        <p>Tablets y teléfonos grandes</p>
+                    </div>
+                    <div class="breakpoint-item">
+                        <h4>💻 Desktop</h4>
+                        <p><code>min-width: 1200px</code></p>
+                        <p>Computadoras y pantallas grandes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Animaciones -->
+        <section id="animaciones" class="section">
+            <h2>Animaciones y Transitions</h2>
+            <p>Dale movimiento y vida a tus elementos con animaciones CSS:</p>
+
+            <div class="animation-grid">
+                <div class="animation-card">
+                    <h3>⏱️ Transitions (Transiciones)</h3>
+                    <p>Cambio suave de un estado a otro:</p>
+                    <div class="code-block">
+                        <pre>.boton {
+    background-color: blue;
+    transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+    background-color: red;
+    /* El cambio es animado, no instantáneo */
+}</pre>
+                    </div>
+                </div>
+
+                <div class="animation-card">
+                    <h3>🎬 Animations (Animaciones)</h3>
+                    <p>Animaciones más complejas y definidas:</p>
+                    <div class="code-block">
+                        <pre>@keyframes deslizar {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100px);
+    }
+}
+
+.elemento {
+    animation: deslizar 2s infinite;
+}</pre>
+                    </div>
+                </div>
+
+                <div class="animation-card">
+                    <h3>⚙️ Timing Functions</h3>
+                    <div class="code-block">
+                        <pre>/* Velocidad uniforme */
+transition: all 0.3s linear;
+
+/* Lento-rápido (por defecto) */
+transition: all 0.3s ease;
+
+/* Muy rápido al inicio */
+transition: all 0.3s ease-in;
+
+/* Muy rápido al final */
+transition: all 0.3s ease-out;</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Ejemplos Prácticos -->
+        <section id="ejemplos" class="section">
+            <h2>Ejemplos Prácticos Completos</h2>
+
+            <div class="example">
+                <h3>Ejemplo 1: Botón Elegante con Hover</h3>
+                <div class="example-preview">
+                    <button class="btn-elegant">Haz clic aquí</button>
+                </div>
+                <div class="code-block">
+                    <pre>.btn-elegant {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    
+    /* Transición suave */
+    transition: all 0.3s ease;
+    
+    /* Sombra inicial */
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+}
+
+.btn-elegant:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);  /* Sube 2px */
+    box-shadow: 0 6px 12px rgba(0, 56, 179, 0.4);
+}
+
+.btn-elegant:active {
+    transform: translateY(0);
+}</pre>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>Ejemplo 2: Tarjeta Profesional</h3>
+                <div class="example-preview">
+                    <div class="card-example">
+                        <h4>Título de la Tarjeta</h4>
+                        <p>Esta es una tarjeta elegante con sombra, espaciado y bordes redondeados.</p>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <pre>.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);  /* Efecto de elevación */
+}
+
+.card h4 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}</pre>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>Ejemplo 3: Grid Responsivo</h3>
+                <div class="example-preview grid-example">
+                    <div class="grid-item">📦 Caja 1</div>
+                    <div class="grid-item">📦 Caja 2</div>
+                    <div class="grid-item">📦 Caja 3</div>
+                    <div class="grid-item">📦 Caja 4</div>
+                </div>
+                <div class="code-block">
+                    <pre>.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}</pre>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>Ejemplo 4: Navegación Responsiva</h3>
+                <div class="code-block">
+                    <pre>/* Navegación con Flexbox */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+}
+
+.nav-items {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-items a:hover {
+    color: #007bff;
+}
+
+/* Mobile - Ocultar menú en pantallas pequeñas */
+@media (max-width: 768px) {
+    .nav-items {
+        flex-direction: column;
+        gap: 10px;
+    }
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Buenas Prácticas -->
+        <section class="section final-tips">
+            <h2>📚 Recursos y Próximos Pasos</h2>
+            <div class="resources-grid">
+                <div class="resource">
+                    <h3>📖 Referencia Online</h3>
+                    <ul>
+                        <li><strong>MDN Web Docs</strong> - Documentación oficial y confiable</li>
+                        <li><strong>CSS-Tricks</strong> - Artículos y tutoriales prácticos</li>
+                        <li><strong>W3Schools</strong> - Introducción interactiva a CSS</li>
+                    </ul>
+                </div>
+                <div class="resource">
+                    <h3>🎮 Práctica Interactiva</h3>
+                    <ul>
+                        <li><strong>CodePen</strong> - Compartir y explorar código</li>
+                        <li><strong>Flexbox Froggy</strong> - Aprende Flexbox jugando</li>
+                        <li><strong>Grid Garden</strong> - Aprende Grid jugando</li>
+                    </ul>
+                </div>
+                <div class="resource">
+                    <h3>🎓 Próximos Pasos</h3>
+                    <ul>
+                        <li>Aprende <strong>CSS Grid</strong> avanzado</li>
+                        <li>Estudia <strong>Preprocesadores</strong> (Sass, Less)</li>
+                        <li>Domina <strong>Animaciones</strong> complejas</li>
+                        <li>Aprende <strong>JavaScript</strong> para interactividad</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="final-message">
+                <h3>🎯 Consejos Finales para Dominar CSS</h3>
+                <ul class="tips-list">
+                    <li><strong>✅ Practica constantemente</strong> - La mejor forma de aprender es haciendo proyectos reales</li>
+                    <li><strong>✅ Inspecciona otros sitios</strong> - Abre tu navegador (F12) y analiza cómo otros usan CSS</li>
+                    <li><strong>✅ Lee tu código en voz alta</strong> - Ayuda a entender mejor qué hace</li>
+                    <li><strong>✅ Empieza simple</strong> - Domina lo básico antes de técnicas avanzadas</li>
+                    <li><strong>✅ Repite patrones</strong> - Los mismos estilos en múltiples proyectos hasta que sean naturales</li>
+                    <li><strong>✅ Mantén código limpio</strong> - Comenta, organiza y sigue convenciones</li>
+                    <li><strong>✅ Sé paciente</strong> - CSS parece fácil pero requiere práctica para dominar</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Sección Consejos Finales (antigua) -->
+        <section id="consejos" class="section final-tips" style="display: none;">
+            <div class="tips-container">
+                <div class="tip">
+                    <h3>1. Practica constantemente</h3>
+                    <p>La mejor forma de aprender CSS es creando proyectos pequeños y experimentando.</p>
+                </div>
+                <div class="tip">
+                    <h3>2. Inspecciona otros sitios</h3>
+                    <p>Abre tu navegador, presiona F12 y explora cómo otros sitios utilizan CSS.</p>
+                </div>
+                <div class="tip">
+                    <h3>3. Organiza tu código</h3>
+                    <p>Mantén el CSS limpio y organizado. Usa comentarios para separar secciones.</p>
+                </div>
+                <div class="tip">
+                    <h3>4. Empieza simple</h3>
+                    <p>No abrumes con cosas complicadas. Domina lo básico primero.</p>
+                </div>
+                <div class="tip">
+                    <h3>5. Usa recursos online</h3>
+                    <p>Recursos como MDN, CSS-Tricks y w3schools son excelentes referencias.</p>
+                </div>
+                <div class="tip">
+                    <h3>6. Sé repetitivo</h3>
+                    <p>Repite los mismos estilos en diferentes proyectos hasta que se conviertan en hábito.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 - Aprende CSS desde Cero | Hecho con ❤️ para principiantes</p>
+    </footer>
+</body>
+</html>

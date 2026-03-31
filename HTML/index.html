@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende HTML desde Cero</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">📚 HTML Básico</h1>
+            <p class="subtitle">Una guía completa para principiantes</p>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Sección 1: ¿Qué es HTML? -->
+        <section class="lesson">
+            <div class="lesson-header">
+                <h2>1. ¿Qué es HTML?</h2>
+                <span class="difficulty">Principiante</span>
+            </div>
+            
+            <article class="content">
+                <p class="intro-text">
+                    HTML significa <strong>HyperText Markup Language</strong> (Lenguaje de Marcado de Hipertexto). 
+                    Es el lenguaje que utilizamos para crear las estructuras de las páginas web.
+                </p>
+                
+                <div class="info-box">
+                    <h4>💡 Piénsalo así:</h4>
+                    <p>
+                        Si una página web fuera un edificio, HTML sería la estructura de ladrillo y cemento. 
+                        Establece dónde irán las paredes, puertas y ventanas.
+                    </p>
+                </div>
+
+                <h4>¿Por qué es importante?</h4>
+                <ul>
+                    <li>Es la base de todas las páginas web</li>
+                    <li>Organiza el contenido de forma estructurada</li>
+                    <li>Es muy fácil de aprender</li>
+                    <li>Funciona en todos los navegadores</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Sección 2: Estructura Básica -->
+        <section class="lesson">
+            <div class="lesson-header">
+                <h2>2. Estructura Básica de un Documento HTML</h2>
+                <span class="difficulty">Principiante</span>
+            </div>
+
+            <article class="content">
+                <p>Todo documento HTML tiene la misma estructura. Es como un molde que tienes que seguir:</p>
+
+                <div class="code-box">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;title&gt;Mi Primera Página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;¡Hola Mundo!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+
+                <div class="explanation">
+                    <h4>Desglosemos cada parte:</h4>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div>
+                            <strong>&lt;!DOCTYPE html&gt;</strong> - Le dice al navegador que este es un documento HTML5
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div>
+                            <strong>&lt;html&gt;</strong> - Es la etiqueta raíz que contiene todo el documento
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div>
+                            <strong>&lt;head&gt;</strong> - Aquí van información importante que no se ve en la página (título, estilos, etc.)
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <div>
+                            <strong>&lt;body&gt;</strong> - Aquí va TODO lo que verá el usuario en la página
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Sección 3: Etiquetas Básicas -->
+        <section class="lesson">
+            <div class="lesson-header">
+                <h2>3. Etiquetas HTML Básicas</h2>
+                <span class="difficulty">Principiante</span>
+            </div>
+
+            <article class="content">
+                <p>Las etiquetas son el corazón de HTML. Son instrucciones que le decimos al navegador.</p>
+
+                <div class="info-box">
+                    <h4>📌 Regla de Oro:</h4>
+                    <p>Casi todas las etiquetas vienen en parejas: una de apertura &lt;etiqueta&gt; y una de cierre &lt;/etiqueta&gt;</p>
+                </div>
+
+                <h4>Etiquetas Esenciales:</h4>
+
+                <div class="tag-grid">
+                    <div class="tag-card">
+                        <div class="tag-name">&lt;h1&gt; a &lt;h6&gt;</div>
+                        <p class="tag-desc">Títulos (h1 es el más grande, h6 el más pequeño)</p>
+                        <div class="tag-example">
+                            &lt;h1&gt;Título Principal&lt;/h1&gt;
+                        </div>
+                    </div>
+
+                    <div class="tag-card">
+                        <div class="tag-name">&lt;p&gt;</div>
+                        <p class="tag-desc">Párrafo de texto</p>
+                        <div class="tag-example">
+                            &lt;p&gt;Este es un párrafo&lt;/p&gt;
+                        </div>
+                    </div>
+
+                    <div class="tag-card">
+                        <div class="tag-name">&lt;strong&gt;</div>
+                        <p class="tag-desc">Texto en negrita (importante)</p>
+                        <div class="tag-example">
+                            &lt;strong&gt;Texto importante&lt;/strong&gt;
+                        </div>
+                    </div>
+
+                    <div class="tag-card">
+                        <div class="tag-name">&lt;em&gt;</div>
+                        <p class="tag-desc">Texto en cursiva (énfasis)</p>
+                        <div class="tag-example">
+                            &lt;em&gt;Texto enfatizado&lt;/em&gt;
+                        </div>
+                    </div>
+
+                    <div class="tag-card">
+                        <div class="tag-name">&lt;ul&gt; y &lt;li&gt;</div>
+                        <p class="tag-desc">Listas sin orden</p>
+                        <div class="tag-example">
+                            &lt;ul&gt;&lt;li&gt;Elemento&lt;/li&gt;&lt;/ul&gt;
+                        </div>
+                    </div>
+
+                    <div class="tag-card">
+                        <div class="tag-name">&lt;a&gt;</div>
+                        <p class="tag-desc">Enlaces (hipervínculos)</p>
+                        <div class="tag-example">
+                            &lt;a href="url"&gt;Enlace&lt;/a&gt;
+                        </div>
+                    </div>
+
+                    <div class="tag-card">
+                        <div class="tag-name">&lt;img&gt;</div>
+                        <p class="tag-desc">Imágenes</p>
+                        <div class="tag-example">
+                            &lt;img src="foto.jpg"&gt;
+                        </div>
+                    </div>
+
+                    <div class="tag-card">
+                        <div class="tag-name">&lt;button&gt;</div>
+                        <p class="tag-desc">Botones interactivos</p>
+                        <div class="tag-example">
+                            &lt;button&gt;Haz clic&lt;/button&gt;
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Sección 4: Atributos -->
+        <section class="lesson">
+            <div class="lesson-header">
+                <h2>4. Atributos: Dale Características a las Etiquetas</h2>
+                <span class="difficulty">Principiante</span>
+            </div>
+
+            <article class="content">
+                <p>Los atributos son información adicional que le damos a las etiquetas. Van dentro de la etiqueta de apertura.</p>
+
+                <div class="code-box">
+                    <pre><code>&lt;a href="https://ejemplo.com"&gt;Visita mi sitio&lt;/a&gt;
+&lt;img src="foto.jpg" alt="Mi fotografía"&gt;
+&lt;button class="boton-grande"&gt;Presiona&lt;/button&gt;</code></pre>
+                </div>
+
+                <h4>Atributos Comunes:</h4>
+
+                <table class="attributes-table">
+                    <tr>
+                        <th>Atributo</th>
+                        <th>Se usa en</th>
+                        <th>¿Qué hace?</th>
+                    </tr>
+                    <tr>
+                        <td><strong>href</strong></td>
+                        <td>&lt;a&gt;</td>
+                        <td>Define la URL donde irá el enlace</td>
+                    </tr>
+                    <tr>
+                        <td><strong>src</strong></td>
+                        <td>&lt;img&gt;</td>
+                        <td>Define la ruta de la imagen</td>
+                    </tr>
+                    <tr>
+                        <td><strong>alt</strong></td>
+                        <td>&lt;img&gt;</td>
+                        <td>Texto descriptivo si la imagen no carga</td>
+                    </tr>
+                    <tr>
+                        <td><strong>class</strong></td>
+                        <td>Cualquier etiqueta</td>
+                        <td>Para aplicar estilos CSS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>id</strong></td>
+                        <td>Cualquier etiqueta</td>
+                        <td>Identificador único del elemento</td>
+                    </tr>
+                </table>
+            </article>
+        </section>
+
+        <!-- Sección 5: Formularios -->
+        <section class="lesson">
+            <div class="lesson-header">
+                <h2>5. Formularios: Recopila Información</h2>
+                <span class="difficulty">Intermedio</span>
+            </div>
+
+            <article class="content">
+                <p>Los formularios permiten que los usuarios te envíen información.</p>
+
+                <div class="code-box">
+                    <pre><code>&lt;form&gt;
+    &lt;label&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" placeholder="Tu nombre"&gt;
+    
+    &lt;label&gt;Email:&lt;/label&gt;
+    &lt;input type="email" placeholder="Tu correo"&gt;
+    
+    &lt;label&gt;Mensaje:&lt;/label&gt;
+    &lt;textarea&gt;&lt;/textarea&gt;
+    
+    &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+
+                <div class="info-box">
+                    <h4>🎯 Elementos principales:</h4>
+                    <ul>
+                        <li><strong>&lt;form&gt;</strong> - Contenedor del formulario</li>
+                        <li><strong>&lt;label&gt;</strong> - Etiqueta de texto para cada campo</li>
+                        <li><strong>&lt;input&gt;</strong> - Campo de entrada (texto, email, contraseña, etc.)</li>
+                        <li><strong>&lt;textarea&gt;</strong> - Campo para texto largo</li>
+                        <li><strong>&lt;button type="submit"&gt;</strong> - Botón para enviar</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        <!-- Sección 6: Estructura Semántica -->
+        <section class="lesson">
+            <div class="lesson-header">
+                <h2>6. HTML Semántico: Estructura Inteligente</h2>
+                <span class="difficulty">Intermedio</span>
+            </div>
+
+            <article class="content">
+                <p>El HTML semántico usa etiquetas que describen el significado del contenido, no solo su apariencia.</p>
+
+                <div class="code-box">
+                    <pre><code>&lt;header&gt;
+    &lt;h1&gt;Mi Sitio Web&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+    &lt;a href="/#inicio"&gt;Inicio&lt;/a&gt;
+    &lt;a href="/#about"&gt;Acerca de&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;Mi primer artículo&lt;/h2&gt;
+        &lt;p&gt;Contenido aquí...&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;&copy; 2024 Mi Sitio Web&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                </div>
+
+                <h4>Etiquetas Semánticas Importantes:</h4>
+
+                <div class="semantic-grid">
+                    <div class="semantic-item">
+                        <span class="semantic-tag">&lt;header&gt;</span>
+                        <p>Encabezado de la página o sección</p>
+                    </div>
+                    <div class="semantic-item">
+                        <span class="semantic-tag">&lt;nav&gt;</span>
+                        <p>Navegación principal</p>
+                    </div>
+                    <div class="semantic-item">
+                        <span class="semantic-tag">&lt;main&gt;</span>
+                        <p>Contenido principal de la página</p>
+                    </div>
+                    <div class="semantic-item">
+                        <span class="semantic-tag">&lt;article&gt;</span>
+                        <p>Contenido independiente (como un artículo)</p>
+                    </div>
+                    <div class="semantic-item">
+                        <span class="semantic-tag">&lt;section&gt;</span>
+                        <p>Una sección temática</p>
+                    </div>
+                    <div class="semantic-item">
+                        <span class="semantic-tag">&lt;footer&gt;</span>
+                        <p>Pie de página</p>
+                    </div>
+                </div>
+
+                <div class="info-box" style="margin-top: 2rem;">
+                    <h4>✨ Ventajas:</h4>
+                    <ul>
+                        <li>Mejor para SEO (buscadores entienden mejor tu página)</li>
+                        <li>Más accesible para personas con discapacidades</li>
+                        <li>Código más limpio y fácil de entender</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        <!-- Sección 7: Metodología BEM -->
+        <section class="lesson">
+            <div class="lesson-header">
+                <h2>7. Metodología BEM: Organiza tu CSS</h2>
+                <span class="difficulty">Intermedio</span>
+            </div>
+
+            <article class="content">
+                <p>BEM significa <strong>Block Element Modifier</strong>. Es una forma de nombrar tus clases CSS para que tu código sea más ordenado, reutilizable y fácil de mantener.</p>
+
+                <div class="info-box">
+                    <h4>🎯 Las 3 Partes de BEM:</h4>
+                    <ul>
+                        <li><strong>Block</strong> - Un componente independiente (ej: "botón", "tarjeta")</li>
+                        <li><strong>Element</strong> - Una parte del bloque (ej: "botón__texto", "tarjeta__imagen")</li>
+                        <li><strong>Modifier</strong> - Una variación del bloque (ej: "botón--grande", "tarjeta--destacada")</li>
+                    </ul>
+                </div>
+
+                <h4>Estructura de Nombres BEM:</h4>
+
+                <div class="code-box">
+                    <pre><code>/* BLOCK */
+.button { }
+
+/* ELEMENT (usa doble guion bajo __) */
+.button__text { }
+.button__icon { }
+
+/* MODIFIER (usa doble guion --) */
+.button--large { }
+.button--primary { }
+.button--disabled { }</code></pre>
+                </div>
+
+                <h4>Ejemplo Completo de BEM:</h4>
+
+                <div class="code-box">
+                    <pre><code>/* ===== BLOQUE: TARJETA ===== */
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ELEMENTOS de la tarjeta */
+.card__header {
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.card__title {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+}
+
+.card__content {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.card__button {
+    background: #667eea;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* MODIFICADORES */
+.card--featured {
+    border: 3px solid #667eea;
+    background: linear-gradient(135deg, #f0f4ff, #ffffff);
+}
+
+.card--disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.card__button--secondary {
+    background: #764ba2;
+}</code></pre>
+                </div>
+
+                <h4>Cómo usar BEM en HTML:</h4>
+
+                <div class="code-box">
+                    <pre><code>&lt;div class="card card--featured"&gt;
+    &lt;div class="card__header"&gt;
+        &lt;h2 class="card__title"&gt;Título de la Tarjeta&lt;/h2&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="card__content"&gt;
+        &lt;p&gt;Este es el contenido principal de la tarjeta.&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;button class="card__button card__button--secondary"&gt;
+        Hacer algo
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <div class="bem-example-visual">
+                    <div class="bem-card bem-card--featured">
+                        <div class="bem-card__header">
+                            <h3 class="bem-card__title">Ejemplo Visual</h3>
+                        </div>
+                        <div class="bem-card__content">
+                            <p>Esta es una tarjeta con la metodología BEM. Fíjate en cómo está estructurado el HTML y los nombres de las clases.</p>
+                        </div>
+                        <button class="bem-card__button bem-card__button--primary">Botón Principal</button>
+                        <button class="bem-card__button bem-card__button--secondary">Botón Secundario</button>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4>✨ Ventajas de BEM:</h4>
+                    <ul>
+                        <li><strong>Legibilidad</strong> - Los nombres son claros y descriptivos</li>
+                        <li><strong>Mantenibilidad</strong> - Fácil de modificar sin romper otras cosas</li>
+                        <li><strong>Reutilización</strong> - Componentes que puedes usar en todo tu proyecto</li>
+                        <li><strong>Evita conflictos</strong> - Menos errores por nombres de clases duplicadas</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        <!-- Sección 8: Estructura con Comentarios -->
+        <section class="lesson">
+            <div class="lesson-header">
+                <h2>8. Estructura el HTML con Comentarios</h2>
+                <span class="difficulty">Principiante</span>
+            </div>
+
+            <article class="content">
+                <p>Los comentarios te ayudan a organizar tu código y explicar qué hace cada sección. Son invisibles en el navegador.</p>
+
+                <div class="info-box">
+                    <h4>💡 Sintaxis de Comentarios en HTML:</h4>
+                    <p><strong>&lt;!-- Tu comentario aquí --&gt;</strong></p>
+                </div>
+
+                <h4>Ejemplo de Estructura Bien Comentada:</h4>
+
+                <div class="code-box">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi Proyecto&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- ========== ENCABEZADO ========== --&gt;
+    &lt;header class="header"&gt;
+        &lt;div class="header__container"&gt;
+            &lt;h1 class="header__title"&gt;Mi Sitio&lt;/h1&gt;
+            &lt;p class="header__subtitle"&gt;Bienvenido&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;!-- ========== NAVEGACIÓN ========== --&gt;
+    &lt;nav class="navbar"&gt;
+        &lt;ul class="navbar__list"&gt;
+            &lt;li class="navbar__item"&gt;
+                &lt;a href="#inicio"&gt;Inicio&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="navbar__item"&gt;
+                &lt;a href="#servicios"&gt;Servicios&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class="navbar__item"&gt;
+                &lt;a href="#contacto"&gt;Contacto&lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+
+    &lt;!-- ========== CONTENIDO PRINCIPAL ========== --&gt;
+    &lt;main class="main"&gt;
+
+        &lt;!-- Sección de Introducción --&gt;
+        &lt;section class="intro"&gt;
+            &lt;div class="intro__container"&gt;
+                &lt;h2 class="intro__title"&gt;Sobre Mi Proyecto&lt;/h2&gt;
+                &lt;p class="intro__text"&gt;Aquí va el contenido...&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Sección de Características --&gt;
+        &lt;section class="features"&gt;
+            &lt;h2 class="features__title"&gt;Características&lt;/h2&gt;
+            
+            &lt;!-- Tarjeta de Característica 1 --&gt;
+            &lt;div class="feature-card"&gt;
+                &lt;img src="icono1.svg" alt="Icono" class="feature-card__icon"&gt;
+                &lt;h3 class="feature-card__title"&gt;Rápido&lt;/h3&gt;
+                &lt;p class="feature-card__text"&gt;Descripción...&lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Tarjeta de Característica 2 --&gt;
+            &lt;div class="feature-card"&gt;
+                &lt;img src="icono2.svg" alt="Icono" class="feature-card__icon"&gt;
+                &lt;h3 class="feature-card__title"&gt;Seguro&lt;/h3&gt;
+                &lt;p class="feature-card__text"&gt;Descripción...&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+    &lt;/main&gt;
+
+    &lt;!-- ========== PIE DE PÁGINA ========== --&gt;
+    &lt;footer class="footer"&gt;
+        &lt;div class="footer__container"&gt;
+            &lt;p class="footer__text"&gt;&copy; 2024 Mi Sitio. Todos los derechos reservados.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+
+                <h4>Tipos de Comentarios Útiles:</h4>
+
+                <div class="tag-grid">
+                    <div class="tag-card">
+                        <div class="tag-name">Secciones Principales</div>
+                        <p class="tag-desc">Marca las grandes áreas</p>
+                        <div class="tag-example">
+                            &lt;!-- ===== ENCABEZADO ===== --&gt;
+                        </div>
+                    </div>
+
+                    <div class="tag-card">
+                        <div class="tag-name">Subsecciones</div>
+                        <p class="tag-desc">Grupos dentro de secciones</p>
+                        <div class="tag-example">
+                            &lt;!-- Sección de Características --&gt;
+                        </div>
+                    </div>
+
+                    <div class="tag-card">
+                        <div class="tag-name">Elementos Repetidos</div>
+                        <p class="tag-desc">Cuando se repite un patrón</p>
+                        <div class="tag-example">
+                            &lt;!-- Tarjeta 1 --&gt;
+                        </div>
+                    </div>
+
+                    <div class="tag-card">
+                        <div class="tag-name">Notas Importantes</div>
+                        <p class="tag-desc">Avisos o recordatorios</p>
+                        <div class="tag-example">
+                            &lt;!-- TODO: Agregar validación --&gt;
+                        </div>
+                    </div>
+                </div>
+
+                <h4>Buenas Prácticas:</h4>
+
+                <div class="tips-container">
+                    <div class="tip">
+                        <span class="tip-icon">✅</span>
+                        <div>
+                            <strong>SÍ - Sé Consistente</strong>
+                            <p>Usa siempre el mismo formato para los comentarios (ej: === para separadores grandes).</p>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <span class="tip-icon">✅</span>
+                        <div>
+                            <strong>SÍ - Comenta Lo Complejo</strong>
+                            <p>Explica por qué hiciste algo, no solo qué es. El "qué" ya está en el código.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <span class="tip-icon">❌</span>
+                        <div>
+                            <strong>NO - Comenta Todo</strong>
+                            <p>No comentes código obvio. Demasiados comentarios hacen el código menos legible.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <span class="tip-icon">❌</span>
+                        <div>
+                            <strong>NO - Dejes Comentarios Desactualizados</strong>
+                            <p>Si cambias el código, actualiza también los comentarios.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box success">
+                    <h4>🎯 Estructura Recomendada:</h4>
+                    <p>
+                        Combina <strong>comentarios claros</strong>, <strong>metodología BEM</strong> y <strong>HTML semántico</strong> 
+                        para crear código profesional, mantenible y fácil de entender.
+                    </p>
+                </div>
+            </article>
+        </section>
+
+        <!-- Sección 9: Consejos Finales -->
+        <section class="lesson">
+            <div class="lesson-header">
+                <h2>9. Consejos para Comenzar</h2>
+                <span class="difficulty">Todos</span>
+            </div>
+
+            <article class="content">
+                <div class="tips-container">
+                    <div class="tip">
+                        <span class="tip-icon">1️⃣</span>
+                        <div>
+                            <strong>Comienza simple</strong>
+                            <p>No intentes aprender todo de una vez. Domina las etiquetas básicas primero.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <span class="tip-icon">2️⃣</span>
+                        <div>
+                            <strong>Practica escribiendo código</strong>
+                            <p>Crea pequeños proyectos mientras aprendes. La práctica es la mejor maestra.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <span class="tip-icon">3️⃣</span>
+                        <div>
+                            <strong>Usa un buen editor</strong>
+                            <p>Descarga VS Code o un editor similar. Te ayudará con sugerencias mientras escribes.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <span class="tip-icon">4️⃣</span>
+                        <div>
+                            <strong>Aprende CSS después</strong>
+                            <p>Una vez domines HTML, aprende CSS para darle estilos a tus páginas.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <span class="tip-icon">5️⃣</span>
+                        <div>
+                            <strong>Consulta documentación</strong>
+                            <p>MDN Web Docs (developer.mozilla.org) es tu mejor amigo. Tiene todo documentado.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <span class="tip-icon">6️⃣</span>
+                        <div>
+                            <strong>No tengas miedo de experimentar</strong>
+                            <p>Cambia cosas, prueba, rompe cosas. Así es como se aprende de verdad.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Ejemplo Práctico -->
+        <section class="lesson lesson-practical">
+            <div class="lesson-header">
+                <h2>🎨 Ejemplo Práctico: Tu Primera Página</h2>
+            </div>
+
+            <article class="content">
+                <p>Aquí te muestro un ejemplo completo de una página simple pero bien estructurada:</p>
+
+                <div class="code-box">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi Primera Página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Bienvenido a mi página&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;a href="#"&gt;Inicio&lt;/a&gt;
+        &lt;a href="#"&gt;Servicios&lt;/a&gt;
+        &lt;a href="#"&gt;Contacto&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+        &lt;section&gt;
+            &lt;h2&gt;Sobre mí&lt;/h2&gt;
+            &lt;p&gt;Hola, soy alguien aprendiendo HTML. 
+              👋 Es divertido y relativamente fácil.&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;section&gt;
+            &lt;h2&gt;Habilidades&lt;/h2&gt;
+            &lt;ul&gt;
+                &lt;li&gt;HTML básico&lt;/li&gt;
+                &lt;li&gt;Aprendiendo CSS&lt;/li&gt;
+                &lt;li&gt;Próximo: JavaScript&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Hecho con &lt;strong&gt;amor&lt;/strong&gt; y 
+           &lt;strong&gt;HTML&lt;/strong&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+
+                <div class="info-box success">
+                    <h4>✅ Próximos Pasos:</h4>
+                    <p>
+                        Copia este código en un archivo llamado <strong>index.html</strong>, 
+                        ábrelo en tu navegador y verás tu primera página web. 
+                        ¡Luego, intenta modificarla y añadir más contenido!
+                    </p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+            <p>💻 Hecho para principiantes que desean aprender HTML</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">
+                Recuerda: Todos fuimos principiantes en algún momento. ¡Sigue adelante! 🚀
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

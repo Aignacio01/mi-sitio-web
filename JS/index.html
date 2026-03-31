@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprender JavaScript desde Cero</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">JavaScript 101</h1>
+            <p class="tagline">Tu guía completa para aprender JavaScript desde cero</p>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#intro">Introducción</a></li>
+                <li><a href="#basicos">Básicos</a></li>
+                <li><a href="#variables">Variables</a></li>
+                <li><a href="#funciones">Funciones</a></li>
+                <li><a href="#dom">DOM</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- INTRODUCCIÓN -->
+        <section id="intro" class="section">
+            <h2>¿Qué es JavaScript?</h2>
+            <p>
+                <strong>JavaScript (JS)</strong> es un lenguaje de programación que ejecuta las computadoras. Fue creado en 1995 para hacer las páginas web interactivas. Hoy en día, es el lenguaje más importante de la web.
+            </p>
+            
+            <h3>¿Por qué aprender JavaScript?</h3>
+            <ul class="list">
+                <li><strong>Web:</strong> Puedes crear sitios web interactivos</li>
+                <li><strong>Apps:</strong> Desarrollar aplicaciones móviles y de escritorio</li>
+                <li><strong>Demanda:</strong> Es uno de los lenguajes más solicitados en el mercado</li>
+                <li><strong>Comunidad:</strong> Millones de programadores usando JavaScript</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>📌 Dato importante</h4>
+                <p>JavaScript se ejecuta en tu navegador (Chrome, Firefox, Safari, etc.). No necesitas instalar nada especial para empezar a aprender.</p>
+            </div>
+        </section>
+
+        <!-- ANTES DE EMPEZAR -->
+        <section class="section">
+            <h2>Antes de Empezar</h2>
+            <p>Solo necesitas:</p>
+            <ol class="list">
+                <li>Un navegador web (ya tienes uno)</li>
+                <li>Un editor de texto (Notepad, VS Code, etc.)</li>
+                <li>Disposición a aprender</li>
+            </ol>
+
+            <h3>¿Cómo ejecutar JavaScript?</h3>
+            <p>Existen 3 formas principales:</p>
+
+            <div class="code-example">
+                <h4>1. En la consola del navegador</h4>
+                <p class="code-desc">Presiona F12 en tu navegador, ve a "Console" y escribe código directamente.</p>
+            </div>
+
+            <div class="code-example">
+                <h4>2. En un archivo HTML</h4>
+                <pre>&lt;script&gt;
+    console.log("¡Hola JavaScript!");
+&lt;/script&gt;</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>3. En un archivo .js separado</h4>
+                <pre>&lt;script src="archivo.js"&gt;&lt;/script&gt;</pre>
+            </div>
+        </section>
+
+        <!-- BÁSICOS -->
+        <section id="basicos" class="section">
+            <h2>Los Conceptos Básicos</h2>
+
+            <h3>Declaraciones y Expresiones</h3>
+            <p>Una <strong>declaración</strong> es una instrucción que le dices al navegador que haga algo.</p>
+
+            <div class="code-example">
+                <h4>Ejemplo: Mostrar un mensaje</h4>
+                <pre>console.log("Hola, mundo!");</pre>
+                <p class="code-result">Resultado en la consola: Hola, mundo!</p>
+            </div>
+
+            <div class="info-box">
+                <h4>💡 Explicación</h4>
+                <p><code>console.log()</code> es una función que muestra mensajes en la consola. Es perfecta para aprender y depurar código.</p>
+            </div>
+
+            <h3>Comentarios</h3>
+            <p>Los comentarios son notas que escribes para ti mismo. JavaScript los ignora.</p>
+
+            <div class="code-example">
+                <h4>Tipos de comentarios</h4>
+                <pre>// Esto es un comentario de una línea
+
+/* Esto es un comentario
+   de múltiples líneas */</pre>
+            </div>
+        </section>
+
+        <!-- VARIABLES -->
+        <section id="variables" class="section">
+            <h2>Variables: Guardando Datos</h2>
+
+            <p>
+                Una <strong>variable</strong> es como una caja donde guardas información. Puedes darle un nombre y acceder a ella cuando la necesites.
+            </p>
+
+            <h3>¿Por qué necesitamos variables?</h3>
+            <p>Imagina que quieres guardar el nombre de una persona y luego usarlo varias veces. Sin variables, tendrías que escribir el nombre cada vez.</p>
+
+            <h3>Tipos de variables: var, let y const</h3>
+
+            <div class="code-example">
+                <h4>1. var (antiguo, no recomendado)</h4>
+                <pre>var nombre = "Juan";
+console.log(nombre); // Juan</pre>
+                <p class="code-desc">Funciona, pero es mejor usar let o const.</p>
+            </div>
+
+            <div class="code-example">
+                <h4>2. let (recomendado para valores que cambian)</h4>
+                <pre>let edad = 25;
+edad = 26; // Puedo cambiar el valor
+console.log(edad); // 26</pre>
+                <p class="code-desc">let permite cambiar el valor después de crearlo.</p>
+            </div>
+
+            <div class="code-example">
+                <h4>3. const (recomendado para valores que no cambian)</h4>
+                <pre>const pi = 3.14159;
+// pi = 3.14; // Esto daría error
+console.log(pi); // 3.14159</pre>
+                <p class="code-desc">const no permite cambiar el valor. Úsalo por defecto.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>✅ Regla de oro</h4>
+                <p>Usa <strong>const</strong> por defecto. Si necesitas cambiar el valor, usa <strong>let</strong>. Evita <strong>var</strong>.</p>
+            </div>
+
+            <h3>Tipos de Datos</h3>
+
+            <div class="code-example">
+                <h4>String (texto)</h4>
+                <pre>const nombre = "Diego";
+const saludo = 'Hola'; // También funciona con comillas simples
+console.log(nombre); // Diego</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Number (número)</h4>
+                <pre>const edad = 30;
+const precio = 19.99;
+const negativo = -5;
+console.log(edad + precio); // 49.99</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Boolean (verdadero o falso)</h4>
+                <pre>const esMayorDeEdad = true;
+const tieneAuto = false;
+console.log(esMayorDeEdad); // true</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Array (lista de elementos)</h4>
+                <pre>const frutas = ["manzana", "plátano", "naranja"];
+console.log(frutas[0]); // manzana (primer elemento)
+console.log(frutas.length); // 3 (cantidad de elementos)</pre>
+                <p class="code-desc">Los arrays empiezan a contar desde 0, no desde 1.</p>
+            </div>
+
+            <div class="code-example">
+                <h4>Object (colección de propiedades)</h4>
+                <pre>const persona = {
+    nombre: "Carlos",
+    edad: 28,
+    ciudad: "Madrid"
+};
+console.log(persona.nombre); // Carlos
+console.log(persona["edad"]); // 28</pre>
+            </div>
+
+            <div class="info-box">
+                <h4>📌 Accediendo a propiedades de objetos</h4>
+                <p>Hay dos formas: <code>objeto.propiedad</code> o <code>objeto["propiedad"]</code></p>
+            </div>
+
+            <h3>Operadores Básicos</h3>
+
+            <div class="code-example">
+                <h4>Matemáticos</h4>
+                <pre>console.log(10 + 5);   // 15 (suma)
+console.log(10 - 5);   // 5 (resta)
+console.log(10 * 5);   // 50 (multiplicación)
+console.log(10 / 5);   // 2 (división)
+console.log(10 % 3);   // 1 (residuo)</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Comparación</h4>
+                <pre>console.log(10 > 5);    // true (10 es mayor que 5)
+console.log(10 < 5);    // false (10 no es menor que 5)
+console.log(10 === 10); // true (es igual)
+console.log(10 !== 10); // false (no es diferente)
+console.log(10 >= 10);  // true (es mayor o igual)</pre>
+                <p class="code-desc">Nota: === compara el valor Y el tipo. == solo compara el valor.</p>
+            </div>
+
+            <div class="code-example">
+                <h4>Lógicos</h4>
+                <pre>const edad = 25;
+const tieneCarnet = true;
+
+console.log(edad >= 18 && tieneCarnet); // true (AND: ambos verdaderos)
+console.log(edad >= 18 || tieneCarnet); // true (OR: al menos uno verdadero)
+console.log(!tieneCarnet); // false (NOT: niega el valor)</pre>
+            </div>
+
+            <div class="info-box">
+                <h4>💡 Operadores lógicos (AND, OR, NOT)</h4>
+                <p><strong>&&</strong> (AND): ambos deben ser verdaderos</p>
+                <p><strong>||</strong> (OR): al menos uno debe ser verdadero</p>
+                <p><strong>!</strong> (NOT): invierte el valor</p>
+            </div>
+        </section>
+
+        <!-- ESTRUCTURAS DE CONTROL -->
+        <section id="control" class="section">
+            <h2>Estructuras de Control</h2>
+
+            <p>Las estructuras de control te permiten tomar decisiones en tu código. "Si pasa esto, haz eso."</p>
+
+            <h3>if - else (Condicionales)</h3>
+
+            <div class="code-example">
+                <h4>Decisión simple</h4>
+                <pre>const edad = 20;
+
+if (edad >= 18) {
+    console.log("Eres mayor de edad");
+} else {
+    console.log("Eres menor de edad");
+}</pre>
+                <p class="code-result">Resultado: Eres mayor de edad</p>
+            </div>
+
+            <div class="code-example">
+                <h4>Múltiples condiciones</h4>
+                <pre>const calificacion = 8;
+
+if (calificacion >= 9) {
+    console.log("Excelente");
+} else if (calificacion >= 7) {
+    console.log("Bueno");
+} else if (calificacion >= 5) {
+    console.log("Aprobado");
+} else {
+    console.log("Desaprobado");
+}</pre>
+                <p class="code-result">Resultado: Bueno</p>
+            </div>
+
+            <h3>switch (Múltiples opciones)</h3>
+
+            <div class="code-example">
+                <h4>Elegir entre varias opciones</h4>
+                <pre>const dia = "lunes";
+
+switch (dia) {
+    case "lunes":
+        console.log("Es lunes");
+        break;
+    case "viernes":
+        console.log("¡Es viernes!");
+        break;
+    default:
+        console.log("Otro día");
+}</pre>
+                <p class="code-result">Resultado: Es lunes</p>
+                <p class="code-desc">El break detiene el switch. Sin break, continúa ejecutando.</p>
+            </div>
+
+            <h3>Bucles (Repeticiones)</h3>
+
+            <div class="code-example">
+                <h4>for - Repetir un número específico de veces</h4>
+                <pre>for (let i = 1; i <= 5; i++) {
+    console.log("Número: " + i);
+}
+
+// Resultado:
+// Número: 1
+// Número: 2
+// Número: 3
+// Número: 4
+// Número: 5</pre>
+                <p class="code-desc">i++ significa "suma 1 a i". Se ejecuta 5 veces.</p>
+            </div>
+
+            <div class="code-example">
+                <h4>while - Repetir mientras una condición sea verdadera</h4>
+                <pre>let contador = 1;
+
+while (contador <= 5) {
+    console.log("Contador: " + contador);
+    contador++; // Aumentar el contador
+}
+
+// Resultado: impulsa del 1 al 5</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>for...of - Recorrer elementos de un array</h4>
+                <pre>const colores = ["rojo", "azul", "verde"];
+
+for (const color of colores) {
+    console.log("Color: " + color);
+}
+
+// Resultado:
+// Color: rojo
+// Color: azul
+// Color: verde</pre>
+                <p class="code-desc">Perfecto para recorrer listas sin preocuparte del índice.</p>
+            </div>
+
+            <div class="code-example">
+                <h4>forEach - Otra forma de recorrer arrays</h4>
+                <pre>const numeros = [10, 20, 30];
+
+numeros.forEach((numero) => {
+    console.log("Número: " + numero);
+});</pre>
+                <p class="code-desc">forEach es más moderno que for...of.</p>
+            </div>
+        </section>
+
+        <!-- FUNCIONES -->
+        <section id="funciones" class="section">
+            <h2>Funciones: Código Reutilizable</h2>
+
+            <p>
+                Una <strong>función</strong> es un bloque de código que hace algo específico. Puedes crear una función y usarla múltiples veces sin repetir el código.
+            </p>
+
+            <h3>¿Por qué usar funciones?</h3>
+            <ul class="list">
+                <li><strong>Reutilización:</strong> Escribes una vez, usas muchas veces</li>
+                <li><strong>Organización:</strong> Tu código es más limpio</li>
+                <li><strong>Mantenimiento:</strong> Cambiar algo es más fácil</li>
+                <li><strong>Depuración:</strong> Encontrar errores es más sencillo</li>
+            </ul>
+
+            <div class="code-example">
+                <h4>Función básica sin parámetros</h4>
+                <pre>function saludar() {
+    console.log("Hola, bienvenido");
+}
+
+saludar(); // Llamar la función
+saludar(); // Usarla de nuevo</pre>
+                <p class="code-result">Resultado: Se imprime "Hola, bienvenido" dos veces</p>
+            </div>
+
+            <div class="code-example">
+                <h4>Función con parámetros (inputs)</h4>
+                <pre>function sumar(a, b) {
+    console.log(a + b);
+}
+
+sumar(5, 3);  // Resultado: 8
+sumar(10, 20); // Resultado: 30</pre>
+                <p class="code-desc">Los parámetros (a, b) reciben valores cuando llamas la función.</p>
+            </div>
+
+            <div class="code-example">
+                <h4>Función con retorno (output)</h4>
+                <pre>function multiplicar(a, b) {
+    return a * b;
+}
+
+const resultado = multiplicar(4, 5);
+console.log(resultado); // 20</pre>
+                <p class="code-desc">return devuelve un valor que la función calcula.</p>
+            </div>
+
+            <div class="code-example">
+                <h4>Función completa con lógica</h4>
+                <pre>function calcularDescuento(precio, descuento) {
+    const precioFinal = precio - (precio * descuento / 100);
+    return precioFinal;
+}
+
+const miPrecio = calcularDescuento(100, 20);
+console.log("Precio final: $" + miPrecio); // Precio final: $80</pre>
+            </div>
+
+            <h3>Arrow Functions (Funciones modernas)</h3>
+
+            <p>Una forma más moderna de escribir funciones usando =></p>
+
+            <div class="code-example">
+                <h4>Sintaxis moderna</h4>
+                <pre>const saludar = () => {
+    console.log("Hola");
+};
+
+saludar(); // Resultado: Hola</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Arrow function con parámetros</h4>
+                <pre>const sumar = (a, b) => {
+    return a + b;
+};
+
+console.log(sumar(5, 3)); // 8</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Arrow function simplificada</h4>
+                <pre>const multiplicar = (a, b) => a * b;
+
+console.log(multiplicar(4, 5)); // 20</pre>
+                <p class="code-desc">Si solo hay una línea, puedes omitir las llaves y return.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>💡 Ventajas de arrow functions</h4>
+                <p>✓ Sintaxis más limpia</p>
+                <p>✓ Código más legible</p>
+                <p>✓ Comportamiento con "this" es diferente (aprenderás más adelante)</p>
+            </div>
+        </section>
+
+        <!-- DOM -->
+        <section id="dom" class="section">
+            <h2>DOM: Interacción con HTML</h2>
+
+            <p>
+                El <strong>DOM (Document Object Model)</strong> es la forma en que JavaScript accede y modifica los elementos HTML de una página web. Es lo que hace que las páginas web sean interactivas.
+            </p>
+
+            <h3>¿Qué es el DOM?</h3>
+            <p>Imagina el HTML como un árbol. JavaScript puede navegar por este árbol y cambiar lo que ve.</p>
+
+            <div class="code-example">
+                <h4>Ejemplo HTML</h4>
+                <pre>&lt;div id="contenedor"&gt;
+    &lt;h1&gt;Hola Mundo&lt;/h1&gt;
+    &lt;p class="texto"&gt;Esto es un párrafo&lt;/p&gt;
+&lt;/div&gt;</pre>
+            </div>
+
+            <h3>Seleccionar elementos</h3>
+
+            <div class="code-example">
+                <h4>Por ID (getElementById)</h4>
+                <pre>const elemento = document.getElementById("contenedor");
+console.log(elemento);</pre>
+                <p class="code-desc">Selecciona el elemento con id="contenedor"</p>
+            </div>
+
+            <div class="code-example">
+                <h4>Por clase (getElementsByClassName)</h4>
+                <pre>const elementos = document.getElementsByClassName("texto");
+console.log(elementos[0]);</pre>
+                <p class="code-desc">Selecciona todos los elementos con class="texto"</p>
+            </div>
+
+            <div class="code-example">
+                <h4>Selector CSS moderno (querySelector)</h4>
+                <pre>const elemento = document.querySelector("#contenedor");
+const elementos = document.querySelectorAll(".texto");
+console.log(elemento);</pre>
+                <p class="code-desc">querySelector es más flexible y moderno.</p>
+            </div>
+
+            <h3>Modificar contenido HTML</h3>
+
+            <div class="code-example">
+                <h4>Cambiar el texto (textContent)</h4>
+                <pre>const titulo = document.getElementById("mi-titulo");
+titulo.textContent = "Nuevo título";
+// El título en la página ahora dice "Nuevo título"</pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Cambiar HTML (innerHTML)</h4>
+                <pre>const contenedor = document.getElementById("contenedor");
+contenedor.innerHTML = "&lt;p&gt;Nuevo contenido&lt;/p&gt;";</pre>
+                <p class="code-desc">innerHTML permite insertar HTML completo.</p>
+            </div>
+
+            <h3>Modificar estilos CSS</h3>
+
+            <div class="code-example">
+                <h4>Cambiar estilos directamente</h4>
+                <pre>const elemento = document.getElementById("caja");
+elemento.style.backgroundColor = "blue";
+elemento.style.fontSize = "20px";
+elemento.style.color = "white";</pre>
+                <p class="code-desc">Nota: las propiedades CSS con guión se escriben en camelCase.</p>
+            </div>
+
+            <h3>Eventos: Reaccionar a acciones del usuario</h3>
+
+            <p>Un <strong>evento</strong> es algo que pasa (click, escribir, pasar el ratón, etc.). JavaScript puede reaccionar a estos eventos.</p>
+
+            <div class="code-example">
+                <h4>Evento click</h4>
+                <pre>&lt;button id="mi-boton"&gt;Haz clic aquí&lt;/button&gt;
+
+&lt;script&gt;
+    const boton = document.getElementById("mi-boton");
+    
+    boton.addEventListener("click", function() {
+        console.log("¡El botón fue presionado!");
+    });
+&lt;/script&gt;</pre>
+                <p class="code-desc">addEventListener escucha un evento y ejecuta código cuando ocurre.</p>
+            </div>
+
+            <div class="code-example">
+                <h4>Eventos comunes</h4>
+                <pre>// Click del ratón
+elemento.addEventListener("click", function() { });
+
+// El ratón entra en el elemento
+elemento.addEventListener("mouseover", function() { });
+
+// El ratón sale del elemento
+elemento.addEventListener("mouseout", function() { });
+
+// Cuando se carga la página
+document.addEventListener("DOMContentLoaded", function() { });
+
+// Cuando escribes en un input
+input.addEventListener("input", function() { });
+
+// Cuando envías un formulario
+formulario.addEventListener("submit", function() { });</pre>
+            </div>
+
+            <h3>Ejemplo completo interactivo</h3>
+
+            <div class="code-example">
+                <h4>Contador simple</h4>
+                <pre>&lt;!-- HTML --&gt;
+&lt;p&gt;Contador: &lt;span id="numero"&gt;0&lt;/span&gt;&lt;/p&gt;
+&lt;button id="aumentar"&gt;+&lt;/button&gt;
+&lt;button id="disminuir"&gt;-&lt;/button&gt;
+
+&lt;!-- JavaScript --&gt;
+&lt;script&gt;
+    let contador = 0;
+    const numeroSpan = document.getElementById("numero");
+    const botonAumentar = document.getElementById("aumentar");
+    const botonDisminuir = document.getElementById("disminuir");
+    
+    botonAumentar.addEventListener("click", function() {
+        contador++;
+        numeroSpan.textContent = contador;
+    });
+    
+    botonDisminuir.addEventListener("click", function() {
+        contador--;
+        numeroSpan.textContent = contador;
+    });
+&lt;/script&gt;</pre>
+                <p class="code-desc">Este es un ejemplo completo que demuestra cómo el JavaScript hace reactiva una página.</p>
+            </div>
+        </section>
+
+        <!-- CONSEJOS FINALES -->
+        <section class="section final-section">
+            <h2>Consejos para Aprender JavaScript</h2>
+
+            <div class="advice-box">
+                <h3>✅ Practica constantemente</h3>
+                <p>La mejor forma de aprender programación es practicando. Escribe código todos los días, aunque sea poco.</p>
+            </div>
+
+            <div class="advice-box">
+                <h3>✅ Usa la consola del navegador</h3>
+                <p>Presiona F12 y prueba pequeños fragmentos de código en la consola. Es tu mejor amigo al aprender.</p>
+            </div>
+
+            <div class="advice-box">
+                <h3>✅ Lee documentación</h3>
+                <p>La documentación oficial de JavaScript (MDN Web Docs) es excelente. No tengas miedo de consultarla.</p>
+            </div>
+
+            <div class="advice-box">
+                <h3>✅ Crea proyectos pequeños</h3>
+                <p>Después de cada concepto, crea un pequeño proyecto. Una calculadora, un juego simple, una todolist, etc.</p>
+            </div>
+
+            <div class="advice-box">
+                <h3>✅ Lee código de otros</h3>
+                <p>Ver cómo otros resuelven problemas te enseña nuevas formas de pensar. Lee código en GitHub.</p>
+            </div>
+
+            <div class="advice-box">
+                <h3>✅ No memorices, entiende</h3>
+                <p>No necesitas memorizar toda la sintaxis. Entiende los conceptos, la sintaxis la aprenderás con la práctica.</p>
+            </div>
+
+            <div class="advice-box">
+                <h3>✅ Sé paciente contigo mismo</h3>
+                <p>Aprender a programar toma tiempo. No es fácil al principio, pero cada día entenderás más. ¡Persevera!</p>
+            </div>
+        </section>
+
+        <!-- SIGUIENTES PASOS -->
+        <section class="section">
+            <h2>Próximos Pasos en tu Aprendizaje</h2>
+
+            <div class="roadmap">
+                <div class="roadmap-item">
+                    <h4>1. Domina los Básicos</h4>
+                    <p>Asegúrate de entender variables, funciones, condicionales y bucles. Estos son fundamentales.</p>
+                </div>
+                <div class="roadmap-item">
+                    <h4>2. Manipula el DOM</h4>
+                    <p>Crea proyectos pequeños que cambien la página según acciones del usuario.</p>
+                </div>
+                <div class="roadmap-item">
+                    <h4>3. Aprende Objetos y Arrays avanzado</h4>
+                    <p>Entiende cómo trabajar con estructuras de datos más complejas.</p>
+                </div>
+                <div class="roadmap-item">
+                    <h4>4. Fetch API</h4>
+                    <p>Aprende a obtener datos de internet y mostrarlos en tu página.</p>
+                </div>
+                <div class="roadmap-item">
+                    <h4>5. Frameworks (React, Vue)</h4>
+                    <p>Una vez que domine JS, aprende un framework moderno.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESUMEN -->
+        <section class="section summary">
+            <h2>Resumen</h2>
+            <p>
+                Has aprendido los conceptos fundamentales de JavaScript. Desde variables y funciones hasta la manipulación del DOM. Este es el inicio de tu viaje como programador.
+            </p>
+            <p>
+                Recuerda: <strong>la consistencia es la clave</strong>. Practica todos los días, construye proyectos pequeños y no tengas miedo de cometer errores. Cada error es una lección.
+            </p>
+            <p style="text-align: center; margin-top: 30px; font-size: 1.2em;">
+                <strong>¡Ahora es tiempo de programar!</strong> 🚀
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 JavaScript 101 - Aprende a tu propio ritmo</p>
+        </div>
+    </footer>
+</body>
+</html>
