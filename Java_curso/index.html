@@ -1,653 +1,1141 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="scroll-behavior:smooth">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Java — Guía Básica Completa</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/Java_curso/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java — Guía Básica Completa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Sora:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/Java_curso/styles.css">
 </head>
+
 <body>
-<div class="container">
+  <div class="container">
 
-  <!-- ════════════════ HEADER ════════════════ -->
-  <div class="header-label">// REFERENCIA COMPLETA · JAVA BÁSICO</div>
-  <h1>Java — Guía Básica</h1>
-  <p class="main-subtitle">
-    Todo lo que necesitas saber para comenzar a programar en Java:<br>
-    estructura de clases · identificadores · palabras clave · variables · constantes · control de flujo · excepciones · arrays
-  </p>
+    <!-- ════════════════ HEADER ════════════════ -->
+    <div class="header-label">// REFERENCIA COMPLETA · JAVA BÁSICO</div>
+    <h1>Java — Guía Básica</h1>
+    <p class="main-subtitle">
+      Todo lo que necesitas saber para comenzar a programar en Java:<br>
+      estructura de clases · identificadores · palabras clave · variables · constantes · control de flujo · excepciones
+      · arrays
+    </p>
 
-  <!-- ════════════════ 01 · ESTRUCTURA ════════════════ -->
-  <div class="section">
-    <div class="sec-title">01 · Estructura de una clase Java</div>
+    <!-- ════════════════ NAVEGACIÓN ════════════════ -->
+    <nav class="nav-index" id="nav-index">
+      <div class="nav-label">// ÍNDICE</div>
+      <a href="#sec-estructura" class="nav-link active">
+        <span class="nav-num">01</span>
+        <span class="nav-text">Estructura de una clase</span>
+      </a>
+      <a href="#sec-identificadores" class="nav-link">
+        <span class="nav-num">02</span>
+        <span class="nav-text">Identificadores</span>
+      </a>
+      <a href="#sec-palabras-clave" class="nav-link">
+        <span class="nav-num">03</span>
+        <span class="nav-text">Palabras clave</span>
+      </a>
+      <a href="#sec-variables" class="nav-link">
+        <span class="nav-num">04</span>
+        <span class="nav-text">Variables y constantes</span>
+      </a>
+      <a href="#sec-control" class="nav-link">
+        <span class="nav-num">05</span>
+        <span class="nav-text">Estructuras de control</span>
+      </a>
+      <a href="#sec-modificadores" class="nav-link">
+        <span class="nav-num">06</span>
+        <span class="nav-text">Modificadores de acceso</span>
+      </a>
+      <a href="#sec-excepciones" class="nav-link">
+        <span class="nav-num">07</span>
+        <span class="nav-text">Manejo de excepciones</span>
+      </a>
+      <a href="#sec-arrays" class="nav-link">
+        <span class="nav-num">08</span>
+        <span class="nav-text">Arrays</span>
+      </a>
+    </nav>
 
-    <div class="card">
-      <div class="card-title"><div class="dot db"></div>¿Qué es una clase?</div>
-      <div class="card-desc">
-        <p>Todo programa en Java se llama <strong style="color:#8be9fd">clase</strong>. Desde los programas más pequeños que escribimos cuando aprendemos, hasta los grandes sistemas bancarios — todo es una clase.</p>
-        <p>Una clase tiene una estructura definida con componentes obligatorios que veremos a continuación.</p>
-      </div>
-    </div>
+    <!-- ════════════════ 01 · ESTRUCTURA ════════════════ -->
+    <div class="section" id="sec-estructura">
+      <div class="sec-title">01 · Estructura de una clase Java</div>
 
-    <!-- COMPONENTES -->
-    <div class="twocol" style="margin-bottom:10px">
       <div class="card">
-        <div class="card-title"><div class="dot db"></div>1. Paquete (package)</div>
+        <div class="card-title">
+          <div class="dot db"></div>¿Qué es una clase?
+        </div>
         <div class="card-desc">
-          Organiza las clases en carpetas o directorios. Es la <strong style="color:#cbd5e1">primera línea</strong> que debe aparecer en una clase Java. Las clases con funcionalidades similares se agrupan en un mismo paquete.<br><br>
-          Solo se puede declarar <strong style="color:#cbd5e1">un paquete por clase</strong>. Si no se define, el compilador crea uno llamado <code>default package</code>.
+          <p>Todo programa en Java se llama <strong style="color:#8be9fd">clase</strong>. Desde los programas más
+            pequeños que escribimos cuando aprendemos, hasta los grandes sistemas bancarios — todo es una clase.</p>
+          <p>Una clase tiene una estructura definida con componentes obligatorios que veremos a continuación.</p>
         </div>
       </div>
-      <div class="card">
-        <div class="card-title"><div class="dot dp"></div>2. Clase (class)</div>
-        <div class="card-desc">
-          Después del paquete se declara el nombre de la clase con la palabra reservada <code>class</code>. El nombre debe comenzar con mayúscula.<br><br>
-          Todo el código de la clase vive dentro de sus llaves <code>{ }</code>.
+
+      <!-- COMPONENTES -->
+      <div class="twocol" style="margin-bottom:10px">
+        <div class="card">
+          <div class="card-title">
+            <div class="dot db"></div>1. Paquete (package)
+          </div>
+          <div class="card-desc">
+            Organiza las clases en carpetas o directorios. Es la <strong style="color:#cbd5e1">primera línea</strong>
+            que debe aparecer en una clase Java. Las clases con funcionalidades similares se agrupan en un mismo
+            paquete.<br><br>
+            Solo se puede declarar <strong style="color:#cbd5e1">un paquete por clase</strong>. Si no se define, el
+            compilador crea uno llamado <code>default package</code>.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">
+            <div class="dot dp"></div>2. Clase (class)
+          </div>
+          <div class="card-desc">
+            Después del paquete se declara el nombre de la clase con la palabra reservada <code>class</code>. El nombre
+            debe comenzar con mayúscula.<br><br>
+            Todo el código de la clase vive dentro de sus llaves <code>{ }</code>.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">
+            <div class="dot dt"></div>3. Sentencias
+          </div>
+          <div class="card-desc">
+            Es la <strong style="color:#cbd5e1">unidad mínima</strong> de ejecución de un programa. Cada sentencia
+            indica una instrucción concreta.<br><br>
+            <strong style="color:#2dd4bf">Regla clave:</strong> toda sentencia termina obligatoriamente con punto y coma
+            <code>;</code>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">
+            <div class="dot da"></div>4. Bloques
+          </div>
+          <div class="card-desc">
+            Un bloque es un <strong style="color:#cbd5e1">conjunto de sentencias</strong> agrupadas. Se delimitan con
+            llaves de apertura y cierre <code>{ }</code>.<br><br>
+            Los bloques pueden estar anidados (un bloque dentro de otro).
+          </div>
         </div>
       </div>
+
       <div class="card">
-        <div class="card-title"><div class="dot dt"></div>3. Sentencias</div>
+        <div class="card-title">
+          <div class="dot dg"></div>5. Método
+        </div>
         <div class="card-desc">
-          Es la <strong style="color:#cbd5e1">unidad mínima</strong> de ejecución de un programa. Cada sentencia indica una instrucción concreta.<br><br>
-          <strong style="color:#2dd4bf">Regla clave:</strong> toda sentencia termina obligatoriamente con punto y coma <code>;</code>
+          <p>Un método define el <strong style="color:#cbd5e1">comportamiento</strong> de la clase. Se recomienda que el
+            nombre del método sea siempre un verbo (calcular, mostrar, obtener…).</p>
+          <p>Su estructura básica es: <code>tipo_de_retorno nombreDelMetodo(parámetros) { ... }</code></p>
+          <p>Existe un método especial llamado <strong style="color:#34d399">main</strong> — es el <strong
+              style="color:#cbd5e1">punto de entrada</strong> del programa. Java siempre empieza a ejecutar desde aquí.
+            Se define exactamente así:</p>
+        </div>
+        <div class="cb"><span class="kw">public static void</span> <span class="fn">main</span>(<span
+            class="cl">String</span>[] args) {
+          <span class="cm">// aquí comienza la ejecución del programa</span>
+          }
         </div>
       </div>
+
       <div class="card">
-        <div class="card-title"><div class="dot da"></div>4. Bloques</div>
-        <div class="card-desc">
-          Un bloque es un <strong style="color:#cbd5e1">conjunto de sentencias</strong> agrupadas. Se delimitan con llaves de apertura y cierre <code>{ }</code>.<br><br>
-          Los bloques pueden estar anidados (un bloque dentro de otro).
+        <div class="card-title">
+          <div class="dot dgy"></div>6. Comentarios
+        </div>
+        <div class="card-desc">Los comentarios no se ejecutan — sirven para explicar el código. Java tiene tres tipos:
+        </div>
+        <div class="cb"><span class="cm">// Comentario de una sola línea</span>
+
+          <span class="cm">/* Comentario multilínea
+            puede ocupar varias líneas */</span>
+
+          <span class="cm">/** Comentario de documentación (Javadoc)
+            * Se usa para generar documentación oficial del código */</span>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-title"><div class="dot dg"></div>5. Método</div>
-      <div class="card-desc">
-        <p>Un método define el <strong style="color:#cbd5e1">comportamiento</strong> de la clase. Se recomienda que el nombre del método sea siempre un verbo (calcular, mostrar, obtener…).</p>
-        <p>Su estructura básica es: <code>tipo_de_retorno nombreDelMetodo(parámetros) { ... }</code></p>
-        <p>Existe un método especial llamado <strong style="color:#34d399">main</strong> — es el <strong style="color:#cbd5e1">punto de entrada</strong> del programa. Java siempre empieza a ejecutar desde aquí. Se define exactamente así:</p>
-      </div>
-      <div class="cb"><span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args) {
-    <span class="cm">// aquí comienza la ejecución del programa</span>
-}</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title"><div class="dot dgy"></div>6. Comentarios</div>
-      <div class="card-desc">Los comentarios no se ejecutan — sirven para explicar el código. Java tiene tres tipos:</div>
-      <div class="cb"><span class="cm">// Comentario de una sola línea</span>
-
-<span class="cm">/* Comentario multilínea
-   puede ocupar varias líneas */</span>
-
-<span class="cm">/** Comentario de documentación (Javadoc)
- *  Se usa para generar documentación oficial del código */</span></div>
-    </div>
-
-    <div class="card" style="border-color:#1e3a5f">
-      <div class="card-title"><div class="dot db"></div>Ejemplo completo — estructura básica</div>
-      <div class="card-desc" style="margin-bottom:6px">Aquí puedes ver todos los componentes juntos en un programa real:</div>
-      <div class="cb"><span class="kw">package</span> ejemplos;                         <span class="cm">// 1. Paquete</span>
-
-<span class="cm">// 2. Comentario — a continuación la clase</span>
-
-<span class="kw">class</span> <span class="cl">Ejemplo1</span> {                          <span class="cm">// 3. Clase</span>
-
-    <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args) { <span class="cm">// 4. Método main</span>
-
-        <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Hola Mundo"</span>);   <span class="cm">// 5. Sentencias</span>
-        <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Esto es un ejemplo"</span>);
-
-    }                                        <span class="cm">// fin del bloque main</span>
-}                                            <span class="cm">// fin de la clase</span></div>
-    </div>
-  </div>
-
-  <div class="div"></div>
-
-  <!-- ════════════════ 02 · IDENTIFICADORES ════════════════ -->
-  <div class="section">
-    <div class="sec-title">02 · Identificadores</div>
-
-    <div class="card">
-      <div class="card-title"><div class="dot dp"></div>¿Qué es un identificador?</div>
-      <div class="card-desc">
-        <p>Los identificadores son los <strong style="color:#cbd5e1">nombres únicos</strong> que el programador asigna a los componentes del programa: clases, métodos, variables, constantes, etc.</p>
-        <p>Elegir buenos nombres es fundamental para que el código sea legible y mantenible.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title"><div class="dot dt"></div>Reglas generales para nombrar</div>
-      <div class="card-desc" style="margin-top:6px">
-        <div class="rr"><span class="ri">✦</span><span><strong style="color:#cbd5e1">Nombres significativos:</strong> usa nombres que describan qué almacena o hace. Ej: <code>RecetaBizcocho</code> en lugar de <code>Clase1</code>.</span></div>
-        <div class="rr"><span class="ri">✦</span><span><strong style="color:#cbd5e1">Clases → PascalCase:</strong> cada palabra empieza con mayúscula. Ej: <code>MiClase</code>, <code>RecetaBizcocho</code>, <code>CuentaBancaria</code>.</span></div>
-        <div class="rr"><span class="ri">✦</span><span><strong style="color:#cbd5e1">Variables y métodos → camelCase:</strong> primera palabra en minúscula, el resto con mayúscula inicial. Ej: <code>calcularTotal</code>, <code>nombreUsuario</code>.</span></div>
-        <div class="rr"><span class="ri">✦</span><span><strong style="color:#cbd5e1">Constantes → MAYÚSCULAS_CON_GUIÓN:</strong> todo en mayúsculas, palabras separadas por <code>_</code>. Ej: <code>TIEMPO_HORNEADO</code>, <code>MAX_INTENTOS</code>.</span></div>
-        <div class="rr"><span class="ri">✦</span><span><strong style="color:#cbd5e1">Empieza por letra:</strong> puede contener números después, pero nunca al inicio. Ej: <code>dato1</code> ✓ — <code>1dato</code> ✗</span></div>
-        <div class="rr"><span class="ri-warn">✕</span><span><strong style="color:#f87171">Sin caracteres especiales:</strong> no se permiten espacios, <code>+</code>, <code>%</code>, <code>*</code>, <code>@</code>, <code>#</code>, etc.</span></div>
-        <div class="rr"><span class="ri-warn">✕</span><span><strong style="color:#f87171">Case-sensitive:</strong> Java diferencia mayúsculas de minúsculas. <code>bizcocho</code>, <code>Bizcocho</code> y <code>BIZCOCHO</code> son tres identificadores distintos.</span></div>
-        <div class="rr"><span class="ri-warn">✕</span><span><strong style="color:#f87171">No puedes usar palabras reservadas</strong> como nombre de tus variables o clases. Ej: no puedes llamar a una variable <code>class</code> o <code>int</code>.</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="div"></div>
-
-  <!-- ════════════════ 03 · PALABRAS CLAVE ════════════════ -->
-  <div class="section">
-    <div class="sec-title">03 · Palabras clave (palabras reservadas)</div>
-
-    <div class="card">
-      <div class="card-title"><div class="dot dc"></div>¿Qué son?</div>
-      <div class="card-desc">
-        <p>Son palabras que Java ha reservado para un propósito específico dentro del lenguaje. <strong style="color:#f87171">No puedes usarlas como nombres</strong> de tus clases, variables o métodos porque el compilador ya las usa para otra cosa.</p>
-      </div>
-    </div>
-
-    <!-- TIPOS DE DATOS -->
-    <div style="margin-top:14px">
-      <div class="badge bb">Tipos de datos</div>
-      <table class="data-table">
-        <tr><th>Palabra</th><th>Descripción</th></tr>
-        <tr><td class="kw-cell">int</td><td>Número entero de 32 bits. Rango: -2.147.483.648 a 2.147.483.647. Ej: <code>int edad = 25;</code></td></tr>
-        <tr><td class="kw-cell">long</td><td>Número entero de 64 bits, para valores muy grandes. Requiere <code>L</code> al final. Ej: <code>long poblacion = 8000000000L;</code></td></tr>
-        <tr><td class="kw-cell">short</td><td>Número entero de 16 bits. Rango: -32.768 a 32.767.</td></tr>
-        <tr><td class="kw-cell">byte</td><td>Número entero de 8 bits. Rango: -128 a 127. Útil para ahorrar memoria.</td></tr>
-        <tr><td class="kw-cell">double</td><td>Número decimal de 64 bits (alta precisión). Ej: <code>double precio = 9.99;</code></td></tr>
-        <tr><td class="kw-cell">float</td><td>Número decimal de 32 bits (menor precisión). Requiere <code>f</code> al final. Ej: <code>float altura = 1.75f;</code></td></tr>
-        <tr><td class="kw-cell">boolean</td><td>Solo puede ser <code>true</code> (verdadero) o <code>false</code> (falso). Ej: <code>boolean activo = true;</code></td></tr>
-        <tr><td class="kw-cell">char</td><td>Un único carácter Unicode de 16 bits. Usa comilla simple. Ej: <code>char letra = 'A';</code></td></tr>
-      </table>
-    </div>
-
-    <!-- ESTRUCTURAS DE CONTROL -->
-    <div style="margin-top:18px">
-      <div class="badge bp">Estructuras de control — Condicionales</div>
-      <table class="data-table">
-        <tr><th>Palabra</th><th>Descripción</th></tr>
-        <tr><td class="kw-cell">if</td><td>Ejecuta un bloque de código solo si se cumple una condición. Se puede combinar con <code>else if</code> para múltiples condiciones.</td></tr>
-        <tr><td class="kw-cell">else</td><td>Indica qué hacer cuando la condición del <code>if</code> (o <code>else if</code>) NO se cumple.</td></tr>
-        <tr><td class="kw-cell">switch</td><td>Permite evaluar una variable contra múltiples valores posibles de forma ordenada.</td></tr>
-        <tr><td class="kw-cell">case</td><td>Cada opción posible dentro de un <code>switch</code>.</td></tr>
-        <tr><td class="kw-cell">default</td><td>El caso que se ejecuta si ningún <code>case</code> coincide. Es opcional pero recomendable.</td></tr>
-      </table>
-
-      <div class="badge bp" style="margin-top:14px">Estructuras de control — Bucles</div>
-      <table class="data-table">
-        <tr><th>Palabra</th><th>Descripción</th></tr>
-        <tr><td class="kw-cell">for</td><td>Repite un bloque un número determinado de veces. Se usa cuando ya sabes cuántas repeticiones necesitas.</td></tr>
-        <tr><td class="kw-cell">while</td><td>Repite mientras una condición sea verdadera. La condición se evalúa <strong style="color:#c4b5fd">al principio</strong> — si es falsa desde el inicio, no se ejecuta ni una vez.</td></tr>
-        <tr><td class="kw-cell">do</td><td>Se usa con <code>while</code>. La condición se evalúa <strong style="color:#c4b5fd">al final</strong> — garantiza que el bloque se ejecuta <strong style="color:#c4b5fd">al menos una vez</strong>.</td></tr>
-      </table>
-
-      <div class="badge bp" style="margin-top:14px">Estructuras de control — Salto y retorno</div>
-      <table class="data-table">
-        <tr><th>Palabra</th><th>Descripción</th></tr>
-        <tr><td class="kw-cell">break</td><td>Interrumpe y sale inmediatamente de un bucle o de un <code>switch</code>.</td></tr>
-        <tr><td class="kw-cell">continue</td><td>Salta el resto de la iteración actual del bucle y pasa a la siguiente. No sale del bucle.</td></tr>
-        <tr><td class="kw-cell">return</td><td>Sale del método actual. Puede devolver un valor si el método tiene tipo de retorno distinto de <code>void</code>.</td></tr>
-      </table>
-    </div>
-
-    <!-- MODIFICADORES -->
-    <div style="margin-top:18px">
-      <div class="badge bt">Modificadores</div>
-      <table class="data-table">
-        <tr><th>Palabra</th><th>Descripción</th></tr>
-        <tr><td class="kw-cell">public</td><td>El elemento es accesible desde <strong style="color:#5eead4">cualquier clase</strong> del proyecto.</td></tr>
-        <tr><td class="kw-cell">private</td><td>El elemento es accesible <strong style="color:#5eead4">únicamente desde la clase</strong> donde se definió.</td></tr>
-        <tr><td class="kw-cell">protected</td><td>Accesible desde la misma clase, sus subclases y otras clases del mismo paquete.</td></tr>
-        <tr><td class="kw-cell">static</td><td>El elemento pertenece a la clase (no a un objeto). Se puede usar sin crear una instancia.</td></tr>
-        <tr><td class="kw-cell">final</td><td>Una variable <code>final</code> no puede cambiar su valor. Un método <code>final</code> no puede sobreescribirse. Una clase <code>final</code> no puede heredarse.</td></tr>
-        <tr><td class="kw-cell">abstract</td><td>Define clases o métodos que no tienen implementación completa — deben completarse en subclases.</td></tr>
-        <tr><td class="kw-cell">synchronized</td><td>Indica que un método o bloque es atómico (seguro para múltiples hilos simultáneos).</td></tr>
-        <tr><td class="kw-cell">volatile</td><td>Garantiza que el valor de un atributo compartido entre varios hilos esté siempre sincronizado.</td></tr>
-        <tr><td class="kw-cell">transient</td><td>Especifica que un atributo no debe persistirse (guardarse) durante la serialización de un objeto.</td></tr>
-        <tr><td class="kw-cell">native</td><td>Indica que el método está implementado en otro lenguaje dependiente de la plataforma (C, C++).</td></tr>
-      </table>
-    </div>
-
-    <!-- ESTRUCTURA DE DATOS -->
-    <div style="margin-top:18px">
-      <div class="badge bg">Estructura de datos</div>
-      <table class="data-table">
-        <tr><th>Palabra</th><th>Descripción</th></tr>
-        <tr><td class="kw-cell">class</td><td>Define una clase. Es el bloque fundamental de Java.</td></tr>
-        <tr><td class="kw-cell">interface</td><td>Declara una interfaz — un contrato que una clase debe cumplir.</td></tr>
-        <tr><td class="kw-cell">extends</td><td>Indica la clase padre de una clase (herencia). Una clase solo puede extender a una clase.</td></tr>
-        <tr><td class="kw-cell">implements</td><td>Indica qué interfaz(es) implementa una clase. Una clase puede implementar varias interfaces.</td></tr>
-        <tr><td class="kw-cell">import</td><td>Importa una clase de otro paquete para poder usarla. Ej: <code>import java.util.Scanner;</code></td></tr>
-        <tr><td class="kw-cell">package</td><td>Agrupa un conjunto de clases e interfaces en un directorio lógico.</td></tr>
-      </table>
-    </div>
-
-    <!-- OTROS -->
-    <div style="margin-top:18px">
-      <div class="badge bgy">Otros</div>
-      <table class="data-table">
-        <tr><th>Palabra</th><th>Descripción</th></tr>
-        <tr><td class="kw-cell">new</td><td>Crea una nueva instancia (objeto) de una clase. Ej: <code>Scanner sc = new Scanner(System.in);</code></td></tr>
-        <tr><td class="kw-cell">this</td><td>Referencia al objeto actual de la clase. También permite invocar al constructor de la misma clase.</td></tr>
-        <tr><td class="kw-cell">super</td><td>Invoca a un método o constructor de la clase padre (superclase).</td></tr>
-        <tr><td class="kw-cell">instanceof</td><td>Permite verificar si un objeto es instancia de una clase concreta. Devuelve <code>true</code> o <code>false</code>.</td></tr>
-        <tr><td class="kw-cell">void</td><td>Indica que un método no devuelve ningún valor.</td></tr>
-        <tr><td class="kw-cell">enum</td><td>Define un tipo de dato enumerado — un conjunto fijo de constantes con nombre.</td></tr>
-        <tr><td class="kw-cell">assert</td><td>Afirma que una condición es verdadera. Si no lo es, lanza un error (útil para pruebas).</td></tr>
-        <tr><td class="kw-cell">strictfp</td><td>Obliga a usar cálculos en coma flotante estrictos según el estándar IEEE 754.</td></tr>
-        <tr><td class="kw-cell">const / goto</td><td>Palabras reservadas pero <strong style="color:#f87171">ya no se usan</strong> en Java moderno. Existen para compatibilidad histórica.</td></tr>
-      </table>
-    </div>
-
-    <!-- EXCEPCIONES -->
-    <div style="margin-top:18px">
-      <div class="badge bpi">Excepciones</div>
-      <table class="data-table">
-        <tr><th>Palabra</th><th>Descripción</th></tr>
-        <tr><td class="kw-cell">try</td><td>Marca el bloque de código donde puede ocurrir un error (excepción).</td></tr>
-        <tr><td class="kw-cell">catch</td><td>Captura y maneja la excepción que ocurrió dentro del bloque <code>try</code>.</td></tr>
-        <tr><td class="kw-cell">finally</td><td>Bloque que <strong style="color:#f9a8d4">siempre se ejecuta</strong>, haya o no haya excepción. Ideal para liberar recursos.</td></tr>
-        <tr><td class="kw-cell">throw</td><td>Lanza manualmente una excepción desde el código.</td></tr>
-        <tr><td class="kw-cell">throws</td><td>Declara en la firma del método qué excepciones puede lanzar, para que el que lo llame las maneje.</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="div"></div>
-
-  <!-- ════════════════ 04 · VARIABLES Y CONSTANTES ════════════════ -->
-  <div class="section">
-    <div class="sec-title">04 · Variables y constantes</div>
-
-    <div class="twocol" style="margin-bottom:12px">
-      <div class="card">
-        <div class="card-title"><div class="dot db"></div>Variable</div>
-        <div class="card-desc">Un espacio reservado en memoria cuyo contenido <strong style="color:#cbd5e1">puede cambiar</strong> durante la ejecución del programa. Ej: la edad de un usuario, el precio de un producto.</div>
-      </div>
-      <div class="card">
-        <div class="card-title"><div class="dot da"></div>Constante</div>
-        <div class="card-desc">Un espacio reservado en memoria cuyo valor <strong style="color:#cbd5e1">no cambia nunca</strong> durante toda la ejecución. Ej: el número de ruedas de un coche, el valor de PI.</div>
-      </div>
-    </div>
-
-    <!-- DECLARAR -->
-    <div class="card">
-      <div class="card-title"><div class="dot dp"></div>Paso 1 — Declarar una variable</div>
-      <div class="card-desc" style="margin-bottom:6px">
-        Declarar es <strong style="color:#cbd5e1">dar un tipo y un nombre</strong> a la variable. Hay que declararla antes de usarla. El tipo determina qué clase de valores puede almacenar.
-      </div>
-      <div class="cb"><span class="cm">// Sintaxis: tipo nombreVariable;</span>
-<span class="kw">int</span> edad;
-<span class="cl">String</span> nombre;
-<span class="kw">boolean</span> activo;</div>
-    </div>
-
-    <!-- INICIALIZAR -->
-    <div class="card">
-      <div class="card-title"><div class="dot dt"></div>Paso 2 — Inicializar (primer valor)</div>
-      <div class="card-desc" style="margin-bottom:6px">
-        Inicializar es <strong style="color:#cbd5e1">dar un valor por primera vez</strong> a la variable, usando el operador <code>=</code>. Si no la inicializas, Java lo hace automáticamente (los números se inicializan en 0, los booleanos en <code>false</code>).
-      </div>
-      <div class="cb"><span class="kw">int</span> edad <span class="op">=</span> <span class="num">0</span>;         <span class="cm">// Java lo haría automáticamente</span>
-<span class="cl">String</span> nombre <span class="op">=</span> <span class="str">""</span>;   <span class="cm">// cadena vacía</span>
-<span class="kw">boolean</span> activo <span class="op">=</span> <span class="kw">false</span>;</div>
-    </div>
-
-    <!-- ASIGNAR -->
-    <div class="card">
-      <div class="card-title"><div class="dot dg"></div>Paso 3 — Asignar (cambiar el valor)</div>
-      <div class="card-desc" style="margin-bottom:8px">
-        Asignar es <strong style="color:#cbd5e1">dar un nuevo valor</strong> a una variable ya declarada. Según el tipo de dato, la sintaxis cambia:
-      </div>
-      <div class="cb"><span class="cm">// Numéricos: directamente</span>
-<span class="kw">int</span>    edad    <span class="op">=</span> <span class="num">20</span>;
-<span class="kw">double</span> precio  <span class="op">=</span> <span class="num">9.99</span>;
-<span class="kw">float</span>  altura  <span class="op">=</span> <span class="num">1.75f</span>;   <span class="cm">// necesita 'f' al final</span>
-<span class="kw">long</span>   pob     <span class="op">=</span> <span class="num">8000000000L</span>; <span class="cm">// necesita 'L' al final</span>
-
-<span class="cm">// Caracteres: comilla SIMPLE</span>
-<span class="kw">char</span> genero <span class="op">=</span> <span class="str">'M'</span>;
-
-<span class="cm">// Cadenas de texto: comilla DOBLE</span>
-<span class="cl">String</span> nombre <span class="op">=</span> <span class="str">"Roberto García"</span>;
-
-<span class="cm">// Booleanos: solo true o false</span>
-<span class="kw">boolean</span> casado <span class="op">=</span> <span class="kw">true</span>;</div>
-    </div>
-
-    <!-- ÁMBITO -->
-    <div class="card">
-      <div class="card-title"><div class="dot dc"></div>Ámbito de una variable</div>
-      <div class="card-desc" style="margin-bottom:10px">El ámbito define <strong style="color:#cbd5e1">dónde existe y puede usarse</strong> una variable. Fuera de su ámbito, la variable no existe. Hay tres tipos:</div>
-
-      <div class="scope-card" style="border-color:#3b82f6">
-        <div class="scope-title" style="color:#7db8f7">Local</div>
-        <div class="scope-desc">Existe solo dentro del bloque donde fue declarada (un método, un bucle, un condicional). Cuando el bloque termina, la variable desaparece. <em>Es el ámbito más reducido y recomendado siempre que sea posible.</em></div>
-      </div>
-      <div class="scope-card" style="border-color:#a78bfa">
-        <div class="scope-title" style="color:#c4b5fd">De instancia (global)</div>
-        <div class="scope-desc">Pertenece a cada objeto concreto de la clase. Todos los métodos de esa instancia pueden leerla y modificarla. Cada objeto tiene su propia copia.</div>
-      </div>
-      <div class="scope-card" style="border-color:#2dd4bf">
-        <div class="scope-title" style="color:#5eead4">Estática (de clase)</div>
-        <div class="scope-desc">Pertenece a la clase, no a un objeto concreto. Se declara con <code>static</code>. Es compartida por todas las instancias — si un objeto la cambia, todos lo ven.</div>
-      </div>
-
-      <div class="cb" style="margin-top:10px"><span class="kw">public class</span> <span class="cl">ClaseAmbitos</span> {
-
-    <span class="kw">static int</span>  numero; <span class="cm">// estática: pertenece a la clase</span>
-    <span class="cl">String</span>      nombre; <span class="cm">// instancia: cada objeto tiene la suya</span>
-
-    <span class="kw">void</span> <span class="fn">calcular</span>() {
-        <span class="kw">float</span> precio;       <span class="cm">// local: solo existe en este método</span>
-
-        <span class="kw">if</span> (precio <span class="op">>=</span> <span class="num">10.95</span>) {
-            <span class="kw">boolean</span> verdad;  <span class="cm">// local: solo existe en este if</span>
-        }
-    }
-}</div>
-    </div>
-
-    <div class="infobox">
-      <strong>Buena práctica:</strong> define las variables en el ámbito más reducido posible. Si solo necesitas una variable dentro de un método, no la declares como global. Esto hace el código más seguro y fácil de entender.
-    </div>
-
-    <!-- CONSTANTES -->
-    <div class="card" style="border-color:#3b2a0a; margin-top:12px">
-      <div class="card-title"><div class="dot da"></div>Declaración de constantes</div>
-      <div class="card-desc" style="margin-bottom:8px">
-        Las constantes se definen a <strong style="color:#cbd5e1">nivel de clase (global)</strong> usando dos palabras reservadas juntas: <code>static</code> y <code>final</code>. El nombre siempre va en MAYÚSCULAS. Una vez asignado su valor, <strong style="color:#fbbf24">no puede cambiarse</strong>.
-      </div>
-      <div class="cb"><span class="cm">// static final tipo NOMBRE_CONSTANTE = valor;</span>
-
-<span class="kw">static final int</span>    NUMERO_RUEDAS  <span class="op">=</span> <span class="num">4</span>;
-<span class="kw">static final double</span> IVA            <span class="op">=</span> <span class="num">0.19</span>;
-<span class="kw">static final double</span> PI             <span class="op">=</span> <span class="num">3.14159</span>;
-<span class="kw">static final</span> <span class="cl">String</span> PAIS_ORIGEN    <span class="op">=</span> <span class="str">"Chile"</span>;
-<span class="kw">static final int</span>    MAX_INTENTOS   <span class="op">=</span> <span class="num">3</span>;</div>
-    </div>
-  </div>
-
-  <div class="div"></div>
-
-  <!-- ════════════════ 05 · ESTRUCTURAS DE CONTROL ════════════════ -->
-  <div class="section">
-    <div class="sec-title">05 · Estructuras de control</div>
-
-    <!-- IF / ELSE -->
-    <div class="card">
-      <div class="card-title"><div class="dot db"></div>Condicional if / else if / else</div>
-      <div class="card-desc" style="margin-bottom:6px">
-        Ejecuta bloques de código <strong style="color:#cbd5e1">dependiendo de si una condición es verdadera o falsa</strong>. Se pueden encadenar con <code>else if</code> para evaluar varias condiciones en orden.
-      </div>
-      <div class="cb"><span class="kw">int</span> nota <span class="op">=</span> <span class="num">75</span>;
-
-<span class="kw">if</span> (nota <span class="op">>=</span> <span class="num">90</span>) {
-    <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Excelente"</span>);          <span class="cm">// si nota >= 90</span>
-} <span class="kw">else if</span> (nota <span class="op">>=</span> <span class="num">60</span>) {
-    <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Aprobado"</span>);           <span class="cm">// ← se ejecuta este</span>
-} <span class="kw">else</span> {
-    <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Reprobado"</span>);          <span class="cm">// si ninguno se cumple</span>
-}</div>
-    </div>
-
-    <!-- SWITCH -->
-    <div class="card" style="margin-top:10px">
-      <div class="card-title"><div class="dot dp"></div>Condicional switch</div>
-      <div class="card-desc" style="margin-bottom:6px">
-        Ideal cuando quieres comparar una variable contra <strong style="color:#cbd5e1">varios valores fijos</strong>. Es más limpio que varios <code>else if</code> cuando hay muchas opciones. El <code>break</code> evita que siga ejecutando los siguientes casos.
-      </div>
-      <div class="cb"><span class="kw">int</span> dia <span class="op">=</span> <span class="num">3</span>;
-
-<span class="kw">switch</span> (dia) {
-    <span class="kw">case</span> <span class="num">1</span>:  <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Lunes"</span>);     <span class="kw">break</span>;
-    <span class="kw">case</span> <span class="num">2</span>:  <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Martes"</span>);    <span class="kw">break</span>;
-    <span class="kw">case</span> <span class="num">3</span>:  <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Miércoles"</span>); <span class="kw">break</span>; <span class="cm">// ← este</span>
-    <span class="kw">case</span> <span class="num">4</span>:  <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Jueves"</span>);    <span class="kw">break</span>;
-    <span class="kw">case</span> <span class="num">5</span>:  <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Viernes"</span>);   <span class="kw">break</span>;
-    <span class="kw">default</span>: <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Fin de semana"</span>);
-}</div>
-    </div>
-
-    <!-- FOR -->
-    <div class="card" style="margin-top:10px">
-      <div class="card-title"><div class="dot dt"></div>Bucle for</div>
-      <div class="card-desc" style="margin-bottom:6px">
-        Se usa cuando <strong style="color:#cbd5e1">sabes exactamente cuántas veces</strong> quieres repetir algo. Tiene tres partes: inicialización, condición e incremento.
-      </div>
-      <div class="cb"><span class="cm">// for (inicio; condición; incremento)</span>
-<span class="kw">for</span> (<span class="kw">int</span> i <span class="op">=</span> <span class="num">0</span>; i <span class="op">&lt;</span> <span class="num">5</span>; i<span class="op">++</span>) {
-    <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Vuelta número: "</span> <span class="op">+</span> i); <span class="cm">// 0, 1, 2, 3, 4</span>
-}
-
-<span class="cm">// for-each: para recorrer arrays o listas de forma simple</span>
-<span class="cl">String</span>[] frutas <span class="op">=</span> { <span class="str">"manzana"</span>, <span class="str">"pera"</span>, <span class="str">"uva"</span> };
-<span class="kw">for</span> (<span class="cl">String</span> f : frutas) {
-    <span class="cl">System</span>.out.<span class="fn">println</span>(f); <span class="cm">// manzana, pera, uva</span>
-}</div>
-    </div>
-
-    <!-- WHILE -->
-    <div class="card" style="margin-top:10px">
-      <div class="card-title"><div class="dot da"></div>Bucle while</div>
-      <div class="card-desc" style="margin-bottom:6px">
-        Repite el bloque <strong style="color:#cbd5e1">mientras la condición sea verdadera</strong>. La condición se evalúa <strong style="color:#fbbf24">antes</strong> de ejecutar el bloque — si es falsa desde el inicio, no se ejecuta nunca.
-      </div>
-      <div class="cb"><span class="kw">int</span> contador <span class="op">=</span> <span class="num">1</span>;
-
-<span class="kw">while</span> (contador <span class="op">&lt;=</span> <span class="num">5</span>) {
-    <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Contando: "</span> <span class="op">+</span> contador);
-    contador<span class="op">++</span>;              <span class="cm">// importante: evitar bucle infinito</span>
-}
-<span class="cm">// Imprime: 1, 2, 3, 4, 5</span></div>
-    </div>
-
-    <!-- DO WHILE -->
-    <div class="card" style="margin-top:10px">
-      <div class="card-title"><div class="dot dc"></div>Bucle do-while</div>
-      <div class="card-desc" style="margin-bottom:6px">
-        Similar al <code>while</code>, pero la condición se evalúa <strong style="color:#cbd5e1">después</strong> de ejecutar el bloque. Esto garantiza que el código se ejecuta <strong style="color:#f87171">al menos una vez</strong>, aunque la condición sea falsa desde el principio.
-      </div>
-      <div class="cb"><span class="kw">int</span> numero <span class="op">=</span> <span class="num">10</span>;
-
-<span class="kw">do</span> {
-    <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Se ejecuta al menos una vez"</span>);
-    numero<span class="op">++</span>;
-} <span class="kw">while</span> (numero <span class="op">&lt;</span> <span class="num">5</span>); <span class="cm">// condición falsa, pero ya se ejecutó</span></div>
-    </div>
-  </div>
-
-  <div class="div"></div>
-
-  <!-- ════════════════ 06 · MODIFICADORES ════════════════ -->
-  <div class="section">
-    <div class="sec-title">06 · Modificadores de acceso</div>
-
-    <div class="card">
-      <div class="card-title"><div class="dot dg"></div>¿Para qué sirven?</div>
-      <div class="card-desc">
-        Los modificadores de acceso controlan <strong style="color:#cbd5e1">quién puede ver y usar</strong> los elementos de una clase. Son fundamentales en la programación orientada a objetos para proteger los datos.
-      </div>
-    </div>
-
-    <div class="twocol" style="margin-top:10px">
-      <div class="card" style="border-color:#0f2d1a">
-        <div class="card-title"><div class="dot dg"></div>public</div>
-        <div class="card-desc">Accesible desde <strong style="color:#34d399">cualquier clase</strong> del proyecto, sin importar el paquete donde esté.</div>
-      </div>
-      <div class="card" style="border-color:#3b1812">
-        <div class="card-title"><div class="dot dc"></div>private</div>
-        <div class="card-desc">Solo accesible <strong style="color:#f87171">dentro de la misma clase</strong> donde se definió. El más restrictivo.</div>
-      </div>
-      <div class="card" style="border-color:#2a1f4e">
-        <div class="card-title"><div class="dot dp"></div>protected</div>
-        <div class="card-desc">Accesible en la clase, en sus <strong style="color:#c4b5fd">subclases</strong> (herencia) y otras clases del mismo paquete.</div>
-      </div>
       <div class="card" style="border-color:#1e3a5f">
-        <div class="card-title"><div class="dot db"></div>static</div>
-        <div class="card-desc">No necesita crear un objeto para usarlo. <strong style="color:#7db8f7">Pertenece a la clase</strong>, no a la instancia.</div>
+        <div class="card-title">
+          <div class="dot db"></div>Ejemplo completo — estructura básica
+        </div>
+        <div class="card-desc" style="margin-bottom:6px">Aquí puedes ver todos los componentes juntos en un programa
+          real:</div>
+        <div class="cb"><span class="kw">package</span> ejemplos; <span class="cm">// 1. Paquete</span>
+
+          <span class="cm">// 2. Comentario — a continuación la clase</span>
+
+          <span class="kw">class</span> <span class="cl">Ejemplo1</span> { <span class="cm">// 3. Clase</span>
+
+          <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args)
+          { <span class="cm">// 4. Método main</span>
+
+          <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Hola Mundo"</span>);
+          <span class="cm">// 5. Sentencias</span>
+          <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Esto es un
+            ejemplo"</span>);
+
+          } <span class="cm">// fin del bloque main</span>
+          } <span class="cm">// fin de la clase</span>
+        </div>
       </div>
     </div>
 
-    <div class="cb" style="margin-top:12px"><span class="kw">public class</span> <span class="cl">CuentaBancaria</span> {
+    <div class="div"></div>
 
-    <span class="kw">private double</span>   saldo;       <span class="cm">// solo esta clase puede verlo</span>
-    <span class="kw">protected</span> <span class="cl">String</span> titular;     <span class="cm">// clase + subclases + paquete</span>
-    <span class="kw">public</span>    <span class="cl">String</span> banco;       <span class="cm">// cualquiera puede verlo</span>
-    <span class="kw">static int</span>       totalCuentas; <span class="cm">// compartido por todas las instancias</span>
+    <!-- ════════════════ 02 · IDENTIFICADORES ════════════════ -->
+    <div class="section" id="sec-identificadores">
+      <div class="sec-title">02 · Identificadores</div>
 
-    <span class="kw">public double</span> <span class="fn">getSaldo</span>() {     <span class="cm">// método público para acceder al saldo</span>
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dp"></div>¿Qué es un identificador?
+        </div>
+        <div class="card-desc">
+          <p>Los identificadores son los <strong style="color:#cbd5e1">nombres únicos</strong> que el programador asigna
+            a los componentes del programa: clases, métodos, variables, constantes, etc.</p>
+          <p>Elegir buenos nombres es fundamental para que el código sea legible y mantenible.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dt"></div>Reglas generales para nombrar
+        </div>
+        <div class="card-desc" style="margin-top:6px">
+          <div class="rr"><span class="ri">✦</span><span><strong style="color:#cbd5e1">Nombres significativos:</strong>
+              usa nombres que describan qué almacena o hace. Ej: <code>RecetaBizcocho</code> en lugar de
+              <code>Clase1</code>.</span></div>
+          <div class="rr"><span class="ri">✦</span><span><strong style="color:#cbd5e1">Clases → PascalCase:</strong>
+              cada palabra empieza con mayúscula. Ej: <code>MiClase</code>, <code>RecetaBizcocho</code>,
+              <code>CuentaBancaria</code>.</span></div>
+          <div class="rr"><span class="ri">✦</span><span><strong style="color:#cbd5e1">Variables y métodos →
+                camelCase:</strong> primera palabra en minúscula, el resto con mayúscula inicial. Ej:
+              <code>calcularTotal</code>, <code>nombreUsuario</code>.</span></div>
+          <div class="rr"><span class="ri">✦</span><span><strong style="color:#cbd5e1">Constantes →
+                MAYÚSCULAS_CON_GUIÓN:</strong> todo en mayúsculas, palabras separadas por <code>_</code>. Ej:
+              <code>TIEMPO_HORNEADO</code>, <code>MAX_INTENTOS</code>.</span></div>
+          <div class="rr"><span class="ri">✦</span><span><strong style="color:#cbd5e1">Empieza por letra:</strong> puede
+              contener números después, pero nunca al inicio. Ej: <code>dato1</code> ✓ — <code>1dato</code> ✗</span>
+          </div>
+          <div class="rr"><span class="ri-warn">✕</span><span><strong style="color:#f87171">Sin caracteres
+                especiales:</strong> no se permiten espacios, <code>+</code>, <code>%</code>, <code>*</code>,
+              <code>@</code>, <code>#</code>, etc.</span></div>
+          <div class="rr"><span class="ri-warn">✕</span><span><strong style="color:#f87171">Case-sensitive:</strong>
+              Java diferencia mayúsculas de minúsculas. <code>bizcocho</code>, <code>Bizcocho</code> y
+              <code>BIZCOCHO</code> son tres identificadores distintos.</span></div>
+          <div class="rr"><span class="ri-warn">✕</span><span><strong style="color:#f87171">No puedes usar palabras
+                reservadas</strong> como nombre de tus variables o clases. Ej: no puedes llamar a una variable
+              <code>class</code> o <code>int</code>.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- ════════════════ 03 · PALABRAS CLAVE ════════════════ -->
+    <div class="section" id="sec-palabras-clave">
+      <div class="sec-title">03 · Palabras clave (palabras reservadas)</div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dc"></div>¿Qué son?
+        </div>
+        <div class="card-desc">
+          <p>Son palabras que Java ha reservado para un propósito específico dentro del lenguaje. <strong
+              style="color:#f87171">No puedes usarlas como nombres</strong> de tus clases, variables o métodos porque el
+            compilador ya las usa para otra cosa.</p>
+        </div>
+      </div>
+
+      <!-- TIPOS DE DATOS -->
+      <div style="margin-top:14px">
+        <div class="badge bb">Tipos de datos</div>
+        <table class="data-table">
+          <tr>
+            <th>Palabra</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td class="kw-cell">int</td>
+            <td>Número entero de 32 bits. Rango: -2.147.483.648 a 2.147.483.647. Ej: <code>int edad = 25;</code></td>
+          </tr>
+          <tr>
+            <td class="kw-cell">long</td>
+            <td>Número entero de 64 bits, para valores muy grandes. Requiere <code>L</code> al final. Ej:
+              <code>long poblacion = 8000000000L;</code></td>
+          </tr>
+          <tr>
+            <td class="kw-cell">short</td>
+            <td>Número entero de 16 bits. Rango: -32.768 a 32.767.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">byte</td>
+            <td>Número entero de 8 bits. Rango: -128 a 127. Útil para ahorrar memoria.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">double</td>
+            <td>Número decimal de 64 bits (alta precisión). Ej: <code>double precio = 9.99;</code></td>
+          </tr>
+          <tr>
+            <td class="kw-cell">float</td>
+            <td>Número decimal de 32 bits (menor precisión). Requiere <code>f</code> al final. Ej:
+              <code>float altura = 1.75f;</code></td>
+          </tr>
+          <tr>
+            <td class="kw-cell">boolean</td>
+            <td>Solo puede ser <code>true</code> (verdadero) o <code>false</code> (falso). Ej:
+              <code>boolean activo = true;</code></td>
+          </tr>
+          <tr>
+            <td class="kw-cell">char</td>
+            <td>Un único carácter Unicode de 16 bits. Usa comilla simple. Ej: <code>char letra = 'A';</code></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- ESTRUCTURAS DE CONTROL -->
+      <div style="margin-top:18px">
+        <div class="badge bp">Estructuras de control — Condicionales</div>
+        <table class="data-table">
+          <tr>
+            <th>Palabra</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td class="kw-cell">if</td>
+            <td>Ejecuta un bloque de código solo si se cumple una condición. Se puede combinar con <code>else if</code>
+              para múltiples condiciones.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">else</td>
+            <td>Indica qué hacer cuando la condición del <code>if</code> (o <code>else if</code>) NO se cumple.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">switch</td>
+            <td>Permite evaluar una variable contra múltiples valores posibles de forma ordenada.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">case</td>
+            <td>Cada opción posible dentro de un <code>switch</code>.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">default</td>
+            <td>El caso que se ejecuta si ningún <code>case</code> coincide. Es opcional pero recomendable.</td>
+          </tr>
+        </table>
+
+        <div class="badge bp" style="margin-top:14px">Estructuras de control — Bucles</div>
+        <table class="data-table">
+          <tr>
+            <th>Palabra</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td class="kw-cell">for</td>
+            <td>Repite un bloque un número determinado de veces. Se usa cuando ya sabes cuántas repeticiones necesitas.
+            </td>
+          </tr>
+          <tr>
+            <td class="kw-cell">while</td>
+            <td>Repite mientras una condición sea verdadera. La condición se evalúa <strong style="color:#c4b5fd">al
+                principio</strong> — si es falsa desde el inicio, no se ejecuta ni una vez.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">do</td>
+            <td>Se usa con <code>while</code>. La condición se evalúa <strong style="color:#c4b5fd">al final</strong> —
+              garantiza que el bloque se ejecuta <strong style="color:#c4b5fd">al menos una vez</strong>.</td>
+          </tr>
+        </table>
+
+        <div class="badge bp" style="margin-top:14px">Estructuras de control — Salto y retorno</div>
+        <table class="data-table">
+          <tr>
+            <th>Palabra</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td class="kw-cell">break</td>
+            <td>Interrumpe y sale inmediatamente de un bucle o de un <code>switch</code>.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">continue</td>
+            <td>Salta el resto de la iteración actual del bucle y pasa a la siguiente. No sale del bucle.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">return</td>
+            <td>Sale del método actual. Puede devolver un valor si el método tiene tipo de retorno distinto de
+              <code>void</code>.</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- MODIFICADORES -->
+      <div style="margin-top:18px">
+        <div class="badge bt">Modificadores</div>
+        <table class="data-table">
+          <tr>
+            <th>Palabra</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td class="kw-cell">public</td>
+            <td>El elemento es accesible desde <strong style="color:#5eead4">cualquier clase</strong> del proyecto.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">private</td>
+            <td>El elemento es accesible <strong style="color:#5eead4">únicamente desde la clase</strong> donde se
+              definió.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">protected</td>
+            <td>Accesible desde la misma clase, sus subclases y otras clases del mismo paquete.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">static</td>
+            <td>El elemento pertenece a la clase (no a un objeto). Se puede usar sin crear una instancia.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">final</td>
+            <td>Una variable <code>final</code> no puede cambiar su valor. Un método <code>final</code> no puede
+              sobreescribirse. Una clase <code>final</code> no puede heredarse.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">abstract</td>
+            <td>Define clases o métodos que no tienen implementación completa — deben completarse en subclases.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">synchronized</td>
+            <td>Indica que un método o bloque es atómico (seguro para múltiples hilos simultáneos).</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">volatile</td>
+            <td>Garantiza que el valor de un atributo compartido entre varios hilos esté siempre sincronizado.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">transient</td>
+            <td>Especifica que un atributo no debe persistirse (guardarse) durante la serialización de un objeto.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">native</td>
+            <td>Indica que el método está implementado en otro lenguaje dependiente de la plataforma (C, C++).</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- ESTRUCTURA DE DATOS -->
+      <div style="margin-top:18px">
+        <div class="badge bg">Estructura de datos</div>
+        <table class="data-table">
+          <tr>
+            <th>Palabra</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td class="kw-cell">class</td>
+            <td>Define una clase. Es el bloque fundamental de Java.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">interface</td>
+            <td>Declara una interfaz — un contrato que una clase debe cumplir.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">extends</td>
+            <td>Indica la clase padre de una clase (herencia). Una clase solo puede extender a una clase.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">implements</td>
+            <td>Indica qué interfaz(es) implementa una clase. Una clase puede implementar varias interfaces.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">import</td>
+            <td>Importa una clase de otro paquete para poder usarla. Ej: <code>import java.util.Scanner;</code></td>
+          </tr>
+          <tr>
+            <td class="kw-cell">package</td>
+            <td>Agrupa un conjunto de clases e interfaces en un directorio lógico.</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- OTROS -->
+      <div style="margin-top:18px">
+        <div class="badge bgy">Otros</div>
+        <table class="data-table">
+          <tr>
+            <th>Palabra</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td class="kw-cell">new</td>
+            <td>Crea una nueva instancia (objeto) de una clase. Ej: <code>Scanner sc = new Scanner(System.in);</code>
+            </td>
+          </tr>
+          <tr>
+            <td class="kw-cell">this</td>
+            <td>Referencia al objeto actual de la clase. También permite invocar al constructor de la misma clase.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">super</td>
+            <td>Invoca a un método o constructor de la clase padre (superclase).</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">instanceof</td>
+            <td>Permite verificar si un objeto es instancia de una clase concreta. Devuelve <code>true</code> o
+              <code>false</code>.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">void</td>
+            <td>Indica que un método no devuelve ningún valor.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">enum</td>
+            <td>Define un tipo de dato enumerado — un conjunto fijo de constantes con nombre.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">assert</td>
+            <td>Afirma que una condición es verdadera. Si no lo es, lanza un error (útil para pruebas).</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">strictfp</td>
+            <td>Obliga a usar cálculos en coma flotante estrictos según el estándar IEEE 754.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">const / goto</td>
+            <td>Palabras reservadas pero <strong style="color:#f87171">ya no se usan</strong> en Java moderno. Existen
+              para compatibilidad histórica.</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- EXCEPCIONES -->
+      <div style="margin-top:18px">
+        <div class="badge bpi">Excepciones</div>
+        <table class="data-table">
+          <tr>
+            <th>Palabra</th>
+            <th>Descripción</th>
+          </tr>
+          <tr>
+            <td class="kw-cell">try</td>
+            <td>Marca el bloque de código donde puede ocurrir un error (excepción).</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">catch</td>
+            <td>Captura y maneja la excepción que ocurrió dentro del bloque <code>try</code>.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">finally</td>
+            <td>Bloque que <strong style="color:#f9a8d4">siempre se ejecuta</strong>, haya o no haya excepción. Ideal
+              para liberar recursos.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">throw</td>
+            <td>Lanza manualmente una excepción desde el código.</td>
+          </tr>
+          <tr>
+            <td class="kw-cell">throws</td>
+            <td>Declara en la firma del método qué excepciones puede lanzar, para que el que lo llame las maneje.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- ════════════════ 04 · VARIABLES Y CONSTANTES ════════════════ -->
+    <div class="section" id="sec-variables">
+      <div class="sec-title">04 · Variables y constantes</div>
+
+      <div class="twocol" style="margin-bottom:12px">
+        <div class="card">
+          <div class="card-title">
+            <div class="dot db"></div>Variable
+          </div>
+          <div class="card-desc">Un espacio reservado en memoria cuyo contenido <strong style="color:#cbd5e1">puede
+              cambiar</strong> durante la ejecución del programa. Ej: la edad de un usuario, el precio de un producto.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">
+            <div class="dot da"></div>Constante
+          </div>
+          <div class="card-desc">Un espacio reservado en memoria cuyo valor <strong style="color:#cbd5e1">no cambia
+              nunca</strong> durante toda la ejecución. Ej: el número de ruedas de un coche, el valor de PI.</div>
+        </div>
+      </div>
+
+      <!-- DECLARAR -->
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dp"></div>Paso 1 — Declarar una variable
+        </div>
+        <div class="card-desc" style="margin-bottom:6px">
+          Declarar es <strong style="color:#cbd5e1">dar un tipo y un nombre</strong> a la variable. Hay que declararla
+          antes de usarla. El tipo determina qué clase de valores puede almacenar.
+        </div>
+        <div class="cb"><span class="cm">// Sintaxis: tipo nombreVariable;</span>
+          <span class="kw">int</span> edad;
+          <span class="cl">String</span> nombre;
+          <span class="kw">boolean</span> activo;
+        </div>
+      </div>
+
+      <!-- INICIALIZAR -->
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dt"></div>Paso 2 — Inicializar (primer valor)
+        </div>
+        <div class="card-desc" style="margin-bottom:6px">
+          Inicializar es <strong style="color:#cbd5e1">dar un valor por primera vez</strong> a la variable, usando el
+          operador <code>=</code>. Si no la inicializas, Java lo hace automáticamente (los números se inicializan en 0,
+          los booleanos en <code>false</code>).
+        </div>
+        <div class="cb"><span class="kw">int</span> edad <span class="op">=</span> <span class="num">0</span>; <span
+            class="cm">// Java lo haría automáticamente</span>
+          <span class="cl">String</span> nombre <span class="op">=</span> <span class="str">""</span>; <span
+            class="cm">// cadena vacía</span>
+          <span class="kw">boolean</span> activo <span class="op">=</span> <span class="kw">false</span>;
+        </div>
+      </div>
+
+      <!-- ASIGNAR -->
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dg"></div>Paso 3 — Asignar (cambiar el valor)
+        </div>
+        <div class="card-desc" style="margin-bottom:8px">
+          Asignar es <strong style="color:#cbd5e1">dar un nuevo valor</strong> a una variable ya declarada. Según el
+          tipo de dato, la sintaxis cambia:
+        </div>
+        <div class="cb"><span class="cm">// Numéricos: directamente</span>
+          <span class="kw">int</span> edad <span class="op">=</span> <span class="num">20</span>;
+          <span class="kw">double</span> precio <span class="op">=</span> <span class="num">9.99</span>;
+          <span class="kw">float</span> altura <span class="op">=</span> <span class="num">1.75f</span>; <span
+            class="cm">// necesita 'f' al final</span>
+          <span class="kw">long</span> pob <span class="op">=</span> <span class="num">8000000000L</span>; <span
+            class="cm">// necesita 'L' al final</span>
+
+          <span class="cm">// Caracteres: comilla SIMPLE</span>
+          <span class="kw">char</span> genero <span class="op">=</span> <span class="str">'M'</span>;
+
+          <span class="cm">// Cadenas de texto: comilla DOBLE</span>
+          <span class="cl">String</span> nombre <span class="op">=</span> <span class="str">"Roberto García"</span>;
+
+          <span class="cm">// Booleanos: solo true o false</span>
+          <span class="kw">boolean</span> casado <span class="op">=</span> <span class="kw">true</span>;
+        </div>
+      </div>
+
+      <!-- ÁMBITO -->
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dc"></div>Ámbito de una variable
+        </div>
+        <div class="card-desc" style="margin-bottom:10px">El ámbito define <strong style="color:#cbd5e1">dónde existe y
+            puede usarse</strong> una variable. Fuera de su ámbito, la variable no existe. Hay tres tipos:</div>
+
+        <div class="scope-card" style="border-color:#3b82f6">
+          <div class="scope-title" style="color:#7db8f7">Local</div>
+          <div class="scope-desc">Existe solo dentro del bloque donde fue declarada (un método, un bucle, un
+            condicional). Cuando el bloque termina, la variable desaparece. <em>Es el ámbito más reducido y recomendado
+              siempre que sea posible.</em></div>
+        </div>
+        <div class="scope-card" style="border-color:#a78bfa">
+          <div class="scope-title" style="color:#c4b5fd">De instancia (global)</div>
+          <div class="scope-desc">Pertenece a cada objeto concreto de la clase. Todos los métodos de esa instancia
+            pueden leerla y modificarla. Cada objeto tiene su propia copia.</div>
+        </div>
+        <div class="scope-card" style="border-color:#2dd4bf">
+          <div class="scope-title" style="color:#5eead4">Estática (de clase)</div>
+          <div class="scope-desc">Pertenece a la clase, no a un objeto concreto. Se declara con <code>static</code>. Es
+            compartida por todas las instancias — si un objeto la cambia, todos lo ven.</div>
+        </div>
+
+        <div class="cb" style="margin-top:10px"><span class="kw">public class</span> <span
+            class="cl">ClaseAmbitos</span> {
+
+          <span class="kw">static int</span> numero; <span class="cm">// estática: pertenece a la clase</span>
+          <span class="cl">String</span> nombre; <span class="cm">// instancia: cada objeto tiene la suya</span>
+
+          <span class="kw">void</span> <span class="fn">calcular</span>() {
+          <span class="kw">float</span> precio; <span class="cm">// local: solo existe en este método</span>
+
+          <span class="kw">if</span> (precio <span class="op">>=</span> <span class="num">10.95</span>) {
+          <span class="kw">boolean</span> verdad; <span class="cm">// local: solo existe en este if</span>
+          }
+          }
+          }
+        </div>
+      </div>
+
+      <div class="infobox">
+        <strong>Buena práctica:</strong> define las variables en el ámbito más reducido posible. Si solo necesitas una
+        variable dentro de un método, no la declares como global. Esto hace el código más seguro y fácil de entender.
+      </div>
+
+      <!-- CONSTANTES -->
+      <div class="card" style="border-color:#3b2a0a; margin-top:12px">
+        <div class="card-title">
+          <div class="dot da"></div>Declaración de constantes
+        </div>
+        <div class="card-desc" style="margin-bottom:8px">
+          Las constantes se definen a <strong style="color:#cbd5e1">nivel de clase (global)</strong> usando dos palabras
+          reservadas juntas: <code>static</code> y <code>final</code>. El nombre siempre va en MAYÚSCULAS. Una vez
+          asignado su valor, <strong style="color:#fbbf24">no puede cambiarse</strong>.
+        </div>
+        <div class="cb"><span class="cm">// static final tipo NOMBRE_CONSTANTE = valor;</span>
+
+          <span class="kw">static final int</span> NUMERO_RUEDAS <span class="op">=</span> <span class="num">4</span>;
+          <span class="kw">static final double</span> IVA <span class="op">=</span> <span class="num">0.19</span>;
+          <span class="kw">static final double</span> PI <span class="op">=</span> <span class="num">3.14159</span>;
+          <span class="kw">static final</span> <span class="cl">String</span> PAIS_ORIGEN <span class="op">=</span>
+          <span class="str">"Chile"</span>;
+          <span class="kw">static final int</span> MAX_INTENTOS <span class="op">=</span> <span class="num">3</span>;
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- ════════════════ 05 · ESTRUCTURAS DE CONTROL ════════════════ -->
+    <div class="section" id="sec-control">
+      <div class="sec-title">05 · Estructuras de control</div>
+
+      <!-- IF / ELSE -->
+      <div class="card">
+        <div class="card-title">
+          <div class="dot db"></div>Condicional if / else if / else
+        </div>
+        <div class="card-desc" style="margin-bottom:6px">
+          Ejecuta bloques de código <strong style="color:#cbd5e1">dependiendo de si una condición es verdadera o
+            falsa</strong>. Se pueden encadenar con <code>else if</code> para evaluar varias condiciones en orden.
+        </div>
+        <div class="cb"><span class="kw">int</span> nota <span class="op">=</span> <span class="num">75</span>;
+
+          <span class="kw">if</span> (nota <span class="op">>=</span> <span class="num">90</span>) {
+          <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Excelente"</span>);
+          <span class="cm">// si nota >= 90</span>
+          } <span class="kw">else if</span> (nota <span class="op">>=</span> <span class="num">60</span>) {
+          <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Aprobado"</span>); <span
+            class="cm">// ← se ejecuta este</span>
+          } <span class="kw">else</span> {
+          <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Reprobado"</span>);
+          <span class="cm">// si ninguno se cumple</span>
+          }
+        </div>
+      </div>
+
+      <!-- SWITCH -->
+      <div class="card" style="margin-top:10px">
+        <div class="card-title">
+          <div class="dot dp"></div>Condicional switch
+        </div>
+        <div class="card-desc" style="margin-bottom:6px">
+          Ideal cuando quieres comparar una variable contra <strong style="color:#cbd5e1">varios valores fijos</strong>.
+          Es más limpio que varios <code>else if</code> cuando hay muchas opciones. El <code>break</code> evita que siga
+          ejecutando los siguientes casos.
+        </div>
+        <div class="cb"><span class="kw">int</span> dia <span class="op">=</span> <span class="num">3</span>;
+
+          <span class="kw">switch</span> (dia) {
+          <span class="kw">case</span> <span class="num">1</span>: <span class="cl">System</span>.out.<span
+            class="fn">println</span>(<span class="str">"Lunes"</span>); <span class="kw">break</span>;
+          <span class="kw">case</span> <span class="num">2</span>: <span class="cl">System</span>.out.<span
+            class="fn">println</span>(<span class="str">"Martes"</span>); <span class="kw">break</span>;
+          <span class="kw">case</span> <span class="num">3</span>: <span class="cl">System</span>.out.<span
+            class="fn">println</span>(<span class="str">"Miércoles"</span>); <span class="kw">break</span>; <span
+            class="cm">// ← este</span>
+          <span class="kw">case</span> <span class="num">4</span>: <span class="cl">System</span>.out.<span
+            class="fn">println</span>(<span class="str">"Jueves"</span>); <span class="kw">break</span>;
+          <span class="kw">case</span> <span class="num">5</span>: <span class="cl">System</span>.out.<span
+            class="fn">println</span>(<span class="str">"Viernes"</span>); <span class="kw">break</span>;
+          <span class="kw">default</span>: <span class="cl">System</span>.out.<span class="fn">println</span>(<span
+            class="str">"Fin de semana"</span>);
+          }
+        </div>
+      </div>
+
+      <!-- FOR -->
+      <div class="card" style="margin-top:10px">
+        <div class="card-title">
+          <div class="dot dt"></div>Bucle for
+        </div>
+        <div class="card-desc" style="margin-bottom:6px">
+          Se usa cuando <strong style="color:#cbd5e1">sabes exactamente cuántas veces</strong> quieres repetir algo.
+          Tiene tres partes: inicialización, condición e incremento.
+        </div>
+        <div class="cb"><span class="cm">// for (inicio; condición; incremento)</span>
+          <span class="kw">for</span> (<span class="kw">int</span> i <span class="op">=</span> <span
+            class="num">0</span>; i <span class="op">&lt;</span> <span class="num">5</span>; i<span
+            class="op">++</span>) {
+          <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Vuelta número: "</span>
+          <span class="op">+</span> i); <span class="cm">// 0, 1, 2, 3, 4</span>
+          }
+
+          <span class="cm">// for-each: para recorrer arrays o listas de forma simple</span>
+          <span class="cl">String</span>[] frutas <span class="op">=</span> { <span class="str">"manzana"</span>, <span
+            class="str">"pera"</span>, <span class="str">"uva"</span> };
+          <span class="kw">for</span> (<span class="cl">String</span> f : frutas) {
+          <span class="cl">System</span>.out.<span class="fn">println</span>(f); <span class="cm">// manzana, pera,
+            uva</span>
+          }
+        </div>
+      </div>
+
+      <!-- WHILE -->
+      <div class="card" style="margin-top:10px">
+        <div class="card-title">
+          <div class="dot da"></div>Bucle while
+        </div>
+        <div class="card-desc" style="margin-bottom:6px">
+          Repite el bloque <strong style="color:#cbd5e1">mientras la condición sea verdadera</strong>. La condición se
+          evalúa <strong style="color:#fbbf24">antes</strong> de ejecutar el bloque — si es falsa desde el inicio, no se
+          ejecuta nunca.
+        </div>
+        <div class="cb"><span class="kw">int</span> contador <span class="op">=</span> <span class="num">1</span>;
+
+          <span class="kw">while</span> (contador <span class="op">&lt;=</span> <span class="num">5</span>) {
+          <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Contando: "</span> <span
+            class="op">+</span> contador);
+          contador<span class="op">++</span>; <span class="cm">// importante: evitar bucle infinito</span>
+          }
+          <span class="cm">// Imprime: 1, 2, 3, 4, 5</span>
+        </div>
+      </div>
+
+      <!-- DO WHILE -->
+      <div class="card" style="margin-top:10px">
+        <div class="card-title">
+          <div class="dot dc"></div>Bucle do-while
+        </div>
+        <div class="card-desc" style="margin-bottom:6px">
+          Similar al <code>while</code>, pero la condición se evalúa <strong style="color:#cbd5e1">después</strong> de
+          ejecutar el bloque. Esto garantiza que el código se ejecuta <strong style="color:#f87171">al menos una
+            vez</strong>, aunque la condición sea falsa desde el principio.
+        </div>
+        <div class="cb"><span class="kw">int</span> numero <span class="op">=</span> <span class="num">10</span>;
+
+          <span class="kw">do</span> {
+          <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Se ejecuta al menos una
+            vez"</span>);
+          numero<span class="op">++</span>;
+          } <span class="kw">while</span> (numero <span class="op">&lt;</span> <span class="num">5</span>); <span
+            class="cm">// condición falsa, pero ya se ejecutó</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- ════════════════ 06 · MODIFICADORES ════════════════ -->
+    <div class="section" id="sec-modificadores">
+      <div class="sec-title">06 · Modificadores de acceso</div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dg"></div>¿Para qué sirven?
+        </div>
+        <div class="card-desc">
+          Los modificadores de acceso controlan <strong style="color:#cbd5e1">quién puede ver y usar</strong> los
+          elementos de una clase. Son fundamentales en la programación orientada a objetos para proteger los datos.
+        </div>
+      </div>
+
+      <div class="twocol" style="margin-top:10px">
+        <div class="card" style="border-color:#0f2d1a">
+          <div class="card-title">
+            <div class="dot dg"></div>public
+          </div>
+          <div class="card-desc">Accesible desde <strong style="color:#34d399">cualquier clase</strong> del proyecto,
+            sin importar el paquete donde esté.</div>
+        </div>
+        <div class="card" style="border-color:#3b1812">
+          <div class="card-title">
+            <div class="dot dc"></div>private
+          </div>
+          <div class="card-desc">Solo accesible <strong style="color:#f87171">dentro de la misma clase</strong> donde se
+            definió. El más restrictivo.</div>
+        </div>
+        <div class="card" style="border-color:#2a1f4e">
+          <div class="card-title">
+            <div class="dot dp"></div>protected
+          </div>
+          <div class="card-desc">Accesible en la clase, en sus <strong style="color:#c4b5fd">subclases</strong>
+            (herencia) y otras clases del mismo paquete.</div>
+        </div>
+        <div class="card" style="border-color:#1e3a5f">
+          <div class="card-title">
+            <div class="dot db"></div>static
+          </div>
+          <div class="card-desc">No necesita crear un objeto para usarlo. <strong style="color:#7db8f7">Pertenece a la
+              clase</strong>, no a la instancia.</div>
+        </div>
+      </div>
+
+      <div class="cb" style="margin-top:12px"><span class="kw">public class</span> <span
+          class="cl">CuentaBancaria</span> {
+
+        <span class="kw">private double</span> saldo; <span class="cm">// solo esta clase puede verlo</span>
+        <span class="kw">protected</span> <span class="cl">String</span> titular; <span class="cm">// clase + subclases
+          + paquete</span>
+        <span class="kw">public</span> <span class="cl">String</span> banco; <span class="cm">// cualquiera puede
+          verlo</span>
+        <span class="kw">static int</span> totalCuentas; <span class="cm">// compartido por todas las instancias</span>
+
+        <span class="kw">public double</span> <span class="fn">getSaldo</span>() { <span class="cm">// método público
+          para acceder al saldo</span>
         <span class="kw">return</span> saldo;
-    }
-}</div>
+        }
+        }
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- ════════════════ 07 · EXCEPCIONES ════════════════ -->
+    <div class="section" id="sec-excepciones">
+      <div class="sec-title">07 · Manejo de excepciones</div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dpi"></div>¿Qué es una excepción?
+        </div>
+        <div class="card-desc">
+          <p>Una excepción es un <strong style="color:#cbd5e1">error que ocurre durante la ejecución</strong> del
+            programa (no en la compilación). Por ejemplo: dividir entre cero, intentar acceder a un archivo que no
+            existe, o convertir texto inválido a número.</p>
+          <p style="margin-top:6px">Si una excepción no se maneja, el programa <strong style="color:#f87171">se detiene
+              abruptamente</strong>. Con <code>try/catch</code> podemos capturarla y manejarla de forma controlada.</p>
+        </div>
+      </div>
+
+      <div class="cb" style="margin-top:8px"><span class="kw">try</span> {
+        <span class="cm">// Bloque "peligroso" — código que podría fallar</span>
+        <span class="kw">int</span> resultado <span class="op">=</span> <span class="num">10</span> <span
+          class="op">/</span> <span class="num">0</span>; <span class="cm">// división por cero!</span>
+        <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Resultado: "</span> <span
+          class="op">+</span> resultado);
+
+        } <span class="kw">catch</span> (<span class="cl">ArithmeticException</span> e) {
+        <span class="cm">// Se ejecuta si ocurre exactamente ese tipo de error</span>
+        <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Error matemático: "</span>
+        <span class="op">+</span> e.<span class="fn">getMessage</span>());
+
+        } <span class="kw">catch</span> (<span class="cl">Exception</span> e) {
+        <span class="cm">// Captura cualquier otro tipo de excepción</span>
+        <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Error general: "</span>
+        <span class="op">+</span> e.<span class="fn">getMessage</span>());
+
+        } <span class="kw">finally</span> {
+        <span class="cm">// Siempre se ejecuta, haya error o no</span>
+        <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Programa finalizado
+          correctamente."</span>);
+        }
+      </div>
+
+      <div class="exc-grid">
+        <div class="exc-box">
+          <div class="exc-title">try { }</div>
+          <div class="exc-desc">Envuelve el código que podría generar un error. Si ocurre, Java salta directamente al
+            <code>catch</code>.</div>
+        </div>
+        <div class="exc-box">
+          <div class="exc-title">catch (Tipo e) { }</div>
+          <div class="exc-desc">Captura y maneja el error. Puedes tener varios <code>catch</code> para distintos tipos
+            de excepción.</div>
+        </div>
+        <div class="exc-box">
+          <div class="exc-title">finally { }</div>
+          <div class="exc-desc">Siempre se ejecuta, sin importar si hubo error. Ideal para cerrar archivos, conexiones,
+            etc.</div>
+        </div>
+        <div class="exc-box">
+          <div class="exc-title">throw / throws</div>
+          <div class="exc-desc"><code>throw</code> lanza una excepción manualmente. <code>throws</code> avisa que un
+            método puede lanzarla.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- ════════════════ 08 · ARRAYS ════════════════ -->
+    <div class="section" id="sec-arrays">
+      <div class="sec-title">08 · Arrays</div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dt"></div>¿Qué es un array?
+        </div>
+        <div class="card-desc">
+          <p>Un array es una <strong style="color:#cbd5e1">lista de elementos del mismo tipo</strong> almacenados en
+            posiciones contiguas de memoria. Todos los elementos deben ser del mismo tipo (todos enteros, todos Strings,
+            etc.).</p>
+          <p style="margin-top:6px">El tamaño del array se define al crearlo y <strong style="color:#f87171">no puede
+              cambiarse</strong> después. Los índices siempre empiezan en <strong style="color:#2dd4bf">0</strong>, no
+            en 1.</p>
+        </div>
+      </div>
+
+      <!-- VIZ -->
+      <div class="array-viz">
+        <div class="array-cell">
+          <div class="array-idx">[0]</div>
+          <div class="array-val">10</div>
+        </div>
+        <div class="array-cell">
+          <div class="array-idx">[1]</div>
+          <div class="array-val">20</div>
+        </div>
+        <div class="array-cell hl">
+          <div class="array-idx">[2]</div>
+          <div class="array-val">30</div>
+        </div>
+        <div class="array-cell">
+          <div class="array-idx">[3]</div>
+          <div class="array-val">40</div>
+        </div>
+        <div class="array-cell">
+          <div class="array-idx">[4]</div>
+          <div class="array-val">50</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:#475569;text-align:center;margin-bottom:14px">Array de 5 enteros — posición [2]
+        resaltada contiene el valor 30</div>
+
+      <!-- DECLARAR -->
+      <div class="card">
+        <div class="card-title">
+          <div class="dot dp"></div>Declarar un array
+        </div>
+        <div class="card-desc" style="margin-bottom:6px">Hay tres formas válidas de declarar un array — todas son
+          equivalentes:</div>
+        <div class="cb"><span class="cm">// Las tres formas son válidas</span>
+          <span class="kw">int</span>[] arrayEnteros;
+          <span class="kw">int</span> arrayEnteros[];
+          <span class="kw">int</span>[] arrayEnteros[];
+
+          <span class="cm">// Ejemplos por tipo</span>
+          <span class="kw">int</span>[] numeros;
+          <span class="cl">String</span>[] nombres;
+          <span class="kw">char</span>[] letras;
+        </div>
+      </div>
+
+      <!-- INICIALIZAR -->
+      <div class="card" style="margin-top:10px">
+        <div class="card-title">
+          <div class="dot dt"></div>Inicializar un array
+        </div>
+        <div class="card-desc" style="margin-bottom:6px">Hay dos formas de dar valores a un array:</div>
+        <div class="cb"><span class="cm">// Opción 1: por tamaño (valores por defecto = 0 / null / false)</span>
+          <span class="kw">int</span>[] numeros = <span class="kw">new int</span>[<span class="num">5</span>];
+          <span class="cl">String</span>[] nombres = <span class="kw">new</span> <span class="cl">String</span>[<span
+            class="num">3</span>];
+
+          <span class="cm">// Opción 2: con valores directos</span>
+          <span class="kw">int</span>[] notas = { <span class="num">70</span>, <span class="num">85</span>, <span
+            class="num">90</span>, <span class="num">60</span>, <span class="num">95</span> };
+          <span class="cl">String</span>[] frutas = { <span class="str">"manzana"</span>, <span
+            class="str">"pera"</span>, <span class="str">"uva"</span> };
+        </div>
+      </div>
+
+      <!-- ACCEDER -->
+      <div class="card" style="margin-top:10px">
+        <div class="card-title">
+          <div class="dot dg"></div>Recuperar y asignar valores
+        </div>
+        <div class="card-desc" style="margin-bottom:6px">Para leer o escribir en una posición específica, usamos el
+          índice entre corchetes <code>[ ]</code>:</div>
+        <div class="cb"><span class="kw">int</span>[] arrayEnteros = { <span class="num">0</span>, <span
+            class="num">0</span>, <span class="num">0</span>, <span class="num">0</span>, <span class="num">0</span> };
+
+          <span class="cm">// Asignar: arrayEnteros[2] = 10</span>
+          arrayEnteros[<span class="num">2</span>] <span class="op">=</span> <span class="num">10</span>; <span
+            class="cm">// posición 2 ahora vale 10</span>
+
+          <span class="cm">// Recuperar: leer el valor de una posición</span>
+          <span class="kw">int</span> numero <span class="op">=</span> arrayEnteros[<span class="num">2</span>]; <span
+            class="cm">// numero = 10</span>
+
+          <span class="cm">// Cambiar otro elemento</span>
+          <span class="cl">String</span>[] arrayNombres <span class="op">=</span> { <span class="str">"Pedro"</span>,
+          <span class="str">"Juan"</span>, <span class="str">"María"</span> };
+          arrayNombres[<span class="num">0</span>] <span class="op">=</span> <span class="str">"Sergio"</span>; <span
+            class="cm">// "Pedro" → "Sergio"</span>
+        </div>
+      </div>
+
+      <!-- RECORRER -->
+      <div class="card" style="margin-top:10px">
+        <div class="card-title">
+          <div class="dot da"></div>Recorrer un array con bucles
+        </div>
+        <div class="card-desc" style="margin-bottom:6px">La propiedad <code>.length</code> devuelve el número de
+          elementos del array:</div>
+        <div class="cb"><span class="kw">int</span>[] notas <span class="op">=</span> { <span class="num">70</span>,
+          <span class="num">85</span>, <span class="num">90</span>, <span class="num">60</span>, <span
+            class="num">95</span> };
+
+          <span class="cm">// Con for clásico (tienes acceso al índice)</span>
+          <span class="kw">for</span> (<span class="kw">int</span> i <span class="op">=</span> <span
+            class="num">0</span>; i <span class="op">&lt;</span> notas.length; i<span class="op">++</span>) {
+          <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Nota "</span> <span
+            class="op">+</span> i <span class="op">+</span> <span class="str">": "</span> <span class="op">+</span>
+          notas[i]);
+          }
+
+          <span class="cm">// Con for-each (más simple, pero sin índice)</span>
+          <span class="kw">for</span> (<span class="kw">int</span> nota : notas) {
+          <span class="cl">System</span>.out.<span class="fn">println</span>(nota); <span class="cm">// 70, 85, 90, 60,
+            95</span>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">Java Basics · Guía de referencia completa · Todos los derechos reservados</div>
+
   </div>
 
-  <div class="div"></div>
+  <script>
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('.section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-  <!-- ════════════════ 07 · EXCEPCIONES ════════════════ -->
-  <div class="section">
-    <div class="sec-title">07 · Manejo de excepciones</div>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const activeLink = document.querySelector('.nav-link[href="#' + entry.target.id + '"]');
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
 
-    <div class="card">
-      <div class="card-title"><div class="dot dpi"></div>¿Qué es una excepción?</div>
-      <div class="card-desc">
-        <p>Una excepción es un <strong style="color:#cbd5e1">error que ocurre durante la ejecución</strong> del programa (no en la compilación). Por ejemplo: dividir entre cero, intentar acceder a un archivo que no existe, o convertir texto inválido a número.</p>
-        <p style="margin-top:6px">Si una excepción no se maneja, el programa <strong style="color:#f87171">se detiene abruptamente</strong>. Con <code>try/catch</code> podemos capturarla y manejarla de forma controlada.</p>
-      </div>
-    </div>
+    sections.forEach(section => observer.observe(section));
 
-    <div class="cb" style="margin-top:8px"><span class="kw">try</span> {
-    <span class="cm">// Bloque "peligroso" — código que podría fallar</span>
-    <span class="kw">int</span> resultado <span class="op">=</span> <span class="num">10</span> <span class="op">/</span> <span class="num">0</span>;               <span class="cm">// división por cero!</span>
-    <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Resultado: "</span> <span class="op">+</span> resultado);
-
-} <span class="kw">catch</span> (<span class="cl">ArithmeticException</span> e) {
-    <span class="cm">// Se ejecuta si ocurre exactamente ese tipo de error</span>
-    <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Error matemático: "</span> <span class="op">+</span> e.<span class="fn">getMessage</span>());
-
-} <span class="kw">catch</span> (<span class="cl">Exception</span> e) {
-    <span class="cm">// Captura cualquier otro tipo de excepción</span>
-    <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Error general: "</span> <span class="op">+</span> e.<span class="fn">getMessage</span>());
-
-} <span class="kw">finally</span> {
-    <span class="cm">// Siempre se ejecuta, haya error o no</span>
-    <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Programa finalizado correctamente."</span>);
-}</div>
-
-    <div class="exc-grid">
-      <div class="exc-box">
-        <div class="exc-title">try { }</div>
-        <div class="exc-desc">Envuelve el código que podría generar un error. Si ocurre, Java salta directamente al <code>catch</code>.</div>
-      </div>
-      <div class="exc-box">
-        <div class="exc-title">catch (Tipo e) { }</div>
-        <div class="exc-desc">Captura y maneja el error. Puedes tener varios <code>catch</code> para distintos tipos de excepción.</div>
-      </div>
-      <div class="exc-box">
-        <div class="exc-title">finally { }</div>
-        <div class="exc-desc">Siempre se ejecuta, sin importar si hubo error. Ideal para cerrar archivos, conexiones, etc.</div>
-      </div>
-      <div class="exc-box">
-        <div class="exc-title">throw / throws</div>
-        <div class="exc-desc"><code>throw</code> lanza una excepción manualmente. <code>throws</code> avisa que un método puede lanzarla.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="div"></div>
-
-  <!-- ════════════════ 08 · ARRAYS ════════════════ -->
-  <div class="section">
-    <div class="sec-title">08 · Arrays</div>
-
-    <div class="card">
-      <div class="card-title"><div class="dot dt"></div>¿Qué es un array?</div>
-      <div class="card-desc">
-        <p>Un array es una <strong style="color:#cbd5e1">lista de elementos del mismo tipo</strong> almacenados en posiciones contiguas de memoria. Todos los elementos deben ser del mismo tipo (todos enteros, todos Strings, etc.).</p>
-        <p style="margin-top:6px">El tamaño del array se define al crearlo y <strong style="color:#f87171">no puede cambiarse</strong> después. Los índices siempre empiezan en <strong style="color:#2dd4bf">0</strong>, no en 1.</p>
-      </div>
-    </div>
-
-    <!-- VIZ -->
-    <div class="array-viz">
-      <div class="array-cell"><div class="array-idx">[0]</div><div class="array-val">10</div></div>
-      <div class="array-cell"><div class="array-idx">[1]</div><div class="array-val">20</div></div>
-      <div class="array-cell hl"><div class="array-idx">[2]</div><div class="array-val">30</div></div>
-      <div class="array-cell"><div class="array-idx">[3]</div><div class="array-val">40</div></div>
-      <div class="array-cell"><div class="array-idx">[4]</div><div class="array-val">50</div></div>
-    </div>
-    <div style="font-size:11px;color:#475569;text-align:center;margin-bottom:14px">Array de 5 enteros — posición [2] resaltada contiene el valor 30</div>
-
-    <!-- DECLARAR -->
-    <div class="card">
-      <div class="card-title"><div class="dot dp"></div>Declarar un array</div>
-      <div class="card-desc" style="margin-bottom:6px">Hay tres formas válidas de declarar un array — todas son equivalentes:</div>
-      <div class="cb"><span class="cm">// Las tres formas son válidas</span>
-<span class="kw">int</span>[]    arrayEnteros;
-<span class="kw">int</span>      arrayEnteros[];
-<span class="kw">int</span>[]    arrayEnteros[];
-
-<span class="cm">// Ejemplos por tipo</span>
-<span class="kw">int</span>[]    numeros;
-<span class="cl">String</span>[] nombres;
-<span class="kw">char</span>[]   letras;</div>
-    </div>
-
-    <!-- INICIALIZAR -->
-    <div class="card" style="margin-top:10px">
-      <div class="card-title"><div class="dot dt"></div>Inicializar un array</div>
-      <div class="card-desc" style="margin-bottom:6px">Hay dos formas de dar valores a un array:</div>
-      <div class="cb"><span class="cm">// Opción 1: por tamaño (valores por defecto = 0 / null / false)</span>
-<span class="kw">int</span>[]    numeros = <span class="kw">new int</span>[<span class="num">5</span>];
-<span class="cl">String</span>[] nombres = <span class="kw">new</span> <span class="cl">String</span>[<span class="num">3</span>];
-
-<span class="cm">// Opción 2: con valores directos</span>
-<span class="kw">int</span>[]    notas   = { <span class="num">70</span>, <span class="num">85</span>, <span class="num">90</span>, <span class="num">60</span>, <span class="num">95</span> };
-<span class="cl">String</span>[] frutas  = { <span class="str">"manzana"</span>, <span class="str">"pera"</span>, <span class="str">"uva"</span> };</div>
-    </div>
-
-    <!-- ACCEDER -->
-    <div class="card" style="margin-top:10px">
-      <div class="card-title"><div class="dot dg"></div>Recuperar y asignar valores</div>
-      <div class="card-desc" style="margin-bottom:6px">Para leer o escribir en una posición específica, usamos el índice entre corchetes <code>[ ]</code>:</div>
-      <div class="cb"><span class="kw">int</span>[] arrayEnteros = { <span class="num">0</span>, <span class="num">0</span>, <span class="num">0</span>, <span class="num">0</span>, <span class="num">0</span> };
-
-<span class="cm">// Asignar: arrayEnteros[2] = 10</span>
-arrayEnteros[<span class="num">2</span>] <span class="op">=</span> <span class="num">10</span>;   <span class="cm">// posición 2 ahora vale 10</span>
-
-<span class="cm">// Recuperar: leer el valor de una posición</span>
-<span class="kw">int</span> numero <span class="op">=</span> arrayEnteros[<span class="num">2</span>];  <span class="cm">// numero = 10</span>
-
-<span class="cm">// Cambiar otro elemento</span>
-<span class="cl">String</span>[] arrayNombres <span class="op">=</span> { <span class="str">"Pedro"</span>, <span class="str">"Juan"</span>, <span class="str">"María"</span> };
-arrayNombres[<span class="num">0</span>] <span class="op">=</span> <span class="str">"Sergio"</span>;   <span class="cm">// "Pedro" → "Sergio"</span></div>
-    </div>
-
-    <!-- RECORRER -->
-    <div class="card" style="margin-top:10px">
-      <div class="card-title"><div class="dot da"></div>Recorrer un array con bucles</div>
-      <div class="card-desc" style="margin-bottom:6px">La propiedad <code>.length</code> devuelve el número de elementos del array:</div>
-      <div class="cb"><span class="kw">int</span>[] notas <span class="op">=</span> { <span class="num">70</span>, <span class="num">85</span>, <span class="num">90</span>, <span class="num">60</span>, <span class="num">95</span> };
-
-<span class="cm">// Con for clásico (tienes acceso al índice)</span>
-<span class="kw">for</span> (<span class="kw">int</span> i <span class="op">=</span> <span class="num">0</span>; i <span class="op">&lt;</span> notas.length; i<span class="op">++</span>) {
-    <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="str">"Nota "</span> <span class="op">+</span> i <span class="op">+</span> <span class="str">": "</span> <span class="op">+</span> notas[i]);
-}
-
-<span class="cm">// Con for-each (más simple, pero sin índice)</span>
-<span class="kw">for</span> (<span class="kw">int</span> nota : notas) {
-    <span class="cl">System</span>.out.<span class="fn">println</span>(nota); <span class="cm">// 70, 85, 90, 60, 95</span>
-}</div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">Java Basics · Guía de referencia completa · Todos los derechos reservados</div>
-
-</div>
+    // Smooth scroll with offset for nav links
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').slice(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          const offset = 20;
+          const top = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
+
 </html>
