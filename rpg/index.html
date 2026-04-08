@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPG Java — Guía Visual</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="hero">
+    <div class="hero-label">Guía visual de código Java</div>
+    <h1>RPG Console<br><span>Simulator</span></h1>
+    <p class="hero-desc">Una explicación completa y visual del código Java que crea un simulador de rol por consola. Haz
+      clic en cada sección para expandirla.</p>
+    <div class="hero-tags">
+      <span class="hero-tag" style="color:var(--purple);border-color:var(--purple-border);background:var(--purple-bg)">9
+        secciones</span>
+      <span class="hero-tag"
+        style="color:var(--teal);border-color:var(--teal-border);background:var(--teal-bg)">Java</span>
+      <span class="hero-tag" style="color:var(--blue);border-color:var(--blue-border);background:var(--blue-bg)">Bucles
+        &amp; Switch</span>
+      <span class="hero-tag"
+        style="color:var(--amber);border-color:var(--amber-border);background:var(--amber-bg)">Arreglos</span>
+      <span class="hero-tag" style="color:var(--coral);border-color:var(--coral-border);background:var(--coral-bg)">OOP
+        básico</span>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- SECCION 1 -->
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">
+        <div class="num c-teal">1</div>
+        <div class="section-title">Importaciones y clase principal</div>
+        <div class="arrow">▶</div>
+      </div>
+      <div class="section-body">
+        <div class="body-inner">
+          <div class="code-block"><span class="kw">import</span> java.util.Random;
+            <span class="kw">import</span> java.util.Scanner;
+
+            <span class="kw">public class</span> <span class="fn">rpg</span> {
+            <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+            <span class="cm">// Todo el programa vive aquí</span>
+            }
+            }
+          </div>
+          <p class="desc">Antes de escribir el juego, Java necesita <strong>"traer herramientas"</strong> del sistema.
+            Las dos líneas de <code>import</code> hacen exactamente eso:</p>
+          <div class="tag-row">
+            <span class="tag c-blue">Scanner → leer lo que escribe el usuario</span>
+            <span class="tag c-purple">Random → generar números al azar</span>
+          </div>
+          <p class="desc">La clase <code>rpg</code> es el contenedor del programa, y el método <code>main</code> es el
+            punto de entrada: Java siempre empieza a ejecutar desde ahí.</p>
+          <div class="analogy">Como decir "necesito un teclado y un dado" antes de jugar un juego de mesa.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCION 2 -->
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">
+        <div class="num c-purple">2</div>
+        <div class="section-title">Variables del juego</div>
+        <div class="arrow">▶</div>
+      </div>
+      <div class="section-body">
+        <div class="body-inner">
+          <p class="desc">Aquí se declaran todas las <strong>"cajas"</strong> donde se guardan los datos del juego. Cada
+            variable tiene un tipo y un nombre.</p>
+          <div class="var-grid">
+            <div class="var-card">
+              <div class="var-name">vida</div>
+              <div class="var-desc">Puntos de vida del héroe</div>
+            </div>
+            <div class="var-card">
+              <div class="var-name">fuerza</div>
+              <div class="var-desc">Daño que hace el héroe</div>
+            </div>
+            <div class="var-card">
+              <div class="var-name">nombre</div>
+              <div class="var-desc">Nombre del personaje (texto)</div>
+            </div>
+            <div class="var-card">
+              <div class="var-name">clase</div>
+              <div class="var-desc">Mago, Guerrero, etc.</div>
+            </div>
+            <div class="var-card">
+              <div class="var-name">vidaEnemigo</div>
+              <div class="var-desc">Vida aleatoria (50–60)</div>
+            </div>
+            <div class="var-card">
+              <div class="var-name">fuerzaEnemigo</div>
+              <div class="var-desc">Fuerza aleatoria (10–30)</div>
+            </div>
+            <div class="var-card">
+              <div class="var-name">inventario</div>
+              <div class="var-desc">Lista fija de 4 objetos</div>
+            </div>
+            <div class="var-card">
+              <div class="var-name">activo</div>
+              <div class="var-desc">¿El juego sigue corriendo?</div>
+            </div>
+          </div>
+          <div class="code-block"><span class="kw">int</span> <span class="var">vida</span> = <span
+              class="num">0</span>;
+            <span class="kw">String</span> <span class="var">nombre</span> = <span class="str">""</span>;
+            <span class="kw">int</span> <span class="var">vidaEnemigo</span> = Random.<span
+              class="fn">nextInt</span>(<span class="num">50</span>, <span class="num">60</span>); <span class="cm">//
+              aleatorio</span>
+            <span class="kw">String</span>[] <span class="var">inventario</span> = {<span class="str">"Poción"</span>,
+            <span class="str">"Hierro"</span>, <span class="str">"Pergamino"</span>, <span class="str">"Llave
+              Antigua"</span>};
+            <span class="kw">boolean</span> <span class="var">activo</span> = <span class="kw">true</span>;
+          </div>
+          <div class="analogy">Piénsalo como una ficha de personaje en D&amp;D: cada espacio tiene un nombre y un valor
+            que puede cambiar durante el juego.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCION 3 -->
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">
+        <div class="num c-blue">3</div>
+        <div class="section-title">El bucle principal — do...while</div>
+        <div class="arrow">▶</div>
+      </div>
+      <div class="section-body">
+        <div class="body-inner">
+          <div class="code-block"><span class="kw">do</span> {
+            <span class="cm">// mostrar menú, leer opción, ejecutar acción</span>
+            <span class="kw">int</span> <span class="var">opcion</span> = scan.<span class="fn">nextInt</span>();
+            <span class="kw">switch</span> (<span class="var">opcion</span>) {
+            <span class="kw">case</span> <span class="num">1</span> -> { <span class="cm">/* crear personaje */</span> }
+            <span class="kw">case</span> <span class="num">6</span> -> { <span class="var">activo</span> = <span
+              class="kw">false</span>; }
+            }
+            } <span class="kw">while</span> (<span class="var">activo</span>);
+          </div>
+          <p class="desc">Este bloque es el <strong>corazón del juego</strong>. Se repite indefinidamente hasta que
+            <code>activo</code> sea <code>false</code>. La diferencia entre <code>do...while</code> y <code>while</code>
+            normal es que el <code>do...while</code> siempre ejecuta el cuerpo <strong>al menos una vez</strong> antes
+            de verificar la condición.
+          </p>
+          <p class="desc">Dentro del bucle, el <code>switch</code> actúa como un semáforo que dirige el flujo según el
+            número que el jugador escribió.</p>
+          <div class="analogy">Es como un menú de cajero automático: siempre vuelve al menú principal hasta que
+            presionas "Salir".</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCION 4 -->
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">
+        <div class="num c-coral">4</div>
+        <div class="section-title">Opción 1 — Crear personaje</div>
+        <div class="arrow">▶</div>
+      </div>
+      <div class="section-body">
+        <div class="body-inner">
+          <p class="desc">El jugador escribe su nombre y elige una <strong>clase</strong>. Cada clase tiene estadísticas
+            distintas de vida y fuerza. Un <code>do...while</code> interno repite la pregunta si el jugador elige un
+            número inválido.</p>
+          <div class="class-grid">
+            <div class="class-card c-purple">
+              <div class="class-name">Mago</div>
+              <div class="stat">vida: 50<br>fuerza: 100</div>
+            </div>
+            <div class="class-card c-teal">
+              <div class="class-name">Guerrero</div>
+              <div class="stat">vida: 100<br>fuerza: 50</div>
+            </div>
+            <div class="class-card c-blue">
+              <div class="class-name">Arquero</div>
+              <div class="stat">vida: 75<br>fuerza: 75</div>
+            </div>
+            <div class="class-card c-coral">
+              <div class="class-name">Asesino</div>
+              <div class="stat">vida: 60<br>fuerza: 90</div>
+            </div>
+            <div class="class-card c-amber">
+              <div class="class-name">Paladín</div>
+              <div class="stat">vida: 120<br>fuerza: 40</div>
+            </div>
+          </div>
+          <div class="code-block"><span class="kw">boolean</span> <span class="var">rolValido</span> = <span
+              class="kw">false</span>;
+            <span class="kw">do</span> {
+            <span class="cm">// pedir al usuario que elija clase</span>
+            <span class="kw">switch</span> (<span class="var">rol</span>) {
+            <span class="kw">case</span> <span class="num">1</span> -> { <span class="var">clase</span> = <span
+              class="str">"Mago"</span>; <span class="var">vida</span> = <span class="num">50</span>; <span
+              class="var">fuerza</span> = <span class="num">100</span>; <span class="var">rolValido</span> = <span
+              class="kw">true</span>; }
+            <span class="cm">// ... más casos</span>
+            <span class="kw">default</span> -> { System.out.<span class="fn">println</span>(<span class="str">"Opción no
+              válida."</span>); }
+            }
+            } <span class="kw">while</span> (!<span class="var">rolValido</span>);
+          </div>
+          <div class="analogy">Como elegir tu clase al crear un personaje en Pokémon o Dark Souls: cada opción define tu
+            estilo de juego.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCION 5 -->
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">
+        <div class="num c-green">5</div>
+        <div class="section-title">Opción 2 — Entrenar</div>
+        <div class="arrow">▶</div>
+      </div>
+      <div class="section-body">
+        <div class="body-inner">
+          <p class="desc">Un menú secundario donde el jugador puede mejorar su personaje. Usa un <code>while</code> que
+            repite hasta que el jugador elige <code>0</code> (salir del entrenamiento).</p>
+          <div class="code-block"><span class="kw">while</span> (<span class="var">entrenamiento</span> != <span
+              class="num">0</span>) {
+            <span class="cm">// mostrar opciones de entrenamiento</span>
+            <span class="var">entrenamiento</span> = scan.<span class="fn">nextInt</span>();
+
+            <span class="kw">if</span> (<span class="var">entrenamiento</span> == <span class="num">1</span>) {
+            <span class="var">fuerza</span> += <span class="num">5</span>; <span class="cm">// fuerza = fuerza +
+              5</span>
+            } <span class="kw">else if</span> (<span class="var">entrenamiento</span> == <span class="num">2</span>) {
+            <span class="var">vida</span> += <span class="num">10</span>; <span class="cm">// vida = vida + 10</span>
+            }
+            }
+          </div>
+          <ul class="step-list">
+            <li>Elige <strong>opción 1</strong> → fuerza sube +5</li>
+            <li>Elige <strong>opción 2</strong> → vida sube +10</li>
+            <li>Elige <strong>0</strong> → termina el entrenamiento y vuelve al menú</li>
+          </ul>
+          <p class="desc">El operador <code>+=</code> es un atajo: <code>fuerza += 5</code> significa lo mismo que
+            <code>fuerza = fuerza + 5</code>.
+          </p>
+          <div class="analogy">Como el gimnasio en Pokémon: entras, subes stats cuantas veces quieras, y cuando estás
+            listo, sales de nuevo al mundo.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCION 6 -->
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">
+        <div class="num c-coral">6</div>
+        <div class="section-title">Opción 3 — Batalla</div>
+        <div class="arrow">▶</div>
+      </div>
+      <div class="section-body">
+        <div class="body-inner">
+          <p class="desc">Se usa un bucle <code>for</code> que simula <strong>hasta 5 turnos</strong> de combate. En
+            cada turno ambos personajes se golpean simultáneamente.</p>
+          <div class="code-block"><span class="kw">for</span> (<span class="var">turno</span> = <span
+              class="num">1</span>; <span class="var">turno</span>
+            <= <span class="num">5</span>; <span class="var">turno</span>++) {
+              <span class="cm">// Mostrar stats de ambos</span>
+              <span class="var">vida</span> -= <span class="var">fuerzaEnemigo</span>; <span class="cm">// el enemigo
+                golpea al héroe</span>
+              <span class="var">vidaEnemigo</span> -= <span class="var">fuerza</span>; <span class="cm">// el héroe
+                golpea al enemigo</span>
+
+              <span class="kw">if</span> (<span class="var">vida</span>
+              <= <span class="num">0</span>) {
+                System.out.<span class="fn">println</span>(<span class="str">"ERAI Compare"</span>);
+                <span class="kw">break</span>; <span class="cm">// sale del for antes del turno 5</span>
+                } <span class="kw">else if</span> (<span class="var">vidaEnemigo</span>
+                <= <span class="num">0</span>) {
+                  System.out.<span class="fn">println</span>(<span class="str">"GANASTE Prro"</span>);
+                  <span class="kw">break</span>;
+                  }
+                  }
+          </div>
+          <ul class="step-list">
+            <li>Se muestran los stats de héroe y enemigo</li>
+            <li>El enemigo descuenta su fuerza de la vida del héroe</li>
+            <li>El héroe descuenta su fuerza de la vida del enemigo</li>
+            <li>Si alguno llega a 0 o menos, se usa <code>break</code> para salir del combate</li>
+            <li>Si nadie murió en 5 turnos, el combate termina empatado</li>
+          </ul>
+          <p class="desc">El <code>break</code> es como una salida de emergencia del bucle: cuando se cumple la
+            condición, se salta al código que viene después del <code>for</code>.</p>
+          <div class="analogy">Como un juego de cartas donde ambos jugadores se golpean al mismo tiempo cada ronda,
+            hasta que uno cae o se acaban los turnos.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCION 7 -->
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">
+        <div class="num c-amber">7</div>
+        <div class="section-title">Opción 4 — Inventario</div>
+        <div class="arrow">▶</div>
+      </div>
+      <div class="section-body">
+        <div class="body-inner">
+          <div class="code-block"><span class="kw">String</span>[] <span class="var">inventario</span> = {<span
+              class="str">"Poción"</span>, <span class="str">"Hierro"</span>, <span class="str">"Pergamino"</span>,
+            <span class="str">"Llave Antigua"</span>};
+
+            <span class="cm">// Para mostrarlo:</span>
+            <span class="kw">for</span> (<span class="kw">String</span> <span class="var">item</span> : <span
+              class="var">inventario</span>) {
+            System.out.<span class="fn">println</span>(<span class="str">"- "</span> + <span class="var">item</span>);
+            }
+          </div>
+          <p class="desc">El inventario es un <strong>arreglo (array)</strong> de textos: una lista fija de 4 objetos
+            que no cambia durante el juego. Se define al inicio con llaves <code>{ }</code>.</p>
+          <p class="desc">El <code>for-each</code> (el <code>for</code> con <code>:</code>) es una forma simple de
+            recorrer toda la lista uno por uno sin necesitar índices numéricos.</p>
+          <div class="tag-row">
+            <span class="tag c-amber">inventario[0] = "Poción"</span>
+            <span class="tag c-amber">inventario[1] = "Hierro"</span>
+            <span class="tag c-amber">inventario[2] = "Pergamino"</span>
+            <span class="tag c-amber">inventario[3] = "Llave Antigua"</span>
+          </div>
+          <div class="analogy">Como un inventario en papel: el bucle es la mano que va señalando cada ítem de arriba a
+            abajo e imprimiéndolo.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCION 8 -->
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">
+        <div class="num c-pink">8</div>
+        <div class="section-title">Opción 5 — Estado del personaje</div>
+        <div class="arrow">▶</div>
+      </div>
+      <div class="section-body">
+        <div class="body-inner">
+          <p class="desc">Muestra nombre, clase y fuerza, y según la <strong>cantidad de vida restante</strong> imprime
+            un mensaje diferente. Usa una cadena de <code>if / else if / else</code>:</p>
+          <div class="code-block"><span class="kw">if</span> (<span class="var">vida</span> >= <span
+              class="num">80</span>) {
+            System.out.<span class="fn">println</span>(<span class="str">"Estás en excelente estado"</span>);
+            } <span class="kw">else if</span> (<span class="var">vida</span> >= <span class="num">50</span>) {
+            System.out.<span class="fn">println</span>(<span class="str">"Buen estado, pero ten cuidado"</span>);
+            } <span class="kw">else if</span> (<span class="var">vida</span> >= <span class="num">20</span>) {
+            System.out.<span class="fn">println</span>(<span class="str">"Estás herido, busca una poción"</span>);
+            } <span class="kw">else</span> {
+            System.out.<span class="fn">println</span>(<span class="str">"Gravemente herido, entrena por favor"</span>);
+            }</div>
+          <p class="desc">Java evalúa las condiciones <strong>de arriba a abajo</strong> y ejecuta solo el primer bloque
+            cuya condición sea verdadera.</p>
+          <div class="tag-row">
+            <span class="tag c-green">vida ≥ 80 → excelente estado</span>
+            <span class="tag c-blue">vida ≥ 50 → buen estado</span>
+            <span class="tag c-amber">vida ≥ 20 → herido</span>
+            <span class="tag c-coral">vida &lt; 20 → gravemente herido</span>
+          </div>
+          <div class="analogy">Como la barra de salud en un videojuego que cambia de color de verde a rojo según cuánto
+            te queda.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCION 9 -->
+    <div class="section">
+      <div class="section-header" onclick="toggle(this)">
+        <div class="num c-teal">9</div>
+        <div class="section-title">Opción 6 — Salir</div>
+        <div class="arrow">▶</div>
+      </div>
+      <div class="section-body">
+        <div class="body-inner">
+          <div class="code-block"><span class="kw">case</span> <span class="num">6</span> -> {
+            System.out.<span class="fn">println</span>(<span class="str">"Saliendo del juego..."</span>);
+            <span class="var">activo</span> = <span class="kw">false</span>;
+            }
+          </div>
+          <p class="desc">La opción más simple del programa. Solo cambia la variable <code>activo</code> a
+            <code>false</code>. Eso hace que cuando el <code>do...while</code> principal revise su condición al final
+            del ciclo, encuentre que es <strong>falsa</strong> y detenga todo.
+          </p>
+          <div class="analogy">El interruptor de apagado: cuando lo bajas, toda la máquina se detiene. Sin él, el juego
+            correría para siempre.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CODIGO COMPLETO -->
+  <div class="container">
+    <div class="section" id="fullcode-section" style="animation-delay:0.5s">
+      <div class="section-header" onclick="toggle(this)">
+        <div class="num" style="color:var(--teal);border-color:var(--teal-border);background:var(--teal-bg)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
+        </div>
+        <div class="section-title">Código completo — rpg.java</div>
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+          <button id="copy-btn" onclick="copyCode(event)"
+            style="font-family:'Syne',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.05em;padding:5px 12px;border-radius:99px;border:1px solid var(--teal-border);background:var(--teal-bg);color:var(--teal);cursor:pointer;transition:all 0.15s">COPIAR</button>
+          <div class="arrow">▶</div>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="body-inner">
+          <p class="desc" style="margin-bottom:16px">El código fuente completo con sintaxis coloreada. Usa el botón
+            <strong>COPIAR</strong> para copiarlo al portapapeles.
+          </p>
+          <div class="code-block" id="full-code" style="max-height:600px;overflow-y:auto;line-height:1.75"><span
+              class="kw">package</span> ejercicios;
+
+            <span class="kw">import</span> java.util.Random;
+            <span class="kw">import</span> java.util.Scanner;
+
+            <span class="kw">public class</span> <span class="fn">rpg</span> {
+            <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+            <span class="cm">// scanner</span>
+            Scanner scan = <span class="kw">new</span> <span class="fn">Scanner</span>(System.in);
+            <span class="cm">// se llama random para crear vida y fuerza aleatoria al enemigo</span>
+            Random Random = <span class="kw">new</span> <span class="fn">Random</span>();
+
+            <span class="cm">// variables</span>
+            <span class="kw">int</span> <span class="var">vida</span> = <span class="num">0</span>;
+            String <span class="var">nombre</span> = <span class="str">""</span>;
+            <span class="kw">int</span> <span class="var">rol</span>;
+            <span class="kw">int</span> <span class="var">fuerza</span> = <span class="num">0</span>;
+            String <span class="var">clase</span> = <span class="str">""</span>;
+            <span class="kw">int</span> <span class="var">entrenamiento</span> = <span class="num">1</span>;
+            <span class="kw">int</span> <span class="var">vidaEnemigo</span> = Random.<span
+              class="fn">nextInt</span>(<span class="num">50</span>, <span class="num">60</span>);
+            <span class="kw">int</span> <span class="var">fuerzaEnemigo</span> = Random.<span
+              class="fn">nextInt</span>(<span class="num">10</span>, <span class="num">30</span>);
+            <span class="kw">int</span> <span class="var">turno</span>;
+            String[] <span class="var">inventario</span> = {<span class="str">"Poción"</span>, <span
+              class="str">"Hierro"</span>, <span class="str">"Pergamino"</span>, <span class="str">"Llave
+              Antigua"</span>};
+            <span class="kw">boolean</span> <span class="var">activo</span> = <span class="kw">true</span>;
+
+            <span class="kw">do</span> {
+            System.out.<span class="fn">println</span>(<span class="str">"RPG Console Simulator"</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"1. Crear Personaje"</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"2. Entrenar"</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"3. Batalla"</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"4. Inventario"</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"5. Estado del personaje"</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"6. Salir"</span>);
+            <span class="kw">int</span> <span class="var">opcion</span> = scan.<span class="fn">nextInt</span>();
+            scan.<span class="fn">nextLine</span>();
+
+            <span class="kw">switch</span> (<span class="var">opcion</span>) {
+            <span class="kw">case</span> <span class="num">1</span> -> {
+            System.out.<span class="fn">println</span>(<span class="str">"Ingrese el nombre del heroe: "</span>);
+            <span class="var">nombre</span> = scan.<span class="fn">nextLine</span>();
+
+            <span class="kw">boolean</span> <span class="var">rolValido</span> = <span class="kw">false</span>;
+            <span class="kw">do</span> {
+            System.out.<span class="fn">println</span>(<span class="str">"Ingrese el rol del heroe: "</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"1. Mago"</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"2. Guerrero"</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"3. Arquero"</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"4. Asesino"</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"5. Paladin"</span>);
+            <span class="var">rol</span> = scan.<span class="fn">nextInt</span>();
+
+            <span class="kw">switch</span> (<span class="var">rol</span>) {
+            <span class="kw">case</span> <span class="num">1</span> -> { <span class="var">clase</span> = <span
+              class="str">"Mago"</span>; <span class="var">vida</span> = <span class="num">50</span>; <span
+              class="var">fuerza</span> = <span class="num">100</span>; <span class="var">rolValido</span> = <span
+              class="kw">true</span>; System.out.<span class="fn">println</span>(<span class="str">"Has creado un
+              "</span> + <span class="var">clase</span> + <span class="str">" llamado "</span> + <span
+              class="var">nombre</span>); }
+            <span class="kw">case</span> <span class="num">2</span> -> { <span class="var">clase</span> = <span
+              class="str">"Guerrero"</span>; <span class="var">vida</span> = <span class="num">100</span>; <span
+              class="var">fuerza</span> = <span class="num">50</span>; <span class="var">rolValido</span> = <span
+              class="kw">true</span>; System.out.<span class="fn">println</span>(<span class="str">"Has creado un
+              "</span> + <span class="var">clase</span> + <span class="str">" llamado "</span> + <span
+              class="var">nombre</span>); }
+            <span class="kw">case</span> <span class="num">3</span> -> { <span class="var">clase</span> = <span
+              class="str">"Arquero"</span>; <span class="var">vida</span> = <span class="num">75</span>; <span
+              class="var">fuerza</span> = <span class="num">75</span>; <span class="var">rolValido</span> = <span
+              class="kw">true</span>; System.out.<span class="fn">println</span>(<span class="str">"Has creado un
+              "</span> + <span class="var">clase</span> + <span class="str">" llamado "</span> + <span
+              class="var">nombre</span>); }
+            <span class="kw">case</span> <span class="num">4</span> -> { <span class="var">clase</span> = <span
+              class="str">"Asesino"</span>; <span class="var">vida</span> = <span class="num">60</span>; <span
+              class="var">fuerza</span> = <span class="num">90</span>; <span class="var">rolValido</span> = <span
+              class="kw">true</span>; System.out.<span class="fn">println</span>(<span class="str">"Has creado un
+              "</span> + <span class="var">clase</span> + <span class="str">" llamado "</span> + <span
+              class="var">nombre</span>); }
+            <span class="kw">case</span> <span class="num">5</span> -> { <span class="var">clase</span> = <span
+              class="str">"Paladin"</span>; <span class="var">vida</span> = <span class="num">120</span>; <span
+              class="var">fuerza</span> = <span class="num">40</span>; <span class="var">rolValido</span> = <span
+              class="kw">true</span>; System.out.<span class="fn">println</span>(<span class="str">"Has creado un
+              "</span> + <span class="var">clase</span> + <span class="str">" llamado "</span> + <span
+              class="var">nombre</span>); }
+            <span class="kw">default</span> -> { System.out.<span class="fn">println</span>(<span class="str">"Opción no
+              válida. Elige nuevamente."</span>); }
+            }
+            } <span class="kw">while</span> (!<span class="var">rolValido</span>);
+            }
+
+            <span class="kw">case</span> <span class="num">2</span> -> {
+            <span class="kw">while</span> (<span class="var">entrenamiento</span> != <span class="num">0</span>) {
+            System.out.<span class="fn">println</span>(<span class="str">"\n--- ENTRENAMIENTO ---"</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"1. +5 fuerza"</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"2. +10 vida"</span>);
+            System.out.<span class="fn">println</span>(<span class="str">"0. Terminar"</span>);
+            <span class="var">entrenamiento</span> = scan.<span class="fn">nextInt</span>();
+
+            <span class="kw">if</span> (<span class="var">entrenamiento</span> == <span class="num">1</span>) {
+            <span class="var">fuerza</span> += <span class="num">5</span>;
+            System.out.<span class="fn">println</span>(<span class="str">"Fuerza aumentada."</span>);
+            } <span class="kw">else if</span> (<span class="var">entrenamiento</span> == <span class="num">2</span>) {
+            <span class="var">vida</span> += <span class="num">10</span>;
+            System.out.<span class="fn">println</span>(<span class="str">"Vida aumentada."</span>);
+            } <span class="kw">else if</span> (<span class="var">entrenamiento</span> != <span class="num">0</span>) {
+            System.out.<span class="fn">println</span>(<span class="str">"Opción inválida."</span>);
+            }
+            System.out.<span class="fn">println</span>(<span class="str">"Vida: "</span> + <span class="var">vida</span>
+            + <span class="str">" | Fuerza: "</span> + <span class="var">fuerza</span>);
+            }
+            }
+
+            <span class="kw">case</span> <span class="num">3</span> -> {
+            System.out.<span class="fn">println</span>(<span class="str">"Batalla, espero que sobrevivas xdd"</span>);
+            <span class="kw">for</span> (<span class="var">turno</span> = <span class="num">1</span>; <span
+              class="var">turno</span>
+            <= <span class="num">5</span>; <span class="var">turno</span>++) {
+              System.out.<span class="fn">println</span>(<span class="str">"Héroe — Vida: "</span> + <span
+                class="var">vida</span> + <span class="str">" | Fuerza: "</span> + <span class="var">fuerza</span>);
+              System.out.<span class="fn">println</span>(<span class="str">"Enemigo — Vida: "</span> + <span
+                class="var">vidaEnemigo</span> + <span class="str">" | Fuerza: "</span> + <span
+                class="var">fuerzaEnemigo</span>);
+
+              <span class="var">vida</span> -= <span class="var">fuerzaEnemigo</span>;
+              <span class="var">vidaEnemigo</span> -= <span class="var">fuerza</span>;
+
+              <span class="kw">if</span> (<span class="var">vida</span>
+              <= <span class="num">0</span>) {
+                System.out.<span class="fn">println</span>(<span class="str">"ERAI Compare"</span>);
+                <span class="kw">break</span>;
+                } <span class="kw">else if</span> (<span class="var">vidaEnemigo</span>
+                <= <span class="num">0</span>) {
+                  System.out.<span class="fn">println</span>(<span class="str">"GANASTE Prro"</span>);
+                  <span class="kw">break</span>;
+                  } <span class="kw">else</span> {
+                  System.out.<span class="fn">println</span>(<span class="str">"El combate continúa..."</span>);
+                  }
+                  }
+                  }
+
+                  <span class="kw">case</span> <span class="num">4</span> -> {
+                  System.out.<span class="fn">println</span>(<span class="str">"\nINVENTARIO:"</span>);
+                  <span class="kw">for</span> (String <span class="var">item</span> : <span
+                    class="var">inventario</span>) {
+                  System.out.<span class="fn">println</span>(<span class="str">"- "</span> + <span
+                    class="var">item</span>);
+                  }
+                  }
+
+                  <span class="kw">case</span> <span class="num">5</span> -> {
+                  System.out.<span class="fn">println</span>(<span class="str">"Tu nombre es: "</span> + <span
+                    class="var">nombre</span>);
+                  System.out.<span class="fn">println</span>(<span class="str">"Tu clase es: "</span> + <span
+                    class="var">clase</span>);
+
+                  <span class="kw">if</span> (<span class="var">vida</span> >= <span class="num">80</span>) {
+                  System.out.<span class="fn">println</span>(<span class="str">"Vida: "</span> + <span
+                    class="var">vida</span> + <span class="str">". Estás en excelente estado."</span>);
+                  } <span class="kw">else if</span> (<span class="var">vida</span> >= <span class="num">50</span>) {
+                  System.out.<span class="fn">println</span>(<span class="str">"Vida: "</span> + <span
+                    class="var">vida</span> + <span class="str">". Estás en buen estado."</span>);
+                  } <span class="kw">else if</span> (<span class="var">vida</span> >= <span class="num">20</span>) {
+                  System.out.<span class="fn">println</span>(<span class="str">"Vida: "</span> + <span
+                    class="var">vida</span> + <span class="str">". Estás herido."</span>);
+                  } <span class="kw">else</span> {
+                  System.out.<span class="fn">println</span>(<span class="str">"Estás gravemente herido."</span>);
+                  }
+                  System.out.<span class="fn">println</span>(<span class="str">"Tu fuerza es: "</span> + <span
+                    class="var">fuerza</span>);
+                  }
+
+                  <span class="kw">case</span> <span class="num">6</span> -> {
+                  System.out.<span class="fn">println</span>(<span class="str">"Saliendo del juego..."</span>);
+                  <span class="var">activo</span> = <span class="kw">false</span>;
+                  }
+                  }
+
+                  } <span class="kw">while</span> (<span class="var">activo</span>);
+                  }
+                  }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    RPG Java — Guía Visual &nbsp;·&nbsp; Generado con Claude
+  </div>
+
+  <script>
+    function toggle(header) {
+      const section = header.parentElement;
+      section.classList.toggle('open');
+    }
+
+    function copyCode(e) {
+      e.stopPropagation();
+      const raw = `package ejercicios;
+
+}`;
+      navigator.clipboard.writeText(raw).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✓ COPIADO';
+        btn.style.color = 'var(--teal)';
+        btn.style.borderColor = 'var(--teal)';
+        setTimeout(() => { btn.textContent = 'COPIAR'; }, 2000);
+      });
+    };
+  </script>
+</body>
+
+</html>

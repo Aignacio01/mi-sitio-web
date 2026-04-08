@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Java con el Profe Claude</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-tag">// Aprende Java</div>
+    <h2>Java con Claude</h2>
+  </div>
+
+  <div class="nav-section-title">Inicio</div>
+  <div class="nav-item active" onclick="goTo('home')" data-id="home">
+    <div class="dot done"></div> Mapa del curso
+  </div>
+
+  <div class="nav-section-title">Fundamentos</div>
+  <div class="nav-item done" onclick="goTo('l1')" data-id="l1">
+    <div class="dot done"></div> 1. ¿Qué es Java?
+  </div>
+  <div class="nav-item done" onclick="goTo('l2')" data-id="l2">
+    <div class="dot done"></div> 2. Variables y Tipos
+  </div>
+  <div class="nav-item done" onclick="goTo('l3')" data-id="l3">
+    <div class="dot done"></div> 3. Operadores
+  </div>
+  <div class="nav-item done" onclick="goTo('l4')" data-id="l4">
+    <div class="dot done"></div> 4. Condicionales
+  </div>
+  <div class="nav-item done" onclick="goTo('l5')" data-id="l5">
+    <div class="dot done"></div> 5. Bucles / Loops
+  </div>
+
+  <div class="nav-section-title">Tú ya sabes esto ✅</div>
+  <div class="nav-item done" onclick="goTo('l6')" data-id="l6">
+    <div class="dot done"></div> 6. Métodos / Funciones
+  </div>
+  <div class="nav-item done" onclick="goTo('l7')" data-id="l7">
+    <div class="dot done"></div> 7. Scanner (Entrada)
+  </div>
+
+  <div class="nav-section-title">Siguiente nivel 🚀</div>
+  <div class="nav-item" onclick="goTo('l8')" data-id="l8">
+    <div class="dot"></div> 8. Arrays
+  </div>
+  <div class="nav-item" onclick="goTo('l9')" data-id="l9">
+    <div class="dot"></div> 9. POO: Clases & Objetos
+  </div>
+  <div class="nav-item" onclick="goTo('l10')" data-id="l10">
+    <div class="dot"></div> 10. Herencia & Polimorfismo
+  </div>
+  <div class="nav-item" onclick="goTo('l11')" data-id="l11">
+    <div class="dot"></div> 11. ArrayList & Collections
+  </div>
+  <div class="nav-item" onclick="goTo('l12')" data-id="l12">
+    <div class="dot"></div> 12. Excepciones
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- ═══════════════════ HOME ═══════════════════ -->
+  <div class="lesson active" id="home">
+    <div class="hero">
+      <div class="hero-tag">// Bienvenido, futuro dev 🎓</div>
+      <h1>Tu ruta para dominar<br><span class="highlight">Java desde cero</span></h1>
+      <p>Este es tu curso personal, diseñado a medida según tu código actual en GitHub. Aprenderás con explicaciones simples, analogías reales y ejercicios prácticos con soluciones.</p>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Tu progreso general</span>
+        <span id="progress-text">7 / 12 temas</span>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" style="width: 58%"></div>
+      </div>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">📊 Lo que vi en tu GitHub</div>
+      <p>Revisé tus repos <strong>AdvancedCalculator</strong> y <strong>RPG-Console-Simulator</strong>. Ya dominas: <strong>Scanner, métodos estáticos, switch, do-while, Math.pow, Math.sqrt</strong>. ¡Eso es una base sólida! Ahora te llevaré al siguiente nivel: <strong>Arrays, POO, Herencia y Colecciones</strong>.</p>
+    </div>
+
+    <div class="home-grid">
+      <div class="home-card" onclick="goTo('l1')">
+        <div class="card-emoji">☕</div>
+        <div class="card-num">LECCIÓN 01</div>
+        <h3>¿Qué es Java?</h3>
+        <p>Cómo funciona y por qué existe</p>
+      </div>
+      <div class="home-card" onclick="goTo('l2')">
+        <div class="card-emoji">📦</div>
+        <div class="card-num">LECCIÓN 02</div>
+        <h3>Variables y Tipos</h3>
+        <p>int, double, String, boolean...</p>
+      </div>
+      <div class="home-card" onclick="goTo('l3')">
+        <div class="card-emoji">➕</div>
+        <div class="card-num">LECCIÓN 03</div>
+        <h3>Operadores</h3>
+        <p>Aritméticos, lógicos, comparación</p>
+      </div>
+      <div class="home-card" onclick="goTo('l4')">
+        <div class="card-emoji">🔀</div>
+        <div class="card-num">LECCIÓN 04</div>
+        <h3>Condicionales</h3>
+        <p>if, else, switch</p>
+      </div>
+      <div class="home-card" onclick="goTo('l5')">
+        <div class="card-emoji">🔄</div>
+        <div class="card-num">LECCIÓN 05</div>
+        <h3>Bucles</h3>
+        <p>for, while, do-while</p>
+      </div>
+      <div class="home-card" onclick="goTo('l6')">
+        <div class="card-emoji">🧩</div>
+        <div class="card-num">LECCIÓN 06</div>
+        <h3>Métodos</h3>
+        <p>Tú ya lo haces en tu calculadora ✅</p>
+      </div>
+      <div class="home-card" onclick="goTo('l7')">
+        <div class="card-emoji">⌨️</div>
+        <div class="card-num">LECCIÓN 07</div>
+        <h3>Scanner</h3>
+        <p>Entrada del usuario ✅</p>
+      </div>
+      <div class="home-card" onclick="goTo('l8')">
+        <div class="card-emoji">🗂️</div>
+        <div class="card-num">LECCIÓN 08</div>
+        <h3>Arrays</h3>
+        <p>Guardar múltiples valores 🚀</p>
+      </div>
+      <div class="home-card" onclick="goTo('l9')">
+        <div class="card-emoji">🏗️</div>
+        <div class="card-num">LECCIÓN 09</div>
+        <h3>POO: Clases</h3>
+        <p>El corazón de Java 🚀</p>
+      </div>
+      <div class="home-card" onclick="goTo('l10')">
+        <div class="card-emoji">🧬</div>
+        <div class="card-num">LECCIÓN 10</div>
+        <h3>Herencia</h3>
+        <p>Reutilizar código 🚀</p>
+      </div>
+      <div class="home-card" onclick="goTo('l11')">
+        <div class="card-emoji">📋</div>
+        <div class="card-num">LECCIÓN 11</div>
+        <h3>ArrayList</h3>
+        <p>Listas dinámicas 🚀</p>
+      </div>
+      <div class="home-card" onclick="goTo('l12')">
+        <div class="card-emoji">🚨</div>
+        <div class="card-num">LECCIÓN 12</div>
+        <h3>Excepciones</h3>
+        <p>Manejar errores 🚀</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ L1: QUÉ ES JAVA ═══════════════════ -->
+  <div class="lesson" id="l1">
+    <div class="lesson-header">
+      <div class="lesson-emoji">☕</div>
+      <div>
+        <div class="lesson-num">LECCIÓN 01 — FUNDAMENTOS</div>
+        <h2>¿Qué es Java?</h2>
+      </div>
+    </div>
+
+    <div class="concept purple">
+      <h3>☕ Java en una frase</h3>
+      <p>Java es un <strong>lenguaje de programación</strong> que le dice a la computadora qué hacer, paso a paso. Se usa para apps Android, sistemas bancarios, videojuegos (Minecraft) y mucho más.</p>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">🧠 Analogía del mundo real</div>
+      <p>Imagina que la computadora es un chef que no habla tu idioma. Java es el <strong>idioma intermediario</strong>: tú escribes las instrucciones en Java, y Java se las traduce a la computadora en un lenguaje que ella entiende.</p>
+    </div>
+
+    <div class="concept teal">
+      <h3>🔄 ¿Cómo funciona?</h3>
+      <p>Tú escribes código → <strong>javac</strong> lo compila → se crea un archivo <code>.class</code> → la <strong>JVM</strong> (Java Virtual Machine) lo ejecuta en cualquier computadora.</p>
+    </div>
+
+    <div class="concept orange">
+      <h3>📄 Tu primer programa Java</h3>
+    </div>
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">HolaMundo.java</div>
+      </div>
+      <pre><span class="kw">public class</span> <span class="class-name">HolaMundo</span> {
+
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="comment">// Esto le dice a la pantalla que imprima un texto</span>
+        System.out.<span class="method">println</span>(<span class="str">"¡Hola, Mundo!"</span>);
+    }
+
+}</pre>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">💡</div>
+      <p><strong>System.out.println()</strong> es como decirle a Java: "oye, imprime esto en la pantalla". El texto entre comillas <code>" "</code> es lo que aparecerá.</p>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-label">✏️ Ejercicio 1</div>
+      <h4>Tu presentación en pantalla</h4>
+      <p>Escribe un programa que imprima en pantalla: tu nombre, tu edad y lo que quieres lograr aprendiendo Java. Cada cosa en una línea separada.</p>
+      <div class="task">
+        <p>📌 Ejemplo de salida esperada:<br>
+        <code>Mi nombre es Ana</code><br>
+        <code>Tengo 22 años</code><br>
+        <code>Quiero crear apps para Android</code></p>
+      </div>
+      <button class="solution-toggle" onclick="toggleSolution(this)">
+        <span class="arrow">▶</span> Ver solución
+      </button>
+      <div class="solution-content">
+        <div class="code-wrap">
+          <div class="code-header">
+            <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+            <div class="code-filename">Presentacion.java</div>
+          </div>
+          <pre><span class="kw">public class</span> <span class="class-name">Presentacion</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        System.out.<span class="method">println</span>(<span class="str">"Mi nombre es Ana"</span>);
+        System.out.<span class="method">println</span>(<span class="str">"Tengo 22 años"</span>);
+        System.out.<span class="method">println</span>(<span class="str">"Quiero crear apps para Android"</span>);
+    }
+}</pre>
+        </div>
+        <div class="tip"><div class="tip-icon">💡</div><p>Cada <code>println</code> pone el cursor en una nueva línea automáticamente. Si usas <code>print</code> (sin la "ln"), todo quedará en la misma línea.</p></div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-ghost" onclick="goTo('home')">← Inicio</button>
+      <button class="btn btn-primary" onclick="goTo('l2')">Variables y Tipos →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ L2: VARIABLES ═══════════════════ -->
+  <div class="lesson" id="l2">
+    <div class="lesson-header">
+      <div class="lesson-emoji">📦</div>
+      <div>
+        <div class="lesson-num">LECCIÓN 02 — FUNDAMENTOS</div>
+        <h2>Variables y Tipos de Datos</h2>
+      </div>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">🧠 Analogía del mundo real</div>
+      <p>Una variable es como una <strong>caja etiquetada</strong>. La caja tiene un nombre (ej: <code>edad</code>), un tipo (lo que puede guardar, ej: solo números enteros), y un contenido (el valor, ej: <code>22</code>).</p>
+    </div>
+
+    <div class="concept purple">
+      <h3>📊 Los tipos más importantes</h3>
+      <table>
+        <thead><tr><th>Tipo</th><th>¿Para qué?</th><th>Ejemplo</th></tr></thead>
+        <tbody>
+          <tr><td>int</td><td>Números enteros</td><td><code>int edad = 22;</code></td></tr>
+          <tr><td>double</td><td>Números con decimales</td><td><code>double precio = 9.99;</code></td></tr>
+          <tr><td>String</td><td>Texto</td><td><code>String nombre = "Ana";</code></td></tr>
+          <tr><td>boolean</td><td>Verdadero/Falso</td><td><code>boolean vivo = true;</code></td></tr>
+          <tr><td>char</td><td>Un solo carácter</td><td><code>char letra = 'A';</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">Variables.java</div>
+      </div>
+      <pre><span class="kw">public class</span> <span class="class-name">Variables</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+
+        <span class="comment">// Declarar y asignar variables</span>
+        <span class="type">int</span> edad = <span class="num">22</span>;
+        <span class="type">double</span> altura = <span class="num">1.75</span>;
+        <span class="type">String</span> nombre = <span class="str">"Ana"</span>;
+        <span class="type">boolean</span> estudia = <span class="kw">true</span>;
+
+        <span class="comment">// Usar las variables</span>
+        System.out.<span class="method">println</span>(<span class="str">"Nombre: "</span> + nombre);
+        System.out.<span class="method">println</span>(<span class="str">"Edad: "</span> + edad);
+        System.out.<span class="method">println</span>(<span class="str">"Altura: "</span> + altura);
+        System.out.<span class="method">println</span>(<span class="str">"¿Estudia?: "</span> + estudia);
+    }
+}</pre>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">💡</div>
+      <p>El <code>+</code> entre un texto y una variable los une. <code>"Edad: " + edad</code> produce <code>"Edad: 22"</code>. Esto se llama <strong>concatenación</strong>.</p>
+    </div>
+
+    <div class="warning">
+      <div class="warning-icon">⚠️</div>
+      <p><strong>¡Cuidado!</strong> En Java, los tipos importan. No puedes guardar texto en un <code>int</code> ni un número decimal en un <code>int</code> sin perder la parte decimal.</p>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-label">✏️ Ejercicio 2</div>
+      <h4>Ficha de personaje RPG</h4>
+      <p>Crea variables para describir un personaje de un juego RPG (ya hiciste un RPG en GitHub 😉). Necesitas: nombre, nivel, vida (con decimales), y si está vivo.</p>
+      <div class="task">
+        <p>📌 Salida esperada:<br>
+        <code>Personaje: Shadowblade</code><br>
+        <code>Nivel: 5</code><br>
+        <code>Vida: 87.5</code><br>
+        <code>¿Vivo?: true</code></p>
+      </div>
+      <button class="solution-toggle" onclick="toggleSolution(this)">
+        <span class="arrow">▶</span> Ver solución
+      </button>
+      <div class="solution-content">
+        <div class="code-wrap">
+          <div class="code-header">
+            <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+            <div class="code-filename">PersonajeRPG.java</div>
+          </div>
+          <pre><span class="kw">public class</span> <span class="class-name">PersonajeRPG</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="type">String</span> nombre = <span class="str">"Shadowblade"</span>;
+        <span class="type">int</span> nivel = <span class="num">5</span>;
+        <span class="type">double</span> vida = <span class="num">87.5</span>;
+        <span class="type">boolean</span> vivo = <span class="kw">true</span>;
+
+        System.out.<span class="method">println</span>(<span class="str">"Personaje: "</span> + nombre);
+        System.out.<span class="method">println</span>(<span class="str">"Nivel: "</span> + nivel);
+        System.out.<span class="method">println</span>(<span class="str">"Vida: "</span> + vida);
+        System.out.<span class="method">println</span>(<span class="str">"¿Vivo?: "</span> + vivo);
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-ghost" onclick="goTo('l1')">← ¿Qué es Java?</button>
+      <button class="btn btn-primary" onclick="goTo('l3')">Operadores →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ L3: OPERADORES ═══════════════════ -->
+  <div class="lesson" id="l3">
+    <div class="lesson-header">
+      <div class="lesson-emoji">➕</div>
+      <div>
+        <div class="lesson-num">LECCIÓN 03 — FUNDAMENTOS</div>
+        <h2>Operadores</h2>
+      </div>
+    </div>
+
+    <div class="concept purple">
+      <h3>🔢 Operadores Aritméticos</h3>
+      <table>
+        <thead><tr><th>Operador</th><th>Significado</th><th>Ejemplo</th><th>Resultado</th></tr></thead>
+        <tbody>
+          <tr><td>+</td><td>Suma</td><td><code>5 + 3</code></td><td>8</td></tr>
+          <tr><td>-</td><td>Resta</td><td><code>10 - 4</code></td><td>6</td></tr>
+          <tr><td>*</td><td>Multiplicación</td><td><code>3 * 4</code></td><td>12</td></tr>
+          <tr><td>/</td><td>División</td><td><code>10 / 2</code></td><td>5</td></tr>
+          <tr><td>%</td><td>Módulo (residuo)</td><td><code>10 % 3</code></td><td>1</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="concept teal">
+      <h3>⚖️ Operadores de Comparación (retornan boolean)</h3>
+      <table>
+        <thead><tr><th>Operador</th><th>Significado</th><th>Ejemplo</th><th>Resultado</th></tr></thead>
+        <tbody>
+          <tr><td>==</td><td>¿Es igual?</td><td><code>5 == 5</code></td><td>true</td></tr>
+          <tr><td>!=</td><td>¿Es diferente?</td><td><code>5 != 3</code></td><td>true</td></tr>
+          <tr><td>&gt;</td><td>Mayor que</td><td><code>8 > 3</code></td><td>true</td></tr>
+          <tr><td>&lt;</td><td>Menor que</td><td><code>2 < 7</code></td><td>true</td></tr>
+          <tr><td>&gt;=</td><td>Mayor o igual</td><td><code>5 >= 5</code></td><td>true</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="concept pink">
+      <h3>🧠 Operadores Lógicos</h3>
+      <table>
+        <thead><tr><th>Operador</th><th>Significado</th><th>Ejemplo</th></tr></thead>
+        <tbody>
+          <tr><td>&&</td><td>Y (ambos true)</td><td><code>edad >= 18 && tieneId == true</code></td></tr>
+          <tr><td>||</td><td>O (uno true basta)</td><td><code>esMiembro || pagó</code></td></tr>
+          <tr><td>!</td><td>Negación</td><td><code>!vivo</code> (si vivo=true → false)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">💡</div>
+      <p>El <strong>módulo (%)</strong> ya lo usas en tu calculadora. Sirve para saber si un número es par: <code>numero % 2 == 0</code> significa que es par.</p>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-label">✏️ Ejercicio 3</div>
+      <h4>Calculadora básica mejorada</h4>
+      <p>Declara dos variables <code>a = 15</code> y <code>b = 4</code>. Luego imprime: la suma, la resta, la multiplicación, la división (con decimales), el módulo, si <code>a</code> es mayor que <code>b</code>, y si ambos son positivos.</p>
+      <div class="task">
+        <p>📌 Salida esperada:<br>
+        <code>Suma: 19</code> <code>Resta: 11</code> <code>Multiplicación: 60</code><br>
+        <code>División: 3.75</code> <code>Módulo: 3</code><br>
+        <code>¿a > b?: true</code> <code>¿Ambos positivos?: true</code></p>
+      </div>
+      <button class="solution-toggle" onclick="toggleSolution(this)">
+        <span class="arrow">▶</span> Ver solución
+      </button>
+      <div class="solution-content">
+        <div class="code-wrap">
+          <div class="code-header">
+            <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+            <div class="code-filename">Operadores.java</div>
+          </div>
+          <pre><span class="kw">public class</span> <span class="class-name">Operadores</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="type">int</span> a = <span class="num">15</span>;
+        <span class="type">int</span> b = <span class="num">4</span>;
+
+        System.out.<span class="method">println</span>(<span class="str">"Suma: "</span> + (a + b));
+        System.out.<span class="method">println</span>(<span class="str">"Resta: "</span> + (a - b));
+        System.out.<span class="method">println</span>(<span class="str">"Multiplicación: "</span> + (a * b));
+        System.out.<span class="method">println</span>(<span class="str">"División: "</span> + (<span class="type">double</span>) a / b);
+        System.out.<span class="method">println</span>(<span class="str">"Módulo: "</span> + (a % b));
+        System.out.<span class="method">println</span>(<span class="str">"¿a > b?: "</span> + (a > b));
+        System.out.<span class="method">println</span>(<span class="str">"¿Ambos positivos?: "</span> + (a > <span class="num">0</span> && b > <span class="num">0</span>));
+    }
+}</pre>
+        </div>
+        <div class="tip"><div class="tip-icon">💡</div><p>El truco <code>(double) a / b</code> se llama <strong>casting</strong>: convierte temporalmente <code>a</code> a decimal para que la división no pierda los decimales.</p></div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-ghost" onclick="goTo('l2')">← Variables</button>
+      <button class="btn btn-primary" onclick="goTo('l4')">Condicionales →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ L4: CONDICIONALES ═══════════════════ -->
+  <div class="lesson" id="l4">
+    <div class="lesson-header">
+      <div class="lesson-emoji">🔀</div>
+      <div>
+        <div class="lesson-num">LECCIÓN 04 — FUNDAMENTOS</div>
+        <h2>Condicionales: if, else, switch</h2>
+      </div>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">🧠 Analogía</div>
+      <p>Es como un semáforo: <strong>si</strong> está en verde → avanza. <strong>Si no</strong>, si está en amarillo → precaución. <strong>Si no</strong> → detente. El programa toma decisiones igual.</p>
+    </div>
+
+    <div class="concept purple">
+      <h3>🔵 if / else if / else</h3>
+    </div>
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">Condicional.java</div>
+      </div>
+      <pre><span class="type">int</span> edad = <span class="num">17</span>;
+
+<span class="kw">if</span> (edad >= <span class="num">18</span>) {
+    System.out.<span class="method">println</span>(<span class="str">"Puedes entrar"</span>);
+} <span class="kw">else if</span> (edad >= <span class="num">15</span>) {
+    System.out.<span class="method">println</span>(<span class="str">"Entra solo con un adulto"</span>);
+} <span class="kw">else</span> {
+    System.out.<span class="method">println</span>(<span class="str">"No puedes entrar"</span>);
+}
+<span class="comment">// Output: "Entra solo con un adulto"</span></pre>
+    </div>
+
+    <div class="concept teal">
+      <h3>🔵 switch — Perfecto para menús (ya lo usas en tu calculadora)</h3>
+    </div>
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">Switch.java</div>
+      </div>
+      <pre><span class="type">int</span> dia = <span class="num">3</span>;
+
+<span class="kw">switch</span> (dia) {
+    <span class="kw">case</span> <span class="num">1</span> -> System.out.<span class="method">println</span>(<span class="str">"Lunes"</span>);
+    <span class="kw">case</span> <span class="num">2</span> -> System.out.<span class="method">println</span>(<span class="str">"Martes"</span>);
+    <span class="kw">case</span> <span class="num">3</span> -> System.out.<span class="method">println</span>(<span class="str">"Miércoles"</span>);
+    <span class="kw">default</span> -> System.out.<span class="method">println</span>(<span class="str">"Otro día"</span>);
+}
+<span class="comment">// Output: "Miércoles"</span></pre>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-label">✏️ Ejercicio 4</div>
+      <h4>Sistema de notas escolar</h4>
+      <p>Dado un puntaje del 0 al 100, imprime si el estudiante: Reprueba (&lt;60), Aprueba (60-74), Bien (75-89), o Excelente (90-100).</p>
+      <div class="task"><p>📌 Con <code>int puntaje = 83</code> → debe imprimir: <code>Resultado: Bien</code></p></div>
+      <button class="solution-toggle" onclick="toggleSolution(this)">
+        <span class="arrow">▶</span> Ver solución
+      </button>
+      <div class="solution-content">
+        <div class="code-wrap">
+          <div class="code-header">
+            <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+            <div class="code-filename">Notas.java</div>
+          </div>
+          <pre><span class="kw">public class</span> <span class="class-name">Notas</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="type">int</span> puntaje = <span class="num">83</span>;
+        <span class="type">String</span> resultado;
+
+        <span class="kw">if</span> (puntaje >= <span class="num">90</span>) {
+            resultado = <span class="str">"Excelente"</span>;
+        } <span class="kw">else if</span> (puntaje >= <span class="num">75</span>) {
+            resultado = <span class="str">"Bien"</span>;
+        } <span class="kw">else if</span> (puntaje >= <span class="num">60</span>) {
+            resultado = <span class="str">"Aprueba"</span>;
+        } <span class="kw">else</span> {
+            resultado = <span class="str">"Reprueba"</span>;
+        }
+
+        System.out.<span class="method">println</span>(<span class="str">"Resultado: "</span> + resultado);
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-ghost" onclick="goTo('l3')">← Operadores</button>
+      <button class="btn btn-primary" onclick="goTo('l5')">Bucles →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ L5: BUCLES ═══════════════════ -->
+  <div class="lesson" id="l5">
+    <div class="lesson-header">
+      <div class="lesson-emoji">🔄</div>
+      <div>
+        <div class="lesson-num">LECCIÓN 05 — FUNDAMENTOS</div>
+        <h2>Bucles: for, while, do-while</h2>
+      </div>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">🧠 Analogía</div>
+      <p>Un bucle es como una <strong>lavadora</strong>: repite el ciclo de lavado X veces hasta que la ropa esté limpia. En Java, repetimos instrucciones hasta que se cumpla una condición.</p>
+    </div>
+
+    <div class="concept purple">
+      <h3>🔵 for — Cuando sabes cuántas veces repetir</h3>
+    </div>
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">BucleFor.java</div>
+      </div>
+      <pre><span class="comment">// Contar del 1 al 5</span>
+<span class="kw">for</span> (<span class="type">int</span> i = <span class="num">1</span>; i <= <span class="num">5</span>; i++) {
+    System.out.<span class="method">println</span>(<span class="str">"Número: "</span> + i);
+}
+<span class="comment">// i=1 → imprime → i se vuelve 2 → imprime → ... → i=6 → para</span></pre>
+    </div>
+
+    <div class="concept teal">
+      <h3>🔵 while — Cuando no sabes cuántas veces</h3>
+    </div>
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">BucleWhile.java</div>
+      </div>
+      <pre><span class="type">int</span> vida = <span class="num">100</span>;
+<span class="kw">while</span> (vida > <span class="num">0</span>) {
+    vida -= <span class="num">25</span>;  <span class="comment">// vida = vida - 25</span>
+    System.out.<span class="method">println</span>(<span class="str">"Vida restante: "</span> + vida);
+}
+<span class="comment">// 75, 50, 25, 0 → para porque vida ya no es > 0</span></pre>
+    </div>
+
+    <div class="concept orange">
+      <h3>🔵 do-while — Se ejecuta AL MENOS una vez (ya lo usas en tu calculadora)</h3>
+    </div>
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">DoWhile.java</div>
+      </div>
+      <pre><span class="type">int</span> intentos = <span class="num">0</span>;
+<span class="kw">do</span> {
+    System.out.<span class="method">println</span>(<span class="str">"Intento número: "</span> + (intentos + <span class="num">1</span>));
+    intentos++;
+} <span class="kw">while</span> (intentos < <span class="num">3</span>);
+<span class="comment">// Imprime: Intento 1, 2, 3</span></pre>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-label">✏️ Ejercicio 5</div>
+      <h4>Tabla de multiplicar</h4>
+      <p>Usando un bucle <code>for</code>, imprime la tabla de multiplicar del número 7 (del 1 al 10).</p>
+      <div class="task"><p>📌 Salida esperada:<br><code>7 x 1 = 7</code><br><code>7 x 2 = 14</code><br>...<br><code>7 x 10 = 70</code></p></div>
+      <button class="solution-toggle" onclick="toggleSolution(this)">
+        <span class="arrow">▶</span> Ver solución
+      </button>
+      <div class="solution-content">
+        <div class="code-wrap">
+          <div class="code-header">
+            <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+            <div class="code-filename">TablaMultiplicar.java</div>
+          </div>
+          <pre><span class="kw">public class</span> <span class="class-name">TablaMultiplicar</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="type">int</span> numero = <span class="num">7</span>;
+        <span class="kw">for</span> (<span class="type">int</span> i = <span class="num">1</span>; i <= <span class="num">10</span>; i++) {
+            System.out.<span class="method">println</span>(numero + <span class="str">" x "</span> + i + <span class="str">" = "</span> + (numero * i));
+        }
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-ghost" onclick="goTo('l4')">← Condicionales</button>
+      <button class="btn btn-primary" onclick="goTo('l6')">Métodos →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ L6: MÉTODOS ═══════════════════ -->
+  <div class="lesson" id="l6">
+    <div class="lesson-header">
+      <div class="lesson-emoji">🧩</div>
+      <div>
+        <div class="lesson-num">LECCIÓN 06 — YA LO SABES ✅</div>
+        <h2>Métodos y Funciones</h2>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">🏆</div>
+      <p><strong>¡Ya dominas esto!</strong> Tu calculadora usa métodos como <code>sumar()</code>, <code>dividir()</code>, <code>leerNumero()</code>. Esta lección profundiza el concepto para que lo entiendas aún mejor.</p>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">🧠 Analogía</div>
+      <p>Un método es como una <strong>receta de cocina</strong>: le das ingredientes (parámetros), sigue los pasos, y te devuelve el platillo (return). Puedes usar la receta cuantas veces quieras sin reescribirla.</p>
+    </div>
+
+    <div class="concept purple">
+      <h3>📐 Anatomía de un método</h3>
+    </div>
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">Metodos.java</div>
+      </div>
+      <pre><span class="comment">//   [acceso] [tipo retorno] [nombre]  ([parámetros])</span>
+<span class="kw">public static</span>    <span class="type">int</span>         <span class="method">sumar</span>   (<span class="type">int</span> a, <span class="type">int</span> b) {
+    <span class="kw">return</span> a + b;  <span class="comment">// Devuelve el resultado</span>
+}
+
+<span class="comment">// Si no devuelve nada, el tipo es "void"</span>
+<span class="kw">public static</span>    <span class="type">void</span>       <span class="method">saludar</span>  (<span class="type">String</span> nombre) {
+    System.out.<span class="method">println</span>(<span class="str">"Hola, "</span> + nombre);
+}
+
+<span class="comment">// Llamar los métodos desde main:</span>
+<span class="type">int</span> resultado = <span class="method">sumar</span>(<span class="num">3</span>, <span class="num">4</span>);      <span class="comment">// resultado = 7</span>
+<span class="method">saludar</span>(<span class="str">"Ana"</span>);                    <span class="comment">// imprime "Hola, Ana"</span></pre>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-label">✏️ Ejercicio 6</div>
+      <h4>Calculadora de daño RPG</h4>
+      <p>Crea un método <code>calcularDanio</code> que reciba el ataque y la defensa del enemigo, y retorne el daño real (<code>ataque - defensa</code>, mínimo 0). Luego crea otro método <code>estaVivo</code> que reciba la vida y retorne <code>true</code> si es mayor que 0.</p>
+      <div class="task"><p>📌 Prueba con: ataque=45, defensa=20, vida=30<br>→ <code>Daño causado: 25</code> / <code>¿Sigue vivo?: true</code></p></div>
+      <button class="solution-toggle" onclick="toggleSolution(this)">
+        <span class="arrow">▶</span> Ver solución
+      </button>
+      <div class="solution-content">
+        <div class="code-wrap">
+          <div class="code-header">
+            <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+            <div class="code-filename">DanioRPG.java</div>
+          </div>
+          <pre><span class="kw">public class</span> <span class="class-name">DanioRPG</span> {
+
+    <span class="kw">public static int</span> <span class="method">calcularDanio</span>(<span class="type">int</span> ataque, <span class="type">int</span> defensa) {
+        <span class="type">int</span> danio = ataque - defensa;
+        <span class="kw">return</span> danio > <span class="num">0</span> ? danio : <span class="num">0</span>;
+    }
+
+    <span class="kw">public static boolean</span> <span class="method">estaVivo</span>(<span class="type">int</span> vida) {
+        <span class="kw">return</span> vida > <span class="num">0</span>;
+    }
+
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="type">int</span> danio = <span class="method">calcularDanio</span>(<span class="num">45</span>, <span class="num">20</span>);
+        <span class="type">int</span> vida = <span class="num">30</span>;
+
+        System.out.<span class="method">println</span>(<span class="str">"Daño causado: "</span> + danio);
+        System.out.<span class="method">println</span>(<span class="str">"¿Sigue vivo?: "</span> + <span class="method">estaVivo</span>(vida));
+    }
+}</pre>
+        </div>
+        <div class="tip"><div class="tip-icon">💡</div><p>El <code>danio > 0 ? danio : 0</code> es el <strong>operador ternario</strong>: una forma corta de escribir un if-else de una línea. Lee: "si danio > 0, retorna danio, si no, retorna 0".</p></div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-ghost" onclick="goTo('l5')">← Bucles</button>
+      <button class="btn btn-primary" onclick="goTo('l7')">Scanner →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ L7: SCANNER ═══════════════════ -->
+  <div class="lesson" id="l7">
+    <div class="lesson-header">
+      <div class="lesson-emoji">⌨️</div>
+      <div>
+        <div class="lesson-num">LECCIÓN 07 — YA LO SABES ✅</div>
+        <h2>Scanner — Entrada del Usuario</h2>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">🏆</div>
+      <p>Ya usas <code>Scanner</code> perfectamente en tu calculadora. Aquí aprenderás los métodos más útiles y el truco del <code>nextLine()</code> que a veces falla.</p>
+    </div>
+
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">Scanner.java</div>
+      </div>
+      <pre><span class="kw">import</span> java.util.Scanner;
+
+<span class="kw">public class</span> <span class="class-name">EntradaUsuario</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="type">Scanner</span> sc = <span class="kw">new</span> <span class="type">Scanner</span>(System.in);
+
+        System.out.<span class="method">print</span>(<span class="str">"Tu nombre: "</span>);
+        <span class="type">String</span> nombre = sc.<span class="method">nextLine</span>();   <span class="comment">// Lee texto</span>
+
+        System.out.<span class="method">print</span>(<span class="str">"Tu edad: "</span>);
+        <span class="type">int</span> edad = sc.<span class="method">nextInt</span>();          <span class="comment">// Lee entero</span>
+
+        System.out.<span class="method">print</span>(<span class="str">"Tu altura: "</span>);
+        <span class="type">double</span> altura = sc.<span class="method">nextDouble</span>(); <span class="comment">// Lee decimal</span>
+
+        sc.<span class="method">close</span>();
+        System.out.<span class="method">println</span>(<span class="str">"Hola "</span> + nombre + <span class="str">", "</span> + edad + <span class="str">" años, "</span> + altura + <span class="str">"m"</span>);
+    }
+}</pre>
+    </div>
+
+    <div class="warning">
+      <div class="warning-icon">⚠️</div>
+      <p><strong>El bug más común:</strong> Si usas <code>nextInt()</code> y luego <code>nextLine()</code>, el primer <code>nextLine()</code> captura el ENTER que dejó <code>nextInt</code>. Solución: agrega un <code>sc.nextLine()</code> vacío entre ellos. ¡Ya lo haces en tu calculadora con ese bloque de ENTER!</p>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-label">✏️ Ejercicio 7</div>
+      <h4>Registro de jugador interactivo</h4>
+      <p>Pide al usuario: nombre del personaje, nivel inicial, y clase (guerrero/mago/arquero). Luego muestra un resumen con esa info.</p>
+      <div class="task"><p>📌 Ejemplo de interacción:<br><code>Nombre de tu personaje: Kael</code><br><code>Nivel inicial (1-5): 3</code><br><code>Clase: Mago</code><br><code>--- PERSONAJE CREADO ---</code><br><code>Kael | Nivel 3 | Clase: Mago</code></p></div>
+      <button class="solution-toggle" onclick="toggleSolution(this)">
+        <span class="arrow">▶</span> Ver solución
+      </button>
+      <div class="solution-content">
+        <div class="code-wrap">
+          <div class="code-header">
+            <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+            <div class="code-filename">RegistroJugador.java</div>
+          </div>
+          <pre><span class="kw">import</span> java.util.Scanner;
+
+<span class="kw">public class</span> <span class="class-name">RegistroJugador</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="type">Scanner</span> sc = <span class="kw">new</span> <span class="type">Scanner</span>(System.in);
+
+        System.out.<span class="method">print</span>(<span class="str">"Nombre de tu personaje: "</span>);
+        <span class="type">String</span> nombre = sc.<span class="method">nextLine</span>();
+
+        System.out.<span class="method">print</span>(<span class="str">"Nivel inicial (1-5): "</span>);
+        <span class="type">int</span> nivel = sc.<span class="method">nextInt</span>();
+        sc.<span class="method">nextLine</span>(); <span class="comment">// limpiar el ENTER</span>
+
+        System.out.<span class="method">print</span>(<span class="str">"Clase: "</span>);
+        <span class="type">String</span> clase = sc.<span class="method">nextLine</span>();
+
+        System.out.<span class="method">println</span>(<span class="str">"--- PERSONAJE CREADO ---"</span>);
+        System.out.<span class="method">println</span>(nombre + <span class="str">" | Nivel "</span> + nivel + <span class="str">" | Clase: "</span> + clase);
+
+        sc.<span class="method">close</span>();
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-ghost" onclick="goTo('l6')">← Métodos</button>
+      <button class="btn btn-primary" onclick="goTo('l8')">Arrays 🚀 →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ L8: ARRAYS ═══════════════════ -->
+  <div class="lesson" id="l8">
+    <div class="lesson-header">
+      <div class="lesson-emoji">🗂️</div>
+      <div>
+        <div class="lesson-num">LECCIÓN 08 — SIGUIENTE NIVEL 🚀</div>
+        <h2>Arrays — Guardar múltiples valores</h2>
+      </div>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">🧠 Analogía</div>
+      <p>Hasta ahora guardabas un valor en una variable, como poner un libro en una caja. Un <strong>array</strong> es una estantería: guarda muchos libros en orden, y cada uno tiene su número de posición (índice, empezando desde 0).</p>
+    </div>
+
+    <div class="concept purple">
+      <h3>📐 Crear y usar arrays</h3>
+    </div>
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">Arrays.java</div>
+      </div>
+      <pre><span class="comment">// Crear un array de 5 enteros</span>
+<span class="type">int</span>[] numeros = {<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>, <span class="num">50</span>};
+<span class="comment">//                0    1    2    3    4   ← índices</span>
+
+System.out.<span class="method">println</span>(numeros[<span class="num">0</span>]);  <span class="comment">// 10 (primer elemento)</span>
+System.out.<span class="method">println</span>(numeros[<span class="num">2</span>]);  <span class="comment">// 30 (tercer elemento)</span>
+System.out.<span class="method">println</span>(numeros.<span class="method">length</span>); <span class="comment">// 5 (tamaño)</span>
+
+<span class="comment">// Recorrer un array con for</span>
+<span class="kw">for</span> (<span class="type">int</span> i = <span class="num">0</span>; i < numeros.<span class="method">length</span>; i++) {
+    System.out.<span class="method">println</span>(<span class="str">"Posición "</span> + i + <span class="str">": "</span> + numeros[i]);
+}
+
+<span class="comment">// For-each: más simple cuando no necesitas el índice</span>
+<span class="kw">for</span> (<span class="type">int</span> n : numeros) {
+    System.out.<span class="method">println</span>(n);
+}</pre>
+    </div>
+
+    <div class="warning">
+      <div class="warning-icon">⚠️</div>
+      <p><strong>¡Cuidado con los índices!</strong> Un array de 5 elementos tiene índices del 0 al 4. Si intentas acceder a <code>numeros[5]</code>, Java lanzará un error <code>ArrayIndexOutOfBoundsException</code>.</p>
+    </div>
+
+    <div class="concept teal">
+      <h3>🗃️ Array de Strings</h3>
+    </div>
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">ArrayStrings.java</div>
+      </div>
+      <pre><span class="type">String</span>[] jugadores = {<span class="str">"Ana"</span>, <span class="str">"Luis"</span>, <span class="str">"Marta"</span>};
+
+<span class="kw">for</span> (<span class="type">String</span> j : jugadores) {
+    System.out.<span class="method">println</span>(<span class="str">"Jugador: "</span> + j);
+}</pre>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-label">✏️ Ejercicio 8</div>
+      <h4>Inventario del personaje RPG</h4>
+      <p>Crea un array con 5 ítems del inventario de tu personaje. Luego imprime todos los ítems con su número de posición, y al final imprime cuántos ítems tiene en total.</p>
+      <div class="task"><p>📌 Salida esperada:<br><code>[0] Espada de fuego</code><br><code>[1] Escudo de roble</code><br><code>...</code><br><code>Total de ítems: 5</code></p></div>
+      <button class="solution-toggle" onclick="toggleSolution(this)">
+        <span class="arrow">▶</span> Ver solución
+      </button>
+      <div class="solution-content">
+        <div class="code-wrap">
+          <div class="code-header">
+            <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+            <div class="code-filename">InventarioRPG.java</div>
+          </div>
+          <pre><span class="kw">public class</span> <span class="class-name">InventarioRPG</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="type">String</span>[] inventario = {
+            <span class="str">"Espada de fuego"</span>,
+            <span class="str">"Escudo de roble"</span>,
+            <span class="str">"Poción de vida"</span>,
+            <span class="str">"Arco élfico"</span>,
+            <span class="str">"Mapa del tesoro"</span>
+        };
+
+        System.out.<span class="method">println</span>(<span class="str">"=== INVENTARIO ==="</span>);
+        <span class="kw">for</span> (<span class="type">int</span> i = <span class="num">0</span>; i < inventario.<span class="method">length</span>; i++) {
+            System.out.<span class="method">println</span>(<span class="str">"["</span> + i + <span class="str">"] "</span> + inventario[i]);
+        }
+        System.out.<span class="method">println</span>(<span class="str">"Total de ítems: "</span> + inventario.<span class="method">length</span>);
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-ghost" onclick="goTo('l7')">← Scanner</button>
+      <button class="btn btn-primary" onclick="goTo('l9')">POO: Clases →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ L9: POO ═══════════════════ -->
+  <div class="lesson" id="l9">
+    <div class="lesson-header">
+      <div class="lesson-emoji">🏗️</div>
+      <div>
+        <div class="lesson-num">LECCIÓN 09 — SIGUIENTE NIVEL 🚀</div>
+        <h2>POO: Clases y Objetos</h2>
+      </div>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">🧠 Analogía CLAVE</div>
+      <p>Una <strong>Clase</strong> es como el plano de una casa. Define cómo será: cuántos cuartos, cuántos baños. Un <strong>Objeto</strong> es la casa real construida a partir de ese plano. Puedes construir 100 casas del mismo plano, todas distintas pero con la misma estructura.</p>
+    </div>
+
+    <div class="concept purple">
+      <h3>🏗️ Crear una Clase</h3>
+    </div>
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">Personaje.java</div>
+      </div>
+      <pre><span class="kw">public class</span> <span class="class-name">Personaje</span> {
+
+    <span class="comment">// ATRIBUTOS (características del personaje)</span>
+    <span class="type">String</span> nombre;
+    <span class="type">int</span> nivel;
+    <span class="type">double</span> vida;
+    <span class="type">String</span> clase;
+
+    <span class="comment">// CONSTRUCTOR (se llama cuando creas el objeto)</span>
+    <span class="kw">public</span> <span class="class-name">Personaje</span>(<span class="type">String</span> nombre, <span class="type">int</span> nivel, <span class="type">double</span> vida, <span class="type">String</span> clase) {
+        <span class="kw">this</span>.nombre = nombre;
+        <span class="kw">this</span>.nivel  = nivel;
+        <span class="kw">this</span>.vida   = vida;
+        <span class="kw">this</span>.clase  = clase;
+    }
+
+    <span class="comment">// MÉTODOS (acciones que puede hacer)</span>
+    <span class="kw">public void</span> <span class="method">atacar</span>(<span class="type">int</span> danio) {
+        System.out.<span class="method">println</span>(nombre + <span class="str">" ataca causando "</span> + danio + <span class="str">" de daño!"</span>);
+    }
+
+    <span class="kw">public void</span> <span class="method">mostrarInfo</span>() {
+        System.out.<span class="method">println</span>(<span class="str">"--- "</span> + nombre + <span class="str">" ---"</span>);
+        System.out.<span class="method">println</span>(<span class="str">"Nivel: "</span> + nivel + <span class="str">" | Vida: "</span> + vida + <span class="str">" | Clase: "</span> + clase);
+    }
+}</pre>
+    </div>
+
+    <div class="concept teal">
+      <h3>🧱 Crear Objetos desde la clase</h3>
+    </div>
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">Main.java</div>
+      </div>
+      <pre><span class="kw">public class</span> <span class="class-name">Main</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+
+        <span class="comment">// Crear objetos (instanciar la clase)</span>
+        <span class="class-name">Personaje</span> heroe = <span class="kw">new</span> <span class="class-name">Personaje</span>(<span class="str">"Kael"</span>, <span class="num">5</span>, <span class="num">100.0</span>, <span class="str">"Mago"</span>);
+        <span class="class-name">Personaje</span> villano = <span class="kw">new</span> <span class="class-name">Personaje</span>(<span class="str">"Valdris"</span>, <span class="num">8</span>, <span class="num">150.0</span>, <span class="str">"Guerrero"</span>);
+
+        <span class="comment">// Usar los métodos</span>
+        heroe.<span class="method">mostrarInfo</span>();
+        heroe.<span class="method">atacar</span>(<span class="num">35</span>);
+
+        villano.<span class="method">mostrarInfo</span>();
+        villano.<span class="method">atacar</span>(<span class="num">60</span>);
+    }
+}</pre>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">💡</div>
+      <p>La palabra clave <code>this</code> dentro del constructor se refiere al objeto que se está creando. <code>this.nombre = nombre</code> significa: "el atributo nombre de este objeto = el parámetro nombre que recibí".</p>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-label">✏️ Ejercicio 9</div>
+      <h4>Clase Calculadora con POO</h4>
+      <p>Transforma tu calculadora actual en una <strong>clase</strong>. Crea una clase <code>Calculadora</code> con un atributo <code>historial</code> (String), y métodos <code>sumar</code>, <code>restar</code>, <code>multiplicar</code> y <code>dividir</code> que retornen el resultado Y guarden en el historial la operación realizada.</p>
+      <div class="task"><p>📌 Pista de estructura:<br><code>Calculadora calc = new Calculadora();</code><br><code>System.out.println(calc.sumar(5, 3)); // 8</code><br><code>System.out.println(calc.historial); // "5+3=8"</code></p></div>
+      <button class="solution-toggle" onclick="toggleSolution(this)">
+        <span class="arrow">▶</span> Ver solución
+      </button>
+      <div class="solution-content">
+        <div class="code-wrap">
+          <div class="code-header">
+            <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+            <div class="code-filename">Calculadora.java</div>
+          </div>
+          <pre><span class="kw">public class</span> <span class="class-name">Calculadora</span> {
+
+    <span class="type">String</span> historial = <span class="str">""</span>;
+
+    <span class="kw">public double</span> <span class="method">sumar</span>(<span class="type">double</span> a, <span class="type">double</span> b) {
+        <span class="type">double</span> resultado = a + b;
+        historial += a + <span class="str">"+"</span> + b + <span class="str">"="</span> + resultado + <span class="str">"\n"</span>;
+        <span class="kw">return</span> resultado;
+    }
+
+    <span class="kw">public double</span> <span class="method">dividir</span>(<span class="type">double</span> a, <span class="type">double</span> b) {
+        <span class="kw">if</span> (b == <span class="num">0</span>) {
+            System.out.<span class="method">println</span>(<span class="str">"Error: no se divide por cero"</span>);
+            <span class="kw">return</span> <span class="num">0</span>;
+        }
+        <span class="type">double</span> resultado = a / b;
+        historial += a + <span class="str">"/"</span> + b + <span class="str">"="</span> + resultado + <span class="str">"\n"</span>;
+        <span class="kw">return</span> resultado;
+    }
+
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="class-name">Calculadora</span> calc = <span class="kw">new</span> <span class="class-name">Calculadora</span>();
+        System.out.<span class="method">println</span>(calc.<span class="method">sumar</span>(<span class="num">5</span>, <span class="num">3</span>));
+        System.out.<span class="method">println</span>(calc.<span class="method">dividir</span>(<span class="num">10</span>, <span class="num">2</span>));
+        System.out.<span class="method">println</span>(<span class="str">"Historial:\n"</span> + calc.historial);
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-ghost" onclick="goTo('l8')">← Arrays</button>
+      <button class="btn btn-primary" onclick="goTo('l10')">Herencia →</button>
+    </div>
+  </div>
+  <!-- ═══════════════════ L10: HERENCIA ═══════════════════ -->
+  <div class="lesson" id="l10">
+    <div class="lesson-header">
+      <div class="lesson-emoji">🧬</div>
+      <div>
+        <div class="lesson-num">LECCIÓN 10 — SIGUIENTE NIVEL 🚀</div>
+        <h2>Herencia y Polimorfismo</h2>
+      </div>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">🧠 Analogía</div>
+      <p>La herencia es como la biología: un <strong>Perro</strong> hereda de <strong>Animal</strong>. Ya tiene los comportamientos de Animal (respirar, comer), pero además añade los suyos propios (ladrar). No hay que reescribir lo básico.</p>
+    </div>
+
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">Herencia.java</div>
+      </div>
+      <pre><span class="comment">// Clase PADRE (base)</span>
+<span class="kw">public class</span> <span class="class-name">Personaje</span> {
+    <span class="type">String</span> nombre;
+    <span class="type">int</span> vida;
+
+    <span class="kw">public</span> <span class="class-name">Personaje</span>(<span class="type">String</span> nombre, <span class="type">int</span> vida) {
+        <span class="kw">this</span>.nombre = nombre;
+        <span class="kw">this</span>.vida = vida;
+    }
+
+    <span class="kw">public void</span> <span class="method">atacar</span>() {
+        System.out.<span class="method">println</span>(nombre + <span class="str">" ataca básicamente"</span>);
+    }
+}
+
+<span class="comment">// Clase HIJA — hereda de Personaje</span>
+<span class="kw">public class</span> <span class="class-name">Mago</span> <span class="kw">extends</span> <span class="class-name">Personaje</span> {
+    <span class="type">int</span> mana;
+
+    <span class="kw">public</span> <span class="class-name">Mago</span>(<span class="type">String</span> nombre, <span class="type">int</span> vida, <span class="type">int</span> mana) {
+        <span class="kw">super</span>(nombre, vida); <span class="comment">// llama al constructor del padre</span>
+        <span class="kw">this</span>.mana = mana;
+    }
+
+    <span class="comment">// @Override — reescribe el método del padre</span>
+    <span class="kw">@Override</span>
+    <span class="kw">public void</span> <span class="method">atacar</span>() {
+        System.out.<span class="method">println</span>(nombre + <span class="str">" lanza una bola de fuego! 🔥 (-"</span> + mana/2 + <span class="str">" mana)"</span>);
+        mana -= mana/<span class="num">2</span>;
+    }
+}
+
+<span class="comment">// USO:</span>
+<span class="class-name">Mago</span> kael = <span class="kw">new</span> <span class="class-name">Mago</span>(<span class="str">"Kael"</span>, <span class="num">80</span>, <span class="num">200</span>);
+kael.<span class="method">atacar</span>(); <span class="comment">// Usa el método del Mago, no el del Personaje</span></pre>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-label">✏️ Ejercicio 10</div>
+      <h4>Sistema de personajes RPG con herencia</h4>
+      <p>Crea una clase padre <code>Personaje</code> y tres clases hija: <code>Guerrero</code>, <code>Mago</code>, y <code>Arquero</code>. Cada una con su propio método <code>atacar()</code> diferente. Luego crea un objeto de cada tipo y haz que ataquen.</p>
+      <div class="task"><p>📌 Salida esperada:<br><code>Thor golpea con su hacha! ⚔️</code><br><code>Kael lanza rayo! ⚡</code><br><code>Lyra dispara una flecha! 🏹</code></p></div>
+      <button class="solution-toggle" onclick="toggleSolution(this)">
+        <span class="arrow">▶</span> Ver solución
+      </button>
+      <div class="solution-content">
+        <div class="code-wrap">
+          <div class="code-header">
+            <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+            <div class="code-filename">SistemaRPG.java</div>
+          </div>
+          <pre><span class="kw">class</span> <span class="class-name">Personaje</span> {
+    <span class="type">String</span> nombre;
+    <span class="kw">public</span> <span class="class-name">Personaje</span>(<span class="type">String</span> n) { nombre = n; }
+    <span class="kw">public void</span> <span class="method">atacar</span>() { System.out.<span class="method">println</span>(nombre + <span class="str">" ataca"</span>); }
+}
+
+<span class="kw">class</span> <span class="class-name">Guerrero</span> <span class="kw">extends</span> <span class="class-name">Personaje</span> {
+    <span class="kw">public</span> <span class="class-name">Guerrero</span>(<span class="type">String</span> n) { <span class="kw">super</span>(n); }
+    <span class="kw">@Override</span>
+    <span class="kw">public void</span> <span class="method">atacar</span>() { System.out.<span class="method">println</span>(nombre + <span class="str">" golpea con su hacha! ⚔️"</span>); }
+}
+
+<span class="kw">class</span> <span class="class-name">Mago</span> <span class="kw">extends</span> <span class="class-name">Personaje</span> {
+    <span class="kw">public</span> <span class="class-name">Mago</span>(<span class="type">String</span> n) { <span class="kw">super</span>(n); }
+    <span class="kw">@Override</span>
+    <span class="kw">public void</span> <span class="method">atacar</span>() { System.out.<span class="method">println</span>(nombre + <span class="str">" lanza rayo! ⚡"</span>); }
+}
+
+<span class="kw">class</span> <span class="class-name">Arquero</span> <span class="kw">extends</span> <span class="class-name">Personaje</span> {
+    <span class="kw">public</span> <span class="class-name">Arquero</span>(<span class="type">String</span> n) { <span class="kw">super</span>(n); }
+    <span class="kw">@Override</span>
+    <span class="kw">public void</span> <span class="method">atacar</span>() { System.out.<span class="method">println</span>(nombre + <span class="str">" dispara una flecha! 🏹"</span>); }
+}
+
+<span class="kw">public class</span> <span class="class-name">SistemaRPG</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="class-name">Guerrero</span> g = <span class="kw">new</span> <span class="class-name">Guerrero</span>(<span class="str">"Thor"</span>);
+        <span class="class-name">Mago</span>     m = <span class="kw">new</span> <span class="class-name">Mago</span>(<span class="str">"Kael"</span>);
+        <span class="class-name">Arquero</span>  a = <span class="kw">new</span> <span class="class-name">Arquero</span>(<span class="str">"Lyra"</span>);
+
+        g.<span class="method">atacar</span>();
+        m.<span class="method">atacar</span>();
+        a.<span class="method">atacar</span>();
+    }
+}</pre>
+        </div>
+        <div class="tip"><div class="tip-icon">💡</div><p>Esto es <strong>Polimorfismo</strong>: el mismo método <code>atacar()</code> se comporta diferente según el tipo de personaje. Es uno de los conceptos más poderosos de Java.</p></div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-ghost" onclick="goTo('l9')">← Clases</button>
+      <button class="btn btn-primary" onclick="goTo('l11')">ArrayList →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ L11: ARRAYLIST ═══════════════════ -->
+  <div class="lesson" id="l11">
+    <div class="lesson-header">
+      <div class="lesson-emoji">📋</div>
+      <div>
+        <div class="lesson-num">LECCIÓN 11 — SIGUIENTE NIVEL 🚀</div>
+        <h2>ArrayList — Listas Dinámicas</h2>
+      </div>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">🧠 Analogía</div>
+      <p>Un array normal es como una lista de papel con espacios fijos. Un <strong>ArrayList</strong> es como una lista de papel infinita: puedes agregar, borrar y buscar elementos libremente, sin definir el tamaño al inicio.</p>
+    </div>
+
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">ArrayListEjemplo.java</div>
+      </div>
+      <pre><span class="kw">import</span> java.util.ArrayList;
+
+<span class="kw">public class</span> <span class="class-name">ListaPersonajes</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+
+        <span class="comment">// Crear lista de Strings</span>
+        <span class="class-name">ArrayList</span>&lt;<span class="type">String</span>&gt; equipo = <span class="kw">new</span> <span class="class-name">ArrayList</span>&lt;&gt;();
+
+        <span class="comment">// Agregar elementos</span>
+        equipo.<span class="method">add</span>(<span class="str">"Kael"</span>);
+        equipo.<span class="method">add</span>(<span class="str">"Thor"</span>);
+        equipo.<span class="method">add</span>(<span class="str">"Lyra"</span>);
+
+        <span class="comment">// Tamaño</span>
+        System.out.<span class="method">println</span>(<span class="str">"Equipo: "</span> + equipo.<span class="method">size</span>() + <span class="str">" miembros"</span>);
+
+        <span class="comment">// Recorrer</span>
+        <span class="kw">for</span> (<span class="type">String</span> miembro : equipo) {
+            System.out.<span class="method">println</span>(<span class="str">"- "</span> + miembro);
+        }
+
+        <span class="comment">// Acceder por índice</span>
+        System.out.<span class="method">println</span>(<span class="str">"Líder: "</span> + equipo.<span class="method">get</span>(<span class="num">0</span>));
+
+        <span class="comment">// Eliminar</span>
+        equipo.<span class="method">remove</span>(<span class="str">"Thor"</span>);
+        System.out.<span class="method">println</span>(<span class="str">"Después de bajas: "</span> + equipo);
+
+        <span class="comment">// ¿Contiene?</span>
+        System.out.<span class="method">println</span>(<span class="str">"¿Lyra en el equipo?: "</span> + equipo.<span class="method">contains</span>(<span class="str">"Lyra"</span>));
+    }
+}</pre>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-label">✏️ Ejercicio 11</div>
+      <h4>Lista de hechizos del mago</h4>
+      <p>Crea un <code>ArrayList&lt;String&gt;</code> de hechizos. Agrega 4 hechizos, muéstralos todos, luego elimina el segundo, y muestra la lista final.</p>
+      <div class="task"><p>📌 Hechizos: "Bola de fuego", "Rayo gélido", "Tormenta arcana", "Escudo mágico"<br>→ Eliminar el de índice 1 (Rayo gélido)<br>→ Mostrar lista final de 3 hechizos</p></div>
+      <button class="solution-toggle" onclick="toggleSolution(this)">
+        <span class="arrow">▶</span> Ver solución
+      </button>
+      <div class="solution-content">
+        <div class="code-wrap">
+          <div class="code-header">
+            <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+            <div class="code-filename">ListaHechizos.java</div>
+          </div>
+          <pre><span class="kw">import</span> java.util.ArrayList;
+
+<span class="kw">public class</span> <span class="class-name">ListaHechizos</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="class-name">ArrayList</span>&lt;<span class="type">String</span>&gt; hechizos = <span class="kw">new</span> <span class="class-name">ArrayList</span>&lt;&gt;();
+
+        hechizos.<span class="method">add</span>(<span class="str">"Bola de fuego"</span>);
+        hechizos.<span class="method">add</span>(<span class="str">"Rayo gélido"</span>);
+        hechizos.<span class="method">add</span>(<span class="str">"Tormenta arcana"</span>);
+        hechizos.<span class="method">add</span>(<span class="str">"Escudo mágico"</span>);
+
+        System.out.<span class="method">println</span>(<span class="str">"Hechizos conocidos:"</span>);
+        <span class="kw">for</span> (<span class="type">String</span> h : hechizos) {
+            System.out.<span class="method">println</span>(<span class="str">"  ✨ "</span> + h);
+        }
+
+        hechizos.<span class="method">remove</span>(<span class="num">1</span>); <span class="comment">// elimina por índice</span>
+
+        System.out.<span class="method">println</span>(<span class="str">"\nTras olvidar Rayo gélido:"</span>);
+        <span class="kw">for</span> (<span class="type">String</span> h : hechizos) {
+            System.out.<span class="method">println</span>(<span class="str">"  ✨ "</span> + h);
+        }
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-ghost" onclick="goTo('l10')">← Herencia</button>
+      <button class="btn btn-primary" onclick="goTo('l12')">Excepciones →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ L12: EXCEPCIONES ═══════════════════ -->
+  <div class="lesson" id="l12">
+    <div class="lesson-header">
+      <div class="lesson-emoji">🚨</div>
+      <div>
+        <div class="lesson-num">LECCIÓN 12 — SIGUIENTE NIVEL 🚀</div>
+        <h2>Manejo de Excepciones</h2>
+      </div>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">🧠 Analogía</div>
+      <p>Una excepción es cuando algo sale mal. Como cuando intentas dividir entre 0 — la calculadora no puede hacerlo. En lugar de que el programa explote, usamos <strong>try-catch</strong> para atrapar el error y manejarlo elegantemente, como un net de seguridad.</p>
+    </div>
+
+    <div class="code-wrap">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-filename">Excepciones.java</div>
+      </div>
+      <pre><span class="kw">import</span> java.util.Scanner;
+
+<span class="kw">public class</span> <span class="class-name">Excepciones</span> {
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="type">Scanner</span> sc = <span class="kw">new</span> <span class="type">Scanner</span>(System.in);
+
+        <span class="kw">try</span> {
+            <span class="comment">// Código que podría fallar</span>
+            System.out.<span class="method">print</span>(<span class="str">"Ingresa un número: "</span>);
+            <span class="type">int</span> num = Integer.<span class="method">parseInt</span>(sc.<span class="method">nextLine</span>());
+            System.out.<span class="method">println</span>(<span class="str">"El doble es: "</span> + (num * <span class="num">2</span>));
+
+        } <span class="kw">catch</span> (<span class="class-name">NumberFormatException</span> e) {
+            <span class="comment">// Si el usuario escribe texto en vez de número</span>
+            System.out.<span class="method">println</span>(<span class="str">"❌ Error: eso no es un número válido"</span>);
+
+        } <span class="kw">finally</span> {
+            <span class="comment">// Esto SIEMPRE se ejecuta, haya error o no</span>
+            System.out.<span class="method">println</span>(<span class="str">"Programa terminado."</span>);
+            sc.<span class="method">close</span>();
+        }
+    }
+}</pre>
+    </div>
+
+    <div class="concept purple">
+      <h3>🚨 Excepciones más comunes</h3>
+      <table>
+        <thead><tr><th>Excepción</th><th>Cuándo ocurre</th></tr></thead>
+        <tbody>
+          <tr><td>NumberFormatException</td><td>Convertir texto no numérico a int/double</td></tr>
+          <tr><td>ArrayIndexOutOfBoundsException</td><td>Acceder a índice que no existe en array</td></tr>
+          <tr><td>NullPointerException</td><td>Usar un objeto que es null</td></tr>
+          <tr><td>ArithmeticException</td><td>División por cero con enteros</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-label">✏️ Ejercicio 12 — FINAL BOSS 🏆</div>
+      <h4>Calculadora robusta con excepciones</h4>
+      <p>Mejora tu calculadora para que use <code>try-catch</code>: si el usuario escribe letras en vez de números, muestra un mensaje de error y vuelve a pedir el número (sin que el programa explote).</p>
+      <div class="task"><p>📌 Si el usuario escribe "abc" cuando se pide un número → <code>❌ Por favor ingresa solo números</code> → vuelve a pedir</p></div>
+      <button class="solution-toggle" onclick="toggleSolution(this)">
+        <span class="arrow">▶</span> Ver solución
+      </button>
+      <div class="solution-content">
+        <div class="code-wrap">
+          <div class="code-header">
+            <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+            <div class="code-filename">CalculadoraRobusta.java</div>
+          </div>
+          <pre><span class="kw">import</span> java.util.Scanner;
+
+<span class="kw">public class</span> <span class="class-name">CalculadoraRobusta</span> {
+
+    <span class="kw">public static double</span> <span class="method">leerNumeroSeguro</span>(<span class="type">Scanner</span> sc, <span class="type">String</span> mensaje) {
+        <span class="kw">while</span> (<span class="kw">true</span>) {
+            <span class="kw">try</span> {
+                System.out.<span class="method">print</span>(mensaje);
+                <span class="kw">return</span> Double.<span class="method">parseDouble</span>(sc.<span class="method">nextLine</span>());
+            } <span class="kw">catch</span> (<span class="class-name">NumberFormatException</span> e) {
+                System.out.<span class="method">println</span>(<span class="str">"❌ Por favor ingresa solo números"</span>);
+            }
+        }
+    }
+
+    <span class="kw">public static void</span> <span class="method">main</span>(<span class="type">String</span>[] args) {
+        <span class="type">Scanner</span> sc = <span class="kw">new</span> <span class="type">Scanner</span>(System.in);
+
+        <span class="type">double</span> a = <span class="method">leerNumeroSeguro</span>(sc, <span class="str">"Primer número: "</span>);
+        <span class="type">double</span> b = <span class="method">leerNumeroSeguro</span>(sc, <span class="str">"Segundo número: "</span>);
+
+        System.out.<span class="method">println</span>(<span class="str">"Suma: "</span> + (a + b));
+        System.out.<span class="method">println</span>(<span class="str">"Resta: "</span> + (a - b));
+
+        <span class="kw">if</span> (b != <span class="num">0</span>) {
+            System.out.<span class="method">println</span>(<span class="str">"División: "</span> + (a / b));
+        } <span class="kw">else</span> {
+            System.out.<span class="method">println</span>(<span class="str">"❌ No se puede dividir por cero"</span>);
+        }
+
+        sc.<span class="method">close</span>();
+    }
+}</pre>
+        </div>
+        <div class="tip"><div class="tip-icon">🏆</div><p>¡Felicidades! Con esto ya tienes un nivel sólido de Java. El siguiente paso es seguir construyendo proyectos: una tienda, un sistema de gestión, un juego más complejo. ¡Cada proyecto enseña más que cualquier tutorial!</p></div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-ghost" onclick="goTo('l11')">← ArrayList</button>
+      <button class="btn btn-primary" onclick="goTo('home')">🏠 Volver al inicio</button>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  function goTo(id) {
+    document.querySelectorAll('.lesson').forEach(l => l.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+    const target = document.getElementById(id);
+    if (target) { target.classList.add('active'); window.scrollTo(0,0); }
+
+    const navItem = document.querySelector(`.nav-item[data-id="${id}"]`);
+    if (navItem) navItem.classList.add('active');
+
+    // close sidebar on mobile
+    if (window.innerWidth <= 768) {
+      document.getElementById('sidebar').classList.remove('open');
+    }
+  }
+
+  function toggleSolution(btn) {
+    btn.classList.toggle('open');
+    const content = btn.nextElementSibling;
+    content.classList.toggle('visible');
+    btn.querySelector('.arrow').textContent = btn.classList.contains('open') ? '▼' : '▶';
+  }
+
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>

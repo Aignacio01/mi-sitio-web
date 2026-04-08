@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Colecciones - Aprende fácil</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>☕ Colecciones en Java</h1>
+            <p>Aprende a manejar múltiples datos de forma sencilla</p>
+        </header>
+
+        <nav>
+            <a onclick="mostrarSeccion('inicio')">Inicio</a>
+            <a onclick="mostrarSeccion('arrays')">Arrays</a>
+            <a onclick="mostrarSeccion('list')">List/ArrayList</a>
+            <a onclick="mostrarSeccion('set')">Set</a>
+            <a onclick="mostrarSeccion('map')">Map/HashMap</a>
+            <a onclick="mostrarSeccion('stream')">Stream API</a>
+            <a onclick="mostrarSeccion('comparacion')">Comparación</a>
+        </nav>
+
+        <!-- INICIO -->
+        <section id="inicio" class="active">
+            <h2 class="section-title">Introducción a Colecciones</h2>
+            
+            <div class="intro-text">
+                <p>Imagina que eres el gerente de una empresa y necesitas guardar información de muchos empleados.</p>
+                <p><strong>¿Usarías una variable para cada empleado?</strong></p>
+            </div>
+
+            <div class="example">
+                <code>
+String empleado1 = "Juan";<br>
+String empleado2 = "María";<br>
+String empleado3 = "Carlos";<br>
+// ❌ Esto no escala... ¿Y si hay 100 empleados?
+                </code>
+            </div>
+
+            <div class="concept" style="background: #fff9c4; border-left-color: #fbc02d;">
+                <h3 style="color: #f57f17;">🤔 El Problema</h3>
+                <p>Sin colecciones, tu código sería:</p>
+                <ul>
+                    <li>❌ Imposible de mantener (1000+ líneas para 1000 datos)</li>
+                    <li>❌ Frágil (un pequeño cambio lo rompe todo)</li>
+                    <li>❌ No escalable (doble trabajo para el doble de datos)</li>
+                    <li>❌ Difícil de entender (caótico)</li>
+                </ul>
+            </div>
+
+            <p class="intro-text">
+                <span class="resalta">¡Aquí aparecen las colecciones!</span> Son como contenedores que permiten guardar muchos datos en una sola estructura. Java ofrece varias opciones según lo que necesites:
+            </p>
+
+            <table class="tabla">
+                <tr>
+                    <th>Tipo</th>
+                    <th>Uso</th>
+                    <th>Ejemplo Mental</th>
+                </tr>
+                <tr>
+                    <td><strong>Array</strong></td>
+                    <td>Tamaño fijo</td>
+                    <td>Una bandera con 5 posiciones fijas</td>
+                </tr>
+                <tr>
+                    <td><strong>List</strong></td>
+                    <td>Flexible, ordenado</td>
+                    <td>Una lista editable en tu teléfono</td>
+                </tr>
+                <tr>
+                    <td><strong>Set</strong></td>
+                    <td>Sin duplicados</td>
+                    <td>Una lista asistencia (cada persona una sola vez)</td>
+                </tr>
+                <tr>
+                    <td><strong>Map</strong></td>
+                    <td>Clave → Valor</td>
+                    <td>Una agenda de teléfono (nombre → número)</td>
+                </tr>
+                <tr>
+                    <td><strong>Stream</strong></td>
+                    <td>Procesar datos</td>
+                    <td>Un filtro que procesa datos mientras pasan</td>
+                </tr>
+            </table>
+
+            <div class="concept" style="background: #c8e6c9; border-left-color: #4caf50;">
+                <h3 style="color: #2e7d32;">✅ La Solución</h3>
+                <p><strong>Con colecciones:</strong> Guardar 1000 datos es TAN FÁCIL como guardar 1:</p>
+                <ul style="margin-top: 10px;">
+                    <li>✅ Una sola estructura para todos ellos</li>
+                    <li>✅ Código limpio y mantenible</li>
+                    <li>✅ Fácil de entender</li>
+                    <li>✅ Escalable (más datos = mismo código)</li>
+                </ul>
+            </div>
+
+            <div class="concept">
+                <h3>🎯 El Gran Principio</h3>
+                <p>Cada colección existe por una razón. La clave es <strong>elegir la correcta</strong> para el problema que tienes.</p>
+                <p style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #ddd;"><strong>Pregunta clave:</strong> Antes de elegir una colección, siempre pregúntate:</p>
+                <ul>
+                    <li>¿Conozco el tamaño exacto?</li>
+                    <li>¿Permite duplicados?</li>
+                    <li>¿Es una relación clave-valor?</li>
+                    <li>¿Solo necesito procesar, no guardar?</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 30px; color: #667eea; border-bottom: 2px solid #764ba2; padding-bottom: 10px;">✨ Ejemplos Prácticos</h3>
+
+            <div class="ejemplo-real" style="background: #e8f5e9; padding: 15px; margin: 15px 0; border-left: 4px solid #4caf50;">
+                <h4>📌 Array - Horario de atención (fijo)</h4>
+                <p><strong>Caso:</strong> Una tienda abre de lunes a viernes. Siempre 5 días (tamaño FIJO).</p>
+                <div class="example">
+                    <code>
+String[] diasAbiertos = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes"};<br>
+// El tamaño NUNCA cambiará<br>
+System.out.println(diasAbiertos[0]); // Lunes
+                    </code>
+                </div>
+            </div>
+
+            <div class="ejemplo-real" style="background: #e3f2fd; padding: 15px; margin: 15px 0; border-left: 4px solid #2196f3;">
+                <h4>📌 List - Compras en el supermercado (flexible)</h4>
+                <p><strong>Caso:</strong> Carrito de compras. Empiezas sin nada, agregas productos, eliminas algunos.</p>
+                <div class="example">
+                    <code>
+List&lt;String&gt; carrito = new ArrayList&lt;&gt;();<br>
+carrito.add("Leche");<br>
+carrito.add("Pan");<br>
+carrito.add("Huevos");<br>
+carrito.remove("Pan"); // Cambié de opinión<br>
+// La lista creció y se encogió dinámicamente
+                    </code>
+                </div>
+            </div>
+
+            <div class="ejemplo-real" style="background: #f3e5f5; padding: 15px; margin: 15px 0; border-left: 4px solid #9c27b0;">
+                <h4>📌 Set - Usuarios registrados (sin duplicados)</h4>
+                <p><strong>Caso:</strong> Sistema de registro. Un usuario no puede estar dos veces.</p>
+                <div class="example">
+                    <code>
+Set&lt;String&gt; usuarios = new HashSet&lt;&gt;();<br>
+usuarios.add("juan@mail.com");<br>
+usuarios.add("ana@mail.com");<br>
+usuarios.add("juan@mail.com"); // Rechazado (duplicado)<br>
+System.out.println(usuarios.size()); // 2, no 3
+                    </code>
+                </div>
+            </div>
+
+            <div class="ejemplo-real" style="background: #fff3e0; padding: 15px; margin: 15px 0; border-left: 4px solid #ff9800;">
+                <h4>📌 Map - Precios de productos (relación clave-valor)</h4>
+                <p><strong>Caso:</strong> Tienda. Cada producto tiene un precio único.</p>
+                <div class="example">
+                    <code>
+Map&lt;String, Double&gt; precios = new HashMap&lt;&gt;();<br>
+precios.put("Leche", 2.50);<br>
+precios.put("Pan", 1.20);<br>
+precios.put("Huevos", 3.00);<br>
+System.out.println(precios.get("Leche")); // 2.50
+                    </code>
+                </div>
+            </div>
+
+            <div class="ejemplo-real" style="background: #e0f2f1; padding: 15px; margin: 15px 0; border-left: 4px solid #009688;">
+                <h4>📌 Stream - Filtrar y procesar (transformation)</h4>
+                <p><strong>Caso:</strong> Tienes 100 productos, solo quieres los que cuestan menos de $3.</p>
+                <div class="example">
+                    <code>
+Map&lt;String, Double&gt; precios = ...; // 100 productos<br>
+precios.entrySet().stream()<br>
+&nbsp;&nbsp;.filter(p → p.getValue() &lt; 3.0)<br>
+&nbsp;&nbsp;.forEach(p → System.out.println(p.getKey()));<br>
+// Solo muestra: Pan, Leche
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARRAYS -->
+        <section id="arrays">
+            <h2 class="section-title">1. Arrays (Arreglos)</h2>
+
+            <div class="concept">
+                <h3>¿Qué es un Array?</h3>
+                <p>Un array es una colección con <strong>tamaño FIJO</strong>. Una vez creado, no puedes agregar ni quitar elementos.</p>
+                <p><strong>Analogía 1:</strong> Un libreto de teatro con exactamente 5 actos. No puedes agregar un 6to sin reescribir todo.</p>
+                <p><strong>Analogía 2:</strong> Una fila de asientos en un cine. Decides que la fila tendrá 10 asientos y no puedo cambiar eso después.</p>
+                <p><strong>Analogía 3:</strong> Una caja de huevos de 12 espacios. Si quieres 15 huevos, necesitas otra caja, no puedes expandir la actual.</p>
+            </div>
+
+            <div class="concept" style="background: #e3f2fd; border-left-color: #2196f3;">
+                <h3 style="color: #2196f3;">💡 ¿Por qué existen los Arrays?</h3>
+                <p>Los arrays son la forma más básica y rápida de almacenar múltiples datos. Son muy eficientes en memoria y acceso rápido. Pero la desventaja es que NO son flexibles.</p>
+                <p>Ejemplo: Si eres profesor y sabes que tu clase tiene exactamente 30 estudiantes, un array es perfecto. Pero si es una clase abierta donde vienen y van personas, no lo es.</p>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Características clave:</h3>
+            <div class="caracteristica">
+                <span class="icon">📏</span>
+                <span><strong>Tamaño fijo</strong> - Defines el tamaño al crear y no cambia</span>
+            </div>
+            <div class="caracteristica">
+                <span class="icon">📍</span>
+                <span><strong>Índices</strong> - Los elementos se identifican por posición (empezando en 0)</span>
+            </div>
+            <div class="caracteristica">
+                <span class="icon">⚡</span>
+                <span><strong>Rápido</strong> - Acceso directo por índice</span>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Cómo se usa:</h3>
+
+            <div class="example">
+                <code>
+// Declarar un array de 3 números<br>
+int[] edades = new int[3];<br>
+<br>
+// Asignar valores<br>
+edades[0] = 20; // Primera posición<br>
+edades[1] = 25; // Segunda posición<br>
+edades[2] = 30; // Tercera posición<br>
+<br>
+// O declarar con valores directos<br>
+int[] numeros = {10, 20, 30};<br>
+<br>
+// Acceder<br>
+System.out.println(edades[0]); // Imprime: 20
+                </code>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Recorrer un Array:</h3>
+
+            <div class="example">
+                <code>
+// Con for tradicional<br>
+for (int i = 0; i &lt; edades.length; i++) {<br>
+&nbsp;&nbsp;System.out.println(edades[i]);<br>
+}<br>
+<br>
+// Con foreach (más simple)<br>
+for (int edad : edades) {<br>
+&nbsp;&nbsp;System.out.println(edad);<br>
+}
+                </code>
+            </div>
+
+            <div class="concept bueno">
+                <h3>✅ Úsalo cuando:</h3>
+                <ul>
+                    <li>Sabes exactamente cuántos elementos habrá</li>
+                    <li>El tamaño NO va a cambiar</li>
+                    <li>Estás comenzando a aprender</li>
+                    <li>Ejemplo: 7 días de la semana, 12 meses</li>
+                </ul>
+            </div>
+
+            <div class="concept malo">
+                <h3>❌ NO lo uses cuando:</h3>
+                <ul>
+                    <li>No sabes cuántos elementos habrá</li>
+                    <li>Necesitas agregar o eliminar elementos</li>
+                    <li>El tamaño cambia constantemente</li>
+                </ul>
+            </div>
+
+            <div class="ejercicios">
+                <h3 style="color: #e67e22; margin-bottom: 15px;">Ejercicios - Arrays</h3>
+
+                <div class="ejercicio">
+                    <h4>1️⃣ Crea un array de 5 números y suma todos</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+int[] nums = {10, 20, 30, 40, 50};<br>
+int suma = 0;<br>
+for (int n : nums) {<br>
+&nbsp;&nbsp;suma += n;<br>
+}<br>
+System.out.println("Suma: " + suma); // 150
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>2️⃣ Crea un array de nombres y imprime todos</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+String[] nombres = {"Ana", "Juan", "Carlos"};<br>
+for (String nombre : nombres) {<br>
+&nbsp;&nbsp;System.out.println(nombre);<br>
+}
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>3️⃣ Encuentra el número mayor en un array</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+int[] nums = {5, 12, 8, 3, 15};<br>
+int mayor = nums[0];<br>
+for (int i = 1; i &lt; nums.length; i++) {<br>
+&nbsp;&nbsp;if (nums[i] > mayor) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mayor = nums[i];<br>
+&nbsp;&nbsp;}<br>
+}<br>
+System.out.println(mayor); // 15
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>4️⃣ Accede al último elemento sin contar manualmente</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+int[] datos = {1, 2, 3, 4, 5};<br>
+int ultimo = datos[datos.length - 1];<br>
+System.out.println(ultimo); // 5
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>5️⃣ Cuenta cuántos números pares hay</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+int[] nums = {10, 15, 20, 23, 30};<br>
+int pares = 0;<br>
+for (int n : nums) {<br>
+&nbsp;&nbsp;if (n % 2 == 0) pares++;<br>
+}<br>
+System.out.println("Pares: " + pares); // 3
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>6️⃣ Invierte todos los elementos del array</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+int[] nums = {1, 2, 3, 4, 5};<br>
+for (int i = nums.length - 1; i &gt;= 0; i--) {<br>
+&nbsp;&nbsp;System.out.print(nums[i] + " ");<br>
+}<br>
+// Imprime: 5 4 3 2 1
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>7️⃣ Busca si un valor existe en el array</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+String[] frutas = {"Manzana", "Banana", "Naranja"};<br>
+String buscar = "Banana";<br>
+boolean existe = false;<br>
+for (String fruta : frutas) {<br>
+&nbsp;&nbsp;if (fruta.equals(buscar)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;existe = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+System.out.println(existe); // true
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>8️⃣ Calcula el promedio de una array de notas</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+double[] notas = {7.5, 8.0, 6.5, 9.0};<br>
+double suma = 0;<br>
+for (double nota : notas) {<br>
+&nbsp;&nbsp;suma += nota;<br>
+}<br>
+double promedio = suma / notas.length;<br>
+System.out.println("Promedio: " + promedio); // 7.75
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>9️⃣ Crea un array y duplica todos sus valores</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+int[] nums = {5, 10, 15};<br>
+for (int i = 0; i &lt; nums.length; i++) {<br>
+&nbsp;&nbsp;nums[i] = nums[i] * 2;<br>
+}<br>
+for (int n : nums) System.out.print(n + " ");<br>
+// Imprime: 10 20 30
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>🔟 Encuentra el elemento mínimo del array</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+int[] valores = {25, 12, 8, 30, 15};<br>
+int minimo = valores[0];<br>
+for (int i = 1; i &lt; valores.length; i++) {<br>
+&nbsp;&nbsp;if (valores[i] &lt; minimo) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;minimo = valores[i];<br>
+&nbsp;&nbsp;}<br>
+}<br>
+System.out.println(minimo); // 8
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>1️⃣1️⃣ Crea una matriz 2D (array de arrays)</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+int[][] matriz = {{1, 2, 3}, {4, 5, 6}};<br>
+for (int[] fila : matriz) {<br>
+&nbsp;&nbsp;for (int valor : fila) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(valor + " ");<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;System.out.println();<br>
+}
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>1️⃣2️⃣ Copia los elementos de un array a otro</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+int[] original = {1, 2, 3, 4, 5};<br>
+int[] copia = new int[original.length];<br>
+for (int i = 0; i &lt; original.length; i++) {<br>
+&nbsp;&nbsp;copia[i] = original[i];<br>
+}<br>
+// O más fácil: int[] copia = original.clone();
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIST -->
+        <section id="list">
+            <h2 class="section-title">2. List / ArrayList</h2>
+
+            <div class="concept">
+                <h3>¿Qué es una List?</h3>
+                <p>Una List es como un Array, pero con <strong>tamaño FLEXIBLE</strong>. Puedes agregar y eliminar elementos cuando quieras.</p>
+                <p><strong>Analogía 1:</strong> Una lista de tareas en tu teléfono. Puedes agregar tareas, eliminar completadas, sin límites.</p>
+                <p><strong>Analogía 2:</strong> A diferencia de un array que es como una caja de huevos cerrada, una List es como una bolsa elástica que crece cuando agregamos cosas y se encoge cuando sacamos.</p>
+                <p><strong>Analogía 3:</strong> Un carrito de compras. Empiezas sin nada, vas agregando productos según los encuentras, y puedes eliminar cualquiera que cambies de opinión.</p>
+            </div>
+
+            <div class="concept" style="background: #f3e5f5; border-left-color: #9c27b0;">
+                <h3 style="color: #9c27b0;">💡 Diferencia clave: Array vs List</h3>
+                <p><strong>Array:</strong> Tienes que saber cuántos elementos EXACTAMENTE habrá. Es rígido.</p>
+                <p><strong>List:</strong> No sabes cuántos elementos habrá. Empieza vacía y crece según necesites.</p>
+                <p>Regla de oro: Si el tamaño puede cambiar → USA LIST. Si es fijo → USA ARRAY.</p>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Características clave:</h3>
+            <div class="caracteristica">
+                <span class="icon">📈</span>
+                <span><strong>Tamaño dinámico</strong> - Crece o encoge según necesites</span>
+            </div>
+            <div class="caracteristica">
+                <span class="icon">➕</span>
+                <span><strong>Flexible</strong> - Agregar y eliminar es fácil (add, remove)</span>
+            </div>
+            <div class="caracteristica">
+                <span class="icon">📍</span>
+                <span><strong>Ordenado</strong> - Mantiene el orden de inserción</span>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Cómo se usa:</h3>
+
+            <div class="example">
+                <code>
+// Crear una List<br>
+List&lt;String&gt; nombres = new ArrayList&lt;&gt;();<br>
+<br>
+// Agregar elementos<br>
+nombres.add("Ana");<br>
+nombres.add("Juan");<br>
+nombres.add("Carlos");<br>
+<br>
+// Acceder<br>
+System.out.println(nombres.get(0)); // Ana<br>
+<br>
+// Modificar<br>
+nombres.set(1, "María");<br>
+<br>
+// Eliminar<br>
+nombres.remove(0); // Elimina "Ana"<br>
+<br>
+// Tamaño<br>
+System.out.println(nombres.size()); // 2
+                </code>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Recorrer una List:</h3>
+
+            <div class="example">
+                <code>
+// Con foreach (recomendado)<br>
+for (String nombre : nombres) {<br>
+&nbsp;&nbsp;System.out.println(nombre);<br>
+}<br>
+<br>
+// Con for tradicional<br>
+for (int i = 0; i &lt; nombres.size(); i++) {<br>
+&nbsp;&nbsp;System.out.println(nombres.get(i));<br>
+}
+                </code>
+            </div>
+
+            <div class="concept bueno">
+                <h3>✅ Úsalo cuando:</h3>
+                <ul>
+                    <li>No sabes cuántos elementos habrá</li>
+                    <li>Necesitas agregar o eliminar elementos</li>
+                    <li>El tamaño cambia constantemente</li>
+                    <li>Ejemplo: carrito de compras, lista de tareas</li>
+                </ul>
+            </div>
+
+            <div class="ejercicios">
+                <h3 style="color: #e67e22; margin-bottom: 15px;">Ejercicios - List</h3>
+
+                <div class="ejercicio">
+                    <h4>1️⃣ Crea una lista de números y suma todos</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; numeros = new ArrayList&lt;&gt;();<br>
+numeros.add(10);<br>
+numeros.add(20);<br>
+numeros.add(30);<br>
+int suma = 0;<br>
+for (int num : numeros) suma += num;<br>
+System.out.println(suma); // 60
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>2️⃣ Agrega 5 nombres y muéstralos en orden inverso</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;String&gt; nombres = new ArrayList&lt;&gt;();<br>
+nombres.add("Ana"); nombres.add("Juan"); nombres.add("Carlos");<br>
+for (int i = nombres.size()-1; i &gt;= 0; i--) {<br>
+&nbsp;&nbsp;System.out.println(nombres.get(i));<br>
+}
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>3️⃣ Elimina un elemento específico de la lista</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;String&gt; frutas = new ArrayList&lt;&gt;();<br>
+frutas.add("Manzana");<br>
+frutas.add("Banana");<br>
+frutas.add("Naranja");<br>
+frutas.remove("Banana"); // remove por valor<br>
+// O: frutas.remove(1); // remove por índice<br>
+System.out.println(frutas); // [Manzana, Naranja]
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>4️⃣ Encuentra el elemento mayor en una List de números</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; numeros = new ArrayList&lt;&gt;();<br>
+numeros.add(5); numeros.add(15); numeros.add(10);<br>
+int mayor = numeros.get(0);<br>
+for (int num : numeros) {<br>
+&nbsp;&nbsp;if (num &gt; mayor) mayor = num;<br>
+}<br>
+System.out.println(mayor); // 15
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>5️⃣ Verifica si una List contiene un elemento</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;String&gt; marcas = new ArrayList&lt;&gt;();<br>
+marcas.add("Nike");<br>
+marcas.add("Adidas");<br>
+if (marcas.contains("Nike")) {<br>
+&nbsp;&nbsp;System.out.println("¡Encontrada!");<br>
+}
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>6️⃣ Reemplaza un elemento en la lista</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;String&gt; seleccion = new ArrayList&lt;&gt;();<br>
+seleccion.add("Python");<br>
+seleccion.add("Java");<br>
+seleccion.set(0, "JavaScript"); // Reemplaza<br>
+System.out.println(seleccion); // [JavaScript, Java]
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>7️⃣ Crea una lista de nombres y cuenta su longitud</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;String&gt; estudiantes = new ArrayList&lt;&gt;();<br>
+estudiantes.add("Pedro");<br>
+estudiantes.add("Laura");<br>
+estudiantes.add("Diego");<br>
+System.out.println("Total: " + estudiantes.size()); // 3
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>8️⃣ Filtra una lista (solo números &gt; 10)</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; todos = new ArrayList&lt;&gt;();<br>
+todos.add(5); todos.add(15); todos.add(8); todos.add(20);<br>
+List&lt;Integer&gt; mayores = new ArrayList&lt;&gt;();<br>
+for (int num : todos) {<br>
+&nbsp;&nbsp;if (num &gt; 10) mayores.add(num);<br>
+}<br>
+System.out.println(mayores); // [15, 20]
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>9️⃣ Vacía completamente una lista</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; datos = new ArrayList&lt;&gt;();<br>
+datos.add(1); datos.add(2); datos.add(3);<br>
+datos.clear();<br>
+System.out.println(datos.size()); // 0
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>🔟 Obtén el índice de un elemento específico</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;String&gt; colores = new ArrayList&lt;&gt;();<br>
+colores.add("Rojo");<br>
+colores.add("Azul");<br>
+colores.add("Verde");<br>
+int indice = colores.indexOf("Azul");<br>
+System.out.println(indice); // 1
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>1️⃣1️⃣ Convierte un Array a List</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+String[] array = {"A", "B", "C"};<br>
+List&lt;String&gt; lista = new ArrayList&lt;&gt;(<br>
+&nbsp;&nbsp;Arrays.asList(array)<br>
+);<br>
+System.out.println(lista); // [A, B, C]
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>1️⃣2️⃣ Copia una lista a otra lista</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; original = new ArrayList&lt;&gt;();<br>
+original.add(1); original.add(2);<br>
+List&lt;Integer&gt; copia = new ArrayList&lt;&gt;(original);<br>
+copia.add(3); // No afecta original<br>
+System.out.println(original); // [1, 2]<br>
+System.out.println(copia); // [1, 2, 3]
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SET -->
+        <section id="set">
+            <h2 class="section-title">3. Set (Conjunto)</h2>
+
+            <div class="concept">
+                <h3>¿Qué es un Set?</h3>
+                <p>Un Set es una colección que <strong>NO permite duplicados</strong>. Es como una lista de asistencia: cada persona cuenta solo una vez.</p>
+                <p><strong>Analogía 1:</strong> Un conjunto de amigos únicos. No puedes tener el mismo amigo dos veces en tu lista.</p>
+                <p><strong>Analogía 2:</strong> Una lista de asistencia en clase. "¿Juan está?" "Sí" (se marca). "¿Juan está?" "Ya fue marcado". No puedes marcar dos veces a la misma persona.</p>
+                <p><strong>Analogía 3:</strong> Un set de Pokemon. Cada Pokémon es único. Si intentas agregar uno que ya tienes, el sistema lo rechaza.</p>
+            </div>
+
+            <div class="concept" style="background: #fce4ec; border-left-color: #e91e63;">
+                <h3 style="color: #e91e63;">💡 ¿Cuándo es útil?</h3>
+                <p>Los Sets son perfectos para:</p>
+                <ul>
+                    <li><strong>Validar duplicados:</strong> Si hago .add("Juan") dos veces, solo queda UNO</li>
+                    <li><strong>Búsquedas rápidas:</strong> Verificar si algo existe es muy rápido</li>
+                    <li><strong>Datos únicos:</strong> Correos, IDs, números de documento, etc.</li>
+                </ul>
+                <p>Diferencia: Set te salva de duplicados AUTOMÁTICAMENTE, sin que tengas que validar manualmente.</p>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Características clave:</h3>
+            <div class="caracteristica">
+                <span class="icon">🚫</span>
+                <span><strong>Sin duplicados</strong> - Si intentas agregar uno que ya existe, se ignora</span>
+            </div>
+            <div class="caracteristica">
+                <span class="icon">🔀</span>
+                <span><strong>Sin orden garantizado</strong> - Los elementos NO están en orden específico</span>
+            </div>
+            <div class="caracteristica">
+                <span class="icon">⚡</span>
+                <span><strong>Búsqueda rápida</strong> - Verificar si existe algo es muy rápido</span>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Cómo se usa:</h3>
+
+            <div class="example">
+                <code>
+// Crear un Set<br>
+Set&lt;String&gt; correos = new HashSet&lt;&gt;();<br>
+<br>
+// Agregar elementos<br>
+correos.add("a@mail.com");<br>
+correos.add("b@mail.com");<br>
+correos.add("a@mail.com"); // duplicado, se ignora<br>
+<br>
+// Verificar si existe<br>
+if (correos.contains("a@mail.com")) {<br>
+&nbsp;&nbsp;System.out.println("Existe!");<br>
+}<br>
+<br>
+// Eliminar<br>
+correos.remove("b@mail.com");<br>
+<br>
+// Tamaño<br>
+System.out.println(correos.size()); // 1
+                </code>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Recorrer un Set:</h3>
+
+            <div class="example">
+                <code>
+// Con foreach<br>
+for (String correo : correos) {<br>
+&nbsp;&nbsp;System.out.println(correo);<br>
+}</code>
+            </div>
+
+            <div class="concept bueno">
+                <h3>✅ Úsalo cuando:</h3>
+                <ul>
+                    <li>NO deben existir duplicados</li>
+                    <li>Solo te importa la unicidad, no el orden</li>
+                    <li>Ejemplo: correos únicos, IDs únicos, RUTs únicos</li>
+                </ul>
+            </div>
+
+            <div class="ejercicios">
+                <h3 style="color: #e67e22; margin-bottom: 15px;">Ejercicios - Set</h3>
+
+                <div class="ejercicio">
+                    <h4>1️⃣ Crea un Set de números y agrega duplicados</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Set&lt;Integer&gt; numeros = new HashSet&lt;&gt;();<br>
+numeros.add(5);<br>
+numeros.add(10);<br>
+numeros.add(5); // repetido<br>
+System.out.println(numeros.size()); // 2 (no 3!)
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>2️⃣ Verifica si un elemento existe en el Set</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Set&lt;String&gt; idiomas = new HashSet&lt;&gt;();<br>
+idiomas.add("Python");<br>
+idiomas.add("Java");<br>
+if (idiomas.contains("Python")) {<br>
+&nbsp;&nbsp;System.out.println("Sí existe");<br>
+}
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>3️⃣ Crea un Set de nombres únicos y muéstralos</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Set&lt;String&gt; nombres = new HashSet&lt;&gt;();<br>
+nombres.add("Ana");<br>
+nombres.add("Juan");<br>
+nombres.add("Ana"); // ignorado<br>
+for (String nombre : nombres) {<br>
+&nbsp;&nbsp;System.out.println(nombre);<br>
+}
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>4️⃣ Elimina un elemento del Set</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Set&lt;String&gt; marcas = new HashSet&lt;&gt;();<br>
+marcas.add("Nike");<br>
+marcas.add("Adidas");<br>
+marcas.remove("Nike");<br>
+System.out.println(marcas.size()); // 1
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>5️⃣ Cuenta elementos únicos en una lista de números</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+int[] numeros = {1, 2, 2, 3, 3, 3, 4};<br>
+Set&lt;Integer&gt; unicos = new HashSet&lt;&gt;();<br>
+for (int num : numeros) {<br>
+&nbsp;&nbsp;unicos.add(num);<br>
+}<br>
+System.out.println(unicos.size()); // 4 únicos
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>6️⃣ Crea un Set de correos y verifica duplicados</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Set&lt;String&gt; emails = new HashSet&lt;&gt;();<br>
+String[] lista = {"a@x.com", "b@x.com", "a@x.com"};<br>
+for (String email : lista) {<br>
+&nbsp;&nbsp;emails.add(email);<br>
+}<br>
+System.out.println("Únicos: " + emails.size()); // 2
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>7️⃣ Vacía un Set completamente</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Set&lt;Integer&gt; datos = new HashSet&lt;&gt;();<br>
+datos.add(1); datos.add(2); datos.add(3);<br>
+datos.clear();<br>
+System.out.println(datos.size()); // 0
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>8️⃣ Convierte una List a Set para eliminar duplicados</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; conDuplicados = Arrays.asList(1,2,2,3,3,3);<br>
+Set&lt;Integer&gt; sinDuplicados = new HashSet&lt;&gt;(conDuplicados);<br>
+System.out.println(sinDuplicados.size()); // 3
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>9️⃣ Crea dos Sets y encuentra intersección</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Set&lt;Integer&gt; a = new HashSet&lt;&gt;(Arrays.asList(1,2,3));<br>
+Set&lt;Integer&gt; b = new HashSet&lt;&gt;(Arrays.asList(2,3,4));<br>
+a.retainAll(b); // Intersección<br>
+System.out.println(a); // [2, 3]
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>🔟 Compara el tamaño antes y después de agregar duplicados</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Set&lt;String&gt; palabras = new HashSet&lt;&gt;();<br>
+palabras.add("gato");<br>
+System.out.println("Antes: " + palabras.size()); // 1<br>
+palabras.add("gato"); // duplicado<br>
+System.out.println("Después: " + palabras.size()); // 1 (sin cambios)
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>1️⃣1️⃣ Crea un Set de identificadores únicos</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Set&lt;String&gt; ids = new HashSet&lt;&gt;();<br>
+ids.add("ID001");<br>
+ids.add("ID002");<br>
+ids.add("ID001"); // duplicado<br>
+System.out.println("IDs únicos: " + ids.size()); // 2
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>1️⃣2️⃣ Usa Set para validar que todos son únicos</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+String[] usuarios = {"Ana", "Juan", "Carlos"};<br>
+Set&lt;String&gt; conjunto = new HashSet&lt;&gt;(Arrays.asList(usuarios));<br>
+if (conjunto.size() == usuarios.length) {<br>
+&nbsp;&nbsp;System.out.println("Todos son únicos");<br>
+} else {<br>
+&nbsp;&nbsp;System.out.println("Hay duplicados");<br>
+}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAP -->
+        <section id="map">
+            <h2 class="section-title">4. Map / HashMap</h2>
+
+            <div class="concept">
+                <h3>¿Qué es un Map?</h3>
+                <p>Un Map almacena datos en pares: <strong>clave → valor</strong>. Es como una agenda: buscas por nombre y obtienes un teléfono.</p>
+                <p><strong>Analogía 1:</strong> Un diccionario donde cada palabra (clave) tiene una definición (valor). Buscas "gato" y encuentras "animal doméstico".</p>
+                <p><strong>Analogía 2:</strong> Una agenda de teléfono. La clave es el nombre ("María") y el valor es el teléfono ("555-1234").</p>
+                <p><strong>Analogía 3:</strong> Un carnet de biblioteca. El carnet es la CLAVE (único para cada persona) y el VALOR es "la lista de libros de dicha persona".</p>
+            </div>
+
+            <div class="concept" style="background: #fff3e0; border-left-color: #ff9800;">
+                <h3 style="color: #ff9800;">💡 ¿Por qué NO usar List para todo?</h3>
+                <p>Imagina que tienes dos Lists:</p>
+                <ul>
+                    <li>List con nombres: ["Juan", "Ana", "Carlos"]</li>
+                    <li>List con sueldos: [500000, 650000, 600000]</li>
+                </ul>
+                <p>¿Y si alguien borra a Ana? ¡Ahora los sueldos NO coinciden! 😱</p>
+                <p><strong>Con Map:</strong> Haces: sueldos.put("Ana", 650000). ¡La relación NUNCA se rompe!</p>
+                <p>Regla: Si los datos están relacionados (usuario ↔ contraseña, producto ↔ precio), USA MAP.</p>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Características clave:</h3>
+            <div class="caracteristica">
+                <span class="icon">🔑</span>
+                <span><strong>Clave-Valor</strong> - Cada dato tiene una clave única para buscarlo</span>
+            </div>
+            <div class="caracteristica">
+                <span class="icon">🚫</span>
+                <span><strong>Claves únicas</strong> - No puede haber dos claves iguales</span>
+            </div>
+            <div class="caracteristica">
+                <span class="icon">⚡</span>
+                <span><strong>Búsqueda rápida</strong> - Encontrar un valor por clave es instantáneo</span>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Cómo se usa:</h3>
+
+            <div class="example">
+                <code>
+// Crear un Map<br>
+Map&lt;String, Integer&gt; sueldos = new HashMap&lt;&gt;();<br>
+<br>
+// Agregar datos (clave, valor)<br>
+sueldos.put("Juan", 500000);<br>
+sueldos.put("Ana", 650000);<br>
+<br>
+// Obtener un valor por clave<br>
+int sueldo = sueldos.get("Juan");<br>
+System.out.println(sueldo); // 500000<br>
+<br>
+// Verificar si una clave existe<br>
+if (sueldos.containsKey("Ana")) {<br>
+&nbsp;&nbsp;System.out.println("Existe");<br>
+}<br>
+<br>
+// Eliminar<br>
+sueldos.remove("Juan");<br>
+<br>
+// Tamaño<br>
+System.out.println(sueldos.size()); // 1
+                </code>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Recorrer un Map:</h3>
+
+            <div class="example">
+                <code>
+// Usar entrySet (la forma recomendada)<br>
+for (Map.Entry&lt;String, Integer&gt; entry : sueldos.entrySet()) {<br>
+&nbsp;&nbsp;String nombre = entry.getKey();<br>
+&nbsp;&nbsp;int sueldo = entry.getValue();<br>
+&nbsp;&nbsp;System.out.println(nombre + " → " + sueldo);<br>
+}
+                </code>
+            </div>
+
+            <div class="concept bueno">
+                <h3>✅ Úsalo cuando:</h3>
+                <ul>
+                    <li>Necesitas buscar un dato por una clave</li>
+                    <li>Hay relaciones directas (usuario → contraseña)</li>
+                    <li>Acceso rápido es importante</li>
+                    <li>Ejemplo: un diccionario, una agenda, precios de productos</li>
+                </ul>
+            </div>
+
+            <div class="ejercicios">
+                <h3 style="color: #e67e22; margin-bottom: 15px;">Ejercicios - Map</h3>
+
+                <div class="ejercicio">
+                    <h4>1️⃣ Crea un Map de estudiantes y sus notas</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Map&lt;String, Double&gt; notas = new HashMap&lt;&gt;();<br>
+notas.put("Ana", 8.5);<br>
+notas.put("Juan", 7.0);<br>
+notas.put("Carlos", 9.0);<br>
+System.out.println(notas.get("Ana")); // 8.5
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>2️⃣ Verifica si una clave existe en el Map</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Map&lt;String, String&gt; capitales = new HashMap&lt;&gt;();<br>
+capitales.put("Chile", "Santiago");<br>
+capitales.put("Perú", "Lima");<br>
+if (capitales.containsKey("Chile")) {<br>
+&nbsp;&nbsp;System.out.println("Encontrada");<br>
+}
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>3️⃣ Recorre todas las claves del Map</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Map&lt;String, Integer&gt; edades = new HashMap&lt;&gt;();<br>
+edades.put("María", 25);<br>
+edades.put("José", 30);<br>
+for (String nombre : edades.keySet()) {<br>
+&nbsp;&nbsp;System.out.println(nombre);<br>
+}
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>4️⃣ Recorre todos los valores del Map</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Map&lt;String, Integer&gt; precios = new HashMap&lt;&gt;();<br>
+precios.put("Manzana", 50);<br>
+precios.put("Naranja", 75);<br>
+for (int precio : precios.values()) {<br>
+&nbsp;&nbsp;System.out.println(precio);<br>
+}
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>5️⃣ Suma todos los valores de un Map de números</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Map&lt;String, Integer&gt; ventas = new HashMap&lt;&gt;();<br>
+ventas.put("Lunes", 100);<br>
+ventas.put("Martes", 150);<br>
+ventas.put("Miércoles", 120);<br>
+int total = 0;<br>
+for (int venta : ventas.values()) total += venta;<br>
+System.out.println("Total: " + total); // 370
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>6️⃣ Reemplaza un valor en el Map</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Map&lt;String, String&gt; usuarios = new HashMap&lt;&gt;();<br>
+usuarios.put("juan", "Juan123");<br>
+usuarios.put("juan", "NuevaPswd456"); // Reemplaza<br>
+System.out.println(usuarios.get("juan")); // NuevaPswd456
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>7️⃣ Elimina un par clave-valor del Map</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Map&lt;String, Integer&gt; datos = new HashMap&lt;&gt;();<br>
+datos.put("A", 1);<br>
+datos.put("B", 2);<br>
+datos.remove("A");<br>
+System.out.println(datos.size()); // 1
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>8️⃣ Cuenta cuántas claves tiene el Map</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Map&lt;String, Double&gt; calificaciones = new HashMap&lt;&gt;();<br>
+calificaciones.put("Mate", 8.0);<br>
+calificaciones.put("Historia", 7.5);<br>
+calificaciones.put("Inglés", 9.0);<br>
+System.out.println("Total: " + calificaciones.size()); // 3
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>9️⃣ Crea un Map y recorre todos los pares clave-valor</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Map&lt;String, String&gt; paises = new HashMap&lt;&gt;();<br>
+paises.put("MX", "México");<br>
+paises.put("AR", "Argentina");<br>
+for (Map.Entry&lt;String, String&gt; entry : paises.entrySet()) {<br>
+&nbsp;&nbsp;System.out.println(entry.getKey() + " = " + entry.getValue());<br>
+}
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>🔟 Vacía completamente un Map</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Map&lt;Integer, String&gt; registro = new HashMap&lt;&gt;();<br>
+registro.put(1, "Uno");<br>
+registro.put(2, "Dos");<br>
+registro.clear();<br>
+System.out.println(registro.size()); // 0
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>1️⃣1️⃣ Obtén un valor con valor por defecto si no existe</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Map&lt;String, Integer&gt; edades = new HashMap&lt;&gt;();<br>
+edades.put("Ana", 25);<br>
+int edad = edades.getOrDefault("Pedro", 0);<br>
+System.out.println(edad); // 0
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>1️⃣2️⃣ Cuenta valores duplicados en un Map</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+Map&lt;String, String&gt; equipos = new HashMap&lt;&gt;();<br>
+equipos.put("Juan", "Rojo");<br>
+equipos.put("Ana", "Rojo");<br>
+equipos.put("Carlos", "Azul");<br>
+int rojos = 0;<br>
+for (String color : equipos.values()) {<br>
+&nbsp;&nbsp;if (color.equals("Rojo")) rojos++;<br>
+}<br>
+System.out.println("Rojos: " + rojos); // 2
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STREAM -->
+        <section id="stream">
+            <h2 class="section-title">5. Stream API</h2>
+
+            <div class="concept">
+                <h3>¿Qué es un Stream?</h3>
+                <p>Un Stream es una forma elegante de <strong>procesar colecciones</strong>. NO almacena datos, sino que los filtra, transforma y procesa.</p>
+                <p><strong>Analogía 1:</strong> Un filtro de café: el agua pasa por el filtro transformándose, no se guarda.</p>
+                <p><strong>Analogía 2:</strong> Una línea de producción en fábrica. El producto entra, se transforma en estaciones, sale un producto diferente. Pero el proceso es lo importante, no el almacenamiento.</p>
+                <p><strong>Analogía 3:</strong> Un inspector de correo. Lee cartas (filter), puede marcar algunas (map), luego las envía. El inspector no GUARDA las cartas.</p>
+            </div>
+
+            <div class="concept" style="background: #e0f2f1; border-left-color: #009688;">
+                <h3 style="color: #009688;">💡 Stream NO es una colección</h3>
+                <p><strong>IMPORTANTE:</strong> Un Stream NO almacena datos. Es solo un "pipeline" de procesamiento.</p>
+                <p>Comparación:</p>
+                <ul>
+                    <li><strong>List:</strong> GUARDA "Juan", "Ana", "Carlos" en memoria</li>
+                    <li><strong>Stream:</strong> PROCESA "Juan", "Ana", "Carlos". No los guarda (a menos que captures el resultado)</li>
+                </ul>
+                <p>Por eso es más eficiente: no creas una colección nueva, solo "filtras" la que ya existe.</p>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Características clave:</h3>
+            <div class="caracteristica">
+                <span class="icon">🚫</span>
+                <span><strong>No almacena</strong> - Solo procesa datos</span>
+            </div>
+            <div class="caracteristica">
+                <span class="icon">📝</span>
+                <span><strong>Declarativo</strong> - Dice QUÉ hacer, no CÓMO hacerlo</span>
+            </div>
+            <div class="caracteristica">
+                <span class="icon">⚡</span>
+                <span><strong>Legible</strong> - Código limpio y expresivo</span>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Operaciones principales:</h3>
+
+            <table class="tabla">
+                <tr>
+                    <th>Operación</th>
+                    <th>Qué hace</th>
+                    <th>Ejemplo</th>
+                </tr>
+                <tr>
+                    <td><strong>filter()</strong></td>
+                    <td>Filtra elementos que cumplen una condición</td>
+                    <td>n → n > 10</td>
+                </tr>
+                <tr>
+                    <td><strong>map()</strong></td>
+                    <td>Transforma cada elemento</td>
+                    <td>n → n * 2</td>
+                </tr>
+                <tr>
+                    <td><strong>forEach()</strong></td>
+                    <td>Itera sobre cada elemento</td>
+                    <td>print(n)</td>
+                </tr>
+                <tr>
+                    <td><strong>count()</strong></td>
+                    <td>Cuenta elementos</td>
+                    <td>stream.count()</td>
+                </tr>
+            </table>
+
+            <h3 style="margin-top: 20px; color: #667eea;">Cómo se usa:</h3>
+
+            <div class="example">
+                <code>
+List&lt;Integer&gt; numeros = Arrays.asList(5, 10, 15, 20, 25);<br>
+<br>
+// Mostrar números > 10<br>
+numeros.stream()<br>
+&nbsp;&nbsp;.filter(n → n &gt; 10)<br>
+&nbsp;&nbsp;.forEach(System.out::println);<br>
+// Imprime: 15, 20, 25<br>
+<br>
+// Duplicar números y contar<br>
+long cantidad = numeros.stream()<br>
+&nbsp;&nbsp;.map(n → n * 2)<br>
+&nbsp;&nbsp;.count();<br>
+System.out.println(cantidad); // 5
+                </code>
+            </div>
+
+            <div class="concept bueno">
+                <h3>✅ Úsalo cuando:</h3>
+                <ul>
+                    <li>Necesitas filtrar, transformar o procesar una colección</li>
+                    <li>Quieres código más limpio y legible</li>
+                    <li>Necesitas composar múltiples operaciones</li>
+                </ul>
+            </div>
+
+            <div class="concepto malo">
+                <h3>❌ NO lo uses cuando:</h3>
+                <ul>
+                    <li>Solo iteras (un foreach normal es más simple)</li>
+                    <li>Necesitas modificar la colección original</li>
+                </ul>
+            </div>
+
+            <div class="ejercicios">
+                <h3 style="color: #e67e22; margin-bottom: 15px;">Ejercicios - Stream</h3>
+
+                <div class="ejercicio">
+                    <h4>1️⃣ Filtra números mayores a 10</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; nums = Arrays.asList(5,12,8,15,3);<br>
+nums.stream()<br>
+&nbsp;&nbsp;.filter(n → n &gt; 10)<br>
+&nbsp;&nbsp;.forEach(System.out::println);<br>
+// Imprime: 12, 15
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>2️⃣ Duplica cada número y muéstralos</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; numeros = Arrays.asList(2,3,4);<br>
+numeros.stream()<br>
+&nbsp;&nbsp;.map(n → n * 2)<br>
+&nbsp;&nbsp;.forEach(System.out::println);<br>
+// Imprime: 4, 6, 8
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>3️⃣ Cuenta cuántos elementos hay en un Stream</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;String&gt; nombres = Arrays.asList("Ana","Juan","Carlos");<br>
+long total = nombres.stream().count();<br>
+System.out.println(total); // 3
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>4️⃣ Filtra números pares</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; nums = Arrays.asList(1,2,3,4,5,6);<br>
+nums.stream()<br>
+&nbsp;&nbsp;.filter(n → n % 2 == 0)<br>
+&nbsp;&nbsp;.forEach(System.out::println);<br>
+// Imprime: 2, 4, 6
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>5️⃣ Convierte a mayúsculas y filtra</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;String&gt; palabras = Arrays.asList("java","python","c++");<br>
+palabras.stream()<br>
+&nbsp;&nbsp;.map(String::toUpperCase)<br>
+&nbsp;&nbsp;.forEach(System.out::println);<br>
+// Imprime: JAVA, PYTHON, C++
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>6️⃣ Filtra y transforma en una sola línea</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; nums = Arrays.asList(1,2,3,4,5,6);<br>
+nums.stream()<br>
+&nbsp;&nbsp;.filter(n → n &gt; 2)<br>
+&nbsp;&nbsp;.map(n → n * 10)<br>
+&nbsp;&nbsp;.forEach(System.out::println);<br>
+// Imprime: 30, 40, 50, 60
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>7️⃣ Cuántos nombres tienen más de 4 letras</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;String&gt; nombres = Arrays.asList("Ana","Juan","Carlos","Leo");<br>
+long count = nombres.stream()<br>
+&nbsp;&nbsp;.filter(n → n.length() &gt; 4)<br>
+&nbsp;&nbsp;.count();<br>
+System.out.println(count); // 2 (Juan y Carlos)
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>8️⃣ Filtra nombres que empiezan con 'A'</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;String&gt; nombres = Arrays.asList("Ana","Carlos","Andrés");<br>
+nombres.stream()<br>
+&nbsp;&nbsp;.filter(n → n.startsWith("A"))<br>
+&nbsp;&nbsp;.forEach(System.out::println);<br>
+// Imprime: Ana, Andrés
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>9️⃣ Suma todos los números usando reduce</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; nums = Arrays.asList(1,2,3,4,5);<br>
+int suma = nums.stream()<br>
+&nbsp;&nbsp;.reduce(0, (a,b) → a + b);<br>
+System.out.println(suma); // 15
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>🔟 Filtra, transforma y recolecta en Lista</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; nums = Arrays.asList(1,2,3,4,5);<br>
+List&lt;Integer&gt; resultado = nums.stream()<br>
+&nbsp;&nbsp;.filter(n → n &gt; 2)<br>
+&nbsp;&nbsp;.map(n → n * 10)<br>
+&nbsp;&nbsp;.collect(Collectors.toList());<br>
+System.out.println(resultado); // [30,40,50]
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>1️⃣1️⃣ Obtén el número máximo del stream</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; nums = Arrays.asList(5,2,9,1,7);<br>
+int maximo = nums.stream()<br>
+&nbsp;&nbsp;.max(Integer::compare)<br>
+&nbsp;&nbsp;.orElse(0);<br>
+System.out.println(maximo); // 9
+                    </div>
+                </div>
+
+                <div class="ejercicio">
+                    <h4>1️⃣2️⃣ Obtén el número mínimo del stream</h4>
+                    <button class="btn-respuesta" onclick="toggleRespuesta(this)">Ver respuesta</button>
+                    <div class="respuesta">
+List&lt;Integer&gt; nums = Arrays.asList(5,2,9,1,7);<br>
+int minimo = nums.stream()<br>
+&nbsp;&nbsp;.min(Integer::compare)<br>
+&nbsp;&nbsp;.orElse(0);<br>
+System.out.println(minimo); // 1
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPARACIÓN -->
+        <section id="comparacion">
+            <h2 class="section-title">Cuándo usar cada una - Guía Rápida</h2>
+
+            <div class="concept">
+                <h3>Árbol de decisión:</h3>
+                <p><strong>¿Sabes el tamaño exacto?</strong></p>
+                <ul>
+                    <li>SÍ → <span class="badge">Array</span></li>
+                    <li>NO → ¿Permite duplicados?</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>¿Permite duplicados?</strong></p>
+                <ul>
+                    <li>SÍ → ¿Es clave-valor?</li>
+                    <li>NO → <span class="badge">Set</span></li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>¿Es clave-valor?</strong></p>
+                <ul>
+                    <li>SÍ → <span class="badge">Map</span></li>
+                    <li>NO → <span class="badge">List</span></li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 30px; color: #667eea;">Ejemplos del mundo real:</h3>
+
+            <div class="ejemplo-real" style="background: #f0f4ff; padding: 15px; margin: 15px 0; border-left: 4px solid #667eea;">
+                <h4>📚 Sistema de biblioteca</h4>
+                <ul>
+                    <li><span class="badge">List</span> para libros disponibles (puede cambiar)</li>
+                    <li><span class="badge">Set</span> para IDs de usuarios (sin duplicados)</li>
+                    <li><span class="badge">Map</span> para usuario → historial de préstamos</li>
+                </ul>
+            </div>
+
+            <div class="ejemplo-real" style="background: #f0f4ff; padding: 15px; margin: 15px 0; border-left: 4px solid #667eea;">
+                <h4>🛒 Carrito de compras</h4>
+                <ul>
+                    <li><span class="badge">List</span> para productos (puede crecer)</li>
+                    <li><span class="badge">Map</span> para producto → cantidad</li>
+                    <li><span class="badge">Stream</span> para calcular total</li>
+                </ul>
+            </div>
+
+            <div class="ejemplo-real" style="background: #f0f4ff; padding: 15px; margin: 15px 0; border-left: 4px solid #667eea;">
+                <h4>👥 Red social</h4>
+                <ul>
+                    <li><span class="badge">Set</span> para amigos únicos (sin duplicados)</li>
+                    <li><span class="badge">Map</span> para usuario → perfil</li>
+                    <li><span class="badge">List</span> para posts (orden importa)</li>
+                </ul>
+            </div>
+
+            <table class="tabla" style="margin-top: 30px;">
+                <tr>
+                    <th>Necesidad</th>
+                    <th>Colección</th>
+                    <th>Razón</th>
+                </tr>
+                <tr>
+                    <td>Datos con posición fija</td>
+                    <td><strong>Array</strong></td>
+                    <td>Tamaño fijo, acceso rápido</td>
+                </tr>
+                <tr>
+                    <td>Datos que crecen</td>
+                    <td><strong>List</strong></td>
+                    <td>Dinámico, flexible</td>
+                </tr>
+                <tr>
+                    <td>Sin duplicados</td>
+                    <td><strong>Set</strong></td>
+                    <td>Unicidad garantizada</td>
+                </tr>
+                <tr>
+                    <td>Buscar por clave</td>
+                    <td><strong>Map</strong></td>
+                    <td>Acceso rápido directo</td>
+                </tr>
+                <tr>
+                    <td>Procesar datos</td>
+                    <td><strong>Stream</strong></td>
+                    <td>Código limpio y expresivo</td>
+                </tr>
+            </table>
+
+            <h3 style="margin-top: 30px; color: #667eea; border-bottom: 2px solid #764ba2; padding-bottom: 10px;">⚔️ Ejemplos Comparativos</h3>
+
+            <div class="concept" style="background: #f5f5f5; padding: 20px; border: 2px solid #ddd;">
+                <h4 style="color: #333; margin-bottom: 15px;">Escenario: Registrar calificaciones de estudiantes</h4>
+
+                <p style="margin-top: 15px; font-weight: 600; color: #e67e22;">❌ SIN COLECCIONES (Caótico):</p>
+                <div class="example" style="background: #ffebee;">
+                    <code style="color: #c62828;">
+// Para 30 estudiantes, código gigante y propenso a errores<br>
+double nota1 = 8.5;<br>
+double nota2 = 9.0;<br>
+double nota3 = 7.5;<br>
+... 27 más<br>
+// Si necesitas promedio: 30 líneas de código
+                    </code>
+                </div>
+
+                <p style="margin-top: 15px; font-weight: 600; color: #667eea;">✅ CON ARRAY (Si sabemos que siempre hay 30):</p>
+                <div class="example">
+                    <code>
+double[] calificaciones = new double[30];<br>
+calificaciones[0] = 8.5;<br>
+calificaciones[1] = 9.0;<br>
+// ... llenar los 30<br>
+double suma = 0;<br>
+for (double nota : calificaciones) suma += nota;<br>
+double promedio = suma / calificaciones.length;
+                    </code>
+                </div>
+
+                <p style="margin-top: 15px; font-weight: 600; color: #667eea;">✅ CON LIST (Si no sabemos cuántos):</p>
+                <div class="example">
+                    <code>
+List&lt;Double&gt; calificaciones = new ArrayList&lt;&gt;();<br>
+calificaciones.add(8.5);<br>
+calificaciones.add(9.0);<br>
+// Agregar cuantos necesites<br>
+double promedio = calificaciones.stream()<br>
+&nbsp;&nbsp;.mapToDouble(Double::doubleValue)<br>
+&nbsp;&nbsp;.average().orElse(0);
+                    </code>
+                </div>
+
+                <p style="margin-top: 15px; font-weight: 600; color: #667eea;">✅ CON MAP (Si quieres nombre → nota):</p>
+                <div class="example">
+                    <code>
+Map&lt;String, Double&gt; calificaciones = new HashMap&lt;&gt;();<br>
+calificaciones.put("Juan", 8.5);<br>
+calificaciones.put("Ana", 9.0);<br>
+// Busca rápido por nombre<br>
+double notaDeJuan = calificaciones.get("Juan"); // 8.5
+                    </code>
+                </div>
+
+                <p style="margin-top: 15px; font-weight: 600; color: #667eea;">✅ CON SET (Solo estudiantes únicos):</p>
+                <div class="example">
+                    <code>
+Set&lt;String&gt; estudiantes = new HashSet&lt;&gt;();<br>
+estudiantes.add("Juan");<br>
+estudiantes.add("Ana");<br>
+estudiantes.add("Juan"); // Rechazado (duplicado)<br>
+System.out.println(estudiantes.size()); // 2, no 3
+                    </code>
+                </div>
+
+                <p style="margin-top: 15px; font-weight: 600; color: #667eea;">✅ CON STREAM (Filtrar aprobados):</p>
+                <div class="example">
+                    <code>
+Map&lt;String, Double&gt; notas = ...; // Todas las notas<br>
+notas.entrySet().stream()<br>
+&nbsp;&nbsp;.filter(entry → entry.getValue() &gt;= 6.0)<br>
+&nbsp;&nbsp;.forEach(entry → System.out.println(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;entry.getKey() + " aprobó"));<br>
+// Muestra solo: Juan, Ana, ...
+                    </code>
+                </div>
+            </div>
+
+            <div class="concept" style="margin-top: 30px; background: #fff9c4; border-left-color: #f39c12;">
+                <h3 style="color: #e67e22;">💡 Consejo de Oro</h3>
+                <p>No existe colección "mejor". Existe la colección <strong>correcta para el problema</strong> que tienes. Elige basándote en:</p>
+                <ol>
+                    <li>¿Necesito tamaño fijo?</li>
+                    <li>¿Puedo tener duplicados?</li>
+                    <li>¿Necesito buscar rápido por clave?</li>
+                    <li>¿Debo procesar datos?</li>
+                </ol>
+            </div>
+        </section>
+
+        
+    </div>
+
+    <footer>
+        <p>💡 Hecho con dedicación para aprender Java de forma sencilla</p>
+        <p style="margin-top: 10px; font-size: 0.9em;">Basado en contenido de Notion - Java Colecciones</p>
+    </footer>
+
+    <script>
+        function mostrarSeccion(id) {
+            // Ocultar todas las secciones
+            const secciones = document.querySelectorAll('section');
+            secciones.forEach(s => s.classList.remove('active'));
+            
+            // Mostrar la sección seleccionada
+            const seccion = document.getElementById(id);
+            if (seccion) {
+                seccion.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function toggleRespuesta(btn) {
+            const respuesta = btn.nextElementSibling;
+            respuesta.classList.toggle('visible');
+            btn.textContent = respuesta.classList.contains('visible') ? 'Ocultar respuesta' : 'Ver respuesta';
+        }
+    </script>
+</body>
+</html>
